@@ -2266,8 +2266,8 @@ bear 5 */
     display: none;
 }
 .icon   {
-    width: 100%; /* Match the container size */
-    max-width: 37px;
+    width: 2%; /* Match the container size */
+    
     height: auto;
     object-fit: contain;
     transform: translateX(-50%) translateY(-50%);

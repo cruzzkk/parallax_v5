@@ -1445,6 +1445,11 @@ document.addEventListener("DOMContentLoaded", () => {
         icon.forEach(image => {
             image.style.display = 'block';
         });
+       
+    };
+
+    audio9.addEventListener("ended", () => {
+
         document.querySelectorAll('.icon').forEach(element => {
             element.style.pointerEvents = 'auto';
             element.style. cursor= 'pointer';
@@ -1453,7 +1458,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('.clickableobject').forEach(element => {
             element.style.pointerEvents = 'visible';
         });
-    };
+        
+    });
+
     document.querySelectorAll('.icon').forEach(button => {
         button.addEventListener('click',function(event)  {
             const icon = event.target;

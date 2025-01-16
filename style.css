@@ -170,6 +170,9 @@ body {
     overflow: hidden;
     color:#f0f0f0 ;
 }
+#section4ReadHelpText.active {
+    color: rgba(255, 196, 0, 0.689); /* Change to your desired color */
+}
 
 #section4Help {
     position: absolute;
@@ -217,7 +220,9 @@ body {
     display: block;
     overflow: hidden;
 }
-
+#section4HelpText.active {
+    color: rgba(255, 196, 0, 0.689); /* Change to your desired color */
+}
 
 
 
@@ -1159,7 +1164,7 @@ body {
     height: calc(100vw * 9 / 16);  
     max-height: 1080px;
     margin:0 auto;
-    background-color: #1e11d400;  
+    background-color: #1e11d46c;  
     overflow: visible;
     z-index: 3;
 
@@ -1251,7 +1256,7 @@ body {
 bear 5 */
 
 #section4_water{
-    top: 95%;
+    top: 97%;
     left: 50%;
     width: 100%;
     /* max-width: 1536px; */
@@ -2012,14 +2017,15 @@ bear 5 */
 #section5{
     display: none;
     z-index: 2;
+    width: 100%;
     max-width: 1920px; /* Optional max width */
     height: calc(100vw * 9 / 16); /* Dynamically calculates height for 16:9 ratio */
     max-height: 1080px; /* Optional max height */
     margin:0 auto;
     background-color: #f0f0f0;
     position: relative;
-    overflow: hidden;
-    background-color: rgba(0, 123, 255, 0.915);
+    overflow: visible;
+    background-color: rgba(0, 123, 255, 0);
  }
 
  

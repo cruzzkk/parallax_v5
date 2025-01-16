@@ -933,6 +933,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById('section4ReadHelp').addEventListener('click', function() {
         // document.querySelector('.overlay').style.display = 'flex'; 
+        const textElement = document.getElementById("section4ReadHelpText");
+        textElement.classList.add("active"); 
         const overlay = document.querySelector('.overlay');
         if (overlay) {
         overlay.remove();
@@ -962,6 +964,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById('section4Help').addEventListener('click', function() {
         // document.querySelector('.overlay2').style.display = 'block'; // Hide overlay
+        const textElement = document.getElementById("section4HelpText");
+        textElement.classList.add("active"); 
         const overlay = document.querySelector('.overlay2');
         if (overlay) {
         overlay.remove();
@@ -1153,6 +1157,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentAudio.currentTime = 0;
                 currentAudio = new Audio();
             }
+            const textElement = document.getElementById("section4ReadHelpText");
+            textElement.classList.remove("active"); 
             
         });
 
@@ -1345,7 +1351,9 @@ document.addEventListener("DOMContentLoaded", () => {
        overlay.style.display='block';
 
        document.getElementById('closePopupBtn2').addEventListener('click', function() {
-        document.querySelector('.overlay2').style.display = 'none'; // Hide overlay
+            const textElement = document.getElementById("section4HelpText");
+            textElement.classList.remove("active"); 
+            document.querySelector('.overlay2').style.display = 'none'; // Hide overlay
 
             if(!section4readguidedoonce){
                 section4dialogText.innerHTML = "You can choose a language for translations. Explore and learn!";

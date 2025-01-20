@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const section5playButton= document.getElementById("section5play");
     const section5restartbutton= document.getElementById("section5restart");
 
+    const secion5rigthTop = document.getElementById("secion5rigthTop");
+
     const bgVideo = document.getElementById("bgVideo");
     const nextImage = document.getElementById("nextImage");
     let section1doonce=false;
@@ -123,12 +125,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     function section1vediomute( ) {
-        soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+        soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
         bgVideo.muted = true;
         section1mute=true;
     }
     function section1vedioUnmute( ) {
-        soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
+        soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
         bgVideo.muted = false;
         section1mute=false;
     }
@@ -158,12 +160,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     function section5vediomute( ) {
-        section5soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+        section5soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
         section5bgVideo.muted = true;
         section5mute=true;
     }
     function section5vedioUnmute( ) {
-        section5soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
+        section5soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
         section5bgVideo.muted = false;
         section5mute=false;
     }
@@ -200,12 +202,12 @@ document.addEventListener("DOMContentLoaded", () => {
             audio10.muted = section4muted;
             currentAudio.muted=section4muted;
             // Update button text or icon based on mute state
-            section5soundbutton.querySelector("img").src = section4muted ? "assets/Slides_25-35/Audio_button.png" : "assets/Slides_25-35/Audio_button_Mute.png";
+            section5soundbutton.querySelector("img").src = section4muted ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
         }else if(currentsection==="section6"){
             section6muted=!section6muted;
             audio9.muted=section6muted;
             currentAudio.muted=section4muted;
-            section5soundbutton.querySelector("img").src = section6muted ? "assets/Slides_25-35/Audio_button.png" : "assets/Slides_25-35/Audio_button_Mute.png";
+            section5soundbutton.querySelector("img").src = section6muted ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
 
         }
        
@@ -341,7 +343,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const section4 = document.getElementById("section4");
         const section5 = document.getElementById("section5");
         const section6 = document.getElementById("section6");
-        const secion5rigthTop = document.getElementById("secion5rigthTop");
+         
     
         const section5play = document.getElementById("section5play");
         const section5restart = document.getElementById("section5restart");
@@ -382,7 +384,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section4Help.classList.remove("hidden");
 
             // change the soundimage depend upon the bool
-            section5soundbutton.querySelector("img").src = section4muted ? "assets/Slides_25-35/Audio_button.png" : "assets/Slides_25-35/Audio_button_Mute.png";
+            section5soundbutton.querySelector("img").src = section4muted ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
         } else if (isInSection5) {
             section5play.classList.remove("hidden");
             section5restart.classList.remove("hidden");
@@ -390,7 +392,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section4ReadHelp.classList.remove("hidden");
             section4Help.classList.remove("hidden");
             // change the soundimage depend upon the bool
-            section5soundbutton.querySelector("img").src = section5mute ? "assets/Slides_25-35/Audio_button.png" : "assets/Slides_25-35/Audio_button_Mute.png";
+            section5soundbutton.querySelector("img").src = section5mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
 
             
         } else if (isInSection6) {
@@ -400,7 +402,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section4ReadHelp.classList.remove("hidden");
             section4Help.classList.remove("hidden");
 
-            section5soundbutton.querySelector("img").src = section6muted ? "assets/Slides_25-35/Audio_button.png" : "assets/Slides_25-35/Audio_button_Mute.png";
+            section5soundbutton.querySelector("img").src = section6muted ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
 
         }
     });
@@ -418,6 +420,24 @@ document.addEventListener("DOMContentLoaded", () => {
     
             if (isVisible) {
                 visibleSection = section.id;
+            }
+        });
+    
+        return visibleSection;
+    }
+    function getCurrentsectiondiv() {
+        const sections = document.querySelectorAll('.section');
+        const viewportHeight = window.innerHeight;
+        let visibleSection = null;
+    
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const isVisible =
+                rect.top < viewportHeight && // Top of the section is in the viewport
+                rect.bottom > 0; // Bottom of the section is not above the viewport
+    
+            if (isVisible) {
+                visibleSection = section;
             }
         });
     
@@ -814,7 +834,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error('Error playing audio:', error);
         });
 
-        section5soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
+        section5soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
         section4muted=false;
 
         section4actiontriggered=!section4actiontriggered;
@@ -932,6 +952,8 @@ document.addEventListener("DOMContentLoaded", () => {
  
 
     document.getElementById('section4ReadHelp').addEventListener('click', function() {
+        const currentSectiondiv = getCurrentsectiondiv();
+        currentSectiondiv.appendChild(secion5rigthTop);
         // document.querySelector('.overlay').style.display = 'flex'; 
         const textElement = document.getElementById("section4ReadHelpText");
         textElement.classList.add("active"); 
@@ -964,6 +986,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById('section4Help').addEventListener('click', function() {
         // document.querySelector('.overlay2').style.display = 'block'; // Hide overlay
+        const currentSectiondiv = getCurrentsectiondiv();
+        currentSectiondiv.appendChild(secion5rigthTop);
         const textElement = document.getElementById("section4HelpText");
         textElement.classList.add("active"); 
         const overlay = document.querySelector('.overlay2');
@@ -1458,7 +1482,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('.clickableobject').forEach(element => {
             element.style.pointerEvents = 'visible';
         });
-        
+
     });
 
     document.querySelectorAll('.icon').forEach(button => {
@@ -1467,13 +1491,13 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("Clicked");
                 // Define fixed percentage positions for each icon
             const positions = {
-                icon1: { top: 32, left: 14 },
-                icon2: { top: 34, left: 32 },
-                icon3: { top: 13, left: 45 },
-                icon4: { top: 32, left: 27 },
-                icon5: { top: 22, left: 42 },
-                icon6: { top: 40, left: 57 },
-                icon7: { top: 63, left: 48 },
+                icon1: { top: 41, left: 30},
+                icon2: { top: 44, left: 48 },
+                icon3: { top: 23, left: 60 },
+                icon4: { top: 41, left: 43.5 },
+                icon5: { top: 32, left: 59 },
+                icon6: { top: 50, left: 75 },
+                icon7: { top: 74, left: 66 },
             };
             // Define the text for each icon
             const iconText = {
@@ -1497,18 +1521,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 popup.style.display = "block";
     
                 // Access the <p> element inside the popup
-                const popupText = popup.querySelector('p');
+                const popupText = document.getElementById('iconpopuptext');
                 if (iconText[iconId]) {
-                    popupText.textContent = iconText[iconId];
+                    popupText.innerHTML = iconText[iconId];
                 }
-    
+                const img = popup.querySelector("img");
                 // Apply rotation for specific icons (e.g., icon7)
                 if (icon.id === "icon4" || icon.id === "icon5"||icon.id === "icon6" || icon.id === "icon7") {
-                    popup.style.transform = "rotate(0deg)";
-                    popupText.style.transform = "rotate(0deg)";
+                    img.style.transform = "rotate(0deg)";
+                    popupText.style.left="49%"
+                    //popupText.style.left="51.5%";
+                    //popupText.style.transform = "rotate(0deg)";
                 } else {
-                    popup.style.transform = "rotate(180deg)";
-                    popupText.style.transform = "rotate(180deg)";
+                    img.style.transform = "rotate(180deg)";
+                    popupText.style.left="51%"
+                    //popupText.style.left="51.5%";
+                    //popupText.style.transform = "rotate(180deg)";
                 }
             }
 

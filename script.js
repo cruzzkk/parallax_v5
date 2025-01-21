@@ -792,14 +792,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     audio3.addEventListener("ended", () => {
         
-        grass_toplayer.querySelector('img').src=imagesToPreload.find(src => src.includes('Grass_top_layer.png'));//"assets/Slides11-17/Grass_top_layer.png";
-        grass_toplayer.style.bottom="-36%"
-        gap3.style.display="block";
-        section3.style.display = "block";
-        section3.style.overflow="visible";//change after to visible
-        section2nextImage.style.display="block";
-        //scroll down image enable
-        smoothScrollTo(section3,1500);
+        // grass_toplayer.querySelector('img').src=imagesToPreload.find(src => src.includes('Grass_top_layer.png'));//"assets/Slides11-17/Grass_top_layer.png";
+        // grass_toplayer.style.bottom="-36%"
+        // gap3.style.display="block";
+        // section3.style.display = "block";
+        // section3.style.overflow="visible";//change after to visible
+        // section2nextImage.style.display="block";
+        // //scroll down image enable
+        // smoothScrollTo(section3,1500);
+        // Assign the image source to grass_toplayer and adjust its position
+        const grassTopLayerImg = grass_toplayer.querySelector('img');
+        const newSrc = imagesToPreload.find(src => src.includes('Grass_top_layer.png'));
+
+        if (newSrc) {
+            grassTopLayerImg.src = newSrc;
+            grassTopLayerImg.onload = () => {
+                // Adjust position after the image is loaded
+                grass_toplayer.style.bottom = "-36%";
+
+                // Perform the subsequent actions only after the above changes
+                gap3.style.display = "block";
+                section3.style.display = "block";
+                section3.style.overflow = "visible"; // Change overflow to visible
+                section2nextImage.style.display = "block";
+
+                // Scroll down smoothly to section3
+                smoothScrollTo(section3, 1500);
+            };
+        } else {
+            console.error("Image 'Grass_top_layer.png' not found in the preload list.");
+        }
     });
 
     section2popupcross.addEventListener("click",()=>{

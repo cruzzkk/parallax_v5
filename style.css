@@ -1288,7 +1288,7 @@ body {
 bear 5 */
 
 #section4_water{
-    top: 97%;
+    top: 95%;
     left: 50%;
     width: 100%;
     /* max-width: 1536px; */
@@ -2021,7 +2021,6 @@ bear 5 */
     object-fit: contain;
     z-index: 2; /* Position above the popup image */
 }
-
 
 
 

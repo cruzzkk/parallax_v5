@@ -1,3 +1,116 @@
+
+// preload.js
+
+    // Arrays of images to preload from different folders
+    const imagesToPreload = [
+        //Slide25-35
+        'assets/Slides_25-35/Audio_button.png', 'assets/Slides_25-35/Audio_button_Mute.png', 'assets/Slides_25-35/Audio_icon.png', 'assets/Slides_25-35/Audio_icon_selected.png', 'assets/Slides_25-35/Cantonese.png', 'assets/Slides_25-35/Cantonese_selected.png', 'assets/Slides_25-35/English.png', 'assets/Slides_25-35/English_selected.png', 'assets/Slides_25-35/Grizzly_bear.png', 'assets/Slides_25-35/Grizzly_bear_outline.png', 'assets/Slides_25-35/Hills.png', 'assets/Slides_25-35/Kelp.png', 'assets/Slides_25-35/Kelp_outline.png', 'assets/Slides_25-35/Mandarin.png', 'assets/Slides_25-35/Mandarin_selected.png', 'assets/Slides_25-35/octopus.png', 'assets/Slides_25-35/Pause_Button.png', 'assets/Slides_25-35/Photo01.png', 'assets/Slides_25-35/Photo02.png', 'assets/Slides_25-35/Photo03.png', 'assets/Slides_25-35/Photo04.png', 'assets/Slides_25-35/Plau_Button.png', 'assets/Slides_25-35/Popup_window.png', 'assets/Slides_25-35/Popup_window_close.png', 'assets/Slides_25-35/Reading-Language_button.png', 'assets/Slides_25-35/Reading-Language_button_Selected.png', 'assets/Slides_25-35/Reading_Help_popup.png', 'assets/Slides_25-35/Replay_Button.png', 'assets/Slides_25-35/Salmon.png', 'assets/Slides_25-35/Salmon_outline.png', 'assets/Slides_25-35/Sky_crop.png', 'assets/Slides_25-35/Spanish.png', 'assets/Slides_25-35/Spanish_selected.png', 'assets/Slides_25-35/Tagalog.png', 'assets/Slides_25-35/Tagalog_selected.png', 'assets/Slides_25-35/Trees_ground.png', 'assets/Slides_25-35/Water_crop.png', 'assets/Slides_25-35/Water_over_octopus.png', 'assets/Slides_25-35/Yeast_crop.png', 'assets/Slides_25-35/Yeast_outline_01.png', 'assets/Slides_25-35/Yeast_plant.png', 'assets/Slides_25-35/Yeast_plant_focus.png',
+        'assets/Slides11-17/Callout01.png', 'assets/Slides11-17/Consumers.png', 'assets/Slides11-17/Consumers01.png', 'assets/Slides11-17/Consumers_text_box.png', 'assets/Slides11-17/Curved_arrow.png', 'assets/Slides11-17/Curved_arrow_highlighted.png', 'assets/Slides11-17/Decomposers.png', 'assets/Slides11-17/Decomposers_text_box.png', 'assets/Slides11-17/Garden_crop.png', 'assets/Slides11-17/Grass_top_layer.png', 'assets/Slides11-17/Grass_top_layer_crop.png', 'assets/Slides11-17/House_CROP_2.png', 'assets/Slides11-17/Mountains_01.png', 'assets/Slides11-17/Octopus_inset.png', 'assets/Slides11-17/Parallax_scroll_BG_updated.png', 'assets/Slides11-17/popup_close.png', 'assets/Slides11-17/Popup_text_box.png', 'assets/Slides11-17/Producers-Consumers_text_box.png', 'assets/Slides11-17/Producers.png', 'assets/Slides11-17/Producers_text_box.png', 'assets/Slides11-17/Scroll_down_button.png', 'assets/Slides11-17/Sun_01.png', 'assets/Slides11-17/Tree.png',
+        'assets/Slides18-20/bushes.png', 'assets/Slides18-20/Callout.png', 'assets/Slides18-20/Octopus_and_shells.png', 'assets/Slides18-20/Octopus_and_water.png', 'assets/Slides18-20/Octopus_side.png', 'assets/Slides18-20/Replay_Button.png', 'assets/Slides18-20/Sky_corp.png', 'assets/Slides18-20/Start_Adventure.png', 'assets/Slides18-20/Sun02.png', 'assets/Slides18-20/Trees.png', 'assets/Slides18-20/Water_.png', 'assets/Slides18-20/Water_octopus.png',
+        'assets/Slides38-42/Bear.png', 'assets/Slides38-42/Bear_Visited.png', 'assets/Slides38-42/Blue_callout.png', 'assets/Slides38-42/Correct.png', 'assets/Slides38-42/Cougar.png', 'assets/Slides38-42/Cougar_Visited.png', 'assets/Slides38-42/Cross.png', 'assets/Slides38-42/Eagle.png', 'assets/Slides38-42/Eagle_Visited.png', 'assets/Slides38-42/Fish.png', 'assets/Slides38-42/Fish_Visited.png', 'assets/Slides38-42/Incorrect.png', 'assets/Slides38-42/More_Info.png', 'assets/Slides38-42/Otter.png', 'assets/Slides38-42/Otter_Visited.png', 'assets/Slides38-42/Sky_crop.png', 'assets/Slides38-42/Tick.png', 'assets/Slides38-42/Tree.png', 'assets/Slides38-42/Trees.png', 'assets/Slides38-42/Tree_Visited.png', 'assets/Slides38-42/Water_crop.png', 'assets/Slides38-42/Wolf.png', 'assets/Slides38-42/Wolf_Visited.png'
+        
+        ];
+    
+        // Audio files
+        const audio1 = new Audio("assets/audio/Audios/7._A_food_chain_shows_how_differ.mp3");
+        const audio2 = new Audio("assets/audio/Audios/5._Select_each_icon_to_know_abou.mp3");
+        const audio3 = new Audio("assets/audio/Audios/7._When_creating_a_food_chain,_a.mp3");
+        const audio4 = new Audio("assets/audio/Audios/7._Weve_learned_all_about_the_f.mp3");
+        const audio5 = new Audio("assets/audio/Audios/7._Let's explore this forest together.mp3");
+        const audio6 = new Audio("assets/audio/Audios/Gear_up_to_meet_my_friends_an.wav");
+        const audio7 = new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+        const audio8 = new Audio("assets/audio/Audios/You_can_choose_a_language_for.wav");
+        const audio9 = new Audio("assets/audio/Audios/Select_another_organism_like.wav");
+        const audio10 = new Audio("assets/audio/Audios/Select_hotspots_Youll_collect.wav");
+    
+        const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio9, audio10];
+
+// Function to preload images
+function preloadImages(images, callback) {
+    let loadedImages = 0;
+    const totalImages = images.length;
+
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+            loadedImages++;
+            if (loadedImages === totalImages) {
+                console.log('Finished Image');
+                callback();  // Call the callback function once all images are loaded
+            }
+        };
+    });
+}
+
+// Function to preload audio files
+function preloadAudios(audios, callback) {
+    console.log('Starting audio preload');
+    let loadedAudios = 0;
+    const totalAudios = audios.length;
+
+    audios.forEach(audio => {
+        audio.preload = 'auto'; // Ensure full preload
+        audio.load(); // Explicitly load the audio file
+        audio.oncanplaythrough = () => {
+            loadedAudios++;
+            console.log(`Audio fully loaded: ${audio.src}`);
+            if (loadedAudios === totalAudios) {
+                console.log('All audio files fully loaded');
+                callback();
+            }
+        };
+        audio.onerror = (e) => {
+            console.error(`Error loading audio: ${audio.src}`, e);
+        };
+    });
+
+    if (totalAudios === 0) {
+        console.log('No audio files to preload');
+        callback();
+    }
+}
+
+
+
+
+// Function to preload a video
+function preloadVideo(videoElementId, videoSrc, callback) {
+    const videoElement = document.getElementById(videoElementId);
+    videoElement.src = videoSrc;
+    videoElement.oncanplaythrough = () => {
+        callback();  // Call the callback function once the video is ready to play
+    };
+}
+
+
+window.onload = function() {
+
+
+    // Preload images, then preload audio, then preload video, then hide preloader
+    preloadImages(imagesToPreload, function() {
+        preloadAudios(audiosToPreload, function() {
+            preloadVideo('bgVideo', 'assets/video/Section1.mp4', function() {
+                console.log('Finished');
+                // Once everything is preloaded, hide the preloader
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0'; // Fade-out effect
+                setTimeout(() => {
+                    preloader.style.display = 'none'; // Hide the preloader after fade-out
+                }, 500); // Wait for fade-out to complete
+
+                // Add your code here that should run after preloading
+
+                
+
+                
+            
+        
+                // Your other section-specific logic (like section 5, section 6, etc.) should also go here...
+            });
+        });
+    });
+};
 document.addEventListener("DOMContentLoaded", () => {
 
     const soundbutton= document.getElementById("sound");
@@ -19,14 +132,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const section2 = document.getElementById("section2");
     const octopusContainer = document.getElementById("octopusContainer");
     const dialogBox = document.querySelector(".dialogBox");
- 
+
     const whiteOverlay = document.getElementById("whiteOverlay");
     const buttonContainers = document.querySelectorAll(".button-container");
     const section2popup = document.getElementById("section2popup");
     const section2popupcross = document.getElementById("section2popupcross");
     const section2popupText = document.querySelector("#section2popup p");
     const textElement = document.getElementById('dynamicText');
- 
+    const grass_toplayer=document.getElementById("grass_toplayer");
+    const section2nextImage=document.getElementById("section2nextImage");
+
+    const gap3=document.getElementById("gap3");
+
     const section3 = document.getElementById("section3");
     const section3octopusContainer = document.getElementById("section3octopusContainer");
     const section3octopusContainershell= document.getElementById("section3octopusContainershell");
@@ -57,21 +174,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     //Section2
-    const audio1 = new Audio("assets/audio/Audios/7._A_food_chain_shows_how_differ.mp3");
-    const audio2 = new Audio("assets/audio/Audios/5._Select_each_icon_to_know_abou.mp3");
+    //const audio1 = new Audio("assets/audio/Audios/7._A_food_chain_shows_how_differ.mp3");
+    //const audio2 = new Audio("assets/audio/Audios/5._Select_each_icon_to_know_abou.mp3");
     let section2popup_audio=new Audio("");
-    const audio3 = new Audio("assets/audio/Audios/7._When_creating_a_food_chain,_a.mp3");
+    //const audio3 = new Audio("assets/audio/Audios/7._When_creating_a_food_chain,_a.mp3");
     //Section3
-    const audio4 = new Audio("assets/audio/Audios/7._Weve_learned_all_about_the_f.mp3");
-    const audio5 = new Audio("assets/audio/Audios/7._Let's explore this forest together.mp3");
+    //const audio4 = new Audio("assets/audio/Audios/7._Weve_learned_all_about_the_f.mp3");
+    //const audio5 = new Audio("assets/audio/Audios/7._Let's explore this forest together.mp3");
 
-    const audio6 = new Audio("assets/audio/Audios/Gear_up_to_meet_my_friends_an.wav");
-    const audio7 = new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
-    const audio8 = new Audio("assets/audio/Audios/You_can_choose_a_language_for.wav");
-    const audio10 = new Audio("assets/audio/Audios/Select_hotspots_Youll_collect.wav");
+    //const audio6 = new Audio("assets/audio/Audios/Gear_up_to_meet_my_friends_an.wav");
+    //const audio7 = new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+    //const audio8 = new Audio("assets/audio/Audios/You_can_choose_a_language_for.wav");
+    //const audio10 = new Audio("assets/audio/Audios/Select_hotspots_Youll_collect.wav");
 
     //Section 6
-    const audio9 = new Audio("assets/audio/Audios/Select_another_organism_like.wav");
+    //const audio9 = new Audio("assets/audio/Audios/Select_another_organism_like.wav");
 
     // function onResizeFn() {
     //     const shellWidth = 1920;
@@ -112,14 +229,14 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // // Initial call to set layout
     // onResizeFn();
-     
+    
 
     let currentSection='section1';
 
     playButton.addEventListener("click", () => {
         switch(currentSection){
             case 'section1':
-                 enableVideo();
+                enableVideo();
                 break;
         }
     });
@@ -155,7 +272,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 played=true;
                 playButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
                 break;
-           }
+        }
     });
 
 
@@ -170,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section5mute=false;
     }
     section5playButton.addEventListener("click", () => {
-         if(!section5played){
+        if(!section5played){
             section5bgVideo.play();
             section1vedioUnmute();
             section5played=!section5played;
@@ -210,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section5soundbutton.querySelector("img").src = section6muted ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
 
         }
-       
+    
 
     });
 
@@ -318,15 +435,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const startTime = performance.now();
     
         function step(currentTime) {
-          const elapsed = currentTime - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const ease = easeOutCubic(progress);
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = easeOutCubic(progress);
     
-          window.scrollTo(0, start + distance * ease);
+        window.scrollTo(0, start + distance * ease);
     
-          if (progress < 1) {
+        if (progress < 1) {
             requestAnimationFrame(step);
-          }
+        }
         }
     
         // Easing functions for different effects
@@ -343,7 +460,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const section4 = document.getElementById("section4");
         const section5 = document.getElementById("section5");
         const section6 = document.getElementById("section6");
-         
+        
     
         const section5play = document.getElementById("section5play");
         const section5restart = document.getElementById("section5restart");
@@ -351,7 +468,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const section4ReadHelp = document.getElementById("section4ReadHelp");
         const section4Help = document.getElementById("section4Help");
         
-         // Check if the section is enabled (display is not none)
+        // Check if the section is enabled (display is not none)
         function isSectionVisible(section) {
             return window.getComputedStyle(section).display !== "none";
         }
@@ -448,14 +565,14 @@ document.addEventListener("DOMContentLoaded", () => {
     //     const sections = document.querySelectorAll('.section');
     //     const viewportHeight = window.innerHeight;
     //     let visibleSection = null;
-      
+    
     //     sections.forEach((section) => {
     //       const rect = section.getBoundingClientRect();
     //       if (rect.top >= 0 && rect.top < viewportHeight / 2) {
     //         visibleSection = section.id;
     //       }
     //     });
-      
+    
     //     return visibleSection;
     //   }
     
@@ -472,7 +589,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 1st 
 
-     const enableVideo = () => {
+    const enableVideo = () => {
         if(!played){
             bgVideo.play();
             section1vedioUnmute();
@@ -484,7 +601,7 @@ document.addEventListener("DOMContentLoaded", () => {
             playButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
 
         }
-          
+        
         
     };
     // Event: When the video ends
@@ -494,7 +611,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section2.style.display = "visible";
         section2.style.display = "block";
         smoothScrollTo(section2,1500);
-         
+        
     });
 
 
@@ -564,7 +681,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const octopusRect = octopusContainer.getBoundingClientRect(); // Get the bounding box of the container
         const windowHeight = window.innerHeight;
         const windowWidth = window.innerWidth;
-         // Check if the octopus is fully visible in the viewport
+        // Check if the octopus is fully visible in the viewport
         if (
             octopusRect.bottom >= 0 &&
             octopusRect.top <= windowHeight &&
@@ -577,14 +694,14 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     // Trigger method when octopus is visible
     const triggerOctopusActions = () => {
-         // Add your additional logic here
-         dialogBox.style.display = "block";
+        // Add your additional logic here
+        dialogBox.style.display = "block";
         
         textElement.textContent ="A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden.";
         adjustImageHeight();
         audio1.play();
         firstactiontriggered=!firstactiontriggered;
-     };
+    };
 
     // Trigger 2: When First Audio Ends, Play Second Audio
     audio1.addEventListener("ended", () => {
@@ -593,7 +710,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dialogBox.querySelector('.text').style.fontFamily = "Heinemann";
         dialogBox.querySelector('.text').style.fontWeight = "italic";
         audio2.play();
-     });
+    });
 
     // Trigger 3: When Second Audio Ends, Show White Image and Buttons
     audio2.addEventListener("ended", () => {
@@ -668,19 +785,19 @@ document.addEventListener("DOMContentLoaded", () => {
             adjustImageHeightsection2popup();
             clickedButtons.add(index);
 
-           
+        
         });
     });
 
 
     audio3.addEventListener("ended", () => {
         
-        document.getElementById("grass_toplayer").querySelector('img').src="assets/Slides11-17/updated_background-20241226T085817Z-001/updated_background/Grass_top_layer.png";
-        document.getElementById("grass_toplayer").style.bottom="-36%"
-        document.getElementById("gap3").style.display="block";
+        grass_toplayer.querySelector('img').src=imagesToPreload.find(src => src.includes('Grass_top_layer.png'));//"assets/Slides11-17/Grass_top_layer.png";
+        grass_toplayer.style.bottom="-36%"
+        gap3.style.display="block";
         section3.style.display = "block";
         section3.style.overflow="visible";//change after to visible
-        document.getElementById("section2nextImage").style.display="block";
+        section2nextImage.style.display="block";
         //scroll down image enable
         smoothScrollTo(section3,1500);
     });
@@ -691,8 +808,8 @@ document.addEventListener("DOMContentLoaded", () => {
         section2popup_audio.pause(); // Pause the audio
         section2popup_audio.currentTime = 0; // Reset playback position to the start
 
-                  // Check if all buttons have been clicked
-                  if (!allButtonsClicked && clickedButtons.size === totalButtons) {
+                // Check if all buttons have been clicked
+                if (!allButtonsClicked && clickedButtons.size === totalButtons) {
                     console.log('finished');
                     allButtonsClicked = true;
                     audio3.play();
@@ -703,11 +820,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
     });
 
- 
+
     function adjustImageHeight() {
-      const textHeight = textElement.offsetHeight;
-      const imageHeight = document.getElementById('dialogBoxImage').offsetHeight;
-      document.getElementById('dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
+    const textHeight = textElement.offsetHeight;
+    const imageHeight = document.getElementById('dialogBoxImage').offsetHeight;
+    document.getElementById('dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
     }
 
     function adjustImageHeightsection2popup(){
@@ -730,13 +847,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //3rd
     let section3Octopusidelvisible = false;    
-  
+
     // Trigger 1: Display Octopus and Play First Audio
     const handleOctopusidelVisible = () => {
             const octopusRect = section3octopusContainer.getBoundingClientRect(); // Get the bounding box of the container
             const windowHeight = window.innerHeight;
             const windowWidth = window.innerWidth;
-             // Check if the octopus is fully visible in the viewport
+            // Check if the octopus is fully visible in the viewport
             if (
                 octopusRect.bottom >= 0 &&
                 octopusRect.top <= windowHeight &&
@@ -754,7 +871,7 @@ document.addEventListener("DOMContentLoaded", () => {
         audio4.play();
         section3Octopusidelvisible=!section3Octopusidelvisible;
     };
-  
+
     audio4.addEventListener("ended", () => {
         section3dialogText.innerHTML = "Let's explore this forest together, meet my friends, and help them find their meals along the way. Are you ready to start?<br><span style='color: red;font-weight: bold;'>Select Start Adventure.</span>";
         adjustSection3ImageHeight();
@@ -764,7 +881,7 @@ document.addEventListener("DOMContentLoaded", () => {
     audio5.addEventListener("ended", () => {
         section3_button.style.display = "block";
         section3dialogBox.style.display = "none";
-     });
+    });
     // Add a click event listener to the container
     section3_button.addEventListener('click', () => {
         console.log('section3_button_clicked');
@@ -789,7 +906,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-   
+
 // 4th
 
     let section4actiontriggered = false;
@@ -805,7 +922,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('section4dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
     }
 
- 
+
     // Handle visibility of Section 4 Octopus
     const handleOctopus4Visible = () => {
         const octopusRect = section4octopusContainer.getBoundingClientRect(); // Get the bounding box of the container
@@ -857,7 +974,7 @@ document.addEventListener("DOMContentLoaded", () => {
     audio8.addEventListener('ended',()=>{
         document.getElementById('section4ReadHelp').style.pointerEvents='visible';
         document.getElementById('section4ReadHelpImage').src = "assets/Slides_25-35/Reading-Language_button_Selected.png";
- 
+
     });
     // Handle visibility of Section 4 Grass
     const handleGrassVisible = () => {
@@ -928,12 +1045,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.log("Incorrect button clicked!");
                 }
             }
-           
+        
         });
     });
     
 
- 
+
     audio10.addEventListener("ended", () => {
         // Change images dynamically
         document.querySelector("#section4button1 img").src = "assets/Slides_25-35/Kelp_outline.png";
@@ -942,14 +1059,14 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#section4button4 img").src = "assets/Slides_25-35/Yeast_outline_01.png";
         clickedButtons.clear();
         section4dialogBox.style.display = "none";
-         buttons.forEach(button => {
+        buttons.forEach(button => {
             button.style.cursor = "pointer"; // Set cursor to pointer
             button.style.pointerEvents="visible"
         });
         section4objectsisclickable=true;
 
-     });
- 
+    });
+
 
     document.getElementById('section4ReadHelp').addEventListener('click', function() {
         const currentSectiondiv = getCurrentsectiondiv();
@@ -1006,27 +1123,28 @@ document.addEventListener("DOMContentLoaded", () => {
     function AddOverlay(section){
 
         const insection = document.getElementById(section);
-         // Create overlay element
+        // Create overlay element
         const overlay = document.createElement('div');
         overlay.className = 'overlay';
+        overlay.style.display = 'none';
         overlay.innerHTML = `
-        <div class="overlay"  >
          
+        
         <div class="image-container" id="popupWindow">
-          <img src="assets/Slides_25-35/Popup_window.png" alt="PopupWindow" />
-                  <!-- Close Button -->
-          <button id="closePopupBtn" class="close-btn">
-              <img src="assets/Slides_25-35/Popup_window_close.png" alt="Close" />
-          </button>
-          <!-- New Headings -->
-          <div class="headings-container">
+        <img src="assets/Slides_25-35/Popup_window.png" alt="PopupWindow" />
+                <!-- Close Button -->
+        <button id="closePopupBtn" class="close-btn">
+            <img src="assets/Slides_25-35/Popup_window_close.png" alt="Close" />
+        </button>
+        <!-- New Headings -->
+        <div class="headings-container">
             <h1 class="heading heading-1">Language Help</h1>
-          </div>
-          <div class="headings-container2">
+        </div>
+        <div class="headings-container2">
             <h1 class="heading heading-1">Important Words and Phrases</h1>
-          </div>
+        </div>
             <!-- Country Selector Container -->
-          <div id="country-container">
+        <div id="country-container">
             <div class="country-list">
                 <button class="country-btn" data-clicked="assets/Slides_25-35/English_selected.png" data-unclicked="assets/Slides_25-35/English.png">
                     <img src="assets/Slides_25-35/English_selected.png" alt="English" />
@@ -1039,12 +1157,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     <img src="assets/Slides_25-35/Spanish.png" alt="English" />
                     <p id="section4countryText">Spanish</p>
 
-                  </button>
+                </button>
             </div>
             <div class="country-list">
-              <button class="country-btn"  data-clicked="assets/Slides_25-35/Tagalog_selected.png" data-unclicked="assets/Slides_25-35/Tagalog.png">
-                  <img src="assets/Slides_25-35/Tagalog.png" alt="English" />
-                  <p id="section4countryText">Tagalog</p>
+            <button class="country-btn"  data-clicked="assets/Slides_25-35/Tagalog_selected.png" data-unclicked="assets/Slides_25-35/Tagalog.png">
+                <img src="assets/Slides_25-35/Tagalog.png" alt="English" />
+                <p id="section4countryText">Tagalog</p>
 
                 </button>
             </div>
@@ -1053,23 +1171,23 @@ document.addEventListener("DOMContentLoaded", () => {
                     <img src="assets/Slides_25-35/Cantonese.png" alt="English" />
                     <p id="section4countryText">Cantonese</p>
 
-                  </button>
+                </button>
             </div>
             <div class="country-list">
-              <button class="country-btn"  data-clicked="assets/Slides_25-35/Mandarin_selected.png" data-unclicked="assets/Slides_25-35/Mandarin.png">
-                  <img src="assets/Slides_25-35/Mandarin.png" alt="English" />
-                  <p id="section4countryText">Mandarin</p>
+            <button class="country-btn"  data-clicked="assets/Slides_25-35/Mandarin_selected.png" data-unclicked="assets/Slides_25-35/Mandarin.png">
+                <img src="assets/Slides_25-35/Mandarin.png" alt="English" />
+                <p id="section4countryText">Mandarin</p>
 
                 </button>
             </div>
-          </div>
-          <div class="language-help">
+        </div>
+        <div class="language-help">
             <div class="content">
                 <div class="phrases-container">
                     <div class="phrase-row">
                         <div class="phrase-box">
                             <div class="audio-btn" id="lang-audiobtn" data-audio="assets/audio/kelp.mp3">
-                              <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
                             </div>
                             <div class="phrase-word">Kelp</div>
                         </div>
@@ -1080,10 +1198,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="divider"></div>
                     <div class="phrase-row">
                         <div class="phrase-box">
-                          <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
                             <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                          </div>
-                          <div class="phrase-word">Shallow</div>
+                        </div>
+                        <div class="phrase-word">Shallow</div>
                         </div>
                         <div class="phrase-box2">
                             <div class="phrase-definition">Not very deep</div>
@@ -1092,10 +1210,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="divider"></div>
                     <div class="phrase-row">
                         <div class="phrase-box">
-                          <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
                             <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                          </div>                              
-                          <div class="phrase-word">Nutrient:</div>
+                        </div>                              
+                        <div class="phrase-word">Nutrient:</div>
                         </div>
                         <div class="phrase-box2">
                             <div class="phrase-definition">Nourishment that helps things grow</div>
@@ -1104,10 +1222,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="divider"></div>
                     <div class="phrase-row">
                         <div class="phrase-box">
-                          <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
                             <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                          </div>                              
-                          <div class="phrase-word">Nutrient-rich:</div>
+                        </div>                              
+                        <div class="phrase-word">Nutrient-rich:</div>
                         </div>
                         <div class="phrase-box2">
                             <div class="phrase-definition">having many nutrients</div>
@@ -1116,10 +1234,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="divider"></div>
                     <div class="phrase-row">
                         <div class="phrase-box">
-                          <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
                             <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                          </div>                              
-                          <div class="phrase-word">Environment:</div>
+                        </div>                              
+                        <div class="phrase-word">Environment:</div>
                         </div>
                         <div class="phrase-box2">
                             <div class="phrase-definition">what surrounds a plant or animal; where a plant or animal lives</div>
@@ -1128,10 +1246,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="divider"></div>
                     <div class="phrase-row">
                         <div class="phrase-box">
-                          <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
                             <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                          </div>                              
-                          <div class="phrase-word">Photosynthesis:</div>
+                        </div>                              
+                        <div class="phrase-word">Photosynthesis:</div>
                         </div>
                         <div class="phrase-box2">
                             <div class="phrase-definition">a process where plants use sunlight to make food</div>
@@ -1140,10 +1258,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="divider"></div>
                     <div class="phrase-row">
                         <div class="phrase-box">
-                          <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
                             <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                          </div>                              
-                          <div class="phrase-word">Herbivore:</div>
+                        </div>                              
+                        <div class="phrase-word">Herbivore:</div>
                         </div>
                         <div class="phrase-box2">
                             <div class="phrase-definition">an animal that feeds on plants</div>
@@ -1151,21 +1269,31 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                 </div>
             </div>
-          </div>
+        </div>
         
         </div>
-          
-    </div>
+        
+     
         `;
 
         // Append overlay to section4
         insection.appendChild(overlay);
-        overlay.style.display='flex';
+        const images = overlay.querySelectorAll('img');
+        let imagesLoaded = 0
+        images.forEach((img) => {
+            img.onload = () => {
+                imagesLoaded++;
+                if (imagesLoaded === images.length) {
+                    overlay.style.display = 'flex'; // Show overlay after all images are loaded
+                }
+            };
+        });
+        // overlay.style.display='flex';
 
 
         document.getElementById('closePopupBtn').addEventListener('click', function() {
             document.querySelector('.overlay').remove();
-    
+            section4.appendChild(secion5rigthTop);
             if(!section4languageguidedoonce){
                 section4dialogText.innerHTML = "<span style='color: red;'>Select hotspots. You'll collect a starfish for completing each.</span>";
                 adjustSection4ImageHeight();
@@ -1188,55 +1316,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
             //COUNTRY BUTTON CLICK AND UNCLICK IMAGE CHANGE
         // Define the data for each language
-         const countryData = {
+        const countryData = {
         English: [
-          { word: "Kelp", definition: "algae and seaweed that live in the ocean",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/kelp._algae_and_seaweed_th.mp3" },
-          { word: "Shallow", definition: "Not very deep",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/shallow._not_very_deep__.mp3"},
-          { word: "Nutrient", definition: "Nourishment that helps things grow",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/nutrient._nourishment_that.mp3" },
-          { word: "Nutrient-rich", definition: "having many nutrients",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/nutrientrich._having_many.mp3" },
-          { word: "Environment", definition: "what surrounds a plant or animal; where a plant or animal lives",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/environment._what_surround.mp3"},
-          { word: "Photosynthesis", definition: "a process where plants use sunlight to make food",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/photosynthesis._a_process_.mp3"},
-          { word: "Herbivore", definition: "an animal that feeds on plants",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/herbivore._an_animal_that_.mp3" },
+        { word: "Kelp", definition: "algae and seaweed that live in the ocean",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/kelp._algae_and_seaweed_th.mp3" },
+        { word: "Shallow", definition: "Not very deep",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/shallow._not_very_deep__.mp3"},
+        { word: "Nutrient", definition: "Nourishment that helps things grow",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/nutrient._nourishment_that.mp3" },
+        { word: "Nutrient-rich", definition: "having many nutrients",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/nutrientrich._having_many.mp3" },
+        { word: "Environment", definition: "what surrounds a plant or animal; where a plant or animal lives",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/environment._what_surround.mp3"},
+        { word: "Photosynthesis", definition: "a process where plants use sunlight to make food",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/photosynthesis._a_process_.mp3"},
+        { word: "Herbivore", definition: "an animal that feeds on plants",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/herbivore._an_animal_that_.mp3" },
         ],
         Spanish: [
-          { word: "Quelpo", definition: "algas y algas que viven en el océano",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/quelpo.__algas_y_algas_que_v.mp3"},
-          { word: "Poco profundo", definition: "No muy profundo" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/Poco_profundo._No_muy_profun.mp3"},
-          { word: "Nutritivo", definition: "alimento que ayuda a las cosas a crecer",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/nutritivo._alimento_que_ayud.mp3" },
-          { word: "Rica en nutrientes", definition: "tener muchos nutrientes" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/Rica_en_nutrientes._tener_mu.mp3"},
-          { word: "Ambiente", definition: "lo que rodea a una planta o animal; donde vive una planta o un animal",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/ambiente._lo_que_rodea_a_una.mp3" },
-          { word: "Fotosíntesis", definition: "Un proceso en el que las plantas utilizan la luz solar para producir alimentos",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/fotosíntesis._Un_proceso_en_.mp3" },
-          { word: "Herbívoro", definition: "un animal que se alimenta de plantas" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/herbívoro._un_animal_que_se_.mp3"},
+        { word: "Quelpo", definition: "algas y algas que viven en el océano",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/quelpo.__algas_y_algas_que_v.mp3"},
+        { word: "Poco profundo", definition: "No muy profundo" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/Poco_profundo._No_muy_profun.mp3"},
+        { word: "Nutritivo", definition: "alimento que ayuda a las cosas a crecer",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/nutritivo._alimento_que_ayud.mp3" },
+        { word: "Rica en nutrientes", definition: "tener muchos nutrientes" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/Rica_en_nutrientes._tener_mu.mp3"},
+        { word: "Ambiente", definition: "lo que rodea a una planta o animal; donde vive una planta o un animal",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/ambiente._lo_que_rodea_a_una.mp3" },
+        { word: "Fotosíntesis", definition: "Un proceso en el que las plantas utilizan la luz solar para producir alimentos",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/fotosíntesis._Un_proceso_en_.mp3" },
+        { word: "Herbívoro", definition: "un animal que se alimenta de plantas" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/herbívoro._un_animal_que_se_.mp3"},
         ],
         Tagalog: [
-          { word: "Kelp", definition: "algae at seaweed na nabubuhay sa karagatan",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/kelp._algae_at_seaweed_na_na.mp3" },
-          { word: "Mababaw", definition: "hindi masyadong malalim",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/mababaw._hindi_masyadong_mal.mp3"  },
-          { word: "Nakapagpapalusog", definition: "pagpapakain na tumutulong sa mga bagay na lumago",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/nakapagpapalusog._pagpapakai.mp3"  },
-          { word: "Mayaman sa sustansya", definition: "pagkakaroon ng maraming sustansya",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/mayaman_sa_sustansya._pagkak.mp3"  },
-          { word: "Kapaligiran", definition: "kung ano ang nakapaligid sa isang halaman o hayop; kung saan nakatira ang isang halaman o hayop",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/kapaligiran._kung_ano_ang_na.mp3"  },
-          { word: "Potosintesis", definition: "isang proseso kung saan ginagamit ng mga halaman ang sikat ng araw sa paggawa ng pagkain",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/potosintesis._isang_proseso_.mp3"  },
-          { word: "Herbivore", definition: "isang hayop na kumakain ng mga halaman",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/herbivore._isang_hayop_na_ku.mp3"  },
+        { word: "Kelp", definition: "algae at seaweed na nabubuhay sa karagatan",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/kelp._algae_at_seaweed_na_na.mp3" },
+        { word: "Mababaw", definition: "hindi masyadong malalim",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/mababaw._hindi_masyadong_mal.mp3"  },
+        { word: "Nakapagpapalusog", definition: "pagpapakain na tumutulong sa mga bagay na lumago",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/nakapagpapalusog._pagpapakai.mp3"  },
+        { word: "Mayaman sa sustansya", definition: "pagkakaroon ng maraming sustansya",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/mayaman_sa_sustansya._pagkak.mp3"  },
+        { word: "Kapaligiran", definition: "kung ano ang nakapaligid sa isang halaman o hayop; kung saan nakatira ang isang halaman o hayop",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/kapaligiran._kung_ano_ang_na.mp3"  },
+        { word: "Potosintesis", definition: "isang proseso kung saan ginagamit ng mga halaman ang sikat ng araw sa paggawa ng pagkain",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/potosintesis._isang_proseso_.mp3"  },
+        { word: "Herbivore", definition: "isang hayop na kumakain ng mga halaman",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/herbivore._isang_hayop_na_ku.mp3"  },
         ],
         Cantonese: [
-          { word: "海帶", definition: "生活喺海洋入面嘅藻類同海藻",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio02.mp3"  },
-          { word: "淺", definition: "唔係好深",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio03.mp3"  },
-          { word: "營養", definition: "幫助事物生長嘅滋養",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio04.mp3"  },
-          { word: "營養豐富", definition: "有好多營養",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio05.mp3"  },
-          { word: "環境", definition: "植物或動物周圍嘅嘢；植物或動物住嘅地方",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio06.mp3"  },
-          { word: "光合作用", definition: "植物用陽光嚟製造食物嘅過程",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio07.mp3"  },
-          { word: "食草動物", definition: "以植物為食嘅動物",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio08.mp3"  },
+        { word: "海帶", definition: "生活喺海洋入面嘅藻類同海藻",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio02.mp3"  },
+        { word: "淺", definition: "唔係好深",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio03.mp3"  },
+        { word: "營養", definition: "幫助事物生長嘅滋養",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio04.mp3"  },
+        { word: "營養豐富", definition: "有好多營養",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio05.mp3"  },
+        { word: "環境", definition: "植物或動物周圍嘅嘢；植物或動物住嘅地方",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio06.mp3"  },
+        { word: "光合作用", definition: "植物用陽光嚟製造食物嘅過程",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio07.mp3"  },
+        { word: "食草動物", definition: "以植物為食嘅動物",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio08.mp3"  },
         ],
         Mandarin: [
-          { word: "海带", definition: "生活在海洋中的藻类和海藻",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio02.mp3"  },
-          { word: "浅的", definition: "不是很深",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio03.mp3" },
-          { word: "养分", definition: "帮助事物生长的营养",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio04.mp3" },
-          { word: "营养丰富", definition: "有很多营养成分",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio05.mp3" },
-          { word: "环境", definition: "植物或动物周围有什么；植物或动物生活的地方",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio06.mp3" },
-          { word: "光合作用", definition: "植物利用阳光制造食物的过程",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio07.mp3" },
-          { word: "食草动物", definition: "以植物为食的动物",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio08.mp3" },
+        { word: "海带", definition: "生活在海洋中的藻类和海藻",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio02.mp3"  },
+        { word: "浅的", definition: "不是很深",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio03.mp3" },
+        { word: "养分", definition: "帮助事物生长的营养",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio04.mp3" },
+        { word: "营养丰富", definition: "有很多营养成分",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio05.mp3" },
+        { word: "环境", definition: "植物或动物周围有什么；植物或动物生活的地方",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio06.mp3" },
+        { word: "光合作用", definition: "植物利用阳光制造食物的过程",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio07.mp3" },
+        { word: "食草动物", definition: "以植物为食的动物",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio08.mp3" },
         ],
         };
-      
-      // Function to dynamically update phrases based on selected language
+    
+    // Function to dynamically update phrases based on selected language
         function updatePhrases(language) {
             const phraseRows = document.querySelectorAll('.phrase-row');
             const audioparameter= document.querySelectorAll(".audio-btn");
@@ -1252,35 +1380,35 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             audioparameter.forEach((row, index) => {
                 if (phrases[index]) {
-                     row.setAttribute("data-audio", phrases[index].audiopath);
+                    row.setAttribute("data-audio", phrases[index].audiopath);
                 }
             });
     
         }
     
-      
-      // Add event listeners to the country buttons
+    
+    // Add event listeners to the country buttons
         document.querySelectorAll('.country-btn').forEach(button => {
         button.addEventListener('click', () => {
-          // Reset all buttons to their unclicked state
-          document.querySelectorAll('.country-btn').forEach(btn => {
+        // Reset all buttons to their unclicked state
+        document.querySelectorAll('.country-btn').forEach(btn => {
             const img = btn.querySelector('img');
             img.src = btn.getAttribute('data-unclicked'); // Set to unclicked image
-          });
-      
-          // Set clicked button to its clicked state
-          const clickedImg = button.querySelector('img');
-          clickedImg.src = button.getAttribute('data-clicked'); // Set to clicked image
-      
-          // Update phrases based on selected language
-          const language = button.querySelector('p').textContent.trim(); // Get language name from button text
-          updatePhrases(language);
+        });
+    
+        // Set clicked button to its clicked state
+        const clickedImg = button.querySelector('img');
+        clickedImg.src = button.getAttribute('data-clicked'); // Set to clicked image
+    
+        // Update phrases based on selected language
+        const language = button.querySelector('p').textContent.trim(); // Get language name from button text
+        updatePhrases(language);
         });
         });
     
     
     
-      // Play audio when an audio-btn is clicked
+    // Play audio when an audio-btn is clicked
         document.querySelectorAll(".audio-btn").forEach((button) => {
             button.addEventListener("click", () => {
             const audioSrc = button.getAttribute("data-audio");
@@ -1306,75 +1434,88 @@ document.addEventListener("DOMContentLoaded", () => {
     function AddOverlayRead(section){
         const insection = document.getElementById(section);
         // Create overlay element
-       const overlay = document.createElement('div');
-       overlay.className = 'overlay2';
-       overlay.innerHTML = `
-       <div class="overlay2">
-       <!-- Close Button -->
-     <button id="closePopupBtn2" class="close-btn">
-         <img src="assets/Slides_25-35/Popup_window_close.png" alt="Close" />
-     </button>
-     <div class="contentContainer">
-         <img src="assets/Slides_25-35/Popup_window.png" alt="Reading Help Background" class="backgroundImage">
-         <div class="readingHelpTitle">Reading Help</div>
-         <div class="helpContent">
-             <p>• Kelp are algae and seaweed. Kelp are found in large batches called 
-                 <span class="underline" onclick="showPopup(1)">forests</span>.
-             </p>
-             <p>• Kelp grows in an shallow <span class="underline" onclick="showPopup(2)">nutrient-rich enviroment</span>. where sunlight can reach.</p>
-             <p>• Kelp absorb its nutrients from the sun and waters around it. It uses photosynthesis to make its own food.Things that <span class="underline" onclick="showPopup(3)">consume</span>, or eat, kelp are marine <span class="underline" onclick="showPopup(4)">herbivores</span>(something that eat plants).Sea urchins,mollusks, and some fish species also consume kelp.</p>
-         </div>
-     </div>
-         <!-- Popup -->
-         <div id="popup1" class="popup">
-           <div class="popupContainer">
-               <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup1">
-               <button onclick="hidePopup('popup1')">✖</button>
-               <div id="grassImage">
-                   <img src="assets/Slides_25-35/Photo01.png" alt="GrassImage" />
-                   <p>A large grouping of kelp that provides food and shelter for many other species.</p>
-               </div>
-           </div>
-         </div>
-         <div id="popup2" class="popup">
-           <div class="popupContainer">
-               <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup2">
-               <button onclick="hidePopup('popup2')">✖</button>
-               <div id="grassImage">
-                   <img src="assets/Slides_25-35/Photo02.png" alt="GrassImage" />
-                   <p>An environment that has lots of important elements like nitrogen, carbon, phosphorus, sulfur, and potassium.</p>
-               </div>
-           </div>
-         </div>
-         <div id="popup3" class="popup">
-         <div class="popupContainer">
-             <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup3">
-             <button onclick="hidePopup('popup3')">✖</button>
-             <div id="grassImage3">
-                 <img src="assets/Slides_25-35/Photo03.png" alt="GrassImage" />
-                 <p>To eat or drink something.</p>
-             </div>
-         </div>
-         </div>
-         <div id="popup4" class="popup">
-       <div class="popupContainer">
-           <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup4">
-           <button onclick="hidePopup('popup4')">✖</button>
-           <div id="grassImage4"  >
-               <img src="assets/Slides_25-35/Photo04.png" alt="GrassImage" />
-               <p>An animal that feeds on plants.</p>
-           </div>
-       </div>
-         </div>
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay2';
+    overlay.innerHTML = `
      
- </div>
-       `;
+    <!-- Close Button -->
+    <button id="closePopupBtn2" class="close-btn">
+        <img src="assets/Slides_25-35/Popup_window_close.png" alt="Close" />
+    </button>
+    <div class="contentContainer">
+        <img src="assets/Slides_25-35/Popup_window.png" alt="Reading Help Background" class="backgroundImage">
+        <div class="readingHelpTitle">Reading Help</div>
+        <div class="helpContent">
+            <p>• Kelp are algae and seaweed. Kelp are found in large batches called 
+                <span class="underline" onclick="showPopup(1)">forests</span>.
+            </p>
+            <p>• Kelp grows in an shallow <span class="underline" onclick="showPopup(2)">nutrient-rich enviroment</span>. where sunlight can reach.</p>
+            <p>• Kelp absorb its nutrients from the sun and waters around it. It uses photosynthesis to make its own food.Things that <span class="underline" onclick="showPopup(3)">consume</span>, or eat, kelp are marine <span class="underline" onclick="showPopup(4)">herbivores</span>(something that eat plants).Sea urchins,mollusks, and some fish species also consume kelp.</p>
+        </div>
+    </div>
+        <!-- Popup -->
+        <div id="popup1" class="popup">
+        <div class="popupContainer">
+            <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup1">
+            <button onclick="hidePopup('popup1')">✖</button>
+            <div id="grassImage">
+                <img src="assets/Slides_25-35/Photo01.png" alt="GrassImage" />
+                <p>A large grouping of kelp that provides food and shelter for many other species.</p>
+            </div>
+        </div>
+        </div>
+        <div id="popup2" class="popup">
+        <div class="popupContainer">
+            <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup2">
+            <button onclick="hidePopup('popup2')">✖</button>
+            <div id="grassImage">
+                <img src="assets/Slides_25-35/Photo02.png" alt="GrassImage" />
+                <p>An environment that has lots of important elements like nitrogen, carbon, phosphorus, sulfur, and potassium.</p>
+            </div>
+        </div>
+        </div>
+        <div id="popup3" class="popup">
+        <div class="popupContainer">
+            <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup3">
+            <button onclick="hidePopup('popup3')">✖</button>
+            <div id="grassImage3">
+                <img src="assets/Slides_25-35/Photo03.png" alt="GrassImage" />
+                <p>To eat or drink something.</p>
+            </div>
+        </div>
+        </div>
+        <div id="popup4" class="popup">
+    <div class="popupContainer">
+        <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup4">
+        <button onclick="hidePopup('popup4')">✖</button>
+        <div id="grassImage4"  >
+            <img src="assets/Slides_25-35/Photo04.png" alt="GrassImage" />
+            <p>An animal that feeds on plants.</p>
+        </div>
+    </div>
+        </div>
+    
+ 
+    `;
 
-       // Append overlay to section4
-       insection.appendChild(overlay);
-       overlay.style.display='block';
+    // Append overlay to section4
+    insection.appendChild(overlay);
+    const images = overlay.querySelectorAll('img');
+    let imagesLoaded = 0
+    images.forEach((img) => {
+        img.onload = () => {
+            imagesLoaded++;
+            if (imagesLoaded === images.length) {
+                overlay.style.display = 'block'; // Show overlay after all images are loaded
+            }
+        };
+    });
+        // document.querySelectorAll('.overlay2').forEach(element => {
+        //     element.style.display = 'block';
+        // });
 
-       document.getElementById('closePopupBtn2').addEventListener('click', function() {
+    document.getElementById('closePopupBtn2').addEventListener('click', function() {
+            section4.appendChild(secion5rigthTop);
             const textElement = document.getElementById("section4HelpText");
             textElement.classList.remove("active"); 
             document.querySelector('.overlay2').style.display = 'none'; // Hide overlay
@@ -1395,7 +1536,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
- 
+
 
 
 
@@ -1413,14 +1554,14 @@ document.addEventListener("DOMContentLoaded", () => {
         section5playButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
         smoothScrollTo(section5,1500);
     }
-     
+    
     // Event: When the video ends
     section5bgVideo.addEventListener("ended", () => {
         section5nextImage.style.display = "block";
         document.getElementById("gap6").style.display="block";  
         section6.style.display = "block";
         section6.style.overflow = "visible";
-             // Disable pointer events on all elements with the 'icon' and 'clickableobject' classes
+            // Disable pointer events on all elements with the 'icon' and 'clickableobject' classes
         document.querySelectorAll('.icon').forEach(element => {
             element.style.pointerEvents = 'none';
         });
@@ -1436,7 +1577,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-//6th
+    //6th
 
     const handleSection6Visible = () => {
         // Get all button containers
@@ -1469,7 +1610,7 @@ document.addEventListener("DOMContentLoaded", () => {
         icon.forEach(image => {
             image.style.display = 'block';
         });
-       
+    
     };
 
     audio9.addEventListener("ended", () => {
@@ -1511,7 +1652,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             const popup = document.getElementById("iconpopupcall");
- 
+
 
             const iconId = icon.id;
             if (positions[iconId]) {
@@ -1522,31 +1663,31 @@ document.addEventListener("DOMContentLoaded", () => {
     
                 // Access the <p> element inside the popup
                 const popupText = document.getElementById('iconpopuptext');
-                if (iconText[iconId]) {
-                    popupText.innerHTML = iconText[iconId];
-                }
-                const img = popup.querySelector("img");
-                // Apply rotation for specific icons (e.g., icon7)
-                if (icon.id === "icon4" || icon.id === "icon5"||icon.id === "icon6" || icon.id === "icon7") {
-                    img.style.transform = "rotate(0deg)";
-                    popupText.style.left="49%"
-                    //popupText.style.left="51.5%";
-                    //popupText.style.transform = "rotate(0deg)";
-                } else {
-                    img.style.transform = "rotate(180deg)";
-                    popupText.style.left="51%"
-                    //popupText.style.left="51.5%";
-                    //popupText.style.transform = "rotate(180deg)";
-                }
+            if (iconText[iconId]) {
+                popupText.innerHTML = iconText[iconId];
             }
+            const img = popup.querySelector("img");
+            // Apply rotation for specific icons (e.g., icon7)
+            if (icon.id === "icon4" || icon.id === "icon5"||icon.id === "icon6" || icon.id === "icon7") {
+                img.style.transform = "rotate(0deg)";
+                popupText.style.left="49%"
+                //popupText.style.left="51.5%";
+                //popupText.style.transform = "rotate(0deg)";
+            } else {
+                img.style.transform = "rotate(180deg)";
+                popupText.style.left="51%"
+                //popupText.style.left="51.5%";
+                //popupText.style.transform = "rotate(180deg)";
+            }
+        }
 
-        });
+    });
     });
     document.querySelectorAll('.clickableobject').forEach(button => {
         button.addEventListener('click', function (event) {
-          const popup = document.getElementById("iconpopupcall");
-          const feedback = document.getElementById("correctfeedback");
-          const objectText = {
+        const popup = document.getElementById("iconpopupcall");
+        const feedback = document.getElementById("correctfeedback");
+        const objectText = {
             object1: "Cougars are large carnivores that primarily hunt and eat deer, small mammals, and occasionally birds.",
             object2: "Wolves are carnivorous mammals that hunt and eat other animals like deer and rabbits.",
             object3: "Eagles are birds of prey that hunt and eat fish, birds, and small mammals.",
@@ -1555,33 +1696,33 @@ document.addEventListener("DOMContentLoaded", () => {
             object6: "Otters are aquatic mammals that eat fish, crustaceans, and other small aquatic animals.",
             object7: "Salmon are fish that eat smaller fish, kelp, and insects in rivers and oceans."
             };
-          // Hide the popup initially
-          popup.style.display = "none";
-          feedback.style.display='block'
-      
-          // Define the correct button ID
-          const correctButtonId = "object5"; // ID of the correct button
-      
-          // Get the ID of the clicked button
-          const clickedButtonId = button.id;
+        // Hide the popup initially
+        popup.style.display = "none";
+        feedback.style.display='block'
+    
+        // Define the correct button ID
+        const correctButtonId = "object5"; // ID of the correct button
+    
+        // Get the ID of the clicked button
+        const clickedButtonId = button.id;
 
-          // Get the feedback elements
+        // Get the feedback elements
             const feedbackText1 = document.getElementById('feedbacktext1');
             const feedbackText2 = document.getElementById('feedbacktext2');
             const feedbackImage1 = document.getElementById('feedbackimage1');
             const feedbackImage3 = document.getElementById('feedbackimage3');
-          
-          // Update the feedback text based on the object clicked
+        
+        // Update the feedback text based on the object clicked
             feedbackText2.textContent = objectText[clickedButtonId] || "No description available";
 
             // Get the image URLs from custom attributes
-          const nonVisitedImage = button.getAttribute('nonvisitedimage');
-          const visitedImage = button.getAttribute('visitedimg');
+        const nonVisitedImage = button.getAttribute('nonvisitedimage');
+        const visitedImage = button.getAttribute('visitedimg');
 
-          button.src = visitedImage;
+        button.src = visitedImage;
 
-          // Check if the clicked button is correct
-          if (clickedButtonId === correctButtonId) {
+        // Check if the clicked button is correct
+        if (clickedButtonId === correctButtonId) {
             console.log("1Correct");
 
             // Correct case: update feedback images and text
@@ -1589,14 +1730,14 @@ document.addEventListener("DOMContentLoaded", () => {
             feedbackImage3.src = feedbackImage3.getAttribute('correct');
             feedbackText1.textContent = "Well done!";
 
-           
-          } else {
+        
+        } else {
             console.log("1Wrong");
-             // Incorrect case: update feedback images and text
+            // Incorrect case: update feedback images and text
             feedbackImage1.src = feedbackImage1.getAttribute('wrong');
             feedbackImage3.src = feedbackImage3.getAttribute('wrong');
             feedbackText1.textContent = "Not quite right.";
-          }
+        }
         });
     });
 
@@ -1630,16 +1771,24 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-    
-   
-      
-    
 
 
- 
+
+
 });
 
 
+
+
+
+
+
+
+
+
+
+
+ 
 
 //section4 overlay2 popup
 function showPopup(i) {

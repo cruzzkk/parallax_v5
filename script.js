@@ -113,15 +113,19 @@ window.onload = function() {
 };
 document.addEventListener("DOMContentLoaded", () => {
 
-    const soundbutton= document.getElementById("sound");
-    const playButton= document.getElementById("play");
-    const restartbutton= document.getElementById("restart");
+ 
 
     const section5soundbutton= document.getElementById("section5sound");
     const section5playButton= document.getElementById("section5play");
     const section5restartbutton= document.getElementById("section5restart");
 
     const secion5rigthTop = document.getElementById("secion5rigthTop");
+
+
+
+    const commonsoundbutton= document.getElementById("commonsound");
+    const commonplayButton= document.getElementById("commonplay");
+    const commonrestartButton= document.getElementById("commonrestart");
 
     const bgVideo = document.getElementById("bgVideo");
     const nextImage = document.getElementById("nextImage");
@@ -173,23 +177,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let section6muted=false;
 
 
-    //Section2
-    //const audio1 = new Audio("assets/audio/Audios/7._A_food_chain_shows_how_differ.mp3");
-    //const audio2 = new Audio("assets/audio/Audios/5._Select_each_icon_to_know_abou.mp3");
+    
     let section2popup_audio=new Audio("");
-    //const audio3 = new Audio("assets/audio/Audios/7._When_creating_a_food_chain,_a.mp3");
-    //Section3
-    //const audio4 = new Audio("assets/audio/Audios/7._Weve_learned_all_about_the_f.mp3");
-    //const audio5 = new Audio("assets/audio/Audios/7._Let's explore this forest together.mp3");
-
-    //const audio6 = new Audio("assets/audio/Audios/Gear_up_to_meet_my_friends_an.wav");
-    //const audio7 = new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
-    //const audio8 = new Audio("assets/audio/Audios/You_can_choose_a_language_for.wav");
-    //const audio10 = new Audio("assets/audio/Audios/Select_hotspots_Youll_collect.wav");
-
-    //Section 6
-    //const audio9 = new Audio("assets/audio/Audios/Select_another_organism_like.wav");
-
+    
     // function onResizeFn() {
     //     const shellWidth = 1920;
     //     const shellHeight = 1080;
@@ -233,49 +223,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let currentSection='section1';
 
-    playButton.addEventListener("click", () => {
-        switch(currentSection){
-            case 'section1':
-                enableVideo();
-                break;
-        }
-    });
-
     function section1vediomute( ) {
-        soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
+        commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
         bgVideo.muted = true;
         section1mute=true;
     }
     function section1vedioUnmute( ) {
-        soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
         bgVideo.muted = false;
         section1mute=false;
     }
-    soundbutton.addEventListener("click", () => {
-        switch(currentSection){
-            case 'section1':
-                if(section1mute){
-                    section1vedioUnmute();
-                }else{
-                    section1vediomute();
-                }
-                break;
-        }
-    });
-    restartbutton.addEventListener("click", () => {
-        console.log('mm',currentSection)
-        switch(currentSection){
-            case 'section1':
-                bgVideo.currentTime = 0;
-                bgVideo.play();
-                section1vedioUnmute();
-                played=true;
-                playButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
-                break;
-        }
-    });
-
-
     function section5vediomute( ) {
         section5soundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
         section5bgVideo.muted = true;
@@ -286,63 +243,107 @@ document.addEventListener("DOMContentLoaded", () => {
         section5bgVideo.muted = false;
         section5mute=false;
     }
-    section5playButton.addEventListener("click", () => {
-        if(!section5played){
-            section5bgVideo.play();
-            section1vedioUnmute();
-            section5played=!section5played;
-            section5playButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
-        }else{
-            section5bgVideo.pause();
-            section5played=!section5played; 
-            section5playButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
 
+    commonsoundbutton.addEventListener("click", () => {
+        console.log("sound clicked");
+        switch(currentSection){
+            case 'section1':
+                if(section1mute){
+                    section1vedioUnmute();
+                }else{
+                    section1vediomute();
+                }
+                break;
         }
     });
-    section5soundbutton.addEventListener("click", () => {
-        let currentsection=getCurrentSection();
-        if(currentsection==="section5"){
-
-            if(section5mute){
-                section5vedioUnmute();
-            }else{
-                section5vediomute();
-            }
-            currentAudio.muted=section5mute;
+    commonplayButton.addEventListener("click", () => {
+        switch(currentSection){
+            case 'section1':
+                enableVideo();
+                break;
         }
-        else if(currentsection==="section4"){
-            console.log('broo');
-            section4muted = !section4muted; // Toggle the mute state
-            audio6.muted = section4muted;
-            audio7.muted = section4muted;
-            audio8.muted = section4muted;
-            audio10.muted = section4muted;
-            currentAudio.muted=section4muted;
-            // Update button text or icon based on mute state
-            section5soundbutton.querySelector("img").src = section4muted ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-        }else if(currentsection==="section6"){
-            section6muted=!section6muted;
-            audio9.muted=section6muted;
-            currentAudio.muted=section4muted;
-            section5soundbutton.querySelector("img").src = section6muted ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+    });
 
+ 
+    commonrestartButton.addEventListener("click", () => {
+         switch(currentSection){
+            case 'section1':
+                bgVideo.currentTime = 0;
+                bgVideo.play();
+                section1vedioUnmute();
+                played=true;
+                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+                break;
         }
+    });
+
+
+
+    // section5playButton.addEventListener("click", () => {
+    //     if(!section5played){
+    //         section5bgVideo.play();
+    //         section1vedioUnmute();
+    //         section5played=!section5played;
+    //         section5playButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+    //     }else{
+    //         section5bgVideo.pause();
+    //         section5played=!section5played; 
+    //         section5playButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
+
+    //     }
+    // });
+    // section5soundbutton.addEventListener("click", () => {
+    //     let currentsection=getCurrentSection();
+    //     if(currentsection==="section5"){
+
+    //         if(section5mute){
+    //             section5vedioUnmute();
+    //         }else{
+    //             section5vediomute();
+    //         }
+    //         currentAudio.muted=section5mute;
+    //     }
+    //     else if(currentsection==="section4"){
+    //         console.log('broo');
+    //         section4muted = !section4muted; // Toggle the mute state
+    //         audio6.muted = section4muted;
+    //         audio7.muted = section4muted;
+    //         audio8.muted = section4muted;
+    //         audio10.muted = section4muted;
+    //         currentAudio.muted=section4muted;
+    //         // Update button text or icon based on mute state
+    //         section5soundbutton.querySelector("img").src = section4muted ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+    //     }else if(currentsection==="section6"){
+    //         section6muted=!section6muted;
+    //         audio9.muted=section6muted;
+    //         currentAudio.muted=section4muted;
+    //         section5soundbutton.querySelector("img").src = section6muted ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+
+    //     }
     
 
-    });
+    // });
 
-    section5restartbutton.addEventListener("click", () => {
-        console.log('mm',currentSection)
+    // section5restartbutton.addEventListener("click", () => {
+    //     console.log('mm',currentSection)
             
-                section5bgVideo.currentTime = 0;
-                section5bgVideo.play();
-                section5vedioUnmute(); 
-                section5played=true; 
-                section5playButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+    //             section5bgVideo.currentTime = 0;
+    //             section5bgVideo.play();
+    //             section5vedioUnmute(); 
+    //             section5played=true; 
+    //             section5playButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
 
-    });
+    // });
+
+
+  
+    
 
 //common
+   
+
+
+// CLICK FIRST THEN TRIGGER SECTION
     document.querySelectorAll('.section').forEach(section => {
             section.addEventListener('click', function(event) {
                 // Get the clicked element
@@ -361,7 +362,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 bgVideo.muted = false;
                                 bgVideo.play();
                                 played=!played;
-                                playButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+                                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
                                 section1vedioUnmute();
                                 section1doonce=!section1doonce;
                             }
@@ -454,7 +455,7 @@ document.addEventListener("DOMContentLoaded", () => {
         requestAnimationFrame(step);
     }
 
-    secion5rigthTop.style.display="none";
+   // secion5rigthTop.style.display="none";
     // Section5 play/pause and language and reaad
     window.addEventListener("scroll", () => {
         const section4 = document.getElementById("section4");
@@ -482,15 +483,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // Toggle visibility of the top-right container
 
         if(isSectionVisible(section4) &&scrollPosition >= section4.offsetTop){
-            secion5rigthTop.style.display="block";
+           // secion5rigthTop.style.display="block";
         }else{
-            secion5rigthTop.style.display="none";
+           // secion5rigthTop.style.display="none";
         }
-        // if (isInSection4 || isInSection5 || isInSection6) {
-        //     secion5rigthTop.style.display="block";
-        // } else {
-        //     secion5rigthTop.style.display="none";
-        // }
+
     
         // Enable/disable buttons based on the current section
         if (isInSection4) {
@@ -561,21 +558,29 @@ document.addEventListener("DOMContentLoaded", () => {
         return visibleSection;
     }
     
-    // function getCurrentSection() {
-    //     const sections = document.querySelectorAll('.section');
-    //     const viewportHeight = window.innerHeight;
-    //     let visibleSection = null;
+
     
-    //     sections.forEach((section) => {
-    //       const rect = section.getBoundingClientRect();
-    //       if (rect.top >= 0 && rect.top < viewportHeight / 2) {
-    //         visibleSection = section.id;
-    //       }
-    //     });
-    
-    //     return visibleSection;
-    //   }
-    
+    // Create the observer Buttons are above which section
+    // Select all sections
+    const sections = document.querySelectorAll('.section');
+
+    // Function to detect which section is in view
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            currentSection = entry.target.id;
+        console.log(`Buttons are above: ${currentSection}`);
+        // Perform any logic here, like highlighting the section name
+        }
+    });
+    }, {
+    root: null, // Use the viewport as the root
+    threshold: 0.5 // Trigger when 50% of the section is in view
+    });
+
+    // Observe each section
+    sections.forEach(section => observer.observe(section));
+
     
 
 
@@ -594,11 +599,11 @@ document.addEventListener("DOMContentLoaded", () => {
             bgVideo.play();
             section1vedioUnmute();
             played=!played;
-            playButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+            commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
         }else{
             bgVideo.pause();
             played=!played; 
-            playButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
+            commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
 
         }
         
@@ -929,6 +934,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+
+
+
+    
+
 // 4th
 
     let section4actiontriggered = false;
@@ -1090,471 +1102,471 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    document.getElementById('section4ReadHelp').addEventListener('click', function() {
-        const currentSectiondiv = getCurrentsectiondiv();
-        currentSectiondiv.appendChild(secion5rigthTop);
-        // document.querySelector('.overlay').style.display = 'flex'; 
-        const textElement = document.getElementById("section4ReadHelpText");
-        textElement.classList.add("active"); 
-        const overlay = document.querySelector('.overlay');
-        if (overlay) {
-        overlay.remove();
-        }
-        const currentSection = getCurrentSection();
-        console.log('insection',currentSection);
-        if (currentSection === 'section4' || currentSection === 'section5' || currentSection === 'section6') {
-            AddOverlay(currentSection);
-            switch(currentSection){
-                case "section4":
-                    currentAudio.muted=section4muted;
-                break;
-                case "section5":
-                    currentAudio.muted=section5mute;
-                break;
-                case "section6":
-                    currentAudio.muted=section6muted;
-                break;
+    // document.getElementById('section4ReadHelp').addEventListener('click', function() {
+    //     const currentSectiondiv = getCurrentsectiondiv();
+    //     currentSectiondiv.appendChild(secion5rigthTop);
+    //     // document.querySelector('.overlay').style.display = 'flex'; 
+    //     const textElement = document.getElementById("section4ReadHelpText");
+    //     textElement.classList.add("active"); 
+    //     const overlay = document.querySelector('.overlay');
+    //     if (overlay) {
+    //     overlay.remove();
+    //     }
+    //     const currentSection = getCurrentSection();
+    //     console.log('insection',currentSection);
+    //     if (currentSection === 'section4' || currentSection === 'section5' || currentSection === 'section6') {
+    //         AddOverlay(currentSection);
+    //         switch(currentSection){
+    //             case "section4":
+    //                 currentAudio.muted=section4muted;
+    //             break;
+    //             case "section5":
+    //                 currentAudio.muted=section5mute;
+    //             break;
+    //             case "section6":
+    //                 currentAudio.muted=section6muted;
+    //             break;
 
-            }
+    //         }
 
-        }
+    //     }
         
         
-    });
+    // });
 
 
-    document.getElementById('section4Help').addEventListener('click', function() {
-        // document.querySelector('.overlay2').style.display = 'block'; // Hide overlay
-        const currentSectiondiv = getCurrentsectiondiv();
-        currentSectiondiv.appendChild(secion5rigthTop);
-        const textElement = document.getElementById("section4HelpText");
-        textElement.classList.add("active"); 
-        const overlay = document.querySelector('.overlay2');
-        if (overlay) {
-        overlay.remove();
-        }
-        const currentSection = getCurrentSection();
-        console.log('insection',currentSection);
-        if (currentSection === 'section4' || currentSection === 'section5' || currentSection === 'section6') {
-            AddOverlayRead(currentSection);
-        }
-    });
+    // document.getElementById('section4Help').addEventListener('click', function() {
+    //     // document.querySelector('.overlay2').style.display = 'block'; // Hide overlay
+    //     const currentSectiondiv = getCurrentsectiondiv();
+    //     currentSectiondiv.appendChild(secion5rigthTop);
+    //     const textElement = document.getElementById("section4HelpText");
+    //     textElement.classList.add("active"); 
+    //     const overlay = document.querySelector('.overlay2');
+    //     if (overlay) {
+    //     overlay.remove();
+    //     }
+    //     const currentSection = getCurrentSection();
+    //     console.log('insection',currentSection);
+    //     if (currentSection === 'section4' || currentSection === 'section5' || currentSection === 'section6') {
+    //         AddOverlayRead(currentSection);
+    //     }
+    // });
 
 
 
-    function AddOverlay(section){
+    // function AddOverlay(section){
 
-        const insection = document.getElementById(section);
-        // Create overlay element
-        const overlay = document.createElement('div');
-        overlay.className = 'overlay';
-        overlay.style.display = 'none';
-        overlay.innerHTML = `
+    //     const insection = document.getElementById(section);
+    //     // Create overlay element
+    //     const overlay = document.createElement('div');
+    //     overlay.className = 'overlay';
+    //     overlay.style.display = 'none';
+    //     overlay.innerHTML = `
          
         
-        <div class="image-container" id="popupWindow">
-        <img src="assets/Slides_25-35/Popup_window.png" alt="PopupWindow" />
-                <!-- Close Button -->
-        <button id="closePopupBtn" class="close-btn">
-            <img src="assets/Slides_25-35/Popup_window_close.png" alt="Close" />
-        </button>
-        <!-- New Headings -->
-        <div class="headings-container">
-            <h1 class="heading heading-1">Language Help</h1>
-        </div>
-        <div class="headings-container2">
-            <h1 class="heading heading-1">Important Words and Phrases</h1>
-        </div>
-            <!-- Country Selector Container -->
-        <div id="country-container">
-            <div class="country-list">
-                <button class="country-btn" data-clicked="assets/Slides_25-35/English_selected.png" data-unclicked="assets/Slides_25-35/English.png">
-                    <img src="assets/Slides_25-35/English_selected.png" alt="English" />
-                    <p id="section4countryText">English</p>
+    //     <div class="image-container" id="popupWindow">
+    //     <img src="assets/Slides_25-35/Popup_window.png" alt="PopupWindow" />
+    //             <!-- Close Button -->
+    //     <button id="closePopupBtn" class="close-btn">
+    //         <img src="assets/Slides_25-35/Popup_window_close.png" alt="Close" />
+    //     </button>
+    //     <!-- New Headings -->
+    //     <div class="headings-container">
+    //         <h1 class="heading heading-1">Language Help</h1>
+    //     </div>
+    //     <div class="headings-container2">
+    //         <h1 class="heading heading-1">Important Words and Phrases</h1>
+    //     </div>
+    //         <!-- Country Selector Container -->
+    //     <div id="country-container">
+    //         <div class="country-list">
+    //             <button class="country-btn" data-clicked="assets/Slides_25-35/English_selected.png" data-unclicked="assets/Slides_25-35/English.png">
+    //                 <img src="assets/Slides_25-35/English_selected.png" alt="English" />
+    //                 <p id="section4countryText">English</p>
 
-                </button>
-            </div>
-            <div class="country-list">
-                <button class="country-btn"  data-clicked="assets/Slides_25-35/Spanish_selected.png" data-unclicked="assets/Slides_25-35/Spanish.png">
-                    <img src="assets/Slides_25-35/Spanish.png" alt="English" />
-                    <p id="section4countryText">Spanish</p>
+    //             </button>
+    //         </div>
+    //         <div class="country-list">
+    //             <button class="country-btn"  data-clicked="assets/Slides_25-35/Spanish_selected.png" data-unclicked="assets/Slides_25-35/Spanish.png">
+    //                 <img src="assets/Slides_25-35/Spanish.png" alt="English" />
+    //                 <p id="section4countryText">Spanish</p>
 
-                </button>
-            </div>
-            <div class="country-list">
-            <button class="country-btn"  data-clicked="assets/Slides_25-35/Tagalog_selected.png" data-unclicked="assets/Slides_25-35/Tagalog.png">
-                <img src="assets/Slides_25-35/Tagalog.png" alt="English" />
-                <p id="section4countryText">Tagalog</p>
+    //             </button>
+    //         </div>
+    //         <div class="country-list">
+    //         <button class="country-btn"  data-clicked="assets/Slides_25-35/Tagalog_selected.png" data-unclicked="assets/Slides_25-35/Tagalog.png">
+    //             <img src="assets/Slides_25-35/Tagalog.png" alt="English" />
+    //             <p id="section4countryText">Tagalog</p>
 
-                </button>
-            </div>
-            <div class="country-list">
-                <button class="country-btn"  data-clicked="assets/Slides_25-35/Cantonese_selected.png" data-unclicked="assets/Slides_25-35/Cantonese.png">
-                    <img src="assets/Slides_25-35/Cantonese.png" alt="English" />
-                    <p id="section4countryText">Cantonese</p>
+    //             </button>
+    //         </div>
+    //         <div class="country-list">
+    //             <button class="country-btn"  data-clicked="assets/Slides_25-35/Cantonese_selected.png" data-unclicked="assets/Slides_25-35/Cantonese.png">
+    //                 <img src="assets/Slides_25-35/Cantonese.png" alt="English" />
+    //                 <p id="section4countryText">Cantonese</p>
 
-                </button>
-            </div>
-            <div class="country-list">
-            <button class="country-btn"  data-clicked="assets/Slides_25-35/Mandarin_selected.png" data-unclicked="assets/Slides_25-35/Mandarin.png">
-                <img src="assets/Slides_25-35/Mandarin.png" alt="English" />
-                <p id="section4countryText">Mandarin</p>
+    //             </button>
+    //         </div>
+    //         <div class="country-list">
+    //         <button class="country-btn"  data-clicked="assets/Slides_25-35/Mandarin_selected.png" data-unclicked="assets/Slides_25-35/Mandarin.png">
+    //             <img src="assets/Slides_25-35/Mandarin.png" alt="English" />
+    //             <p id="section4countryText">Mandarin</p>
 
-                </button>
-            </div>
-        </div>
-        <div class="language-help">
-            <div class="content">
-                <div class="phrases-container">
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                            <div class="audio-btn" id="lang-audiobtn" data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                            </div>
-                            <div class="phrase-word">Kelp</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">algae and seaweed that live in the ocean</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>
-                        <div class="phrase-word">Shallow</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">Not very deep</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>                              
-                        <div class="phrase-word">Nutrient:</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">Nourishment that helps things grow</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>                              
-                        <div class="phrase-word">Nutrient-rich:</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">having many nutrients</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>                              
-                        <div class="phrase-word">Environment:</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">what surrounds a plant or animal; where a plant or animal lives</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>                              
-                        <div class="phrase-word">Photosynthesis:</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">a process where plants use sunlight to make food</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>                              
-                        <div class="phrase-word">Herbivore:</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">an animal that feeds on plants</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    //             </button>
+    //         </div>
+    //     </div>
+    //     <div class="language-help">
+    //         <div class="content">
+    //             <div class="phrases-container">
+    //                 <div class="phrase-row">
+    //                     <div class="phrase-box">
+    //                         <div class="audio-btn" id="lang-audiobtn" data-audio="assets/audio/kelp.mp3">
+    //                         <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+    //                         </div>
+    //                         <div class="phrase-word">Kelp</div>
+    //                     </div>
+    //                     <div class="phrase-box2">
+    //                         <div class="phrase-definition">algae and seaweed that live in the ocean</div>
+    //                     </div>
+    //                 </div>
+    //                 <div class="divider"></div>
+    //                 <div class="phrase-row">
+    //                     <div class="phrase-box">
+    //                     <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+    //                         <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+    //                     </div>
+    //                     <div class="phrase-word">Shallow</div>
+    //                     </div>
+    //                     <div class="phrase-box2">
+    //                         <div class="phrase-definition">Not very deep</div>
+    //                     </div>
+    //                 </div>
+    //                 <div class="divider"></div>
+    //                 <div class="phrase-row">
+    //                     <div class="phrase-box">
+    //                     <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+    //                         <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+    //                     </div>                              
+    //                     <div class="phrase-word">Nutrient:</div>
+    //                     </div>
+    //                     <div class="phrase-box2">
+    //                         <div class="phrase-definition">Nourishment that helps things grow</div>
+    //                     </div>
+    //                 </div>
+    //                 <div class="divider"></div>
+    //                 <div class="phrase-row">
+    //                     <div class="phrase-box">
+    //                     <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+    //                         <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+    //                     </div>                              
+    //                     <div class="phrase-word">Nutrient-rich:</div>
+    //                     </div>
+    //                     <div class="phrase-box2">
+    //                         <div class="phrase-definition">having many nutrients</div>
+    //                     </div>
+    //                 </div>
+    //                 <div class="divider"></div>
+    //                 <div class="phrase-row">
+    //                     <div class="phrase-box">
+    //                     <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+    //                         <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+    //                     </div>                              
+    //                     <div class="phrase-word">Environment:</div>
+    //                     </div>
+    //                     <div class="phrase-box2">
+    //                         <div class="phrase-definition">what surrounds a plant or animal; where a plant or animal lives</div>
+    //                     </div>
+    //                 </div>
+    //                 <div class="divider"></div>
+    //                 <div class="phrase-row">
+    //                     <div class="phrase-box">
+    //                     <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+    //                         <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+    //                     </div>                              
+    //                     <div class="phrase-word">Photosynthesis:</div>
+    //                     </div>
+    //                     <div class="phrase-box2">
+    //                         <div class="phrase-definition">a process where plants use sunlight to make food</div>
+    //                     </div>
+    //                 </div>
+    //                 <div class="divider"></div>
+    //                 <div class="phrase-row">
+    //                     <div class="phrase-box">
+    //                     <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+    //                         <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+    //                     </div>                              
+    //                     <div class="phrase-word">Herbivore:</div>
+    //                     </div>
+    //                     <div class="phrase-box2">
+    //                         <div class="phrase-definition">an animal that feeds on plants</div>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     </div>
         
-        </div>
+    //     </div>
         
      
-        `;
+    //     `;
 
-        // Append overlay to section4
-        insection.appendChild(overlay);
-        const images = overlay.querySelectorAll('img');
-        let imagesLoaded = 0
-        images.forEach((img) => {
-            img.onload = () => {
-                imagesLoaded++;
-                if (imagesLoaded === images.length) {
-                    overlay.style.display = 'flex'; // Show overlay after all images are loaded
-                }
-            };
-        });
-        // overlay.style.display='flex';
+    //     // Append overlay to section4
+    //     insection.appendChild(overlay);
+    //     const images = overlay.querySelectorAll('img');
+    //     let imagesLoaded = 0
+    //     images.forEach((img) => {
+    //         img.onload = () => {
+    //             imagesLoaded++;
+    //             if (imagesLoaded === images.length) {
+    //                 overlay.style.display = 'flex'; // Show overlay after all images are loaded
+    //             }
+    //         };
+    //     });
+    //     // overlay.style.display='flex';
 
 
-        document.getElementById('closePopupBtn').addEventListener('click', function() {
-            document.querySelector('.overlay').remove();
-            section4.appendChild(secion5rigthTop);
-            if(!section4languageguidedoonce){
-                section4dialogText.innerHTML = "<span style='color: red;'>Select hotspots. You'll collect a starfish for completing each.</span>";
-                adjustSection4ImageHeight();
-                audio10.play().catch((error) => {
-                    console.error('Error playing audio:', error);
-                });
-                document.getElementById('section4ReadHelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
-                section4languageguidedoonce=!section4languageguidedoonce;
-            }
+    //     document.getElementById('closePopupBtn').addEventListener('click', function() {
+    //         document.querySelector('.overlay').remove();
+    //         section4.appendChild(secion5rigthTop);
+    //         if(!section4languageguidedoonce){
+    //             section4dialogText.innerHTML = "<span style='color: red;'>Select hotspots. You'll collect a starfish for completing each.</span>";
+    //             adjustSection4ImageHeight();
+    //             audio10.play().catch((error) => {
+    //                 console.error('Error playing audio:', error);
+    //             });
+    //             document.getElementById('section4ReadHelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
+    //             section4languageguidedoonce=!section4languageguidedoonce;
+    //         }
     
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio.currentTime = 0;
-                currentAudio = new Audio();
-            }
-            const textElement = document.getElementById("section4ReadHelpText");
-            textElement.classList.remove("active"); 
+    //         if (currentAudio) {
+    //             currentAudio.pause();
+    //             currentAudio.currentTime = 0;
+    //             currentAudio = new Audio();
+    //         }
+    //         const textElement = document.getElementById("section4ReadHelpText");
+    //         textElement.classList.remove("active"); 
             
-        });
+    //     });
 
-            //COUNTRY BUTTON CLICK AND UNCLICK IMAGE CHANGE
-        // Define the data for each language
-        const countryData = {
-        English: [
-        { word: "Kelp", definition: "algae and seaweed that live in the ocean",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/kelp._algae_and_seaweed_th.mp3" },
-        { word: "Shallow", definition: "Not very deep",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/shallow._not_very_deep__.mp3"},
-        { word: "Nutrient", definition: "Nourishment that helps things grow",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/nutrient._nourishment_that.mp3" },
-        { word: "Nutrient-rich", definition: "having many nutrients",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/nutrientrich._having_many.mp3" },
-        { word: "Environment", definition: "what surrounds a plant or animal; where a plant or animal lives",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/environment._what_surround.mp3"},
-        { word: "Photosynthesis", definition: "a process where plants use sunlight to make food",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/photosynthesis._a_process_.mp3"},
-        { word: "Herbivore", definition: "an animal that feeds on plants",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/herbivore._an_animal_that_.mp3" },
-        ],
-        Spanish: [
-        { word: "Quelpo", definition: "algas y algas que viven en el océano",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/quelpo.__algas_y_algas_que_v.mp3"},
-        { word: "Poco profundo", definition: "No muy profundo" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/Poco_profundo._No_muy_profun.mp3"},
-        { word: "Nutritivo", definition: "alimento que ayuda a las cosas a crecer",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/nutritivo._alimento_que_ayud.mp3" },
-        { word: "Rica en nutrientes", definition: "tener muchos nutrientes" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/Rica_en_nutrientes._tener_mu.mp3"},
-        { word: "Ambiente", definition: "lo que rodea a una planta o animal; donde vive una planta o un animal",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/ambiente._lo_que_rodea_a_una.mp3" },
-        { word: "Fotosíntesis", definition: "Un proceso en el que las plantas utilizan la luz solar para producir alimentos",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/fotosíntesis._Un_proceso_en_.mp3" },
-        { word: "Herbívoro", definition: "un animal que se alimenta de plantas" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/herbívoro._un_animal_que_se_.mp3"},
-        ],
-        Tagalog: [
-        { word: "Kelp", definition: "algae at seaweed na nabubuhay sa karagatan",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/kelp._algae_at_seaweed_na_na.mp3" },
-        { word: "Mababaw", definition: "hindi masyadong malalim",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/mababaw._hindi_masyadong_mal.mp3"  },
-        { word: "Nakapagpapalusog", definition: "pagpapakain na tumutulong sa mga bagay na lumago",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/nakapagpapalusog._pagpapakai.mp3"  },
-        { word: "Mayaman sa sustansya", definition: "pagkakaroon ng maraming sustansya",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/mayaman_sa_sustansya._pagkak.mp3"  },
-        { word: "Kapaligiran", definition: "kung ano ang nakapaligid sa isang halaman o hayop; kung saan nakatira ang isang halaman o hayop",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/kapaligiran._kung_ano_ang_na.mp3"  },
-        { word: "Potosintesis", definition: "isang proseso kung saan ginagamit ng mga halaman ang sikat ng araw sa paggawa ng pagkain",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/potosintesis._isang_proseso_.mp3"  },
-        { word: "Herbivore", definition: "isang hayop na kumakain ng mga halaman",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/herbivore._isang_hayop_na_ku.mp3"  },
-        ],
-        Cantonese: [
-        { word: "海帶", definition: "生活喺海洋入面嘅藻類同海藻",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio02.mp3"  },
-        { word: "淺", definition: "唔係好深",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio03.mp3"  },
-        { word: "營養", definition: "幫助事物生長嘅滋養",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio04.mp3"  },
-        { word: "營養豐富", definition: "有好多營養",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio05.mp3"  },
-        { word: "環境", definition: "植物或動物周圍嘅嘢；植物或動物住嘅地方",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio06.mp3"  },
-        { word: "光合作用", definition: "植物用陽光嚟製造食物嘅過程",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio07.mp3"  },
-        { word: "食草動物", definition: "以植物為食嘅動物",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio08.mp3"  },
-        ],
-        Mandarin: [
-        { word: "海带", definition: "生活在海洋中的藻类和海藻",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio02.mp3"  },
-        { word: "浅的", definition: "不是很深",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio03.mp3" },
-        { word: "养分", definition: "帮助事物生长的营养",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio04.mp3" },
-        { word: "营养丰富", definition: "有很多营养成分",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio05.mp3" },
-        { word: "环境", definition: "植物或动物周围有什么；植物或动物生活的地方",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio06.mp3" },
-        { word: "光合作用", definition: "植物利用阳光制造食物的过程",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio07.mp3" },
-        { word: "食草动物", definition: "以植物为食的动物",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio08.mp3" },
-        ],
-        };
+    //         //COUNTRY BUTTON CLICK AND UNCLICK IMAGE CHANGE
+    //     // Define the data for each language
+    //     const countryData = {
+    //     English: [
+    //     { word: "Kelp", definition: "algae and seaweed that live in the ocean",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/kelp._algae_and_seaweed_th.mp3" },
+    //     { word: "Shallow", definition: "Not very deep",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/shallow._not_very_deep__.mp3"},
+    //     { word: "Nutrient", definition: "Nourishment that helps things grow",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/nutrient._nourishment_that.mp3" },
+    //     { word: "Nutrient-rich", definition: "having many nutrients",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/nutrientrich._having_many.mp3" },
+    //     { word: "Environment", definition: "what surrounds a plant or animal; where a plant or animal lives",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/environment._what_surround.mp3"},
+    //     { word: "Photosynthesis", definition: "a process where plants use sunlight to make food",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/photosynthesis._a_process_.mp3"},
+    //     { word: "Herbivore", definition: "an animal that feeds on plants",audiopath:"assets/audio/Audios/Language_Help_Audios/English_Artist_Christopher/herbivore._an_animal_that_.mp3" },
+    //     ],
+    //     Spanish: [
+    //     { word: "Quelpo", definition: "algas y algas que viven en el océano",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/quelpo.__algas_y_algas_que_v.mp3"},
+    //     { word: "Poco profundo", definition: "No muy profundo" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/Poco_profundo._No_muy_profun.mp3"},
+    //     { word: "Nutritivo", definition: "alimento que ayuda a las cosas a crecer",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/nutritivo._alimento_que_ayud.mp3" },
+    //     { word: "Rica en nutrientes", definition: "tener muchos nutrientes" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/Rica_en_nutrientes._tener_mu.mp3"},
+    //     { word: "Ambiente", definition: "lo que rodea a una planta o animal; donde vive una planta o un animal",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/ambiente._lo_que_rodea_a_una.mp3" },
+    //     { word: "Fotosíntesis", definition: "Un proceso en el que las plantas utilizan la luz solar para producir alimentos",audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/fotosíntesis._Un_proceso_en_.mp3" },
+    //     { word: "Herbívoro", definition: "un animal que se alimenta de plantas" ,audiopath:"assets/audio/Audios/Language_Help_Audios/Spanish_Artist_Mimi/herbívoro._un_animal_que_se_.mp3"},
+    //     ],
+    //     Tagalog: [
+    //     { word: "Kelp", definition: "algae at seaweed na nabubuhay sa karagatan",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/kelp._algae_at_seaweed_na_na.mp3" },
+    //     { word: "Mababaw", definition: "hindi masyadong malalim",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/mababaw._hindi_masyadong_mal.mp3"  },
+    //     { word: "Nakapagpapalusog", definition: "pagpapakain na tumutulong sa mga bagay na lumago",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/nakapagpapalusog._pagpapakai.mp3"  },
+    //     { word: "Mayaman sa sustansya", definition: "pagkakaroon ng maraming sustansya",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/mayaman_sa_sustansya._pagkak.mp3"  },
+    //     { word: "Kapaligiran", definition: "kung ano ang nakapaligid sa isang halaman o hayop; kung saan nakatira ang isang halaman o hayop",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/kapaligiran._kung_ano_ang_na.mp3"  },
+    //     { word: "Potosintesis", definition: "isang proseso kung saan ginagamit ng mga halaman ang sikat ng araw sa paggawa ng pagkain",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/potosintesis._isang_proseso_.mp3"  },
+    //     { word: "Herbivore", definition: "isang hayop na kumakain ng mga halaman",audiopath:"assets/audio/Audios/Language_Help_Audios/Tagalog-Filipino_Artist_Amanda/herbivore._isang_hayop_na_ku.mp3"  },
+    //     ],
+    //     Cantonese: [
+    //     { word: "海帶", definition: "生活喺海洋入面嘅藻類同海藻",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio02.mp3"  },
+    //     { word: "淺", definition: "唔係好深",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio03.mp3"  },
+    //     { word: "營養", definition: "幫助事物生長嘅滋養",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio04.mp3"  },
+    //     { word: "營養豐富", definition: "有好多營養",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio05.mp3"  },
+    //     { word: "環境", definition: "植物或動物周圍嘅嘢；植物或動物住嘅地方",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio06.mp3"  },
+    //     { word: "光合作用", definition: "植物用陽光嚟製造食物嘅過程",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio07.mp3"  },
+    //     { word: "食草動物", definition: "以植物為食嘅動物",audiopath:"assets/audio/Audios/Language_Help_Audios/Contonese_Artist_Adam/Audio08.mp3"  },
+    //     ],
+    //     Mandarin: [
+    //     { word: "海带", definition: "生活在海洋中的藻类和海藻",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio02.mp3"  },
+    //     { word: "浅的", definition: "不是很深",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio03.mp3" },
+    //     { word: "养分", definition: "帮助事物生长的营养",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio04.mp3" },
+    //     { word: "营养丰富", definition: "有很多营养成分",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio05.mp3" },
+    //     { word: "环境", definition: "植物或动物周围有什么；植物或动物生活的地方",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio06.mp3" },
+    //     { word: "光合作用", definition: "植物利用阳光制造食物的过程",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio07.mp3" },
+    //     { word: "食草动物", definition: "以植物为食的动物",audiopath:"assets/audio/Audios/Language_Help_Audios/Mandarin_Chinese_Artist_Barry/Audio08.mp3" },
+    //     ],
+    //     };
     
-    // Function to dynamically update phrases based on selected language
-        function updatePhrases(language) {
-            const phraseRows = document.querySelectorAll('.phrase-row');
-            const audioparameter= document.querySelectorAll(".audio-btn");
-            // Get the phrases for the selected language
-            const phrases = countryData[language];
+    // // Function to dynamically update phrases based on selected language
+    //     function updatePhrases(language) {
+    //         const phraseRows = document.querySelectorAll('.phrase-row');
+    //         const audioparameter= document.querySelectorAll(".audio-btn");
+    //         // Get the phrases for the selected language
+    //         const phrases = countryData[language];
         
-            phraseRows.forEach((row, index) => {
-                if (phrases[index]) {
-                    // Update the word and definition
-                    row.querySelector('.phrase-word').textContent = phrases[index].word; // Update the word
-                    row.querySelector('.phrase-definition').textContent = phrases[index].definition; // Update the definition
-                }
-            });
-            audioparameter.forEach((row, index) => {
-                if (phrases[index]) {
-                    row.setAttribute("data-audio", phrases[index].audiopath);
-                }
-            });
+    //         phraseRows.forEach((row, index) => {
+    //             if (phrases[index]) {
+    //                 // Update the word and definition
+    //                 row.querySelector('.phrase-word').textContent = phrases[index].word; // Update the word
+    //                 row.querySelector('.phrase-definition').textContent = phrases[index].definition; // Update the definition
+    //             }
+    //         });
+    //         audioparameter.forEach((row, index) => {
+    //             if (phrases[index]) {
+    //                 row.setAttribute("data-audio", phrases[index].audiopath);
+    //             }
+    //         });
     
-        }
-    
-    
-    // Add event listeners to the country buttons
-        document.querySelectorAll('.country-btn').forEach(button => {
-        button.addEventListener('click', () => {
-        // Reset all buttons to their unclicked state
-        document.querySelectorAll('.country-btn').forEach(btn => {
-            const img = btn.querySelector('img');
-            img.src = btn.getAttribute('data-unclicked'); // Set to unclicked image
-        });
-    
-        // Set clicked button to its clicked state
-        const clickedImg = button.querySelector('img');
-        clickedImg.src = button.getAttribute('data-clicked'); // Set to clicked image
-    
-        // Update phrases based on selected language
-        const language = button.querySelector('p').textContent.trim(); // Get language name from button text
-        updatePhrases(language);
-        });
-        });
+    //     }
     
     
+    // // Add event listeners to the country buttons
+    //     document.querySelectorAll('.country-btn').forEach(button => {
+    //     button.addEventListener('click', () => {
+    //     // Reset all buttons to their unclicked state
+    //     document.querySelectorAll('.country-btn').forEach(btn => {
+    //         const img = btn.querySelector('img');
+    //         img.src = btn.getAttribute('data-unclicked'); // Set to unclicked image
+    //     });
     
-    // Play audio when an audio-btn is clicked
-        document.querySelectorAll(".audio-btn").forEach((button) => {
-            button.addEventListener("click", () => {
-            const audioSrc = button.getAttribute("data-audio");
+    //     // Set clicked button to its clicked state
+    //     const clickedImg = button.querySelector('img');
+    //     clickedImg.src = button.getAttribute('data-clicked'); // Set to clicked image
     
-            // Stop current audio if playing
-            if (currentAudio) {
-                currentAudio.pause();
-                currentAudio.currentTime = 0;
-            }
+    //     // Update phrases based on selected language
+    //     const language = button.querySelector('p').textContent.trim(); // Get language name from button text
+    //     updatePhrases(language);
+    //     });
+    //     });
     
-            // Create a new audio instance and play it
-            currentAudio.src=audioSrc;
-            currentAudio.play().catch((err) => {
-                console.error("Audio playback failed:", err);
-            });
-            });
-        });
+    
+    
+    // // Play audio when an audio-btn is clicked
+    //     document.querySelectorAll(".audio-btn").forEach((button) => {
+    //         button.addEventListener("click", () => {
+    //         const audioSrc = button.getAttribute("data-audio");
+    
+    //         // Stop current audio if playing
+    //         if (currentAudio) {
+    //             currentAudio.pause();
+    //             currentAudio.currentTime = 0;
+    //         }
+    
+    //         // Create a new audio instance and play it
+    //         currentAudio.src=audioSrc;
+    //         currentAudio.play().catch((err) => {
+    //             console.error("Audio playback failed:", err);
+    //         });
+    //         });
+    //     });
 
-        updatePhrases("English");
+    //     updatePhrases("English");
 
-    }
+    // }
 
-    function AddOverlayRead(section){
-        const insection = document.getElementById(section);
-        // Create overlay element
-    const overlay = document.createElement('div');
-    overlay.className = 'overlay2';
-    overlay.innerHTML = `
+    // function AddOverlayRead(section){
+    //     const insection = document.getElementById(section);
+    //     // Create overlay element
+    // const overlay = document.createElement('div');
+    // overlay.className = 'overlay2';
+    // overlay.innerHTML = `
      
-    <!-- Close Button -->
-    <button id="closePopupBtn2" class="close-btn">
-        <img src="assets/Slides_25-35/Popup_window_close.png" alt="Close" />
-    </button>
-    <div class="contentContainer">
-        <img src="assets/Slides_25-35/Popup_window.png" alt="Reading Help Background" class="backgroundImage">
-        <div class="readingHelpTitle">Reading Help</div>
-        <div class="helpContent">
-            <p>• Kelp are algae and seaweed. Kelp are found in large batches called 
-                <span class="underline" onclick="showPopup(1)">forests</span>.
-            </p>
-            <p>• Kelp grows in an shallow <span class="underline" onclick="showPopup(2)">nutrient-rich enviroment</span>. where sunlight can reach.</p>
-            <p>• Kelp absorb its nutrients from the sun and waters around it. It uses photosynthesis to make its own food.Things that <span class="underline" onclick="showPopup(3)">consume</span>, or eat, kelp are marine <span class="underline" onclick="showPopup(4)">herbivores</span>(something that eat plants).Sea urchins,mollusks, and some fish species also consume kelp.</p>
-        </div>
-    </div>
-        <!-- Popup -->
-        <div id="popup1" class="popup">
-        <div class="popupContainer">
-            <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup1">
-            <button onclick="hidePopup('popup1')">✖</button>
-            <div id="grassImage">
-                <img src="assets/Slides_25-35/Photo01.png" alt="GrassImage" />
-                <p>A large grouping of kelp that provides food and shelter for many other species.</p>
-            </div>
-        </div>
-        </div>
-        <div id="popup2" class="popup">
-        <div class="popupContainer">
-            <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup2">
-            <button onclick="hidePopup('popup2')">✖</button>
-            <div id="grassImage">
-                <img src="assets/Slides_25-35/Photo02.png" alt="GrassImage" />
-                <p>An environment that has lots of important elements like nitrogen, carbon, phosphorus, sulfur, and potassium.</p>
-            </div>
-        </div>
-        </div>
-        <div id="popup3" class="popup">
-        <div class="popupContainer">
-            <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup3">
-            <button onclick="hidePopup('popup3')">✖</button>
-            <div id="grassImage3">
-                <img src="assets/Slides_25-35/Photo03.png" alt="GrassImage" />
-                <p>To eat or drink something.</p>
-            </div>
-        </div>
-        </div>
-        <div id="popup4" class="popup">
-    <div class="popupContainer">
-        <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup4">
-        <button onclick="hidePopup('popup4')">✖</button>
-        <div id="grassImage4"  >
-            <img src="assets/Slides_25-35/Photo04.png" alt="GrassImage" />
-            <p>An animal that feeds on plants.</p>
-        </div>
-    </div>
-        </div>
+    // <!-- Close Button -->
+    // <button id="closePopupBtn2" class="close-btn">
+    //     <img src="assets/Slides_25-35/Popup_window_close.png" alt="Close" />
+    // </button>
+    // <div class="contentContainer">
+    //     <img src="assets/Slides_25-35/Popup_window.png" alt="Reading Help Background" class="backgroundImage">
+    //     <div class="readingHelpTitle">Reading Help</div>
+    //     <div class="helpContent">
+    //         <p>• Kelp are algae and seaweed. Kelp are found in large batches called 
+    //             <span class="underline" onclick="showPopup(1)">forests</span>.
+    //         </p>
+    //         <p>• Kelp grows in an shallow <span class="underline" onclick="showPopup(2)">nutrient-rich enviroment</span>. where sunlight can reach.</p>
+    //         <p>• Kelp absorb its nutrients from the sun and waters around it. It uses photosynthesis to make its own food.Things that <span class="underline" onclick="showPopup(3)">consume</span>, or eat, kelp are marine <span class="underline" onclick="showPopup(4)">herbivores</span>(something that eat plants).Sea urchins,mollusks, and some fish species also consume kelp.</p>
+    //     </div>
+    // </div>
+    //     <!-- Popup -->
+    //     <div id="popup1" class="popup">
+    //     <div class="popupContainer">
+    //         <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup1">
+    //         <button onclick="hidePopup('popup1')">✖</button>
+    //         <div id="grassImage">
+    //             <img src="assets/Slides_25-35/Photo01.png" alt="GrassImage" />
+    //             <p>A large grouping of kelp that provides food and shelter for many other species.</p>
+    //         </div>
+    //     </div>
+    //     </div>
+    //     <div id="popup2" class="popup">
+    //     <div class="popupContainer">
+    //         <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup2">
+    //         <button onclick="hidePopup('popup2')">✖</button>
+    //         <div id="grassImage">
+    //             <img src="assets/Slides_25-35/Photo02.png" alt="GrassImage" />
+    //             <p>An environment that has lots of important elements like nitrogen, carbon, phosphorus, sulfur, and potassium.</p>
+    //         </div>
+    //     </div>
+    //     </div>
+    //     <div id="popup3" class="popup">
+    //     <div class="popupContainer">
+    //         <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup3">
+    //         <button onclick="hidePopup('popup3')">✖</button>
+    //         <div id="grassImage3">
+    //             <img src="assets/Slides_25-35/Photo03.png" alt="GrassImage" />
+    //             <p>To eat or drink something.</p>
+    //         </div>
+    //     </div>
+    //     </div>
+    //     <div id="popup4" class="popup">
+    // <div class="popupContainer">
+    //     <img src="assets/Slides_25-35/Reading_Help_popup.png" alt="Popup4">
+    //     <button onclick="hidePopup('popup4')">✖</button>
+    //     <div id="grassImage4"  >
+    //         <img src="assets/Slides_25-35/Photo04.png" alt="GrassImage" />
+    //         <p>An animal that feeds on plants.</p>
+    //     </div>
+    // </div>
+    //     </div>
     
  
-    `;
+    // `;
 
-    // Append overlay to section4
-    insection.appendChild(overlay);
-    const images = overlay.querySelectorAll('img');
-    let imagesLoaded = 0
-    images.forEach((img) => {
-        img.onload = () => {
-            imagesLoaded++;
-            if (imagesLoaded === images.length) {
-                overlay.style.display = 'block'; // Show overlay after all images are loaded
-            }
-        };
-    });
-        // document.querySelectorAll('.overlay2').forEach(element => {
-        //     element.style.display = 'block';
-        // });
+    // // Append overlay to section4
+    // insection.appendChild(overlay);
+    // const images = overlay.querySelectorAll('img');
+    // let imagesLoaded = 0
+    // images.forEach((img) => {
+    //     img.onload = () => {
+    //         imagesLoaded++;
+    //         if (imagesLoaded === images.length) {
+    //             overlay.style.display = 'block'; // Show overlay after all images are loaded
+    //         }
+    //     };
+    // });
+    //     // document.querySelectorAll('.overlay2').forEach(element => {
+    //     //     element.style.display = 'block';
+    //     // });
 
-    document.getElementById('closePopupBtn2').addEventListener('click', function() {
-            section4.appendChild(secion5rigthTop);
-            const textElement = document.getElementById("section4HelpText");
-            textElement.classList.remove("active"); 
-            document.querySelector('.overlay2').style.display = 'none'; // Hide overlay
+    // document.getElementById('closePopupBtn2').addEventListener('click', function() {
+    //         section4.appendChild(secion5rigthTop);
+    //         const textElement = document.getElementById("section4HelpText");
+    //         textElement.classList.remove("active"); 
+    //         document.querySelector('.overlay2').style.display = 'none'; // Hide overlay
 
-            if(!section4readguidedoonce){
-                section4dialogText.innerHTML = "You can choose a language for translations. Explore and learn!";
-                adjustSection4ImageHeight();
-                audio8.play().catch((error) => {
-                    console.error('Error playing audio:', error);
-                });
-                section4readguidedoonce=!section4readguidedoonce;
-                document.getElementById('section4HelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
+    //         if(!section4readguidedoonce){
+    //             section4dialogText.innerHTML = "You can choose a language for translations. Explore and learn!";
+    //             adjustSection4ImageHeight();
+    //             audio8.play().catch((error) => {
+    //                 console.error('Error playing audio:', error);
+    //             });
+    //             section4readguidedoonce=!section4readguidedoonce;
+    //             document.getElementById('section4HelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
 
-            }
+    //         }
 
-        });
-    }
+    //     });
+    // }
 
 
 
@@ -1566,6 +1578,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //5th
+    
+
     function enablesection5video(){
         section5.style.display="block"
         document.getElementById("section4nextImage").style.display="block";

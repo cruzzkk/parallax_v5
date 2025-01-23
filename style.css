@@ -49,107 +49,104 @@ body {
 
 
 
-/* Container for Buttons */
-.Topright {
+ /* .Topright {
     position: absolute;
     top: 0%;
     right: 1%;
-    width: 6%; /* Adjust width of the container */
-    height: 30%; /* Set height to fit the buttons */
+    width: 6%;  
+    height: 30%; 
     background-color: #16b65300;
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack buttons vertically */
-    justify-content: center; /* Distribute buttons evenly */
-    align-items: center; /* Center buttons horizontally */
-    border-radius: 1%; /* Optional: Rounded corners */
+    display: flex; 
+    flex-direction: column;  
+    justify-content: center; 
+    align-items: center;  
+    border-radius: 1%;  
     cursor: pointer;
     gap: 3%;
 }
 
-/* Individual Button Containers */
-.righttop-container {
-    width: 60%; /* Scale button size relative to the container */
+ .righttop-container {
+    width: 60%;  
     height: auto;
-    transition: transform 0.2s ease-out; /* Smooth scaling on hover */
+    transition: transform 0.2s ease-out;  
 }
 
 .righttop-container img {
-    width: 100%; /* Scale images to container size */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Prevent distortion */
+    width: 100%;  
+    height: auto; 
+    object-fit: contain;  
 }
 
-/* Hover Effects for Buttons */
-.righttop-container:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-}
+ .righttop-container:hover {
+    transform: scale(1.1);  
+} */
 
 
 
 
 
 /* Section5Topright Container for Buttons */
-.Section5Topright {
+/* .Section5Topright {
     position: fixed;
     top: 0%;
     right: 0%;
     left: 0;
     width: 100%;
-    max-width: 1920px; /* Optional max width */
-    height: calc(100vw * 9 / 16); /* Dynamically calculates height for 16:9 ratio */
+    max-width: 1920px;  
+    height: calc(100vw * 9 / 16);  
     max-height: 1080px; 
-    margin: 0 auto; /* Adds space above section2 */
+    margin: 0 auto;  
      
     background-color: #16b65300;
   
     z-index: 9;
     pointer-events: none;
     display: none;
-}
+} */
 
 /* Individual Button Containers */
-.Section5righttop-container {
+/* .Section5righttop-container {
     position: absolute;
     top: 10%;
     right: 2%;
-    width: 4%; /* Scale button size relative to the container */
+    width: 4%;  
     height: auto;
-    transition: transform 0.2s ease-out; /* Smooth scaling on hover */
-}
+    transition: transform 0.2s ease-out;  
+} */
 
-.Section5righttop-container img {
-    width: 100%; /* Scale images to container size */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: contain; /* Prevent distortion */
-}
+/* .Section5righttop-container img {
+    width: 100%;  
+    height: auto; 
+    object-fit: contain;  
+} */
 
-#section5sound{
+/* #section5sound{
     top: 3%;
     cursor: pointer;
     pointer-events: visible;
      
-}
-#section5restart{
+} */
+/* #section5restart{
     top: 11%;
     cursor: pointer;
     pointer-events: visible;
       
-}
-#section5play{
+} */
+/* #section5play{
     top: 19%;
-    cursor: pointer; /* Pointer cursor for interactivity */
+    cursor: pointer; 
     pointer-events: visible;
       
-}
+} */
 
-.hidden {
-    opacity: 0.3; /* Dimmed appearance to indicate inactivity */
-    pointer-events: none !important; /* Prevents user interaction */
+/* .hidden {
+    opacity: 0.3;  
+    pointer-events: none !important;  
     cursor: default !important;
- }
+ } */
  
 
-
+/* 
 #section4ReadHelp {
     position: absolute;
     top: 4%; 
@@ -202,7 +199,7 @@ body {
     color:#f0f0f0 ;
 }
 #section4ReadHelpText.active {
-    color: rgba(255, 196, 0, 0.689); /* Change to your desired color */
+    color: rgba(255, 196, 0, 0.689);  
 }
 
 #section4Help {
@@ -252,10 +249,58 @@ body {
     overflow: hidden;
 }
 #section4HelpText.active {
-    color: rgba(255, 196, 0, 0.689); /* Change to your desired color */
+    color: rgba(255, 196, 0, 0.689);  
+} */
+
+.CommonTopright {
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    left: 0%;
+    width: 100%;
+    max-width: 1920px;  
+    height: calc(100vw * 9 / 16);  
+    max-height: 1080px; 
+    margin: 0 auto;  
+     
+    background-color: #16b6535f;
+  
+    z-index: 9;
+    pointer-events: none;
+    display: block;
 }
-
-
+.Commonrighttop-container {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    width: 4%;  
+    max-width: 72px;
+    height: auto;
+    transition: transform 0.2s ease-out;  
+}
+.Commonrighttop-container img {
+    width: 100%;  
+    height: auto; 
+    object-fit: contain;  
+}
+#commonsound{
+    top: 3%;
+    cursor: pointer;
+    pointer-events: visible;
+     
+}
+#commonrestart{
+    top: 11%;
+    cursor: pointer;
+    pointer-events: visible;
+      
+}
+#commonplay{
+    top: 19%;
+    cursor: pointer; 
+    pointer-events: visible;
+      
+} 
 
 
 
@@ -2405,7 +2450,7 @@ bear 5 */
     position: absolute;
     top: 65%;  
     left: 48%;
-    width:32%;
+    width:20%;
     height: auto;
     transform: translate(-50%,-50% ); 
     background-color: #08ce6400;
@@ -2423,14 +2468,14 @@ bear 5 */
  #iconpopuptext {
     color: #ffffff; /* Default text color */
     position: absolute;
-    width: 91%; /* Default width */
+    width: 80%; /* Default width */
     height: auto; /* Default height */
     top: 50%; /* Center vertically */
     left: 49%; /* Center horizontally */
     font-family: 'Heinemann';
     font-style:normal ;
     font-weight: normal;
-    font-size: 1.4vw; /* Adjust text size */
+    font-size: 1vw; /* Adjust text size */
     text-align: left;
     text-wrap: wrap;
     text-anchor: middle;

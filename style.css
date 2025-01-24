@@ -86,7 +86,7 @@ body {
 
 
 /* Section5Topright Container for Buttons */
-/* .Section5Topright {
+.Section5Topright {
     position: fixed;
     top: 0%;
     right: 0%;
@@ -97,56 +97,32 @@ body {
     max-height: 1080px; 
     margin: 0 auto;  
      
-    background-color: #16b65300;
+    background-color: #16b65366;
   
     z-index: 9;
     pointer-events: none;
     display: none;
-} */
+}
 
 /* Individual Button Containers */
-/* .Section5righttop-container {
+.Section5righttop-container {
     position: absolute;
     top: 10%;
     right: 2%;
     width: 4%;  
     height: auto;
     transition: transform 0.2s ease-out;  
-} */
+}
 
-/* .Section5righttop-container img {
+.Section5righttop-container img {
     width: 100%;  
     height: auto; 
     object-fit: contain;  
-} */
+}
 
-/* #section5sound{
-    top: 3%;
-    cursor: pointer;
-    pointer-events: visible;
-     
-} */
-/* #section5restart{
-    top: 11%;
-    cursor: pointer;
-    pointer-events: visible;
-      
-} */
-/* #section5play{
-    top: 19%;
-    cursor: pointer; 
-    pointer-events: visible;
-      
-} */
 
-/* .hidden {
-    opacity: 0.3;  
-    pointer-events: none !important;  
-    cursor: default !important;
- } */
+
  
-
-/* 
 #section4ReadHelp {
     position: absolute;
     top: 4%; 
@@ -250,7 +226,7 @@ body {
 }
 #section4HelpText.active {
     color: rgba(255, 196, 0, 0.689);  
-} */
+} 
 
 .CommonTopright {
     position: fixed;
@@ -263,9 +239,9 @@ body {
     max-height: 1080px; 
     margin: 0 auto;  
      
-    background-color: #16b6535f;
+    background-color: #16b65300;
   
-    z-index: 9;
+    z-index: 7;
     pointer-events: none;
     display: block;
 }

@@ -176,6 +176,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let section4played=false;
     let section4pausedAudio =null;
     let currentAudio = new Audio();
+    let section4actiontriggered = false;
+    let section4languageguidedoonce=false;
+    let section4readguidedoonce=false;
+    let section4allButtonsClicked=false;
+    const buttons = [
+        document.getElementById("section4button1"),
+        document.getElementById("section4button2"),
+        document.getElementById("section4button3"),
+        document.getElementById("section4button4")
+    ];
 
     const section5 = document.getElementById("section5");
     const section5bgVideo = document.getElementById("section5bgVideo");
@@ -188,9 +198,11 @@ document.addEventListener("DOMContentLoaded", () => {
     let section6doonce=false;
     const question = document.querySelector(".question-text");
     const icon = document.querySelectorAll('.icon');
+    const feedback = document.getElementById("correctfeedback");
     let section6mute=false;
     let section6played=false;
     let section6pausedAudio =null;
+    const popup = document.getElementById("iconpopupcall");
 
 
     
@@ -270,26 +282,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             break;
             case 'section2':
+                section2mute=!section2mute;
                 if(!section2mute){
                     commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
                 }else{
                     commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
                 }
-                section2mute=!section2mute;
+                
                 section2popup_audio.muted=section2mute;
                 audio1.muted=section2mute;
                 audio2.muted=section2mute;
                 audio3.muted=section2mute;
             break;
             case 'section3':
-                if(!section3mute){
-                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
-                     
-                }else{
-                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
-                     
-                }
                 section3mute=!section3mute;
+                if(!section3mute){
+                    
+                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                }else{
+                   
+                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";  
+                }
+                
                 audio4.muted=section3mute;
                 audio5.muted=section3mute;
             break;
@@ -484,12 +498,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
             break;
             case 'section2':
+                section2mute=false;
+                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
                 section2played=true;
                 commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
                 firstactiontriggered=false;
                 lastScrollY = 0;
                 ticking = false;
                 dialogBox.style.display = "none";
+                audio1.muted=section2mute;
+                audio2.muted=section2mute;
+                audio3.muted=section2mute;
                 audio1.currentTime=0;
                 audio1.pause();
                 audio2.currentTime=0;
@@ -516,10 +535,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 section2nextImage.style.display = "none";
              break;
             case 'section3':
+                section3mute=false;
+                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
                 section3played=true;
                 commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
                 section3Octopusidelvisible=false;
                 section3dialogBox.style.display = "none";
+                audio4.muted=section3mute;
+                audio5.muted=section3mute;
                 audio4.currentTime=0;
                 audio4.pause();
                 audio5.currentTime=0;
@@ -530,6 +553,97 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("section3nextImage").style.display="none";
                 
 
+            break;
+            case 'section4':
+                section4dialogBox.style.display = "none";
+                section4dialogText.style.display = "none";
+                section4played=true;
+                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";  
+                section4actiontriggered = false;
+                section4languageguidedoonce=false;
+                section4readguidedoonce=false;
+                section4mute=false;
+                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                section4actiontriggered=false;
+                section4allButtonsClicked=false;
+                audio6.muted=section4mute;
+                audio7.muted=section4mute;
+                audio8.muted=section4mute;
+                audio10.muted=section4mute;
+                audio6.currentTime=0;
+                audio6.pause();
+                audio7.currentTime=0;
+                audio7.pause();
+                audio8.currentTime=0;
+                audio8.pause();
+                audio10.currentTime=0;
+                audio10.pause();
+                document.querySelector("#section4button1 img").src = "assets/Slides_25-35/Kelp.png";
+                document.querySelector("#section4button2 img").src = "assets/Slides_25-35/Grizzly_bear.png";
+                document.querySelector("#section4button3 img").src = "assets/Slides_25-35/Salmon.png";
+                document.querySelector("#section4button4 img").src = "assets/Slides_25-35/Yeast_crop.png";
+                clickedButtons.clear();
+                
+                buttons.forEach(button => {
+                    button.style.cursor = "none"; 
+                    button.style.pointerEvents="none"
+                });
+
+                const overlay = document.querySelector('.overlay');
+                if (overlay) {
+                overlay.remove();
+                }
+                document.getElementById('section4ReadHelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
+                section4languageguidedoonce=false;
+                const overlay2 = document.querySelector('.overlay2');
+                if (overlay2) {
+                overlay2.remove();
+                }
+                section4readguidedoonce=false;
+                document.getElementById('section4HelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
+                document.getElementById("section4nextImage").style.display="none";
+                
+            break;
+
+            case 'section5':
+                section5mute=false;
+                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                section5bgVideo.currentTime = 0;
+                section5bgVideo.play()
+                section5played=true;
+                section5vedioUnmute();
+                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+                section5nextImage.style.display = "none";
+            break;
+            case 'section6':
+
+                document.querySelectorAll('.icon').forEach(element => {
+                    element.style.pointerEvents = 'none';
+                    element.style. cursor= 'none';
+                });
+                
+                document.querySelectorAll('.clickableobject').forEach(element => {
+                    element.style.pointerEvents = 'none';
+                });
+                section6mute=false;
+                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                audio9.muted=section6mute;
+                audio9.currentTime=0;
+                audio9.pause();
+                section6played=true;
+                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+                popup.style.display = "none";
+                feedback.style.display='none'
+                const correctfeedback = document.getElementById('correctfeedback');
+                correctfeedback.style.display = 'none';
+                
+                // Reset all clickableobject images
+                document.querySelectorAll('.clickableobject').forEach(button => {
+                    const nonVisitedImage = button.getAttribute('nonvisitedimage');
+                    button.src = nonVisitedImage;
+                });
+                document.getElementById("iconpopupcall").style.display="none";
+                section6doonce=false;
             break;
         }
     });
@@ -1147,8 +1261,10 @@ document.addEventListener("DOMContentLoaded", () => {
         section3dialogBox.style.display = "inline-block";
         section3dialogText.innerHTML = "We've learned all about the food chain in our kitchen garden.";
         adjustSection3ImageHeight();
-        audio4.play();
+        
         section3mute=false;
+        audio4.play();
+        commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
         section3played=true;
         commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
         section3Octopusidelvisible=!section3Octopusidelvisible;
@@ -1206,10 +1322,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 4th
 
-    let section4actiontriggered = false;
-    let section4objectsisclickable=false;
-    let section4languageguidedoonce=false;
-    let section4readguidedoonce=false;
+
     
 
     function adjustSection4ImageHeight() {
@@ -1273,63 +1386,14 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('section4ReadHelpImage').src = "assets/Slides_25-35/Reading-Language_button_Selected.png";
 
     });
-    // Handle visibility of Section 4 Grass
-    const handleGrassVisible = () => {
-        let allVisible = true; // Flag to check if all elements are visible
-    
-        grassContainers.forEach((container) => {
-            const rect = container.getBoundingClientRect(); // Get the bounding box of the element
-            const windowHeight = window.innerHeight;
-            const windowWidth = window.innerWidth;
-    
-            // Check if the element is fully visible in the viewport
-            if (
-                rect.bottom < 0 || // Completely above the viewport
-                rect.top > windowHeight || // Completely below the viewport
-                rect.right < 0 || // Completely to the left of the viewport
-                rect.left > windowWidth // Completely to the right of the viewport
-            ) {
-                allVisible = false; // Set flag to false if any container is not visible
-            }
-        });
-    
-        // Show or hide 'section4ReadHelp' based on visibility of all containers
-        if (allVisible) {
-            document.getElementById("section4ReadHelp").style.display = "block";
-            document.getElementById("section4Help").style.display = "block";
-        } else {
-            document.getElementById("section4ReadHelp").style.display = "none";
-            document.getElementById("section4Help").style.display = "none";
-        }
-    };
-    
-    // Listen for scroll to check visibility
-    //window.addEventListener("scroll", handleGrassVisible);
+ 
 
-    let section4allButtonsClicked=false;
-        // Track clicked buttons
-    const section4clickedButtons = new Set();
+
+ 
     let correctbuttoninsection4allButtons="section4button4"
 
-    // Buttons to track
-    const buttons = [
-        document.getElementById("section4button1"),
-        document.getElementById("section4button2"),
-        document.getElementById("section4button3"),
-        document.getElementById("section4button4")
-    ];
-    // Function to check if all buttons are clicked
-    function checkAllClicked() {
-        if (section4clickedButtons.size === buttons.length&&!section4allButtonsClicked) {
-            // All buttons clicked, trigger your code
-            console.log("All buttons clicked!");
-            // Add your trigger code here
-            // Section5 start
-            section4allButtonsClicked=true;
-            enablesection5video();
-            
-        }
-    }
+
+ 
     // Add click event listeners to each button
     buttons.forEach(button => {
         button.addEventListener("click", () => {
@@ -1360,7 +1424,7 @@ document.addEventListener("DOMContentLoaded", () => {
             button.style.cursor = "pointer"; // Set cursor to pointer
             button.style.pointerEvents="visible"
         });
-        section4objectsisclickable=true;
+ 
 
     });
 
@@ -2106,7 +2170,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     icon7: "Salmon are fish that eat smaller fish, kelp, and insects in rivers and oceans."
                 };
 
-                const popup = document.getElementById("iconpopupcall");
+                
 
 
                 const iconId = icon.id;
@@ -2145,8 +2209,6 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener('click', function (event) {
 
             if(section6played){
-                const popup = document.getElementById("iconpopupcall");
-                const feedback = document.getElementById("correctfeedback");
                 const objectText = {
                     object1: "Cougars are large carnivores that primarily hunt and eat deer, small mammals, and occasionally birds.",
                     object2: "Wolves are carnivorous mammals that hunt and eat other animals like deer and rabbits.",
@@ -2224,16 +2286,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll('.section').forEach(section => {
         section.addEventListener('click', function(event) {
-            // Get the clicked element
-            const target = event.target;
-            console.log("clicked target:", target.className);
-    
-            // Check if the clicked element does not have the class 'icon'
-            if (!target.classList.contains('icon')) {
-                // Do something if the clicked element is not '.icon'
-                document.getElementById("iconpopupcall").style.display="none";
-                // Add your custom logic here
+            if(section6played){
+                // Get the clicked element
+                const target = event.target;
+                console.log("clicked target:", target.className);
+        
+                // Check if the clicked element does not have the class 'icon'
+                if (!target.classList.contains('icon')) {
+                    // Do something if the clicked element is not '.icon'
+                    document.getElementById("iconpopupcall").style.display="none";
+                    // Add your custom logic here
+                }
             }
+            
         });
     });
 

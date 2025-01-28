@@ -115,9 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
  
 
-    const section5soundbutton= document.getElementById("section5sound");
-    const section5playButton= document.getElementById("section5play");
-    const section5restartbutton= document.getElementById("section5restart");
+
 
     const secion5rigthTop = document.getElementById("secion5rigthTop");
 
@@ -126,7 +124,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const commonsoundbutton= document.getElementById("commonsound");
     const commonplayButton= document.getElementById("commonplay");
     const commonrestartButton= document.getElementById("commonrestart");
+    const fullScreenButton= document.getElementById("fullScreen");
 
+ 
     const bgVideo = document.getElementById("bgVideo");
     const nextImage = document.getElementById("nextImage");
     let section1doonce=false;
@@ -204,50 +204,57 @@ document.addEventListener("DOMContentLoaded", () => {
     let section6pausedAudio =null;
     const popup = document.getElementById("iconpopupcall");
 
+ 
 
-    
 
-    
-    // function onResizeFn() {
-    //     const shellWidth = 1920;
-    //     const shellHeight = 1080;
-    
-    //     const sections = document.querySelectorAll('.section');
-    //     const container = document.getElementById('container');
-    
-    //     const actWid = window.innerWidth;
-    //     const actHgt = window.innerHeight;
-    
-    //     let newShellWidth, newShellHeight;
-    //     let scale;
-    
-    //     // Calculate scaling factor based on window size
-    //     if (actWid / actHgt > shellWidth / shellHeight) {
-    //         newShellWidth = Math.min(actWid * 0.9, shellWidth); // Limit width to 90% or shellWidth
-    //         scale = shellWidth / newShellWidth;
-    //         newShellHeight = shellHeight / scale;
-    //     } else {
-    //         newShellHeight = Math.min(actHgt / sections.length - 20, shellHeight); // Adjust height for available space
-    //         scale = shellHeight / newShellHeight;
-    //         newShellWidth = shellWidth / scale;
-    //     }
-    
-    //     // Apply scale and dimensions to each section
-    //     sections.forEach((section) => {
-    //         section.style.width = `${newShellWidth}px`;
-    //         section.style.height = `${newShellHeight}px`;
-    //     });
-    
-    //     // Ensure the container height adjusts dynamically
-    //     container.style.width = `${newShellWidth}px`;
-    // }
-    
-    // // Attach the resize function to the window
-    // window.addEventListener('resize', onResizeFn);
-    
-    // // Initial call to set layout
-    // onResizeFn();
-    
+    // Get the section element
+    const elem  = document.documentElement;
+
+    // Function to enable full-screen mode
+    function enterFullScreen() {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) { // For Safari
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { // For IE
+            elem.msRequestFullscreen();
+        }
+    }
+
+    // Function to exit full-screen mode
+    function exitFullScreen() {
+        if (document.fullscreenElement) {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) { // For Safari
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { // For IE
+                document.msExitFullscreen();
+            }
+        }
+    }
+
+     
+
+ 
+    fullScreenButton.addEventListener("click", () =>{
+ 
+        if(document.fullscreenElement){
+            exitFullScreen();
+            
+        }else{
+            enterFullScreen();
+        }
+
+    });
+
+
+
+
+
+
+
+
 
     let currentSection='section1';
 
@@ -284,9 +291,9 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section2':
                 section2mute=!section2mute;
                 if(!section2mute){
-                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
-                }else{
                     commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                }else{
+                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
                 }
                 
                 section2popup_audio.muted=section2mute;
@@ -772,7 +779,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Gap resize code
     function adjustGapHeights() {
-        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6']; // IDs of the gap elements
+        const gapElements = ['#gap2', '#gap3', '#gap4','#gap5', '#gap6']; // IDs of the gap elements
         const maxWidth = 1920; // Maximum width threshold
 
         gapElements.forEach(selector => {
@@ -1038,7 +1045,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Request animation frame for smooth rendering
         if (!ticking) {
-            requestAnimationFrame(() => applyParallaxEffect("section2", 0.8)); // Apply parallax for Section 2
+            requestAnimationFrame(() => applyParallaxEffect("section2", 0.4)); // Apply parallax for Section 2
             requestAnimationFrame(() => applyParallaxEffect("section3", 0.5)); // Apply parallax for Section 3
             requestAnimationFrame(() => applyParallaxEffect("section4", 0.4)); // Apply parallax for Section 4
             requestAnimationFrame(() => applyParallaxEffect("section6", 0.4));  
@@ -1569,7 +1576,6 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.style.display = 'none';
         overlay.innerHTML = `
          
-        
         <div class="image-container" id="popupWindow">
         <img src="assets/Slides_25-35/Popup_window.png" alt="PopupWindow" />
                 <!-- Close Button -->
@@ -1622,93 +1628,89 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </div>
         <div class="language-help">
-            <div class="content">
-                <div class="phrases-container">
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                            <div class="audio-btn" id="lang-audiobtn" data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                            </div>
-                            <div class="phrase-word">Kelp</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">algae and seaweed that live in the ocean</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>
-                        <div class="phrase-word">Shallow</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">Not very deep</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>                              
-                        <div class="phrase-word">Nutrient:</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">Nourishment that helps things grow</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>                              
-                        <div class="phrase-word">Nutrient-rich:</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">having many nutrients</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>                              
-                        <div class="phrase-word">Environment:</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">what surrounds a plant or animal; where a plant or animal lives</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>                              
-                        <div class="phrase-word">Photosynthesis:</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">a process where plants use sunlight to make food</div>
-                        </div>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="phrase-row">
-                        <div class="phrase-box">
-                        <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
-                            <img src="assets/Slides_25-35/Audio_icon.png" alt="">
-                        </div>                              
-                        <div class="phrase-word">Herbivore:</div>
-                        </div>
-                        <div class="phrase-box2">
-                            <div class="phrase-definition">an animal that feeds on plants</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div class="phrase-row">
+              <div class="phrase-box">
+                  <div class="audio-btn" id="lang-audiobtn" data-audio="assets/audio/kelp.mp3">
+                  <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+                  </div>
+                  <div class="phrase-word">Kelp</div>
+              </div>
+              <div class="phrase-box2">
+                  <div class="phrase-definition">algae and seaweed that live in the ocean</div>
+              </div>
+          </div>
+          <div class="divider"></div>
+          <div class="phrase-row">
+              <div class="phrase-box">
+              <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                  <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+              </div>
+              <div class="phrase-word">Shallow</div>
+              </div>
+              <div class="phrase-box2">
+                  <div class="phrase-definition">Not very deep</div>
+              </div>
+          </div>
+          <div class="divider"></div>
+          <div class="phrase-row">
+              <div class="phrase-box">
+              <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                  <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+              </div>                              
+              <div class="phrase-word">Nutrient:</div>
+              </div>
+              <div class="phrase-box2">
+                  <div class="phrase-definition">Nourishment that helps things grow</div>
+              </div>
+          </div>
+          <div class="divider"></div>
+          <div class="phrase-row">
+              <div class="phrase-box">
+              <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                  <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+              </div>                              
+              <div class="phrase-word">Nutrient-rich:</div>
+              </div>
+              <div class="phrase-box2">
+                  <div class="phrase-definition">having many nutrients</div>
+              </div>
+          </div>
+          <div class="divider"></div>
+          <div class="phrase-row">
+              <div class="phrase-box">
+              <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                  <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+              </div>                              
+              <div class="phrase-word">Environment:</div>
+              </div>
+              <div class="phrase-box2">
+                  <div class="phrase-definition">what surrounds a plant or animal; where a plant or animal lives</div>
+              </div>
+          </div>
+          <div class="divider"></div>
+          <div class="phrase-row">
+              <div class="phrase-box">
+              <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                  <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+              </div>                              
+              <div class="phrase-word">Photosynthesis:</div>
+              </div>
+              <div class="phrase-box2">
+                  <div class="phrase-definition">a process where plants use sunlight to make food</div>
+              </div>
+          </div>
+          <div class="divider"></div>
+          <div class="phrase-row">
+              <div class="phrase-box">
+              <div class="audio-btn" id="lang-audiobtn"data-audio="assets/audio/kelp.mp3">
+                  <img src="assets/Slides_25-35/Audio_icon.png" alt="">
+              </div>                              
+              <div class="phrase-word">Herbivore:</div>
+              </div>
+              <div class="phrase-box2">
+                  <div class="phrase-definition">an animal that feeds on plants</div>
+              </div>
+          </div>
         </div>
         
         </div>
@@ -2128,6 +2130,10 @@ document.addEventListener("DOMContentLoaded", () => {
         icon.forEach(image => {
             image.style.display = 'block';
         });
+        document.querySelectorAll('.icon').forEach(element => {
+            element.style.pointerEvents = 'auto';
+            element.style. cursor= 'pointer';
+        });
     
     };
 
@@ -2151,13 +2157,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("Clicked");
                     // Define fixed percentage positions for each icon
                 const positions = {
-                    icon1: { top: 41, left: 30},
-                    icon2: { top: 44, left: 48 },
-                    icon3: { top: 23, left: 60 },
-                    icon4: { top: 41, left: 43.5 },
-                    icon5: { top: 32, left: 59 },
-                    icon6: { top: 50, left: 75 },
-                    icon7: { top: 74, left: 66 },
+                    icon1: { top: 58, left: 26},
+                    icon2: { top: 62, left: 44 },
+                    icon3: { top: 31, left: 57 },
+                    icon4: { top: 58, left: 47 },
+                    icon5: { top: 44, left: 62 },
+                    icon6: { top: 69, left: 78 },
+                    icon7: { top: 103, left: 69 },
                 };
                 // Define the text for each icon
                 const iconText = {

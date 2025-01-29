@@ -103,7 +103,7 @@ body {
      
     background-color: #16b65300;
   
-    z-index: 9;
+    z-index: 10;
     pointer-events: none;
     display: none;
 }
@@ -135,7 +135,7 @@ body {
     
     height: auto;  
     transform: translateX(-50%);
-    z-index: 9;
+    z-index: 10;
     display: block;
     background-color: #dc341600;
     cursor: pointer;
@@ -195,7 +195,7 @@ body {
     background-color: #45a04900;
     cursor: pointer;
     pointer-events: none;
-    z-index: 7;
+    z-index: 10;
 }
 #section4Help:hover{
     transform: translateX(-50%) scale(1.01);
@@ -652,6 +652,7 @@ body {
     width: 100%; 
     height:auto;
     object-fit: contain; 
+    
 }
 
 #button1 {
@@ -666,6 +667,12 @@ body {
     transform: translateX(-50%)translateY(0px); */
     top: 60%;
     left: 56%;
+   
+}
+
+#button1 img{
+    position: relative;
+    z-index: 2;
 }
 
 #label1{
@@ -685,6 +692,7 @@ body {
     height: auto;
     transform: translateX(-50%);
     display: none;
+    z-index: 1;
 
 }
 #arrow1{
@@ -710,6 +718,10 @@ body {
    
     transform: translateX(-50%)translateY(0px); */
 }
+#button2 img{
+    position: relative;
+    z-index: 2;
+}
 #label2{
     
     position: absolute;
@@ -719,6 +731,7 @@ body {
     height: auto;
     transform: translateX(-50%);
     display: none;
+    z-index: 1;
 
 }
 #arrow2{
@@ -743,6 +756,10 @@ body {
    
     transform: translateX(-50%)translateY(0px); */
 }
+#button3 img{
+    position: relative;
+    z-index: 2;
+}
 #label3{
     
     position: absolute;
@@ -752,6 +769,7 @@ body {
     height: auto;
     transform: translateX(-50%);
     display: none;
+    z-index: 1;
 
 
 }
@@ -776,6 +794,10 @@ body {
    
     transform: translateX(-50%)translateY(0px); */
 }
+#button4 img{
+    position: relative;
+    z-index: 2;
+}
 #label4{
     
     
@@ -787,6 +809,8 @@ body {
     transform: translateX(-50%);
     display: none;
     background-color: #b5141400;
+    z-index: 1;
+    
 }
 #arrow4{
     position: absolute;
@@ -817,6 +841,7 @@ body {
     text-wrap: wrap;
     display: block;
     overflow: hidden;
+    z-index: 2;
 }
 #section2popup{
     position: absolute;
@@ -1208,6 +1233,7 @@ body {
     --vw-height: 25;
     height:  25vw; 
     z-index: 2;
+    background-color: #08275274;
 }
 
 
@@ -1229,7 +1255,7 @@ body {
     margin:0 auto;
     background-color: #1e11d46c;  
     overflow: visible;
-    z-index: 3;
+    z-index: 2;
 
     
 }
@@ -1273,7 +1299,7 @@ body {
 
 
 #section4_BG {
-    top: -50%;
+    top: -30vw;
     left: 50%;
     width: 100%;
     height: auto;
@@ -1320,7 +1346,7 @@ body {
 bear 5 */
 
 #section4_water{
-    top: 109%;
+    bottom: -10%;
     left: 50%;
     width: 100%;
     /* max-width: 1536px; */
@@ -1329,6 +1355,7 @@ bear 5 */
     
     z-index: 2;
     transform: translateX(-50%) translateY(0%);
+    display: block;
 }
 
 .section4octopusclass{
@@ -1675,7 +1702,7 @@ bear 5 */
 .language-help .phrase-box{
     position: absolute;
     width: 35%;
-    background-color: #9fa32885;  
+    background-color: #9fa32800;  
     height: 13%;
     
 }
@@ -1725,7 +1752,7 @@ transition: transform 0.3s;
     width: 64%;
     height: 13%;
     
-    background-color: rgba(52, 153, 116, 0.492);
+    background-color: rgba(52, 153, 116, 0);
  
 
  }
@@ -2070,11 +2097,13 @@ transition: transform 0.3s;
 
 
 
-#gap5{
-    --vw-height: 1;
-    height:  1vw; 
-    z-index: 2;
-}
+/* #gap5{
+    --vw-height: 5;
+    height:  5vw; 
+    z-index: 3;
+    background-color: #e0653950;
+    overflow: hidden;
+} */
 
 
 
@@ -2090,7 +2119,7 @@ transition: transform 0.3s;
 /* Section 5 */
 #section5{
     display: none;
-    z-index: 2;
+    z-index: 3;
     width: 100%;
     max-width: 1920px; /* Optional max width */
     height: calc(100vw * 9 / 16); /* Dynamically calculates height for 16:9 ratio */
@@ -2104,15 +2133,14 @@ transition: transform 0.3s;
 
  
 #section5 video {
-    position: absolute;
+    /* position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    top: 26vw; 
+    transform: translate(-50%,-50%); */
     width: 100%;
     height: 100%;
     object-fit: cover;
-    overflow: hidden;
-}
+ }
 
 #section5nextImage {
     position: absolute;
@@ -2458,7 +2486,7 @@ transition: transform 0.3s;
     transform: translate(-50%,-50% ); 
     background-color: #ce5b0800;
     z-index: 7;
-    display: block;
+    display: none;
     
  }
  #iconpopupcall img{

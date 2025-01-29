@@ -116,11 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
  
 
 
-
+    const full_sections = document.querySelectorAll('.section');
     const secion5rigthTop = document.getElementById("secion5rigthTop");
-
-
-
     const commonsoundbutton= document.getElementById("commonsound");
     const commonplayButton= document.getElementById("commonplay");
     const commonrestartButton= document.getElementById("commonrestart");
@@ -245,12 +242,38 @@ document.addEventListener("DOMContentLoaded", () => {
         }else{
             enterFullScreen();
         }
-
+        setAspectRatioForAllSections();
     });
 
 
 
 
+
+
+    // Function to apply 16:9 aspect ratio dynamically to all sections
+    function setAspectRatioForAllSections() {
+        // const windowWidth = window.innerWidth;
+        // const windowHeight = window.innerHeight;
+
+        // const ratioWidth = windowHeight * (16 / 9); // Calculate width for 16:9
+        // const ratioHeight = windowWidth * (9 / 16); // Calculate height for 16:9
+
+        // full_sections.forEach(section => {
+        //     if (ratioWidth > windowWidth) {
+        //         // Fit by width
+        //         section.style.width = `${windowWidth}px`;
+        //         section.style.height = `${ratioHeight}px`;
+        //     } else {
+        //         // Fit by height
+        //         section.style.width = `${ratioWidth}px`;
+        //         section.style.height = `${windowHeight}px`;
+        //     }
+        // });
+    }
+
+
+
+    setAspectRatioForAllSections();
 
 
 
@@ -779,7 +802,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Gap resize code
     function adjustGapHeights() {
-        const gapElements = ['#gap2', '#gap3', '#gap4','#gap5', '#gap6']; // IDs of the gap elements
+        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6']; // IDs of the gap elements
         const maxWidth = 1920; // Maximum width threshold
 
         gapElements.forEach(selector => {
@@ -1047,7 +1070,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!ticking) {
             requestAnimationFrame(() => applyParallaxEffect("section2", 0.4)); // Apply parallax for Section 2
             requestAnimationFrame(() => applyParallaxEffect("section3", 0.5)); // Apply parallax for Section 3
-            requestAnimationFrame(() => applyParallaxEffect("section4", 0.4)); // Apply parallax for Section 4
+            requestAnimationFrame(() => applyParallaxEffect("section4", 0.2)); // Apply parallax for Section 4
             requestAnimationFrame(() => applyParallaxEffect("section6", 0.4));  
             ticking = true;
         }
@@ -1457,8 +1480,8 @@ document.addEventListener("DOMContentLoaded", () => {
          
     });
     function Section4ReadHelpClick(){
-        const currentSectiondiv = getCurrentsectiondiv();
-            currentSectiondiv.appendChild(secion5rigthTop);
+           const currentSectiondiv = getCurrentsectiondiv();
+            //currentSectiondiv.appendChild(secion5rigthTop);
             // document.querySelector('.overlay').style.display = 'flex'; 
             const textElement = document.getElementById("section4ReadHelpText");
             textElement.classList.add("active"); 
@@ -1470,9 +1493,9 @@ document.addEventListener("DOMContentLoaded", () => {
              //switch index
             switch(currentSection){
                 case 'section4':
-                section4.style.zIndex=3;
-                section5.style.zIndex=2;
-                section6.style.zIndex=1;
+                // section4.style.zIndex=3;
+                // section5.style.zIndex=2;
+                // section6.style.zIndex=1;
                 break;
                 case 'section5':
                 section4.style.zIndex=2;
@@ -1480,9 +1503,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 section6.style.zIndex=1;
                 break;
                 case 'section6':
-                section4.style.zIndex=2;
-                section5.style.zIndex=1;
-                section6.style.zIndex=3;
+                // section4.style.zIndex=2;
+                // section5.style.zIndex=1;
+                // section6.style.zIndex=3;
                 break;
             }
             console.log('insection',currentSection);
@@ -1532,7 +1555,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     function Section4HelpClick(){
             const currentSectiondiv = getCurrentsectiondiv();
-            currentSectiondiv.appendChild(secion5rigthTop);
+            //currentSectiondiv.appendChild(secion5rigthTop);
             const textElement = document.getElementById("section4HelpText");
             textElement.classList.add("active"); 
             const overlay = document.querySelector('.overlay2');
@@ -1543,9 +1566,9 @@ document.addEventListener("DOMContentLoaded", () => {
             //switch index
             switch(currentSection){
                 case 'section4':
-                section4.style.zIndex=3;
-                section5.style.zIndex=2;
-                section6.style.zIndex=1;
+                // section4.style.zIndex=3;
+                // section5.style.zIndex=2;
+                // section6.style.zIndex=1;
                 break;
                 case 'section5':
                 section4.style.zIndex=2;
@@ -1553,9 +1576,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 section6.style.zIndex=1;
                 break;
                 case 'section6':
-                section4.style.zIndex=2;
-                section5.style.zIndex=1;
-                section6.style.zIndex=3;
+                // section4.style.zIndex=2;
+                // section5.style.zIndex=1;
+                // section6.style.zIndex=3;
                 break;
             }
 
@@ -1761,10 +1784,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function CloseOverlay(){
             document.querySelector('.overlay').remove();
-            section4.appendChild(secion5rigthTop);
-            section4.style.zIndex=3;
-            section5.style.zIndex=2;
-            section6.style.zIndex=1;
+            //section4.appendChild(secion5rigthTop);
+            // section4.style.zIndex=3;
+            // section5.style.zIndex=2;
+            // section6.style.zIndex=1;
             if(!section4languageguidedoonce){
                 section4dialogText.innerHTML = "<span style='color: red;'>Select hotspots. You'll collect a starfish for completing each.</span>";
                 adjustSection4ImageHeight();
@@ -2028,10 +2051,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         function CloseOverlayRead(){
-            section4.appendChild(secion5rigthTop);
-                section4.style.zIndex=3;
-                section5.style.zIndex=2;
-                section6.style.zIndex=1;
+            //section4.appendChild(secion5rigthTop);
+                // section4.style.zIndex=3;
+                // section5.style.zIndex=2;
+                // section6.style.zIndex=1;
                 const textElement = document.getElementById("section4HelpText");
                 textElement.classList.remove("active"); 
                 document.querySelector('.overlay2').style.display = 'none'; // Hide overlay
@@ -2063,6 +2086,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function enablesection5video(){
         section5.style.display="block"
+ 
+
         document.getElementById("section4nextImage").style.display="block";
         section5.style.overflow="hidden";
         section5bgVideo.play()
@@ -2130,10 +2155,7 @@ document.addEventListener("DOMContentLoaded", () => {
         icon.forEach(image => {
             image.style.display = 'block';
         });
-        document.querySelectorAll('.icon').forEach(element => {
-            element.style.pointerEvents = 'auto';
-            element.style. cursor= 'pointer';
-        });
+       
     
     };
 

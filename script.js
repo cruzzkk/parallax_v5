@@ -2237,6 +2237,10 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener('click', function (event) {
 
             if(section6played){
+
+                
+
+
                 const objectText = {
                     object1: "Cougars are large carnivores that primarily hunt and eat deer, small mammals, and occasionally birds.",
                     object2: "Wolves are carnivorous mammals that hunt and eat other animals like deer and rabbits.",
@@ -2248,7 +2252,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     };
                 // Hide the popup initially
                 popup.style.display = "none";
-                feedback.style.display='block'
+                
+                const images = feedback.querySelectorAll('img');
+                let imagesLoaded = 0
+                images.forEach((img) => {
+                    img.onload = () => {
+                        imagesLoaded++;
+                        if (imagesLoaded === images.length) {
+                            feedback.style.display='block';
+                        }
+                    };
+                });
             
                 // Define the correct button ID
                 const correctButtonId = "object5"; // ID of the correct button

@@ -453,37 +453,44 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             break;
             case 'section4':
-                if(section4played){
-                    section4played=!section4played;
-                    for (let i = 5; i < 10; i++) {
-                        const audio = audiosToPreload[i];
-                        if (isAudioPlaying(audio)) {
-                            console.log('audio ',audio);
-                            audio.pause();
-                            section4pausedAudio=audio;
+                if(handleOctopus4Visible()){
+                    
+                
+                    if(section4played){
+                        section4played=!section4played;
+                        for (let i = 5; i < 10; i++) {
+                            const audio = audiosToPreload[i];
+                            if (isAudioPlaying(audio)) {
+                                console.log('audio ',audio);
+                                audio.pause();
+                                section4pausedAudio=audio;
+                            }
+    
                         }
- 
-                    }
-                    if(isAudioPlaying(currentAudio)){
-                        currentAudio.pause();
-                    }
-                   
+                        if(isAudioPlaying(currentAudio)){
+                            currentAudio.pause();
+                        }
+                    
 
-                }else{
-                    section4played=!section4played;
-                    if (section4pausedAudio) {
-                        section4pausedAudio.play();
-                        section4pausedAudio = null; // Clear the stored audio after resuming
-                    } else {
-                        console.log('No audio to resume.');
+                    }else{
+                        section4played=!section4played;
+                        if(!section4actiontriggered){
+                            section4triggerOctopusActions();
+                        }
+                        if (section4pausedAudio) {
+                            section4pausedAudio.play();
+                            section4pausedAudio = null; // Clear the stored audio after resuming
+                        } else {
+                            console.log('No audio to resume.');
+                        }
+                        if(currentAudio.paused&&!currentAudio.ended){
+                            currentAudio.play();
+                        }
+                            
+    
                     }
-                    if(currentAudio.paused&&!currentAudio.ended){
-                        currentAudio.play();
-                    }
-                        
- 
+                    commonplayButton.querySelector("img").src=section4played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 }
-                commonplayButton.querySelector("img").src=section4played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
             break;
             case 'section5':
                 if(!section5played){
@@ -499,37 +506,45 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             break;
             case 'section6':
-                if(section6played){
-                    section6played=!section6played;
+                if(handleSection6Visible()){
                     
-                        const audio = audiosToPreload[9];
-                        if (isAudioPlaying(audio)) {
-                            console.log('audio ',audio);
-                            audio.pause();
-                            section6pausedAudio=audio;
-                        }
- 
-                    
-                    if(isAudioPlaying(currentAudio)){
-                        currentAudio.pause();
-                    }
-                   
-
-                }else{
-                    section6played=!section6played;
-                    if (section6pausedAudio) {
-                        section6pausedAudio.play();
-                        section6pausedAudio = null; // Clear the stored audio after resuming
-                    } else {
-                        console.log('No audio to resume.');
-                    }
-                    if(currentAudio.paused&&!currentAudio.ended){
-                        currentAudio.play();
-                    }
+                
+                    if(section6played){
+                        section6played=!section6played;
                         
- 
+                            const audio = audiosToPreload[9];
+                            if (isAudioPlaying(audio)) {
+                                console.log('audio ',audio);
+                                audio.pause();
+                                section6pausedAudio=audio;
+                            }
+    
+                        
+                        if(isAudioPlaying(currentAudio)){
+                            currentAudio.pause();
+                        }
+                    
+
+                    }else{
+                        section6played=!section6played;
+                        if(!section6doonce){
+                            triggerSection6Action();
+                            section6doonce=!section6doonce;
+                        }
+                        if (section6pausedAudio) {
+                            section6pausedAudio.play();
+                            section6pausedAudio = null; // Clear the stored audio after resuming
+                        } else {
+                            console.log('No audio to resume.');
+                        }
+                        if(currentAudio.paused&&!currentAudio.ended){
+                            currentAudio.play();
+                        }
+                            
+    
+                    }
+                    commonplayButton.querySelector("img").src=section6played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 }
-                commonplayButton.querySelector("img").src=section6played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
             break;
         }
     });
@@ -649,6 +664,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 section4readguidedoonce=false;
                 document.getElementById('section4HelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
                 document.getElementById("section4nextImage").style.display="none";
+                document.getElementById("section4ReadHelpText").classList.remove("active");
+                document.getElementById("section4HelpText").classList.remove("active");  
                 
             break;
 
@@ -736,19 +753,19 @@ document.addEventListener("DOMContentLoaded", () => {
                             // }
                             break;
                         case 'section4':
-                            if(handleOctopus4Visible()){
-                                section4triggerOctopusActions();
-                            }
+                            // if(handleOctopus4Visible()){
+                            //     section4triggerOctopusActions();
+                            // }
                             break;
                         case 'section5':
                             console.log('Section 5 clicked.');
                             // Perform actions specific to section 5
                             break;
                         case 'section6':
-                            if(handleSection6Visible()&&!section6doonce){
-                                triggerSection6Action();
-                                section6doonce=!section6doonce;
-                            }
+                            // if(handleSection6Visible()&&!section6doonce){
+                            //     triggerSection6Action();
+                            //     section6doonce=!section6doonce;
+                            // }
                             break;
                         default:
                             console.log('Unknown section clicked.');
@@ -1331,8 +1348,7 @@ document.addEventListener("DOMContentLoaded", () => {
             octopusRect.bottom >= 0 &&
             octopusRect.top <= windowHeight &&
             octopusRect.right >= 0 &&
-            octopusRect.left <= windowWidth &&
-            !section4actiontriggered
+            octopusRect.left <= windowWidth
         ) {
             return true;
         }

@@ -1346,7 +1346,7 @@ body {
 bear 5 */
 
 #section4_water{
-    bottom: -10%;
+    bottom: -11%;
     left: 50%;
     width: 100%;
     /* max-width: 1536px; */
@@ -2347,7 +2347,7 @@ transition: transform 0.3s;
  }
 
 #section6_water{
-    top:55%;
+    top:53%;
     left: 50%;
     width: 100%;
     /* max-width: 1536px; */

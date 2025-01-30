@@ -245,40 +245,19 @@ document.addEventListener("DOMContentLoaded", () => {
             enterFullScreen();
             fullScreenButtonImg.src=fullScreenButton.getAttribute("enterfullscreen");
         }
-        setAspectRatioForAllSections();
+     });
+
+    // Listen for fullscreen change events
+    document.addEventListener("fullscreenchange", () => {
+        if (!document.fullscreenElement) {
+        // User exited fullscreen
+        console.log("Exited fullscreen mode");
+        fullScreenButtonImg.src=fullScreenButton.getAttribute("exitfullscreen");// Reset to non-clicked image
+        }
     });
 
 
-
-
-
-
-    // Function to apply 16:9 aspect ratio dynamically to all sections
-    function setAspectRatioForAllSections() {
-        // const windowWidth = window.innerWidth;
-        // const windowHeight = window.innerHeight;
-
-        // const ratioWidth = windowHeight * (16 / 9); // Calculate width for 16:9
-        // const ratioHeight = windowWidth * (9 / 16); // Calculate height for 16:9
-
-        // full_sections.forEach(section => {
-        //     if (ratioWidth > windowWidth) {
-        //         // Fit by width
-        //         section.style.width = `${windowWidth}px`;
-        //         section.style.height = `${ratioHeight}px`;
-        //     } else {
-        //         // Fit by height
-        //         section.style.width = `${ratioWidth}px`;
-        //         section.style.height = `${windowHeight}px`;
-        //     }
-        // });
-    }
-
-
-
-    setAspectRatioForAllSections();
-
-
+ 
 
 
 
@@ -719,60 +698,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // CLICK FIRST THEN TRIGGER SECTION
-    document.querySelectorAll('.section').forEach(section => {
-            section.addEventListener('click', function(event) {
-                // Get the clicked element
-                const target = event.target;
-                console.log("clicked target:",target.className)
-                // Find the parent with class 'section'
-                const parentSection = target.closest('.section');
+    // document.querySelectorAll('.section').forEach(section => {
+    //         section.addEventListener('click', function(event) {
+    //             // Get the clicked element
+    //             const target = event.target;
+    //             console.log("clicked target:",target.className)
+    //             // Find the parent with class 'section'
+    //             const parentSection = target.closest('.section');
         
-                if (parentSection) {
-                    const sectionId = parentSection.id;
-                    console.log('Clicked section ID:', sectionId);
-                    // Switch statement based on sectionId
-                    switch (sectionId) {
-                        case 'section1':
-                            if(!section1doonce){
-                                bgVideo.muted = false;
-                                bgVideo.play();
-                                played=!played;
-                                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
-                                section1vedioUnmute();
-                                section1doonce=!section1doonce;
-                            }
-                            break;
-                        case 'section2':
-                            // if (handleOctopusVisible()) {
-                            //     triggerOctopusActions();
-                            // }
-                            break;
-                        case 'section3':
-                            // if(handleOctopusidelVisible()){
-                            //     section3triggerOctopusActions();
-                            // }
-                            break;
-                        case 'section4':
-                            // if(handleOctopus4Visible()){
-                            //     section4triggerOctopusActions();
-                            // }
-                            break;
-                        case 'section5':
-                            console.log('Section 5 clicked.');
-                            // Perform actions specific to section 5
-                            break;
-                        case 'section6':
-                            // if(handleSection6Visible()&&!section6doonce){
-                            //     triggerSection6Action();
-                            //     section6doonce=!section6doonce;
-                            // }
-                            break;
-                        default:
-                            console.log('Unknown section clicked.');
-                    }
-                }
-            });
-    });
+    //             if (parentSection) {
+    //                 const sectionId = parentSection.id;
+    //                 console.log('Clicked section ID:', sectionId);
+    //                 // Switch statement based on sectionId
+    //                 switch (sectionId) {
+    //                     case 'section1':
+    //                         if(!section1doonce){
+    //                             bgVideo.muted = false;
+    //                             bgVideo.play();
+    //                             played=!played;
+    //                             commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+    //                             section1vedioUnmute();
+    //                             section1doonce=!section1doonce;
+    //                         }
+    //                         break;
+    //                     case 'section2':
+    //                         // if (handleOctopusVisible()) {
+    //                         //     triggerOctopusActions();
+    //                         // }
+    //                         break;
+    //                     case 'section3':
+    //                         // if(handleOctopusidelVisible()){
+    //                         //     section3triggerOctopusActions();
+    //                         // }
+    //                         break;
+    //                     case 'section4':
+    //                         // if(handleOctopus4Visible()){
+    //                         //     section4triggerOctopusActions();
+    //                         // }
+    //                         break;
+    //                     case 'section5':
+    //                         console.log('Section 5 clicked.');
+    //                         // Perform actions specific to section 5
+    //                         break;
+    //                     case 'section6':
+    //                         // if(handleSection6Visible()&&!section6doonce){
+    //                         //     triggerSection6Action();
+    //                         //     section6doonce=!section6doonce;
+    //                         // }
+    //                         break;
+    //                     default:
+    //                         console.log('Unknown section clicked.');
+    //                 }
+    //             }
+    //         });
+    // });
 
     //Gap resize code
     function adjustGapHeights() {

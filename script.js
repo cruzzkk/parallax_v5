@@ -5,7 +5,7 @@
     const imagesToPreload = [
         //Slide25-35
         'assets/Slides_25-35/Audio_button.png', 'assets/Slides_25-35/Audio_button_Mute.png', 'assets/Slides_25-35/Audio_icon.png', 'assets/Slides_25-35/Audio_icon_selected.png', 'assets/Slides_25-35/Cantonese.png', 'assets/Slides_25-35/Cantonese_selected.png', 'assets/Slides_25-35/English.png', 'assets/Slides_25-35/English_selected.png', 'assets/Slides_25-35/Grizzly_bear.png', 'assets/Slides_25-35/Grizzly_bear_outline.png', 'assets/Slides_25-35/Hills.png', 'assets/Slides_25-35/Kelp.png', 'assets/Slides_25-35/Kelp_outline.png', 'assets/Slides_25-35/Mandarin.png', 'assets/Slides_25-35/Mandarin_selected.png', 'assets/Slides_25-35/octopus.png', 'assets/Slides_25-35/Pause_Button.png', 'assets/Slides_25-35/Photo01.png', 'assets/Slides_25-35/Photo02.png', 'assets/Slides_25-35/Photo03.png', 'assets/Slides_25-35/Photo04.png', 'assets/Slides_25-35/Plau_Button.png', 'assets/Slides_25-35/Popup_window.png', 'assets/Slides_25-35/Popup_window_close.png', 'assets/Slides_25-35/Reading-Language_button.png', 'assets/Slides_25-35/Reading-Language_button_Selected.png', 'assets/Slides_25-35/Reading_Help_popup.png', 'assets/Slides_25-35/Replay_Button.png', 'assets/Slides_25-35/Salmon.png', 'assets/Slides_25-35/Salmon_outline.png', 'assets/Slides_25-35/Sky_crop.png', 'assets/Slides_25-35/Spanish.png', 'assets/Slides_25-35/Spanish_selected.png', 'assets/Slides_25-35/Tagalog.png', 'assets/Slides_25-35/Tagalog_selected.png', 'assets/Slides_25-35/Trees_ground.png', 'assets/Slides_25-35/Water_crop.png', 'assets/Slides_25-35/Water_over_octopus.png', 'assets/Slides_25-35/Yeast_crop.png', 'assets/Slides_25-35/Yeast_outline_01.png', 'assets/Slides_25-35/Yeast_plant.png', 'assets/Slides_25-35/Yeast_plant_focus.png',
-        'assets/Slides11-17/Callout01.png', 'assets/Slides11-17/Consumers.png', 'assets/Slides11-17/Consumers01.png', 'assets/Slides11-17/Consumers_text_box.png', 'assets/Slides11-17/Curved_arrow.png', 'assets/Slides11-17/Curved_arrow_highlighted.png', 'assets/Slides11-17/Decomposers.png', 'assets/Slides11-17/Decomposers_text_box.png', 'assets/Slides11-17/Garden_crop.png', 'assets/Slides11-17/Grass_top_layer.png', 'assets/Slides11-17/Grass_top_layer_crop.png', 'assets/Slides11-17/House_CROP_2.png', 'assets/Slides11-17/Mountains_01.png', 'assets/Slides11-17/Octopus_inset.png', 'assets/Slides11-17/Parallax_scroll_BG_updated.png', 'assets/Slides11-17/popup_close.png', 'assets/Slides11-17/Popup_text_box.png', 'assets/Slides11-17/Producers-Consumers_text_box.png', 'assets/Slides11-17/Producers.png', 'assets/Slides11-17/Producers_text_box.png', 'assets/Slides11-17/Scroll_down_button.png', 'assets/Slides11-17/Sun_01.png', 'assets/Slides11-17/Tree.png',
+        'assets/Slides11-17/Callout01.png', 'assets/Slides11-17/Consumers.png', 'assets/Slides11-17/Consumers01.png', 'assets/Slides11-17/Consumers_text_box.png', 'assets/Slides11-17/Curved_arrow.png', 'assets/Slides11-17/Curved_arrow_highlighted.png', 'assets/Slides11-17/Decomposers.png', 'assets/Slides11-17/Decomposers_text_box.png', 'assets/Slides11-17/Garden_crop.png', 'assets/Slides11-17/Grass_top_layer.png', 'assets/Slides11-17/Grass_top_layer_crop.png', 'assets/Slides11-17/House_CROP_2.png', 'assets/Slides11-17/Mountains_01.png', 'assets/Slides11-17/Octopus_inset.png', 'assets/Slides11-17/Parallax_scroll_BG_updated.png', 'assets/Slides11-17/popup_close.png', 'assets/Slides11-17/Popup_text_box.png', 'assets/Slides11-17/Producers-Consumers_text_box.png', 'assets/Slides11-17/Producers.png', 'assets/Slides11-17/Producers_text_box.png', 'assets/Slides11-17/Scroll_down_button.png', 'assets/Slides11-17/Sun_01.png', 'assets/Slides11-17/Tree.png','assets/Slides11-17/Fullscreen_Exit_button.png',
         'assets/Slides18-20/bushes.png', 'assets/Slides18-20/Callout.png', 'assets/Slides18-20/Octopus_and_shells.png', 'assets/Slides18-20/Octopus_and_water.png', 'assets/Slides18-20/Octopus_side.png', 'assets/Slides18-20/Replay_Button.png', 'assets/Slides18-20/Sky_corp.png', 'assets/Slides18-20/Start_Adventure.png', 'assets/Slides18-20/Sun02.png', 'assets/Slides18-20/Trees.png', 'assets/Slides18-20/Water_.png', 'assets/Slides18-20/Water_octopus.png',
         'assets/Slides38-42/Bear.png', 'assets/Slides38-42/Bear_Visited.png', 'assets/Slides38-42/Blue_callout.png', 'assets/Slides38-42/Correct.png', 'assets/Slides38-42/Cougar.png', 'assets/Slides38-42/Cougar_Visited.png', 'assets/Slides38-42/Cross.png', 'assets/Slides38-42/Eagle.png', 'assets/Slides38-42/Eagle_Visited.png', 'assets/Slides38-42/Fish.png', 'assets/Slides38-42/Fish_Visited.png', 'assets/Slides38-42/Incorrect.png', 'assets/Slides38-42/More_Info.png', 'assets/Slides38-42/Otter.png', 'assets/Slides38-42/Otter_Visited.png', 'assets/Slides38-42/Sky_crop.png', 'assets/Slides38-42/Tick.png', 'assets/Slides38-42/Tree.png', 'assets/Slides38-42/Trees.png', 'assets/Slides38-42/Tree_Visited.png', 'assets/Slides38-42/Water_crop.png', 'assets/Slides38-42/Wolf.png', 'assets/Slides38-42/Wolf_Visited.png'
         
@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const commonplayButton= document.getElementById("commonplay");
     const commonrestartButton= document.getElementById("commonrestart");
     const fullScreenButton= document.getElementById("fullScreen");
+    const fullScreenButtonImg=fullScreenButton.querySelector("img");
 
  
     const bgVideo = document.getElementById("bgVideo");
@@ -238,9 +239,11 @@ document.addEventListener("DOMContentLoaded", () => {
  
         if(document.fullscreenElement){
             exitFullScreen();
+            fullScreenButtonImg.src=fullScreenButton.getAttribute("exitfullscreen");
             
         }else{
             enterFullScreen();
+            fullScreenButtonImg.src=fullScreenButton.getAttribute("enterfullscreen");
         }
         setAspectRatioForAllSections();
     });
@@ -378,62 +381,76 @@ document.addEventListener("DOMContentLoaded", () => {
                 enableVideo();
             break;
             case 'section2':
-                
-
-                if(section2played){
-                    section2played=!section2played;
-                    //added condition in click trigger/pause audio
-                    for (let i = 0; i < 3; i++) {
-                        const audio = audiosToPreload[i];
-                        if (isAudioPlaying(audio)) {
-                            console.log('audio ',audio);
-                            audio.pause();
-                            section2pausedAudio=audio;
+                if (handleOctopusVisible()) {
+                    
+                    if(section2played){
+                        section2played=!section2played;
+                        
+                        for (let i = 0; i < 3; i++) {
+                            const audio = audiosToPreload[i];
+                            if (isAudioPlaying(audio)) {
+                                    console.log('audio ',audio);
+                                    audio.pause();
+                                    section2pausedAudio=audio;
+                            }
+                                    
                         }
-                       
-                    }
-                    if(isAudioPlaying(section2popup_audio)){
-                        section2pausedAudio=section2popup_audio;
-                        section2pausedAudio.pause();
-                    }
-                     
+                        if(isAudioPlaying(section2popup_audio)){
+                                        section2pausedAudio=section2popup_audio;
+                                        section2pausedAudio.pause();
+                        }
+                                
+                        
+                        
 
-                }else{
-                    section2played=!section2played;
-                    if (section2pausedAudio) {
-                        console.log('Resuming audio:', section2popup_audio);
-                        section2pausedAudio.play();
-                        section2pausedAudio = null; // Clear the stored audio after resuming
-                    } else {
-                        console.log('No audio to resume.');
+                    }else{
+                        section2played=!section2played;
+                        if(!firstactiontriggered) {
+                            triggerOctopusActions();
+                        } 
+                        if (section2pausedAudio) {
+                            console.log('Resuming audio:', section2popup_audio);
+                            section2pausedAudio.play();
+                            section2pausedAudio = null; // Clear the stored audio after resuming
+                        } else {
+                            console.log('No audio to resume.');
+                        }
+                    
                     }
-                   
+                    commonplayButton.querySelector("img").src=section2played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 }
-                commonplayButton.querySelector("img").src=section2played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
             break;
             case 'section3':
-                if(section3played){
-                    section3played=!section3played;
-                    for (let i = 3; i < 5; i++) {
-                        const audio = audiosToPreload[i];
-                        if (isAudioPlaying(audio)) {
-                            console.log('audio ',audio);
-                            audio.pause();
-                            section3pausedAudio=audio;
+                if(handleOctopusidelVisible()){
+                    
+                
+                    if(section3played){
+                        section3played=!section3played;
+                        for (let i = 3; i < 5; i++) {
+                            const audio = audiosToPreload[i];
+                            if (isAudioPlaying(audio)) {
+                                console.log('audio ',audio);
+                                audio.pause();
+                                section3pausedAudio=audio;
+                            }
+    
                         }
- 
+                    }else{
+                        section3played=!section3played;
+                        if(!section3Octopusidelvisible){
+                            section3triggerOctopusActions();
+                        }
+                        
+                        if (section3pausedAudio) {
+                            section3pausedAudio.play();
+                            section3pausedAudio = null; // Clear the stored audio after resuming
+                        } else {
+                            console.log('No audio to resume.');
+                        }
                     }
-                }else{
-                    section3played=!section3played;
-                    if (section3pausedAudio) {
-                        section3pausedAudio.play();
-                        section3pausedAudio = null; // Clear the stored audio after resuming
-                    } else {
-                        console.log('No audio to resume.');
-                    }
+                    console.log(section3played);
+                    commonplayButton.querySelector("img").src=section3played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 }
-                commonplayButton.querySelector("img").src=section3played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
-
             break;
             case 'section4':
                 if(section4played){
@@ -530,8 +547,8 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section2':
                 section2mute=false;
                 commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
-                section2played=true;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+                section2played=false;
+                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
                 firstactiontriggered=false;
                 lastScrollY = 0;
                 ticking = false;
@@ -567,8 +584,8 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section3':
                 section3mute=false;
                 commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
-                section3played=true;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+                section3played=false;
+                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
                 section3Octopusidelvisible=false;
                 section3dialogBox.style.display = "none";
                 audio4.muted=section3mute;
@@ -587,8 +604,8 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section4':
                 section4dialogBox.style.display = "none";
                 section4dialogText.style.display = "none";
-                section4played=true;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";  
+                section4played=false;
+                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";  
                 section4actiontriggered = false;
                 section4languageguidedoonce=false;
                 section4readguidedoonce=false;
@@ -660,8 +677,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio9.muted=section6mute;
                 audio9.currentTime=0;
                 audio9.pause();
-                section6played=true;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+                section6played=false;
+                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
                 popup.style.display = "none";
                 feedback.style.display='none'
                 const correctfeedback = document.getElementById('correctfeedback');
@@ -678,66 +695,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-
-
-    // section5playButton.addEventListener("click", () => {
-    //     if(!section5played){
-    //         section5bgVideo.play();
-    //         section1vedioUnmute();
-    //         section5played=!section5played;
-    //         section5playButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
-    //     }else{
-    //         section5bgVideo.pause();
-    //         section5played=!section5played; 
-    //         section5playButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
-
-    //     }
-    // });
-    // section5soundbutton.addEventListener("click", () => {
-    //     let currentsection=getCurrentSection();
-    //     if(currentsection==="section5"){
-
-    //         if(section5mute){
-    //             section5vedioUnmute();
-    //         }else{
-    //             section5vediomute();
-    //         }
-    //         currentAudio.muted=section5mute;
-    //     }
-    //     else if(currentsection==="section4"){
-    //         console.log('broo');
-    //         section4muted = !section4muted; // Toggle the mute state
-    //         audio6.muted = section4muted;
-    //         audio7.muted = section4muted;
-    //         audio8.muted = section4muted;
-    //         audio10.muted = section4muted;
-    //         currentAudio.muted=section4muted;
-    //         // Update button text or icon based on mute state
-    //         section5soundbutton.querySelector("img").src = section4muted ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-    //     }else if(currentsection==="section6"){
-    //         section6muted=!section6muted;
-    //         audio9.muted=section6muted;
-    //         currentAudio.muted=section4muted;
-    //         section5soundbutton.querySelector("img").src = section6muted ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-
-    //     }
-    
-
-    // });
-
-    // section5restartbutton.addEventListener("click", () => {
-    //     console.log('mm',currentSection)
-            
-    //             section5bgVideo.currentTime = 0;
-    //             section5bgVideo.play();
-    //             section5vedioUnmute(); 
-    //             section5played=true; 
-    //             section5playButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
-
-    // });
-
-
-  
     
 
 //common
@@ -769,14 +726,14 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                             break;
                         case 'section2':
-                            if (handleOctopusVisible()) {
-                                triggerOctopusActions();
-                            }
+                            // if (handleOctopusVisible()) {
+                            //     triggerOctopusActions();
+                            // }
                             break;
                         case 'section3':
-                            if(handleOctopusidelVisible()){
-                                section3triggerOctopusActions();
-                            }
+                            // if(handleOctopusidelVisible()){
+                            //     section3triggerOctopusActions();
+                            // }
                             break;
                         case 'section4':
                             if(handleOctopus4Visible()){
@@ -1089,7 +1046,7 @@ document.addEventListener("DOMContentLoaded", () => {
             octopusRect.bottom >= 0 &&
             octopusRect.top <= windowHeight &&
             octopusRect.right >= 0 &&
-            octopusRect.left <= windowWidth&&!firstactiontriggered
+            octopusRect.left <= windowWidth
         ) {
             return true;
         }
@@ -1111,7 +1068,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Trigger 2: When First Audio Ends, Play Second Audio
     audio1.addEventListener("ended", () => {
-        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color: red;font-weight: bold;'>Select each icon to know about them.</span>";
+        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;'>Select each icon to know about them.</span>";
         adjustImageHeight();
         dialogBox.querySelector('.text').style.fontFamily = "Heinemann";
         dialogBox.querySelector('.text').style.fontWeight = "italic";
@@ -1281,7 +1238,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 octopusRect.bottom >= 0 &&
                 octopusRect.top <= windowHeight &&
                 octopusRect.right >= 0 &&
-                octopusRect.left <= windowWidth&&!section3Octopusidelvisible
+                octopusRect.left <= windowWidth
             ){
                 return true;
             }
@@ -1301,7 +1258,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     audio4.addEventListener("ended", () => {
-        section3dialogText.innerHTML = "Let's explore this forest together, meet my friends, and help them find their meals along the way. Are you ready to start?<br><span style='color: red;font-weight: bold;'>Select Start Adventure.</span>";
+        section3dialogText.innerHTML = "Let's explore this forest together, meet my friends, and help them find their meals along the way. Are you ready to start?<br><span style='color: #BC0404;font-weight: bold;'>Select Start Adventure.</span>";
         adjustSection3ImageHeight();
         audio5.play()
         
@@ -1789,7 +1746,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // section5.style.zIndex=2;
             // section6.style.zIndex=1;
             if(!section4languageguidedoonce){
-                section4dialogText.innerHTML = "<span style='color: red;'>Select hotspots. You'll collect a starfish for completing each.</span>";
+                section4dialogText.innerHTML = "<span style='color: #BC0404;'>Select hotspots. You'll collect a starfish for completing each.</span>";
                 adjustSection4ImageHeight();
                 audio10.play().catch((error) => {
                     console.error('Error playing audio:', error);

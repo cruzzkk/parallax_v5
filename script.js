@@ -256,6 +256,37 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    function freezeScroll() {
+        // Prevent scrolling with mouse wheel
+        window.addEventListener("wheel", preventDefault, { passive: false });
+      
+        // Prevent touch-based scrolling
+        window.addEventListener("touchmove", preventDefault, { passive: false });
+      
+        // Prevent scrolling with keyboard keys
+        window.addEventListener("keydown", preventScrollKeys, { passive: false });
+      }
+      
+      // Utility to prevent default behavior
+      function preventDefault(event) {
+        event.preventDefault();
+      }
+      
+      // Disable specific keys used for scrolling
+      function preventScrollKeys(event) {
+        const keys = ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Space"];
+        if (keys.includes(event.key)) {
+          event.preventDefault();
+        }
+      }
+
+      function unfreezeScroll() {
+        window.removeEventListener("wheel", preventDefault, { passive: false });
+        window.removeEventListener("touchmove", preventDefault, { passive: false });
+        window.removeEventListener("keydown", preventScrollKeys, { passive: false });
+      }
+      
+
 
  
 
@@ -796,9 +827,38 @@ document.addEventListener("DOMContentLoaded", () => {
     
         window.scrollTo(0, start + distance * ease);
     
-        if (progress < 1) {
-            requestAnimationFrame(step);
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }
+
         }
+    
+        // Easing functions for different effects
+        function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+        }
+    
+        requestAnimationFrame(step);
+    }
+    function smoothScrollToFreeze(target, duration) {
+        const start = window.scrollY;
+        const end = target.offsetTop;
+        const distance = end - start;
+        const startTime = performance.now();
+    
+        function step(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = easeOutCubic(progress);
+    
+        window.scrollTo(0, start + distance * ease);
+    
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }else{
+                freezeScroll();
+            }
+
         }
     
         // Easing functions for different effects
@@ -1409,7 +1469,29 @@ document.addEventListener("DOMContentLoaded", () => {
  
 
     });
+    function Section4Read_LanguageDeactivate(value){
+        if(value){
+                        // Get both elements
+                        const section4ReadHelpText = document.getElementById("section4ReadHelpText");
+                        const section4Help = document.getElementById("section4Help");
+            
+                        // Add the "active" class to both elements
+                        section4ReadHelpText.style.pointerEvents="none";
+                        section4ReadHelpText.style.cursor="none";
+                        section4Help.style.pointerEvents="none";
+                        section4Help.style.cursor="none";
+        }else{
+            // Get both elements
+            const section4ReadHelpText = document.getElementById("section4ReadHelpText");
+            const section4Help = document.getElementById("section4Help");
 
+            // Add the "active" class to both elements
+            section4ReadHelpText.style.pointerEvents="visible";
+            section4ReadHelpText.style.cursor="pointer";
+            section4Help.style.pointerEvents="visible";
+            section4Help.style.cursor="pointer";
+        }
+    }
 
     document.getElementById('section4ReadHelp').addEventListener('click', function() {
         switch(getCurrentSection()){
@@ -1433,7 +1515,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     function Section4ReadHelpClick(){
            const currentSectiondiv = getCurrentsectiondiv();
-            //currentSectiondiv.appendChild(secion5rigthTop);
+            currentSectiondiv.appendChild(secion5rigthTop);
             // document.querySelector('.overlay').style.display = 'flex'; 
             const textElement = document.getElementById("section4ReadHelpText");
             textElement.classList.add("active"); 
@@ -1441,25 +1523,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (overlay) {
             overlay.remove();
             }
+
+            Section4Read_LanguageDeactivate(true);
             const currentSection = getCurrentSection();
-             //switch index
-            switch(currentSection){
-                case 'section4':
-                // section4.style.zIndex=3;
-                // section5.style.zIndex=2;
-                // section6.style.zIndex=1;
-                break;
-                case 'section5':
-                section4.style.zIndex=2;
-                section5.style.zIndex=3;
-                section6.style.zIndex=1;
-                break;
-                case 'section6':
-                // section4.style.zIndex=2;
-                // section5.style.zIndex=1;
-                // section6.style.zIndex=3;
-                break;
-            }
+            
+            
             console.log('insection',currentSection);
             if (currentSection === 'section4' || currentSection === 'section5' || currentSection === 'section6') {
                 AddOverlay(currentSection);
@@ -1507,32 +1575,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     function Section4HelpClick(){
             const currentSectiondiv = getCurrentsectiondiv();
-            //currentSectiondiv.appendChild(secion5rigthTop);
+            currentSectiondiv.appendChild(secion5rigthTop);
+            smoothScrollToFreeze(currentSectiondiv,500);
             const textElement = document.getElementById("section4HelpText");
             textElement.classList.add("active"); 
             const overlay = document.querySelector('.overlay2');
             if (overlay) {
             overlay.remove();
             }
+
+            Section4Read_LanguageDeactivate(true);
+
             const currentSection = getCurrentSection();
-            //switch index
-            switch(currentSection){
-                case 'section4':
-                // section4.style.zIndex=3;
-                // section5.style.zIndex=2;
-                // section6.style.zIndex=1;
-                break;
-                case 'section5':
-                section4.style.zIndex=2;
-                section5.style.zIndex=3;
-                section6.style.zIndex=1;
-                break;
-                case 'section6':
-                // section4.style.zIndex=2;
-                // section5.style.zIndex=1;
-                // section6.style.zIndex=3;
-                break;
-            }
+             
 
             console.log('insection',currentSection);
             if (currentSection === 'section4' || currentSection === 'section5' || currentSection === 'section6') {
@@ -1736,7 +1791,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function CloseOverlay(){
             document.querySelector('.overlay').remove();
-            //section4.appendChild(secion5rigthTop);
+            section5.appendChild(secion5rigthTop);
             // section4.style.zIndex=3;
             // section5.style.zIndex=2;
             // section6.style.zIndex=1;
@@ -1757,6 +1812,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             const textElement = document.getElementById("section4ReadHelpText");
             textElement.classList.remove("active"); 
+            Section4Read_LanguageDeactivate(false);
         }
 
 
@@ -2003,12 +2059,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         function CloseOverlayRead(){
-            //section4.appendChild(secion5rigthTop);
+                unfreezeScroll();
+                section5.appendChild(secion5rigthTop);
                 // section4.style.zIndex=3;
                 // section5.style.zIndex=2;
                 // section6.style.zIndex=1;
                 const textElement = document.getElementById("section4HelpText");
                 textElement.classList.remove("active"); 
+                Section4Read_LanguageDeactivate(false);
+
                 document.querySelector('.overlay2').style.display = 'none'; // Hide overlay
 
                 if(!section4readguidedoonce){

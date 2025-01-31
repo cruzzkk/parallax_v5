@@ -144,6 +144,9 @@ body {
 
     
 }
+
+
+
 #section4ReadHelp:hover{
     transform: translateX(-50%) scale(1.01);
     transform-origin: center;
@@ -181,6 +184,7 @@ body {
 #section4ReadHelpText.active {
     color: rgba(255, 196, 0, 0.689);  
 }
+
 
 #section4Help {
     position: absolute;

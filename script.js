@@ -814,32 +814,60 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('resize', adjustGapHeights);
 
     //Smooth Transition to sections
+    // function smoothScrollTo(target, duration) {
+    //     const start = window.scrollY;
+    //     const end = target.offsetTop;
+    //     const distance = end - start;
+    //     const startTime = performance.now();
+    
+    //     function step(currentTime) {
+    //     const elapsed = currentTime - startTime;
+    //     const progress = Math.min(elapsed / duration, 1);
+    //     const ease = easeOutCubic(progress);
+    
+    //     window.scrollTo(0, start + distance * ease);
+    
+    //         if (progress < 1) {
+    //             requestAnimationFrame(step);
+    //         }
+
+    //     }
+    
+    //     // Easing functions for different effects
+    //     function easeOutCubic(t) {
+    //         return 1 - Math.pow(1 - t, 3);
+    //     }
+    
+    //     requestAnimationFrame(step);
+    // }
+
     function smoothScrollTo(target, duration) {
         const start = window.scrollY;
         const end = target.offsetTop;
         const distance = end - start;
-        const startTime = performance.now();
+        let startTime = null;
     
         function step(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = easeOutCubic(progress);
+            if (!startTime) startTime = currentTime;
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = easeOutSlow(progress); // Use a slow easing function
     
-        window.scrollTo(0, start + distance * ease);
+            window.scrollTo(0, start + distance * ease);
     
             if (progress < 1) {
                 requestAnimationFrame(step);
             }
-
         }
     
-        // Easing functions for different effects
-        function easeOutCubic(t) {
-            return 1 - Math.pow(1 - t, 3);
+        // Custom easing function for **extra slow start**
+        function easeOutSlow(t) {
+            return 1 - Math.pow(1 - t, 4); // Makes it start **extra slow**
         }
     
         requestAnimationFrame(step);
     }
+    
     function smoothScrollToFreeze(target, duration) {
         const start = window.scrollY;
         const end = target.offsetTop;
@@ -1026,7 +1054,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("gap2").style.display="block"
         section2.style.display = "visible";
         section2.style.display = "block";
-        smoothScrollTo(section2,1500);
+        // smoothScrollTo(section2,1500);
         
     });
 
@@ -1227,7 +1255,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 section2nextImage.style.display = "block";
 
                 // Scroll down smoothly to section3
-                smoothScrollTo(section3, 1500);
+                // smoothScrollTo(section3, 1000);
             };
         } else {
             console.error("Image 'Grass_top_layer.png' not found in the preload list.");
@@ -1342,7 +1370,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("gap4").style.display="block";
             section4.style.overflow="visible";
             section4.style.display="block"
-            smoothScrollTo(section4,1500);
+            // smoothScrollTo(section4,2000);
             document.getElementById("section3nextImage").style.display="block";
         }
 
@@ -2107,7 +2135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section5played=true;
         section5vedioUnmute();
         commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
-        smoothScrollTo(section5,1500);
+        // smoothScrollTo(section5,2000);
         
     }
     
@@ -2126,7 +2154,7 @@ document.addEventListener("DOMContentLoaded", () => {
             element.style.pointerEvents = 'none';
         });
 
-        smoothScrollTo(section6,1500);
+        // smoothScrollTo(section6,2000);
 
     });
 

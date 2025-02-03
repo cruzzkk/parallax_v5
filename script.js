@@ -1516,6 +1516,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function Section4ReadHelpClick(){
            const currentSectiondiv = getCurrentsectiondiv();
             currentSectiondiv.appendChild(secion5rigthTop);
+            smoothScrollToFreeze(currentSectiondiv,500);
             // document.querySelector('.overlay').style.display = 'flex'; 
             const textElement = document.getElementById("section4ReadHelpText");
             textElement.classList.add("active"); 
@@ -1790,6 +1791,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         function CloseOverlay(){
+            unfreezeScroll();
             document.querySelector('.overlay').remove();
             section5.appendChild(secion5rigthTop);
             // section4.style.zIndex=3;

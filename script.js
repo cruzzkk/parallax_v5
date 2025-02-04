@@ -1497,29 +1497,45 @@ document.addEventListener("DOMContentLoaded", () => {
  
 
     });
-    function Section4Read_LanguageDeactivate(value){
-        if(value){
-                        // Get both elements
-                        const section4ReadHelpText = document.getElementById("section4ReadHelpText");
-                        const section4Help = document.getElementById("section4Help");
-            
-                        // Add the "active" class to both elements
-                        section4ReadHelpText.style.pointerEvents="none";
-                        section4ReadHelpText.style.cursor="none";
-                        section4Help.style.pointerEvents="none";
-                        section4Help.style.cursor="none";
-        }else{
-            // Get both elements
-            const section4ReadHelpText = document.getElementById("section4ReadHelpText");
-            const section4Help = document.getElementById("section4Help");
 
-            // Add the "active" class to both elements
-            section4ReadHelpText.style.pointerEvents="visible";
-            section4ReadHelpText.style.cursor="pointer";
-            section4Help.style.pointerEvents="visible";
-            section4Help.style.cursor="pointer";
+
+    // Store the previous pointer events
+    let previousPointerState = {
+        section4ReadHelpText: null,
+        section4Help: null
+    };
+
+    function Section4Read_LanguageDeactivate(value) {
+        const section4ReadHelpText = document.getElementById("section4ReadHelpText");
+        const section4Help = document.getElementById("section4Help");
+
+        if (value) {
+            // Store only if current state is "visible"
+            if (section4ReadHelpText.style.pointerEvents === "visible") {
+                previousPointerState.section4ReadHelpText = "visible";
+                section4ReadHelpText.style.pointerEvents = "none";
+                section4ReadHelpText.style.cursor = "none";
+            }
+            
+            if (section4Help.style.pointerEvents === "visible") {
+                previousPointerState.section4Help = "visible";
+                section4Help.style.pointerEvents = "none";
+                section4Help.style.cursor = "none";
+            }
+        } else {
+            // Restore only if it was previously "visible"
+            if (previousPointerState.section4ReadHelpText === "visible") {
+                section4ReadHelpText.style.pointerEvents = "visible";
+                section4ReadHelpText.style.cursor = "pointer";
+            }
+
+            if (previousPointerState.section4Help === "visible") {
+                section4Help.style.pointerEvents = "visible";
+                section4Help.style.cursor = "pointer";
+            }
         }
     }
+
 
     document.getElementById('section4ReadHelp').addEventListener('click', function() {
         switch(getCurrentSection()){
@@ -1821,7 +1837,10 @@ document.addEventListener("DOMContentLoaded", () => {
         function CloseOverlay(){
             unfreezeScroll();
             document.querySelector('.overlay').remove();
-            section5.appendChild(secion5rigthTop);
+            if(section5.style.display=='block'){
+                section5.appendChild(secion5rigthTop);
+            }
+            
             // section4.style.zIndex=3;
             // section5.style.zIndex=2;
             // section6.style.zIndex=1;
@@ -1967,10 +1986,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function audiodescribePlay(audioSrc){
             // Stop current audio if playing
-            if (currentAudio) {
+            if (currentAudio.isAudioPlaying) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
-            }
+             }
     
             // Create a new audio instance and play it
             currentAudio.src=audioSrc;
@@ -2090,8 +2109,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         function CloseOverlayRead(){
                 unfreezeScroll();
-                section5.appendChild(secion5rigthTop);
-                // section4.style.zIndex=3;
+                if(section5.style.display=='block'){
+                    section5.appendChild(secion5rigthTop);
+                }
+                 // section4.style.zIndex=3;
                 // section5.style.zIndex=2;
                 // section6.style.zIndex=1;
                 const textElement = document.getElementById("section4HelpText");
@@ -2127,7 +2148,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function enablesection5video(){
         section5.style.display="block"
- 
+        section5.appendChild(secion5rigthTop);
 
         document.getElementById("section4nextImage").style.display="block";
         section5.style.overflow="hidden";

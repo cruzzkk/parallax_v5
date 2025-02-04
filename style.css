@@ -2564,11 +2564,11 @@ transition: transform 0.3s;
  
 #feedbackimage3{
     position: absolute;
-    top: 20%; 
-    left: 25%;
+    top: 10%; 
+    left: 30%;
     width: 8%;
     background-color: #ef000000;
-    transform: translateX(-50%)translateY(-50%);
+    transform: translate(-50%);
 }
 
 
@@ -2583,12 +2583,13 @@ transition: transform 0.3s;
 #feedbacktext1 {
     top: 10%; /* Adjust below the images */
     left: 50%;
-    width: 40%; /* Ensure it scales well */
+    width: 90%; /* Ensure it scales well */
      font-weight: bold;
     color: #000;
     font-size: 1.5vw;
     background-color: #ef000000;
-    text-align: left;
+    text-align: center;
+    transform: translate(-50%,-50%);
 }
 
 #feedbacktext2 {

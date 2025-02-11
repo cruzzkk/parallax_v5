@@ -36,8 +36,7 @@ function preloadImages(images, callback) {
         img.onload = () => {
             loadedImages++;
             if (loadedImages === totalImages) {
-                console.log('Finished Image');
-                callback();  // Call the callback function once all images are loaded
+                 callback();  // Call the callback function once all images are loaded
             }
         };
     });
@@ -45,8 +44,7 @@ function preloadImages(images, callback) {
 
 // Function to preload audio files
 function preloadAudios(audios, callback) {
-    console.log('Starting audio preload');
-    let loadedAudios = 0;
+     let loadedAudios = 0;
     const totalAudios = audios.length;
 
     audios.forEach(audio => {
@@ -54,9 +52,7 @@ function preloadAudios(audios, callback) {
         audio.load(); // Explicitly load the audio file
         audio.oncanplaythrough = () => {
             loadedAudios++;
-            console.log(`Audio fully loaded: ${audio.src}`);
-            if (loadedAudios === totalAudios) {
-                console.log('All audio files fully loaded');
+             if (loadedAudios === totalAudios) {
                 callback();
             }
         };
@@ -66,7 +62,6 @@ function preloadAudios(audios, callback) {
     });
 
     if (totalAudios === 0) {
-        console.log('No audio files to preload');
         callback();
     }
 }
@@ -91,7 +86,6 @@ window.onload = function() {
     preloadImages(imagesToPreload, function() {
         preloadAudios(audiosToPreload, function() {
             preloadVideo('bgVideo', 'assets/video/Section1.mp4', function() {
-                console.log('Finished');
                 // Once everything is preloaded, hide the preloader
                 const preloader = document.getElementById('preloader');
                 preloader.style.opacity = '0'; // Fade-out effect
@@ -251,7 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("fullscreenchange", () => {
         if (!document.fullscreenElement) {
         // User exited fullscreen
-        console.log("Exited fullscreen mode");
         fullScreenButtonImg.src=fullScreenButton.getAttribute("exitfullscreen");// Reset to non-clicked image
         }
     });
@@ -338,7 +331,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     commonsoundbutton.addEventListener("click", () => {
-        console.log("sound clicked");
         switch(currentSection){
             case 'section1':
                 if(section1mute){
@@ -422,7 +414,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         for (let i = 0; i < 3; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
-                                    console.log('audio ',audio);
                                     audio.pause();
                                     section2pausedAudio=audio;
                             }
@@ -442,11 +433,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             triggerOctopusActions();
                         } 
                         if (section2pausedAudio) {
-                            console.log('Resuming audio:', section2popup_audio);
                             section2pausedAudio.play();
                             section2pausedAudio = null; // Clear the stored audio after resuming
                         } else {
-                            console.log('No audio to resume.');
                         }
                     
                     }
@@ -462,7 +451,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         for (let i = 3; i < 5; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
-                                console.log('audio ',audio);
                                 audio.pause();
                                 section3pausedAudio=audio;
                             }
@@ -478,10 +466,8 @@ document.addEventListener("DOMContentLoaded", () => {
                             section3pausedAudio.play();
                             section3pausedAudio = null; // Clear the stored audio after resuming
                         } else {
-                            console.log('No audio to resume.');
                         }
                     }
-                    console.log(section3played);
                     commonplayButton.querySelector("img").src=section3played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 }
             break;
@@ -494,8 +480,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         for (let i = 5; i < 10; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
-                                console.log('audio ',audio);
-                                audio.pause();
+                                 audio.pause();
                                 section4pausedAudio=audio;
                             }
     
@@ -514,8 +499,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             section4pausedAudio.play();
                             section4pausedAudio = null; // Clear the stored audio after resuming
                         } else {
-                            console.log('No audio to resume.');
-                        }
+                         }
                         if(currentAudio.paused&&!currentAudio.ended){
                             currentAudio.play();
                         }
@@ -547,8 +531,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         
                             const audio = audiosToPreload[9];
                             if (isAudioPlaying(audio)) {
-                                console.log('audio ',audio);
-                                audio.pause();
+                                 audio.pause();
                                 section6pausedAudio=audio;
                             }
     
@@ -568,8 +551,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             section6pausedAudio.play();
                             section6pausedAudio = null; // Clear the stored audio after resuming
                         } else {
-                            console.log('No audio to resume.');
-                        }
+                         }
                         if(currentAudio.paused&&!currentAudio.ended){
                             currentAudio.play();
                         }
@@ -949,8 +931,7 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             currentSection = entry.target.id;
-            console.log(`Buttons are above: ${currentSection}`);
-            SectionChanges();
+             SectionChanges();
         // Perform any logic here, like highlighting the section name
         }
     });
@@ -1138,16 +1119,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Total number of buttons
     const totalButtons = document.querySelectorAll('.button-container').length;
-    console.log('total',totalButtons)
-    // Variable to track whether all buttons have been clicked
+     // Variable to track whether all buttons have been clicked
     let allButtonsClicked = false;
     // Add click event listeners for each button
     document.querySelectorAll('.button-container').forEach((buttonContainer, index) => {
         buttonContainer.addEventListener('click', () => {
             if(section2played){
                 buttonContainer.style.pointerEvents="none";
-                console.log('clicked',index)
-
+ 
                 // Show the specific label and arrow for the clicked button
                 const label = document.querySelector(`#label${index + 1}`);
                 const arrow = document.querySelector(`#arrow${index + 1}`);
@@ -1232,15 +1211,13 @@ document.addEventListener("DOMContentLoaded", () => {
     section2popupcross.addEventListener("click",()=>{
 
         if(section2played){
-            console.log('cross clicked')
-            section2popup.style.display='none';
+             section2popup.style.display='none';
             section2popup_audio.pause(); // Pause the audio
             section2popup_audio.currentTime = 0; // Reset playback position to the start
     
                     // Check if all buttons have been clicked
                     if (!allButtonsClicked && clickedButtons.size === totalButtons) {
-                        console.log('finished');
-                        allButtonsClicked = true;
+                         allButtonsClicked = true;
                         audio3.play();
                         textElement.textContent = "When creating a food chain, arrows are used to show the feeding relationships. The arrow always points in the direction where energy is being passed along the chain.";
                         adjustImageHeight();
@@ -1260,8 +1237,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const textHeight=  section2popupText.offsetHeight;
         
         const imageHeight = document.getElementById('section2popupimg').offsetHeight;
-        console.log('offside',imageHeight);
-        section2popup.style.width=`${(imageHeight + textHeight)}px`;
+         section2popup.style.width=`${(imageHeight + textHeight)}px`;
     }
 
     // Adjust on load
@@ -1320,8 +1296,7 @@ document.addEventListener("DOMContentLoaded", () => {
     section3_button.addEventListener('click', () => {
 
         if(section3played){
-            console.log('section3_button_clicked');
-            section3octopusContainer.style.display = "none";
+             section3octopusContainer.style.display = "none";
             section3octopusContainershell.style.display = "block";
             section3_button.style.display = "none";
         }
@@ -1435,11 +1410,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!section4allButtonsClicked&&section4played) {
                 if (button.id === correctbuttoninsection4allButtons) {
                     section4allButtonsClicked = true;
-                    console.log("Correct button clicked!");
-                    enablesection5video();
-                } else {
-                    console.log("Incorrect button clicked!");
-                }
+                     enablesection5video();
+                }  
             }
         
         });
@@ -1538,8 +1510,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentSection = getCurrentSection();
             
             
-            console.log('insection',currentSection);
-            if (currentSection === 'section4' || currentSection === 'section5' || currentSection === 'section6') {
+             if (currentSection === 'section4' || currentSection === 'section5' || currentSection === 'section6') {
                 AddOverlay(currentSection);
                 switch(currentSection){
                     case "section4":
@@ -1559,8 +1530,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     document.getElementById('section4Help').addEventListener('click', function() {
-        console.log('lalala',getCurrentsectiondiv());
-        switch(getCurrentSection()){
+         switch(getCurrentSection()){
             case 'section4':
                 if(section4played){
                     Section4HelpClick();
@@ -1599,8 +1569,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const currentSection = getCurrentSection();
              
 
-            console.log('insection',currentSection);
-            if (currentSection === 'section4' || currentSection === 'section5' || currentSection === 'section6') {
+             if (currentSection === 'section4' || currentSection === 'section5' || currentSection === 'section6') {
                 AddOverlayRead(currentSection);
             }
     }
@@ -2203,8 +2172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         button.addEventListener('click',function(event)  {
             if(section6played){
                 const icon = event.target;
-                console.log("Clicked");
-                    // Define fixed percentage positions for each icon
+                     // Define fixed percentage positions for each icon
                 const positions = {
                     icon1: { top: 58, left: 26},
                     icon2: { top: 62, left: 44 },
@@ -2314,8 +2282,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
                 // Check if the clicked button is correct
                 if (clickedButtonId === correctButtonId) {
-                    console.log("1Correct");
-        
+         
                     // Correct case: update feedback images and text
                     feedbackImage1.src = feedbackImage1.getAttribute('correct');
                     feedbackImage3.src = feedbackImage3.getAttribute('correct');
@@ -2323,8 +2290,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
                 
                 } else {
-                    console.log("1Wrong");
-                    // Incorrect case: update feedback images and text
+                     // Incorrect case: update feedback images and text
                     feedbackImage1.src = feedbackImage1.getAttribute('wrong');
                     feedbackImage3.src = feedbackImage3.getAttribute('wrong');
                     feedbackText1.textContent = "Not quite right.";
@@ -2338,8 +2304,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('feedbackimage2').addEventListener('click', function() {
         if(section6played){
             const correctfeedback = document.getElementById('correctfeedback');
-            console.log('fkass');
-            // Show the feedback container
+             // Show the feedback container
             correctfeedback.style.display = 'none';
             
             // Reset all clickableobject images
@@ -2358,8 +2323,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if(section6played){
                 // Get the clicked element
                 const target = event.target;
-                console.log("clicked target:", target.className);
-        
+         
                 // Check if the clicked element does not have the class 'icon'
                 if (!target.classList.contains('icon')) {
                     // Do something if the clicked element is not '.icon'

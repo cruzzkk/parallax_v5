@@ -611,7 +611,7 @@ body {
     width: 80%; /* Adjust width inside the image */
     text-align: center; /* Center the text */
     font-family: 'Heinemann';
-    font-style: italic;
+    font-style: normal;
     font-size: 1.2vw; /* Responsive font size */
     color: #000000; /* Ensure readability */
     line-height: 1.5; /* Adjust line spacing */
@@ -730,7 +730,7 @@ body {
 #label2{
     
     position: absolute;
-    top: -18%; /* Position label below the button */
+    top: -20%; /* Position label below the button */
     left: 50%;
     width: 100%; /* Adjust label size */
     height: auto;
@@ -1114,7 +1114,7 @@ body {
     background-color: rgba(209, 165, 33, 0); /* Optional for better visibility */
     border-radius: 0.5vw; /* Optional styling */
     font-family: 'Heinemann';
-    font-style:italic ;
+    font-style:normal ;
     font-size: 1.2vw; /* Adjust text size */
     text-align: center;
     text-wrap: wrap;
@@ -1196,7 +1196,7 @@ body {
     color: rgb(0, 0, 0);
     text-align: center;
     font-weight: bold;
-    font-style: italic;
+    font-style: normal;
     font-family: 'Heinemann',sans-serif;
     background-color: rgba(177, 29, 29, 0); /* Optional: Semi-transparent background */
     transform: translate(-50%, -50%); /* Centers text based on the anchor */
@@ -1222,7 +1222,7 @@ body {
 }
 
 #feedingfrenzy {
-    top: 30%;
+    top: 31%;
     left: 86%;
 }
 
@@ -1416,7 +1416,7 @@ bear 5 */
     background-color: rgba(209, 165, 33, 0); /* Optional for better visibility */
     border-radius: 0.5vw; /* Optional styling */
     font-family: 'Heinemann';
-    font-style:italic ;
+    font-style:normal ;
     font-size: 1.2vw; /* Adjust text size */
     text-align: center;
     text-wrap: wrap;
@@ -2444,7 +2444,7 @@ transition: transform 0.3s;
 #icon7{
     width: 2%;
     position: absolute;
-    bottom: -9%;
+    bottom: -15%;
     right: 15%;
  
 }
@@ -2543,6 +2543,7 @@ transition: transform 0.3s;
     width: 100%; 
     height: auto;
     object-fit: contain;
+    z-index: 1;
 }
 
 #feedbackimage1{
@@ -2559,7 +2560,8 @@ transition: transform 0.3s;
     height: 15%;
     cursor: pointer;
     transition: transform 0.3s;
-    background-color: #08275205;
+    background-color: #08275200;
+    z-index: 3;
   
 }
  
@@ -2579,6 +2581,7 @@ transition: transform 0.3s;
     font-size: 1.5vw; /* Dynamic font size */
     transform: translateX(-50%)translateY(-50%);
     color: #f7f7f7;
+    z-index: 2;
 }
 
 #feedbacktext1 {

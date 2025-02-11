@@ -256,6 +256,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "F11") {
+            event.preventDefault();
+            if(document.fullscreenElement){
+                exitFullScreen();
+                fullScreenButtonImg.src=fullScreenButton.getAttribute("exitfullscreen");
+                
+            }else{
+                enterFullScreen();
+                fullScreenButtonImg.src=fullScreenButton.getAttribute("enterfullscreen");
+            }
+        }
+        
+    });
+    
+   
+    
+    
+
+   
+
+
+
     function freezeScroll() {
         // Prevent scrolling with mouse wheel
         window.addEventListener("wheel", preventDefault, { passive: false });
@@ -265,26 +288,26 @@ document.addEventListener("DOMContentLoaded", () => {
       
         // Prevent scrolling with keyboard keys
         window.addEventListener("keydown", preventScrollKeys, { passive: false });
-      }
+    }
       
       // Utility to prevent default behavior
-      function preventDefault(event) {
+    function preventDefault(event) {
         event.preventDefault();
-      }
+    }
       
       // Disable specific keys used for scrolling
-      function preventScrollKeys(event) {
+    function preventScrollKeys(event) {
         const keys = ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Space"];
         if (keys.includes(event.key)) {
           event.preventDefault();
         }
-      }
+    }
 
-      function unfreezeScroll() {
+    function unfreezeScroll() {
         window.removeEventListener("wheel", preventDefault, { passive: false });
         window.removeEventListener("touchmove", preventDefault, { passive: false });
         window.removeEventListener("keydown", preventScrollKeys, { passive: false });
-      }
+    }
       
 
 
@@ -675,7 +698,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById('section4HelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
                 document.getElementById("section4nextImage").style.display="none";
                 document.getElementById("section4ReadHelpText").classList.remove("active");
-                document.getElementById("section4HelpText").classList.remove("active");  
+                document.getElementById("section4HelpText").classList.remove("active");
+                document.getElementById('section4Help').style.pointerEvents='none'; 
+                document.getElementById('section4ReadHelp').style.pointerEvents='none'; 
+                  
                 
             break;
 
@@ -727,63 +753,6 @@ document.addEventListener("DOMContentLoaded", () => {
 //common
    
 
-
-// CLICK FIRST THEN TRIGGER SECTION
-    // document.querySelectorAll('.section').forEach(section => {
-    //         section.addEventListener('click', function(event) {
-    //             // Get the clicked element
-    //             const target = event.target;
-    //             console.log("clicked target:",target.className)
-    //             // Find the parent with class 'section'
-    //             const parentSection = target.closest('.section');
-        
-    //             if (parentSection) {
-    //                 const sectionId = parentSection.id;
-    //                 console.log('Clicked section ID:', sectionId);
-    //                 // Switch statement based on sectionId
-    //                 switch (sectionId) {
-    //                     case 'section1':
-    //                         if(!section1doonce){
-    //                             bgVideo.muted = false;
-    //                             bgVideo.play();
-    //                             played=!played;
-    //                             commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
-    //                             section1vedioUnmute();
-    //                             section1doonce=!section1doonce;
-    //                         }
-    //                         break;
-    //                     case 'section2':
-    //                         // if (handleOctopusVisible()) {
-    //                         //     triggerOctopusActions();
-    //                         // }
-    //                         break;
-    //                     case 'section3':
-    //                         // if(handleOctopusidelVisible()){
-    //                         //     section3triggerOctopusActions();
-    //                         // }
-    //                         break;
-    //                     case 'section4':
-    //                         // if(handleOctopus4Visible()){
-    //                         //     section4triggerOctopusActions();
-    //                         // }
-    //                         break;
-    //                     case 'section5':
-    //                         console.log('Section 5 clicked.');
-    //                         // Perform actions specific to section 5
-    //                         break;
-    //                     case 'section6':
-    //                         // if(handleSection6Visible()&&!section6doonce){
-    //                         //     triggerSection6Action();
-    //                         //     section6doonce=!section6doonce;
-    //                         // }
-    //                         break;
-    //                     default:
-    //                         console.log('Unknown section clicked.');
-    //                 }
-    //             }
-    //         });
-    // });
-
     //Gap resize code
     function adjustGapHeights() {
         const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6']; // IDs of the gap elements
@@ -814,59 +783,59 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener('resize', adjustGapHeights);
 
     //Smooth Transition to sections
-    // function smoothScrollTo(target, duration) {
-    //     const start = window.scrollY;
-    //     const end = target.offsetTop;
-    //     const distance = end - start;
-    //     const startTime = performance.now();
-    
-    //     function step(currentTime) {
-    //     const elapsed = currentTime - startTime;
-    //     const progress = Math.min(elapsed / duration, 1);
-    //     const ease = easeOutCubic(progress);
-    
-    //     window.scrollTo(0, start + distance * ease);
-    
-    //         if (progress < 1) {
-    //             requestAnimationFrame(step);
-    //         }
-
-    //     }
-    
-    //     // Easing functions for different effects
-    //     function easeOutCubic(t) {
-    //         return 1 - Math.pow(1 - t, 3);
-    //     }
-    
-    //     requestAnimationFrame(step);
-    // }
-
     function smoothScrollTo(target, duration) {
         const start = window.scrollY;
         const end = target.offsetTop;
         const distance = end - start;
-        let startTime = null;
+        const startTime = performance.now();
     
         function step(currentTime) {
-            if (!startTime) startTime = currentTime;
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const ease = easeOutSlow(progress); // Use a slow easing function
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = easeOutCubic(progress);
     
-            window.scrollTo(0, start + distance * ease);
+        window.scrollTo(0, start + distance * ease);
     
             if (progress < 1) {
                 requestAnimationFrame(step);
             }
+
         }
     
-        // Custom easing function for **extra slow start**
-        function easeOutSlow(t) {
-            return 1 - Math.pow(1 - t, 4); // Makes it start **extra slow**
+        // Easing functions for different effects
+        function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
         }
     
         requestAnimationFrame(step);
     }
+
+    // function smoothScrollTo(target, duration) {
+    //     const start = window.scrollY;
+    //     const end = target.offsetTop;
+    //     const distance = end - start;
+    //     let startTime = null;
+    
+    //     function step(currentTime) {
+    //         if (!startTime) startTime = currentTime;
+    //         const elapsed = currentTime - startTime;
+    //         const progress = Math.min(elapsed / duration, 1);
+    //         const ease = easeOutSlow(progress); // Use a slow easing function
+    
+    //         window.scrollTo(0, start + distance * ease);
+    
+    //         if (progress < 1) {
+    //             requestAnimationFrame(step);
+    //         }
+    //     }
+    
+    //     // Custom easing function for **extra slow start**
+    //     function easeOutSlow(t) {
+    //         return 1 - Math.pow(1 - t, 4); // Makes it start **extra slow**
+    //     }
+    
+    //     requestAnimationFrame(step);
+    // }
     
     function smoothScrollToFreeze(target, duration) {
         const start = window.scrollY;
@@ -1152,10 +1121,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Trigger 2: When First Audio Ends, Play Second Audio
     audio1.addEventListener("ended", () => {
-        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;'>Select each icon to know about them.</span>";
+        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;font-style: italic;'>Select each icon to know about them.</span>";
         adjustImageHeight();
-        dialogBox.querySelector('.text').style.fontFamily = "Heinemann";
-        dialogBox.querySelector('.text').style.fontWeight = "italic";
         audio2.play();
     });
 
@@ -1276,8 +1243,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         allButtonsClicked = true;
                         audio3.play();
                         textElement.textContent = "When creating a food chain, arrows are used to show the feeding relationships. The arrow always points in the direction where energy is being passed along the chain.";
-                        dialogBox.querySelector('.text').style.fontFamily = "Heinemann";
-                        dialogBox.querySelector('.text').style.fontWeight = "normal";
                         adjustImageHeight();
                     }
         }
@@ -1342,7 +1307,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     audio4.addEventListener("ended", () => {
-        section3dialogText.innerHTML = "Let's explore this forest together, meet my friends, and help them find their meals along the way. Are you ready to start?<br><span style='color: #BC0404;font-weight: bold;'>Select Start Adventure.</span>";
+        section3dialogText.innerHTML = "Let's explore this forest together, meet my friends, and help them find their meals along the way. Are you ready to start?<br><span style='color: #BC0404;font-weight: bold;font-style: italic;'>Select Start Adventure.</span>";
         adjustSection3ImageHeight();
         audio5.play()
         
@@ -1845,7 +1810,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // section5.style.zIndex=2;
             // section6.style.zIndex=1;
             if(!section4languageguidedoonce){
-                section4dialogText.innerHTML = "<span style='color: #BC0404;'>Select hotspots. You'll collect a starfish for completing each.</span>";
+                section4dialogText.innerHTML = "<span style='color: #BC0404;font-style: italic;'>Select hotspots. You'll collect a starfish for completing each.</span>";
                 adjustSection4ImageHeight();
                 audio10.play().catch((error) => {
                     console.error('Error playing audio:', error);
@@ -2156,7 +2121,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section5played=true;
         section5vedioUnmute();
         commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
-        // smoothScrollTo(section5,2000);
+        smoothScrollTo(section5,2000);
         
     }
     
@@ -2247,7 +2212,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     icon4: { top: 58, left: 47 },
                     icon5: { top: 44, left: 62 },
                     icon6: { top: 69, left: 78 },
-                    icon7: { top: 103, left: 69 },
+                    icon7: { top: 110, left: 69 },
                 };
                 // Define the text for each icon
                 const iconText = {

@@ -1810,7 +1810,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // section5.style.zIndex=2;
             // section6.style.zIndex=1;
             if(!section4languageguidedoonce){
-                section4dialogText.innerHTML = "<span style='color: #BC0404;font-style: italic;'>Select hotspots. You'll collect a starfish for completing each.</span>";
+                section4dialogText.innerHTML = "<span style='color: #BC0404;font-weight: bold;font-style: italic;'>Select hotspots. You'll collect a starfish for completing each.</span>";
                 adjustSection4ImageHeight();
                 audio10.play().catch((error) => {
                     console.error('Error playing audio:', error);

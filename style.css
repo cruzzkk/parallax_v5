@@ -1208,22 +1208,30 @@ body {
 #foodchain {
     top: 31%; /* Adjust position based on image content */
     left: 19%;
+    cursor: auto;
+}
+ 
+
+#meetfriends {
+    top: 10%;
+    left: 52%;
     cursor: pointer;
 }
-#foodchain:hover{
+#meetfriends:hover{
     transform: translate(-50%, -50%) scale(1.1);
     transform-origin: center; /* Ensure scaling happens from the center */
     transition: transform 0.3s;
 }
 
-#meetfriends {
-    top: 10%;
-    left: 52%;
-}
-
 #feedingfrenzy {
     top: 31%;
     left: 86%;
+    cursor: pointer;
+}
+#feedingfrenzy:hover{
+    transform: translate(-50%, -50%) scale(1.1);
+    transform-origin: center; /* Ensure scaling happens from the center */
+    transition: transform 0.3s;
 }
 
 
@@ -2609,9 +2617,147 @@ transition: transform 0.3s;
 
 
 
+/* Section */
+
+#gap7{
+    --vw-height: 35;
+    height:   35vw; 
+}
 
 
 
+
+
+
+
+
+/* Third Section */
+#section7 {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: calc(100vw * 9 / 16);  
+    max-height: 1080px;
+    margin:0 auto;
+    background-color: #1fc190bb;  
+    overflow: visible;
+    z-index: 3;
+    
+}
+#section7wall {
+    top: -65%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+     
+    z-index: 0;
+    transform: translateX(-50%);
+ }
+ #section7_sun{
+    top: 9%;
+    left: 65%;
+    width: 70%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 1;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section7_hill{
+    top: 10%;
+    left: 50%;
+    width: 100%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 2;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section7_treeGround{
+    top: 3%;
+    left: 50%;
+    width: 100%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 3;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section7_water{
+    top: 54%;
+    left: 50%;
+    width: 100%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 2;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section7_flyingoctopus{
+    display: none;
+    top: -60%;
+    left: 50%;
+    width: 22%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 4;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section7_octopus{
+    display: none;
+    top: 60%;
+    left: 50%;
+    width: 22%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 4;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+#section7nextImage {
+    position: absolute;
+    bottom: 5%;
+    left: 40%;
+    transform: translateX(-50%,-50%);
+    width: 20%;  
+    height: auto;  
+    display: none;
+    z-index: 20;
+ }
+#section7nextImage img{
+
+    width: 100%;  
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+#section7nextImage p{
+    position: absolute; 
+    top: 5%;  
+    left: 50%;  
+    width: 80%;
+    transform: translate(-50%,-50%);  
+    background-color: rgba(255, 191, 0, 0); 
+    padding: 10px;  
+    border-radius: 0.5vw; 
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.2vw;  
+    text-align: center;
+    text-wrap: wrap;
+    display: block;
+    overflow: hidden;
+    color:#f0f0f0 ;
+}
 
 
 
@@ -2679,6 +2825,9 @@ transition: transform 0.3s;
         font-size: 23px;
     }
     #section5nextImage p{
+        font-size: 23px;
+    }
+    #section7nextImage p{
         font-size: 23px;
     }
     .language-help .phrase-definition{

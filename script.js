@@ -22,8 +22,9 @@
         const audio8 = new Audio("assets/audio/Audios/You_can_choose_a_language_for.wav");
         const audio9 = new Audio("assets/audio/Audios/Select_another_organism_like.wav");
         const audio10 = new Audio("assets/audio/Audios/Select_hotspots_Youll_collect.wav");
+        const audio_test=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
     
-        const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10, audio9];
+        const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10, audio9,audio_test];
 
 // Function to preload images
 function preloadImages(images, callback) {
@@ -153,7 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const section3dialogBox = document.querySelector(".section3dialogBox");
     const section3dialogText = document.getElementById("section3dialogText");
     const section3_button= document.getElementById("section3_button");
-    const foodchain_button=document.getElementById('foodchain');
+    const meetfriends_button=document.getElementById('meetfriends');
+    const feedingfrenzy_button=document.getElementById('feedingfrenzy');
     let section3mute=false;
     let section3played=false;
     let section3pausedAudio =null;
@@ -195,6 +197,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let section6played=false;
     let section6pausedAudio =null;
     const popup = document.getElementById("iconpopupcall");
+
+
+    const section7 = document.getElementById("section7");
+    const flyingoctopus = document.getElementById("section7_flyingoctopus");
+    const normaloctopus = document.getElementById("section7_octopus");
+    const section7nextImage = document.getElementById("section7nextImage");
 
  
 
@@ -847,6 +855,35 @@ document.addEventListener("DOMContentLoaded", () => {
     
         requestAnimationFrame(step);
     }
+    function smoothScrollToFreezeCompleteTrigger(target, duration,onComplete) {
+        const start = window.scrollY;
+        const end = target.offsetTop;
+        const distance = end - start;
+        const startTime = performance.now();
+    
+        function step(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = easeOutCubic(progress);
+    
+        window.scrollTo(0, start + distance * ease);
+    
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }else{
+                freezeScroll();
+                onComplete();
+            }
+
+        }
+    
+        // Easing functions for different effects
+        function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 2);
+        }
+    
+        requestAnimationFrame(step);
+    }
 
    secion5rigthTop.style.display="none";
     //Section5 play/pause and language and reaad
@@ -1063,6 +1100,7 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(() => applyParallaxEffect("section3", 0.5)); // Apply parallax for Section 3
             requestAnimationFrame(() => applyParallaxEffect("section4", 0.2)); // Apply parallax for Section 4
             requestAnimationFrame(() => applyParallaxEffect("section6", 0.4));  
+            requestAnimationFrame(() => applyParallaxEffect("section7", 0.5));
             ticking = true;
         }
     });
@@ -1296,15 +1334,15 @@ document.addEventListener("DOMContentLoaded", () => {
     section3_button.addEventListener('click', () => {
 
         if(section3played){
-             section3octopusContainer.style.display = "none";
+            section3octopusContainer.style.display = "none";
             section3octopusContainershell.style.display = "block";
             section3_button.style.display = "none";
         }
        
     });
 
-    // Add click event listener to the 'foodchain' element
-    foodchain_button.addEventListener('click', () => {
+    // Add click event listener to the 'meetfriends' element
+    meetfriends_button.addEventListener('click', () => {
 
         if(section3played){
             document.getElementById("gap4").style.display="block";
@@ -1316,6 +1354,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     });
+    feedingfrenzy_button.addEventListener('click', () => {
+
+        if(section3played){
+            normaloctopus.style.display="none";
+            flyingoctopus.style.display="block";
+            smoothScrollToFreezeCompleteTrigger(section7,1500,function(){
+                moveFlyingOctopus(-60, 10, 3000, function() {
+                    console.log("Animation complete! Action triggered.");
+                    FlyingOctopusEnd(); // Call the action function
+                });
+            });
+            
+            // document.getElementById("gap4").style.display="block";
+            // section4.style.overflow="visible";
+            // section4.style.display="block"
+            // smoothScrollTo(section4,2000);
+            // document.getElementById("section3nextImage").style.display="block";
+        }
+
+
+    });
+
+
     function adjustSection3ImageHeight() {
         const textHeight = section3dialogText.offsetHeight;
         const imageHeight = document.getElementById('section3dialogBoxImage').offsetHeight;
@@ -2334,6 +2395,65 @@ document.addEventListener("DOMContentLoaded", () => {
             
         });
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Section 7
+
+    
+    function moveFlyingOctopus(maxHeight, minHeight, duration, onComplete) {
+        
+        let startTime = null;
+    
+        function lerp(start, end, t) {
+            return start * (1 - t) + end * t;
+        }
+    
+        function animate(time) {
+            if (!startTime) startTime = time;
+            let elapsed = time - startTime;
+            let t = Math.min(elapsed / duration, 1); // Normalize between 0 and 1
+            let currentY = lerp(maxHeight, minHeight, t);
+    
+            flyingoctopus.style.top = currentY + "%";
+    
+            if (t < 1) {
+                requestAnimationFrame(animate);
+            } else if (onComplete) {
+                onComplete(); // Trigger action when animation completes
+            }
+        }
+    
+        requestAnimationFrame(animate);
+    }
+
+    function FlyingOctopusEnd(){
+        normaloctopus.style.display="block";
+        flyingoctopus.style.display="none";
+        unfreezeScroll();
+        audio_test.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+
+    }
+    audio_test.addEventListener("ended", () => {
+        section7nextImage.style.display = "block";
+    });
+
 
 
 

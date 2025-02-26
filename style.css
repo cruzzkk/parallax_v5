@@ -616,7 +616,7 @@ body {
     color: #000000; /* Ensure readability */
     line-height: 1.5; /* Adjust line spacing */
     padding: 10%; /* Space around the text */
-  }
+}
 
 
 
@@ -2617,21 +2617,12 @@ transition: transform 0.3s;
 
 
 
-/* Section */
+/* Section 7 */
 
 #gap7{
     --vw-height: 35;
     height:   35vw; 
 }
-
-
-
-
-
-
-
-
-/* Third Section */
 #section7 {
     position: relative;
     width: 100%;
@@ -2758,6 +2749,212 @@ transition: transform 0.3s;
     overflow: hidden;
     color:#f0f0f0 ;
 }
+
+
+
+
+
+
+
+
+
+
+
+/* Section 8 */
+
+#gap8{
+    --vw-height: 5;
+    height:   5vw; 
+}
+#section8 {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: calc(100vw * 9 / 16);  
+    max-height: 1080px;
+    margin:0 auto;
+    background-color: #1fc190bb;  
+    overflow: visible;
+    z-index: 2;
+    
+}
+
+#section8BG{
+    top: -15%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+     
+    z-index: 0;
+    transform: translateX(-50%);
+}
+
+#section8_octopus{
+    top: 15%;
+    left: 15%;
+    width: 22%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 1;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+.section8dialogBox {
+    position: absolute;
+    bottom: 30%; /* Position relative to viewport height */
+    left: 20%; /* Position relative to viewport width */
+    width: 15%; /* Adjust base width as needed */
+    min-width: 15%;
+    max-width: 34%;
+    height: auto; /* Maintain aspect ratio */
+    transform: translateX(-50%);
+    z-index: 1;
+    background-color: rgba(0, 123, 255, 0);
+    display: none;
+}
+#section8dialogBoxImage{
+
+    width: 100%; /* Inherit container width */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transform: scaleX(1);
+}
+.section8dialogBox .text{
+    position: absolute; 
+    top: 35%; /* Adjust as per requirement */
+    left: 50%; /* Adjust as per requirement */
+    width: 80%;
+     
+    transform: translate(-50%,-50%); /* Center it */
+    background-color: rgba(209, 165, 33, 0); /* Optional for better visibility */
+    border-radius: 0.5vw; /* Optional styling */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.2vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    color: #000000; /* Ensure readability */
+    line-height: 1.5; /* Adjust line spacing */
+    padding: 10%; /* Space around the text */
+    
+}
+#section8dialogText{
+    top: 42%;
+  
+    transform: translate(-50%, -50%);
+}
+
+
+#section8_WhatEats {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+    z-index: 2;
+    display: none;
+    cursor: pointer;
+    
+   
+}
+#section8_WhatEats img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+#section8_WhatEats:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+#section8_WhatEats p {
+    position: absolute;
+    top: 10%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(232, 232, 232); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
+
+#section8_bear{
+    position: absolute;
+    top: 70%;
+    left: 37%;
+    transform: translate(-50%, -50%);
+    width: 15%;  
+    height: auto;  
+    cursor: grab;
+    z-index: 3;
+}
+#section8_mushroom{
+    position: absolute;
+    top: 70%;
+    left: 52%;
+    transform: translate(-50%, -50%);
+    width: 15%;  
+    height: auto; 
+    cursor: grab;
+    z-index: 3;
+
+}
+#section8_plant{
+    position: absolute;
+    top: 70%;
+    left: 67%;
+    transform: translate(-50%, -50%);
+    width: 15%;  
+    cursor: grab;
+    z-index: 3;
+
+}
+#section8_dragArea{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15%;  
+    z-index: 3;
+    
+}
+
+.dragging {
+    opacity: 0.3; /* Make the dragged object transparent */
+}
+.ghost {
+    position: absolute;
+    pointer-events: none;
+    width: 50px;
+    height: 50px;
+    opacity: 0.8;
+}
+.drop-area {
+    position: absolute;
+    width: 10%; /* Adjust as needed */
+    height: auto;
+    border: 5px dashed #ffffff;
+    border-radius: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
 
 
 

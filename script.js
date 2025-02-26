@@ -204,7 +204,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const normaloctopus = document.getElementById("section7_octopus");
     const section7nextImage = document.getElementById("section7nextImage");
 
- 
+
+    const section8 = document.getElementById("section8");
+    const section8_movingoctopus = document.getElementById("section8_octopus");
+    const section8dialogBox = document.querySelector(".section8dialogBox");
+    const section8dialogText = document.getElementById("section8dialogText");    
+    const section8_WhatEats = document.getElementById("section8_WhatEats");    
+     
+
+
+
+
+
+
 
 
     // Get the section element
@@ -740,7 +752,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
 
-//common
+    //common
    
 
     //Gap resize code
@@ -1018,7 +1030,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// 1st 
+    // 1st 
 
     const enableVideo = () => {
         if(!played){
@@ -1049,7 +1061,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// 2nd
+    // 2nd
     let firstactiontriggered=false;
     let lastScrollY = 0;
     let ticking = false;
@@ -1288,7 +1300,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-//3rd
+    //3rd
  
 
     // Trigger 1: Display Octopus and Play First Audio
@@ -1392,7 +1404,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
 
-// 4th
+    // 4th
 
 
     
@@ -2138,7 +2150,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-//5th
+    //5th
     
 
     function enablesection5video(){
@@ -2453,6 +2465,198 @@ document.addEventListener("DOMContentLoaded", () => {
     audio_test.addEventListener("ended", () => {
         section7nextImage.style.display = "block";
     });
+
+
+
+
+
+    //Section 8
+
+    const audio_test1=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+    const audio_test2=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+
+    function movingFlyingOctopus(maxHeight, minHeight, duration,octopus, onComplete) {
+        
+        let startTime = null;
+    
+        function lerp(start, end, t) {
+            return start * (1 - t) + end * t;
+        }
+    
+        function animate(time) {
+            if (!startTime) startTime = time;
+            let elapsed = time - startTime;
+            let t = Math.min(elapsed / duration, 1); // Normalize between 0 and 1
+            let currentY = lerp(maxHeight, minHeight, t);
+    
+            octopus.style.top = currentY + "%";
+    
+            if (t < 1) {
+                requestAnimationFrame(animate);
+            } else if (onComplete) {
+                onComplete(); // Trigger action when animation completes
+            }
+        }
+    
+        requestAnimationFrame(animate);
+    }
+    function adjustSection8ImageHeight() {
+        document.getElementById('section8dialogBoxx').style.width= document.querySelector('.section8dialogBox').style.minWidth;
+        const textHeight = section8dialogText.offsetHeight;
+        const imageHeight = document.getElementById('section8dialogBoxImage').offsetHeight;
+        document.getElementById('section8dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
+    }
+
+    // movingFlyingOctopus(15, 80, 3000, section8_movingoctopus,function() {
+    //     console.log("Animation complete! Action triggered.");
+    //     audio_test1.play().catch((error) => {
+    //         console.error('Error playing audio:', error);
+    //     });
+    //     section8dialogBox.style.display = "inline-block";
+    //     section8dialogText.style.display = "block";
+    //     section8dialogText.innerHTML = "Tell me what a salmon eats."+
+    //     "<br><span style='color:#BC0404;font-style: italic;'>Select</span>"+
+    //     "<span style='color:#BC0404;font-weight: bold;font-style: italic;'>  What It Eats  </span>"+
+    //     "<span style='color:#BC0404;font-weight: normal;font-style: italic;'>to reveal a set of salmon feeding options.</span>";
+    //     adjustSection8ImageHeight();
+    // });
+
+    audio_test1.addEventListener("ended", () => {
+       
+        section8_WhatEats.style.display='block';
+    });
+    document.getElementById('section8_WhatEats').addEventListener('click', function() {
+        section8_WhatEats.style.display='none';
+        section8dialogBox.style.display = "none";
+
+        section8dialogBox.style.display = "inline-block";
+        section8dialogText.style.display = "block";
+        section8dialogText.innerHTML = "Is it a grizzly bear,mushrooms, or kelp?"+
+        "<br><span style='color:#BC0404;font-style: italic;'>Drag the correct food to the salmon.</span>"+
+        "<br><span style='color:#BC0404;font-style: italic;'>Select the info icon to view the info card about the organisms in the options.</span>";
+        
+        adjustSection8ImageHeight();
+        audio_test2.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+
+    });
+    audio_test2.addEventListener("ended", () => {
+       
+        section8dialogBox.style.display = "none";
+    });
+
+
+
+
+
+
+ 
+        const correctItemId = "section8_plant"; // The correct draggable object
+        const allowedIds = ["section8_bear", "section8_mushroom", "section8_plant"]; // Allowed draggable items
+      
+        const draggableItems = document.querySelectorAll(".image-container");
+        const dropAreaContainer = document.querySelector(".drop-area");
+        const dropAreaImage = dropAreaContainer.querySelector("img");
+        
+        const correctTickSrc = "assets/Slides38-42/Tick.png"; // ✅ Path to tick image
+        const wrongCrossSrc = "assets/Slides38-42/Cross.png"; // ❌ Path to cross image
+        const errorSoundSrc = "assets/audio/Audios/You_can_also_click_on_any_glo.wav"; // Path to error sound
+      
+        let draggedItem = null;
+      
+        draggableItems.forEach(item => {
+          item.addEventListener("dragstart", (e) => {
+            if (allowedIds.includes(item.id)) { // Only allow dragging if it's one of the three items
+              draggedItem = item;
+              item.classList.add("dragging");
+              e.dataTransfer.setData("text/plain", item.querySelector("img").src);
+            } else {
+              e.preventDefault(); // Prevent dragging if it's not allowed
+            }
+          });
+      
+          item.addEventListener("dragend", () => {
+            item.classList.remove("dragging");
+          });
+        });
+      
+        // Allow dropping only on the drop area
+        dropAreaContainer.addEventListener("dragover", (e) => {
+          e.preventDefault(); // Allow drop
+        });
+      
+        dropAreaContainer.addEventListener("drop", (e) => {
+          e.preventDefault();
+          if (draggedItem && allowedIds.includes(draggedItem.id)) { // Check if the dropped item is valid
+            const draggedSrc = draggedItem.querySelector("img").src;
+            
+            // Update drop area's image
+            dropAreaImage.src = draggedSrc;
+      
+            // Hide the dragged object after a successful drop
+            draggedItem.style.opacity = "0.5";
+            draggedItem.style.pointerEvents = "none"; // Disable interaction
+      
+            // Check if the dropped object is correct
+            checkDropResult(draggedItem.id);
+      
+            // Reset draggedItem
+            draggedItem = null;
+          }
+        });
+      
+        // Prevent dropping anywhere else
+        document.addEventListener("drop", (e) => {
+          if (!dropAreaContainer.contains(e.target)) {
+            e.preventDefault(); // Prevent dropping outside
+          }
+        });
+      
+        function checkDropResult(droppedId) {
+          // Create an image element for tick or cross
+          let resultImg = document.createElement("img");
+          resultImg.style.position = "absolute";
+          resultImg.style.top = "0%";
+          resultImg.style.left = "50%";
+          resultImg.style.transform = "translate(-50%, -50%)";
+          resultImg.style.width = "50px"; // Adjust size
+          resultImg.style.height = "50px";
+      
+          if (droppedId === correctItemId) {
+            // Correct drop: Show ✅ tick
+            resultImg.src = correctTickSrc;
+          } else {
+            // Wrong drop: Show ❌ cross and play error sound
+            resultImg.src = wrongCrossSrc;
+            playErrorSound();
+          }
+      
+          // Remove existing tick/cross before adding a new one
+          const existingResult = dropAreaContainer.querySelector(".result-icon");
+          if (existingResult) {
+            existingResult.remove();
+          }
+      
+          // Add class to identify result image
+          resultImg.classList.add("result-icon");
+      
+          // Append to drop area
+          dropAreaContainer.appendChild(resultImg);
+        }
+      
+        function playErrorSound() {
+          let audio = new Audio(errorSoundSrc);
+          audio.play();
+        }
+      
+      
+
+
+    
+    
+    
+
 
 
 

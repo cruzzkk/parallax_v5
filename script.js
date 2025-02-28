@@ -217,6 +217,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const section8_plant = document.getElementById("section8_plant");
     const section8_dragArea = document.getElementById("section8_dragArea");
     const section8nextImage = document.getElementById("section8nextImage");
+
+
+    const section9 = document.getElementById("section9");
+    const section9dialogBox = document.querySelector(".section9dialogBox");
+    const section9dialogText = document.getElementById("section9dialogText");
+    const section9_SortitOut = document.getElementById("section9_SortitOut");
     
      
 
@@ -765,7 +771,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Gap resize code
     function adjustGapHeights() {
-        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6']; // IDs of the gap elements
+        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9']; // IDs of the gap elements
         const maxWidth = 1920; // Maximum width threshold
 
         gapElements.forEach(selector => {
@@ -1121,6 +1127,7 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(() => applyParallaxEffect("section4", 0.2)); // Apply parallax for Section 4
             requestAnimationFrame(() => applyParallaxEffect("section6", 0.4));  
             requestAnimationFrame(() => applyParallaxEffect("section7", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section9", 0.5));
             ticking = true;
         }
     });
@@ -2769,9 +2776,88 @@ document.addEventListener("DOMContentLoaded", () => {
         
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+    //Section 9
+    const audio_section9_test1=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+    const audio_section9_test2=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+
+
+    section9dialogBox.style.display = "inline-block";
+    section9dialogText.style.display = "block";
+    section9dialogText.innerHTML =
+     "Help me sort the organisms into producers, consumers and decomposers?<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
     
+    adjustSection9ImageHeight();
+    audio_section9_test1.play().catch((error) => {
+        console.error('Error playing audio:', error);
+    });
+
+    audio_section9_test1.addEventListener("ended", () => {
+        section9_SortitOut.style.display="block";
+    });
+    section9_SortitOut.addEventListener("click", () => {
+        section9_SortitOut.style.display="none";
+        section9dialogBox.style.display = "inline-block";
+        section9dialogText.style.display = "block";
+        section9dialogText.innerHTML =
+        "<span style='color:#BC0404;font-style: italic;'>Drag and drop each organism into the correct category. Once you're done sorting, select Submit.</span>.";
+        
+        adjustSection9ImageHeight();
+        audio_section9_test2.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+    });
+
+
+    function adjustSection9ImageHeight() {
+        document.getElementById('section9dialogBoxx').style.width= document.querySelector('.section9dialogBox').style.minWidth;
+        const textHeight = section9dialogText.offsetHeight;
+        const imageHeight = document.getElementById('section9dialogBoxImage').offsetHeight;
+        document.getElementById('section9dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
+    }
     
+
     
+    const draggableItemssection9 = document.querySelectorAll(".image-container_drag");
+    const dropAreas = document.querySelectorAll(".drop-area_section9");
+
+    let draggedItemsection9 = null;
+
+    draggableItemssection9.forEach(item => {
+        item.addEventListener("dragstart", (e) => {
+            draggedItemsection9 = e.target;
+        });
+    });
+
+    dropAreas.forEach(area => {
+        area.addEventListener("dragover", (e) => {
+            e.preventDefault(); // Allow drop
+        });
+
+        area.addEventListener("drop", (e) => {
+            e.preventDefault();
+            if (draggedItemsection9) {
+                const clonedItem = draggedItemsection9.cloneNode(true);
+                clonedItem.draggable = false; // Prevent dragging after drop
+                area.appendChild(clonedItem);
+                draggedItemsection9.style.opacity = "0.5"; // Visually indicate used item
+                draggedItemsection9.draggable = false; // Disable further dragging
+                draggedItemsection9 = null;
+            }
+        });
+    });
+
 
 
 

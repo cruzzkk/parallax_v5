@@ -37,7 +37,7 @@
   
 
     <!-- First Section -->
-    <div id="section1" class="section" style="display: block;">
+    <div id="section1" class="section" style="display: none;">
       <video id="bgVideo"  >
         <source src="assets/video/Section1.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -49,10 +49,10 @@
     </div>
     
     <!-- Gap Between Sections -->
-    <div class="gap" id="gap2" style="display: block;"></div>
+    <div class="gap" id="gap2" style="display: none;"></div>
 
     <!-- Second Section -->
-    <div id="section2" class="section"  style="display: block;" >
+    <div id="section2" class="section"  style="display: none;" >
 
       <div id="section2nextImage">
         <img src="assets/Slides11-17/Scroll_down_button.png" alt="Section2nextImage">
@@ -154,10 +154,10 @@
     </div>
 
     <!-- Gap Between Sections -->
-    <div class="gap" id="gap3" style="display: block;"></div>
+    <div class="gap" id="gap3" style="display: none;"></div>
 
     <!-- Third Section -->
-    <div id="section3" class="section"  style="display: block;">
+    <div id="section3" class="section"  style="display: none;">
 
       <div id="section3nextImage">
         <img src="assets/Slides11-17/Scroll_down_button.png" alt="Section3nextImage">
@@ -565,9 +565,9 @@
     </div>
 
     <!-- 7th section -->
-    <div class="gap" id="gap7" style="display: block;" ></div>
+    <div class="gap" id="gap7" style="display: none;" ></div>
 
-    <div id="section7" class="section" style="display: block;">
+    <div id="section7" class="section" style="display: none;">
       <div class="image-container" id="section7wall" >
         <img src="assets/Slides_25-35/Sky_crop.png" alt="Section7wall" />
       </div>
@@ -596,9 +596,9 @@
     </div>
 
   <!-- 8th section -->
-    <div class="gap" id="gap8" style="display: block;" ></div>
+    <div class="gap" id="gap8" style="display: none;" ></div>
 
-    <div id="section8" class="section" style="display: block;">
+    <div id="section8" class="section" style="display: none;">
 
       <div class="image-container" id="section8BG" >
         <img src="assets/Slides_25-35/Sky_crop.png" alt="Section8BG" />
@@ -645,7 +645,79 @@
         <img src="assets/Slides11-17/Scroll_down_button.png" alt="Section8nextImage">
         <p>Scroll Down</p>
       </div>
+
     </div>
+
+  <!-- 9th section -->
+  <div class="gap" id="gap9" style="display: none;" ></div>
+
+  <div id="section9" class="section" style="display: block;">
+    <div class="image-container" id="section9wall" >
+      <img src="assets/Slides38-42/Sky_crop.png" alt="Section9wall" />
+    </div>
+    <div class="image-container" id="section9_sun"  data-speed="-0.6" data-min="-50" data-max="10" data-screen-presence="0.3" >
+      <img src="assets/Slides18-20/Sun02.png" alt="Section9_sun">
+    </div>
+    <div class="image-container" id="section9_hill"  data-speed="-0.6" data-min="-50" data-max="10" data-screen-presence="0.35" ><!--  data-speed="-0.15" data-min="-10" data-max="10" data-screen-presence="0.4" -->
+      <img src="assets/Feeding Frenzy/Scene1/Hill.png" alt="Section9_hill">
+    </div>
+    <div class="image-container" id="section9_treeGround"  data-speed="-0.6" data-min="-50" data-max="10" data-screen-presence="0.5" ><!--  data-speed="-0.15" data-min="-10" data-max="10" data-screen-presence="0.4" -->
+      <img src="assets/Feeding Frenzy/Scene1/Trees_Ground.png" alt="Section9_treeGround">
+    </div>
+    <div class="image-container" id="section9_water"  data-speed="-0.6" data-min="-50" data-max="10" data-screen-presence="0.55" ><!--  data-speed="-0.15" data-min="-10" data-max="10" data-screen-presence="0.4" -->
+      <img src="assets/Feeding Frenzy/Scene1/CropWater.png" alt="Section9_water">
+    </div>
+    
+    <div class="image-container" id="section9_octopus"   data-speed="-0.6" data-min="-55" data-max="10" data-screen-presence="0.7"><!--  data-speed="-0.15" data-min="-10" data-max="10" data-screen-presence="0.4" -->
+      <img src="assets/Slides18-20/Octopus_side.png" alt="Section9_octopus">
+    </div>
+
+    <div class="section9dialogBox" id="section9dialogBoxx" >
+      <img id="section9dialogBoxImage" src="assets/Slides11-17/Callout01.png" alt="Section9dialogBoxImage">
+      <div class="text" id="section9dialogText">
+        This is the dialog text
+      </div>
+    </div>
+
+    <div  id="section9_SortitOut"  >
+      <img src="assets/Slides18-20/Start_Adventure.png" alt="Section9_SortitOut">
+      <p>Sort it Out</p>
+    </div>
+
+
+    <!-- Draggable Items -->
+    <div class="draggable-container">
+      <div class="image-container_drag" id="section9_bear" draggable="true">
+          <img src="assets/Feeding Frenzy/Scene2/Bear.png" alt="Section9_bear">
+      </div>
+      <div class="image-container_drag" id="section9_mushroom" draggable="true">
+          <img src="assets/Feeding Frenzy/Scene2/Decomposers.png" alt="Section9_mushroom">
+      </div>
+      <div class="image-container_drag" id="section9_plant" draggable="true">
+          <img src="assets/Feeding Frenzy/Scene2/kelp.png" alt="Section9_plant">
+      </div>
+      <div class="image-container_drag" id="section9_fish" draggable="true">
+          <img src="assets/Feeding Frenzy/Scene2/kelp.png" alt="Section9_fish">
+      </div>
+    </div>
+
+    <!-- Drop Areas -->
+    <div class="container">
+        <div class="drop-area_section9" id="section9_dragArea1"></div>
+        <div class="drop-area_section9" id="section9_dragArea2"></div>
+        <div class="drop-area_section9" id="section9_dragArea3"></div>
+    </div>
+
+
+    <div id="section9nextImage">
+      <img src="assets/Slides11-17/Scroll_down_button.png" alt="Section9nextImage">
+      <p>Scroll Down</p>
+    </div>
+
+
+
+
+  </div>
 
 
  

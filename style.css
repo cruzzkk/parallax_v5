@@ -3262,15 +3262,94 @@ transition: transform 0.3s;
       
 }
 
+#section9_Title_label{
+    top: 15%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    width: 25%;  
+    height: 25%;  
+    z-index: 10;
+}
+#section9_Title_label p{
+    font-weight: bold;
+    background-color: #08275200;
+    top: 10%;
+    height: 20%;
+    font-size: 2vw;
+}
+
+#section9_producers_label{
+    top: 24%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+}
+#section9_consumer_label{
+    top: 24%;
+    left: 62%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+}
+#section9_decomposer_label{
+    top: 24%;
+    left: 82.5%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+}
+
+
+.dragarea_label {
+    position: absolute;
+    
+    z-index: 4;
+    
+    cursor: pointer;
+    
+   
+}
+.dragarea_label img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+.dragarea_label:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+.dragarea_label p {
+    position: absolute;
+    top: 10%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(232, 232, 232); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
+
 
 
 .draggable-container {
     position: absolute; 
-    top: 65%;   /* Adjust vertical position */
-    left: 40%;  /* Adjust horizontal position */
+    top: 60%;   
+    left: 30%;  
     display: flex;
-    gap: 3%;   /* Space between draggable items */
+    gap: 3%;   
+    justify-content: center;
     background-color: #3498db;
+    width: 62%;
+    height: auto;
     
 }
 
@@ -3278,10 +3357,10 @@ transition: transform 0.3s;
     width: 20%;
     height: auto;
     cursor: grab;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
-    background-color: rgb(233, 1, 1);
+    background-color: rgba(233, 1, 1, 0);
     border-radius: 10%;
     z-index: 5;
 }
@@ -3294,7 +3373,7 @@ transition: transform 0.3s;
 
 .container {
     position: absolute; 
-    top: 25%;   /* Adjust vertical position */
+    top: 26%;   /* Adjust vertical position */
     left: 30%;  /* Adjust horizontal position */
     display: flex;
     gap: 3%;   /* Space between draggable items */
@@ -3305,13 +3384,14 @@ transition: transform 0.3s;
 
 .drop-area_section9 {
     width: 20vw;
-    height: 20vw;
-    border: 0.3vw dashed rgb(18, 135, 83);
+    height: 16vw;
+    border: 0.4vw dashed rgb(255, 255, 255);
+    border-radius: 5%;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
     padding: 1%;
-    background-color: #f9f9f9;
+    background-color: #26a7a17f;
     overflow-y: auto;
     z-index: 5;
     
@@ -3363,6 +3443,132 @@ transition: transform 0.3s;
     color:#f0f0f0 ;
 }
 
+
+
+#section9_SubmitButton {
+    position: absolute;
+    top: 90%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+    z-index: 6;
+    display: block;
+    cursor: pointer;
+    
+   
+}
+#section9_SubmitButton img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+#section9_SubmitButton:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+#section9_SubmitButton p {
+    position: absolute;
+    top: 10%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(232, 232, 232); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
+
+#section9_TryAgainButton {
+    position: absolute;
+    top: 90%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+    z-index: 6;
+    display: none;
+    cursor: pointer;
+    
+   
+}
+#section9_TryAgainButton img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+#section9_TryAgainButton:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+#section9_TryAgainButton p {
+    position: absolute;
+    top: 10%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(232, 232, 232); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+    
+      
+}
+
+
+#section9_CorrectAnswer {
+    position: absolute;
+    top: 90%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+    z-index: 6;
+    display: block;
+    cursor: pointer;
+    
+   
+}
+#section9_CorrectAnswer img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+#section9_CorrectAnswer:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+#section9_CorrectAnswer p {
+    position: absolute;
+    top: 10%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(232, 232, 232); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
 
 
 
@@ -3474,7 +3680,7 @@ transition: transform 0.3s;
     }
     .drop-area_section9{
         width: 385px;
-        height: 380px;
+        height: 310px;
     }
 
 }

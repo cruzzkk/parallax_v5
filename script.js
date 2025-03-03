@@ -223,11 +223,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const section9dialogBox = document.querySelector(".section9dialogBox");
     const section9dialogText = document.getElementById("section9dialogText");
     const section9_SortitOut = document.getElementById("section9_SortitOut");
-    
+    const section9_bear = document.getElementById("section9_bear");
+    const section9_mushroom = document.getElementById("section9_mushroom");
+    const section9_plant = document.getElementById("section9_plant");
+    const section9_fish = document.getElementById("section9_fish");
+    const section9_dragArea1 = document.getElementById("section9_dragArea1");
+    const section9_dragArea2 = document.getElementById("section9_dragArea2");
+    const section9_dragArea3 = document.getElementById("section9_dragArea3");
      
-
-
-
+    const section9_Title_label = document.getElementById("section9_Title_label");
+    const section9_producers_label = document.getElementById("section9_producers_label");
+    const section9_consumer_label = document.getElementById("section9_consumer_label");
+    const section9_decomposer_label = document.getElementById("section9_decomposer_label");
 
 
 
@@ -2530,19 +2537,21 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('section8dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
     }
 
-    movingFlyingOctopus(15, 80, 3000, section8_movingoctopus,function() {
-        console.log("Animation complete! Action triggered.");
-        audio_test1.play().catch((error) => {
-            console.error('Error playing audio:', error);
-        });
-        section8dialogBox.style.display = "inline-block";
-        section8dialogText.style.display = "block";
-        section8dialogText.innerHTML = "Tell me what a salmon eats."+
-        "<br><span style='color:#BC0404;font-style: italic;'>Select</span>"+
-        "<span style='color:#BC0404;font-weight: bold;font-style: italic;'>  What It Eats  </span>"+
-        "<span style='color:#BC0404;font-weight: normal;font-style: italic;'>to reveal a set of salmon feeding options.</span>";
-        adjustSection8ImageHeight();
-    });
+    //sTART FROM HERE
+
+    // movingFlyingOctopus(15, 80, 3000, section8_movingoctopus,function() {
+    //     console.log("Animation complete! Action triggered.");
+    //     audio_test1.play().catch((error) => {
+    //         console.error('Error playing audio:', error);
+    //     });
+    //     section8dialogBox.style.display = "inline-block";
+    //     section8dialogText.style.display = "block";
+    //     section8dialogText.innerHTML = "Tell me what a salmon eats."+
+    //     "<br><span style='color:#BC0404;font-style: italic;'>Select</span>"+
+    //     "<span style='color:#BC0404;font-weight: bold;font-style: italic;'>  What It Eats  </span>"+
+    //     "<span style='color:#BC0404;font-weight: normal;font-style: italic;'>to reveal a set of salmon feeding options.</span>";
+    //     adjustSection8ImageHeight();
+    // });
 
     audio_test1.addEventListener("ended", () => {
        
@@ -2791,7 +2800,24 @@ document.addEventListener("DOMContentLoaded", () => {
     //Section 9
     const audio_section9_test1=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
     const audio_section9_test2=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+    const audio_section9_test3=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+    const audio_section9_test4=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+    const audio_section9_test5=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+    const audio_section9_test6=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
 
+    const submitButton_section9 = document.getElementById("section9_SubmitButton");
+    const correctAnswerButton = document.getElementById("section9_CorrectAnswer");
+    const section9_TryAgainButton = document.getElementById("section9_TryAgainButton");
+
+    let section9_submit_pressed=0;
+ 
+
+    //submitButton.style.display="none"
+    DisableContainersection9();
+    submitButton_section9.style.display="none";
+    correctAnswerButton.style.display="none";
+    section9_TryAgainButton.style.display="none";
+   
 
     section9dialogBox.style.display = "inline-block";
     section9dialogText.style.display = "block";
@@ -2817,6 +2843,13 @@ document.addEventListener("DOMContentLoaded", () => {
         audio_section9_test2.play().catch((error) => {
             console.error('Error playing audio:', error);
         });
+        EnableContainersection9();
+         
+    });
+
+    audio_section9_test2.addEventListener("ended", () => {
+       enableDragging();
+       submitButton_section9.style.display="block";
     });
 
 
@@ -2831,25 +2864,33 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const draggableItemssection9 = document.querySelectorAll(".image-container_drag");
     const dropAreas = document.querySelectorAll(".drop-area_section9");
-
+     
     let draggedItemsection9 = null;
-
+    
+    // Initially disable dragging
     draggableItemssection9.forEach(item => {
+        item.draggable = false; // Disable dragging initially
         item.addEventListener("dragstart", (e) => {
-            draggedItemsection9 = e.target;
+            if (item.draggable) {
+                draggedItemsection9 = e.target;
+            } else {
+                e.preventDefault(); // Prevent dragging if not enabled
+            }
         });
     });
-
+    
     dropAreas.forEach(area => {
         area.addEventListener("dragover", (e) => {
-            e.preventDefault(); // Allow drop
+            e.preventDefault(); // Allow drop only if dragging is enabled
         });
-
+    
         area.addEventListener("drop", (e) => {
             e.preventDefault();
             if (draggedItemsection9) {
                 const clonedItem = draggedItemsection9.cloneNode(true);
                 clonedItem.draggable = false; // Prevent dragging after drop
+    
+                 
                 area.appendChild(clonedItem);
                 draggedItemsection9.style.opacity = "0.5"; // Visually indicate used item
                 draggedItemsection9.draggable = false; // Disable further dragging
@@ -2857,9 +2898,191 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+    
+    // Function to enable dragging when triggered
+    function enableDragging() {
+        draggableItemssection9.forEach(item => {
+            item.draggable = true; // Enable dragging
+        });
+    }
+    
+    // Submit button logic
+    submitButton_section9.addEventListener("click", () => {
+        // Expected mapping of drop areas to correct items
+        const correctMapping = {
+            section9_dragArea1: ["section9_plant"],
+            section9_dragArea2: ["section9_fish", "section9_bear"],
+            section9_dragArea3: ["section9_mushroom"]
+        };
+    
+        let isCorrect = true;
+    
+        for (const areaId in correctMapping) {
+            const dropArea = document.getElementById(areaId);
+            const droppedItems = Array.from(dropArea.children)
+                .map(item => item.getAttribute("data-original-id")); // Use stored ID
+    
+            // Sort both arrays to ensure order doesn't matter
+            droppedItems.sort();
+            correctMapping[areaId].sort();
+    
+            // Check if the contents match the expected values
+            if (JSON.stringify(droppedItems) !== JSON.stringify(correctMapping[areaId])) {
+                isCorrect = false;
+                break;
+            }
+        }
+        section9_submit_pressed++;
+
+        if (isCorrect) {
+            console.log("Correct ✅");
+        } else {
+            console.log("Wrong ❌");
+
+                switch(section9_submit_pressed){
+                    case 1:
+                        submitButton_section9.style.display="none";
+                        
+                        section9dialogBox.style.display = "inline-block";
+                        section9dialogText.style.display = "block";
+                        section9dialogText.innerHTML =
+                        "Think again."+"<br>Almost there!";
+                        
+                        adjustSection9ImageHeight();
+                        audio_section9_test3.play().catch((error) => {
+                            console.error('Error playing audio:', error);
+                        });
+                    break;
+                    case 2:
+                        console.log("in 2");
+                        submitButton_section9.style.display="none";
+                        
+                        section9dialogBox.style.display = "inline-block";
+                        section9dialogText.style.display = "block";
+                        section9dialogText.innerHTML =
+                        "Not quit right, but don't worry! I'll guid you."+
+                        "<br><span style='color:#BC0404;font-style: italic;'>Select Coorect Answer to check the correct sorting.</span>";
+                        
+                        adjustSection9ImageHeight();
+                        audio_section9_test4.play().catch((error) => {
+                            console.error('Error playing audio:', error);
+                        });
+                    break;
+
+                }
+            
+
+        }
+
+        
+    });
+
+    audio_section9_test3.addEventListener("ended", () => {
+        section9_TryAgainButton.style.display="block";
+    });
+    audio_section9_test4.addEventListener("ended", () => {
+        correctAnswerButton.style.display="block";
+        submitButton_section9.style.display="none";
+        section9_TryAgainButton.style.display="none";
+    });
+
+    section9_TryAgainButton.addEventListener("click", () => {
+        section9_TryAgainButton.style.display="none";
+        correctAnswerButton.style.display="none";
+        submitButton_section9.style.display="block";
+    });
+
+
+    // Correct Answer Button Functionality
+    correctAnswerButton.addEventListener("click", () => {
+        // Disable dragging
+        draggableItemssection9.forEach(item => {
+            item.draggable = false;
+        });
+
+        // Clear existing drop areas
+        dropAreas.forEach(area => {
+            area.innerHTML = "";
+        });
+
+        // Correct answer placement
+        const correctMapping = {
+            section9_dragArea1: ["section9_plant"],
+            section9_dragArea2: ["section9_fish", "section9_bear"],
+            section9_dragArea3: ["section9_mushroom"]
+        };
+
+        for (const areaId in correctMapping) {
+            const dropArea = document.getElementById(areaId);
+
+            correctMapping[areaId].forEach(correctId => {
+                const originalItem = document.getElementById(correctId).querySelector("img");
+                console.log("Shit",originalItem);
+                const clonedItem = originalItem.cloneNode(true);
+                clonedItem.draggable = false; // Ensure it can't be dragged again
+                clonedItem.style.opacity = "1";
+                // clonedItem.setAttribute("data-original-id", correctId);
+                dropArea.appendChild(clonedItem);
+            });
+        }
+
+        console.log("Correct answer filled automatically ✅");
+
+        correctAnswerButton.style.display="none";
+        submitButton_section9.style.display="none";
+        section9_TryAgainButton.style.display="none";
+
+        section9dialogBox.style.display = "inline-block";
+        section9dialogText.style.display = "block";
+        section9dialogText.innerHTML =
+        "Here, these organisms are sorted by category.Produers make their own food, consumers eat other organisms, and decomposers break down dead organisms.";
+         
+        adjustSection9ImageHeight();
+        audio_section9_test5.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+
+    });
+    
+    audio_section9_test5.addEventListener("ended", () => {
+        section9dialogText.innerHTML =
+        "Well done! <span style='font-weight:bold;'>Producers </span> make their own food.<span style='font-weight:bold;'>Consumers</span> eat other organisms.<span style='font-weight:bold;'>Decomposers</span> break down dead organisms.";
+         
+        adjustSection9ImageHeight();
+        audio_section9_test6.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+    });
+    
 
 
 
+    function DisableContainersection9(){
+        section9_bear.style.display="none";
+        section9_mushroom.style.display="none";
+        section9_plant .style.display="none";
+        section9_fish .style.display="none";
+        section9_dragArea1.style.display="none";
+        section9_dragArea2.style.display="none";
+        section9_dragArea3.style.display="none";
+        section9_Title_label.style.display="none";
+        section9_producers_label.style.display="none";
+        section9_consumer_label.style.display="none";
+        section9_decomposer_label.style.display="none";
+    }
+    function EnableContainersection9(){
+        section9_bear.style.display="block";
+        section9_mushroom.style.display="block";
+        section9_plant .style.display="block";
+        section9_fish .style.display="block";
+        section9_dragArea1.style.display="block";
+        section9_dragArea2.style.display="block";
+        section9_dragArea3.style.display="block";
+        section9_Title_label.style.display="block";
+        section9_producers_label.style.display="block";
+        section9_consumer_label.style.display="block";
+        section9_decomposer_label.style.display="block";
+    }
 
 
 

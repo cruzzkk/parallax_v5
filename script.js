@@ -203,6 +203,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const flyingoctopus = document.getElementById("section7_flyingoctopus");
     const normaloctopus = document.getElementById("section7_octopus");
     const section7nextImage = document.getElementById("section7nextImage");
+    const section7_treeGround = document.getElementById("section7_treeGround");
+    let section7mute=false;
+    let section7played=false;
+    let section7pausedAudio =null;
+    let section7ActionStart=false;
+    let startTime = null;
+    let pausedTime = 0;
+    let isPaused = false;
+    let animationFrameId = null;
+    let lastAnimationParams = null;
 
 
     const section8 = document.getElementById("section8");
@@ -217,6 +227,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const section8_plant = document.getElementById("section8_plant");
     const section8_dragArea = document.getElementById("section8_dragArea");
     const section8nextImage = document.getElementById("section8nextImage");
+    let section8mute=false;
+    let section8played=false;
+    let section8pausedAudio =null;
 
 
     const section9 = document.getElementById("section9");
@@ -235,6 +248,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const section9_producers_label = document.getElementById("section9_producers_label");
     const section9_consumer_label = document.getElementById("section9_consumer_label");
     const section9_decomposer_label = document.getElementById("section9_decomposer_label");
+    let section9mute=false;
+    let section9played=false;
+    let section9pausedAudio =null;
 
 
 
@@ -439,6 +455,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio9.muted=section6mute;
                 currentAudio.muted=section6mute;
             break;
+            case 'section7':
+                section7mute=!section7mute;
+                audio_test.muted = section7mute;
+                currentAudio.muted=section7mute;
+                commonsoundbutton.querySelector("img").src = section7mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+            break;
         }
     });
     commonplayButton.addEventListener("click", () => {
@@ -602,6 +624,49 @@ document.addEventListener("DOMContentLoaded", () => {
                     commonplayButton.querySelector("img").src=section6played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 }
             break;
+            case 'section7':
+                if(section7handleGroundVisible()){
+                    if(section7played){
+                        section7played=!section7played;
+                         
+                        const audio = audiosToPreload[10];
+                            if (isAudioPlaying(audio)) {
+                                 audio.pause();
+                                section7pausedAudio=audio;
+                            }
+                        isPaused=true;
+                        pausedTime += performance.now() - startTime; // Store correct paused time
+                        cancelAnimationFrame(animationFrameId);
+
+                    }else{
+
+                        section7played=!section7played;
+                        isPaused=false;
+                        startTime=null;
+
+                        if(!section7ActionStart){
+                            section7triggerActions();
+                        }
+                        
+                        if (section7pausedAudio) {
+                            console.log("FKASS1");
+                            section7pausedAudio.play();
+                            section7pausedAudio = null; // Clear the stored audio after resuming
+                        }  
+                        console.log("FKASS");
+                        if (lastAnimationParams) {
+                             moveFlyingOctopus(
+                                lastAnimationParams.maxHeight,
+                                lastAnimationParams.minHeight,
+                                lastAnimationParams.duration,
+                                lastAnimationParams.onComplete
+                            );
+                        }
+                    }
+                    commonplayButton.querySelector("img").src=section7played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                }
+            break;
+
         }
     });
 
@@ -768,6 +833,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("iconpopupcall").style.display="none";
                 section6doonce=false;
             break;
+
+            case 'section7':
+                section7mute=false;
+                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                section7played=false;
+                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
+                section7ActionStart=false;
+                normaloctopus.style.display="none";
+                flyingoctopus.style.display="none";
+                section7nextImage.style.display = "none";
+                
+                audio_test.muted=section7mute;
+                audio_test.currentTime=0;
+                audio_test.pause();
+                startTime = null;
+                pausedTime = 0; // Store elapsed time when paused
+                animationFrameId = null; // Store requestAnimationFrame ID
+               
+            break; 
+
+
         }
     });
 
@@ -1040,6 +1126,18 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section6':
                 commonsoundbutton.querySelector("img").src = section6mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
                 commonplayButton.querySelector("img").src=section6played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
+            case 'section7':
+                commonsoundbutton.querySelector("img").src = section7mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonplayButton.querySelector("img").src=section7played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
+            case 'section8':
+                commonsoundbutton.querySelector("img").src = section8mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonplayButton.querySelector("img").src=section8played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
+            case 'section9':
+                commonsoundbutton.querySelector("img").src = section9mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonplayButton.querySelector("img").src=section9played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
             break;
         }
     }
@@ -1379,6 +1477,7 @@ document.addEventListener("DOMContentLoaded", () => {
     meetfriends_button.addEventListener('click', () => {
 
         if(section3played){
+            feedingfrenzy_button.style.pointerEvents="none";//       [Need to add in Reset]
             document.getElementById("gap4").style.display="block";
             section4.style.overflow="visible";
             section4.style.display="block"
@@ -1391,20 +1490,13 @@ document.addEventListener("DOMContentLoaded", () => {
     feedingfrenzy_button.addEventListener('click', () => {
 
         if(section3played){
-            normaloctopus.style.display="none";
-            flyingoctopus.style.display="block";
-            smoothScrollToFreezeCompleteTrigger(section7,1500,function(){
-                moveFlyingOctopus(-60, 10, 3000, function() {
-                    console.log("Animation complete! Action triggered.");
-                    FlyingOctopusEnd(); // Call the action function
-                });
-            });
-            
-            // document.getElementById("gap4").style.display="block";
+          
+            meetfriends_button.style.pointerEvents="none";//       [Need to add in Reset]
+             document.getElementById("gap7").style.display="block";
             // section4.style.overflow="visible";
-            // section4.style.display="block"
-            // smoothScrollTo(section4,2000);
-            // document.getElementById("section3nextImage").style.display="block";
+             section7.style.display="block"
+             smoothScrollTo(section7,2000);
+             document.getElementById("section3nextImage").style.display="block";
         }
 
 
@@ -2448,34 +2540,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Section 7
 
-    
+
+    const section7handleGroundVisible = () => {
+        const octopusRect = section7_treeGround.getBoundingClientRect(); // Get the bounding box of the container
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
+        // Check if the octopus is fully visible in the viewport
+        if (
+            octopusRect.bottom >= 0 &&
+            octopusRect.top <= windowHeight &&
+            octopusRect.right >= 0 &&
+            octopusRect.left <= windowWidth
+        ){
+            return true;
+        }
+        return false;
+    };
+    function section7triggerActions(){
+        if(section7played){
+            section7ActionStart=!section7ActionStart;
+            normaloctopus.style.display="none";
+            flyingoctopus.style.display="none";
+            smoothScrollToFreezeCompleteTrigger(section7,1500,function(){
+                moveFlyingOctopus(-60, 10, 3000, function() {
+                    console.log("Animation complete! Action triggered.");
+                    FlyingOctopusEnd(); // Call the action function
+                });
+            });
+        }
+        
+    }
+
     function moveFlyingOctopus(maxHeight, minHeight, duration, onComplete) {
         
-        let startTime = null;
-    
+        flyingoctopus.style.display="block";
+        lastAnimationParams = { maxHeight, minHeight, duration, onComplete }; 
+
         function lerp(start, end, t) {
             return start * (1 - t) + end * t;
         }
     
         function animate(time) {
-            if (!startTime) startTime = time;
+ 
+            if (isPaused) return; // Stop animation if paused
+            console.log("CONTINUE");
+
+            if (!startTime) startTime = time-pausedTime;
             let elapsed = time - startTime;
             let t = Math.min(elapsed / duration, 1); // Normalize between 0 and 1
             let currentY = lerp(maxHeight, minHeight, t);
-    
+        
             flyingoctopus.style.top = currentY + "%";
-    
+        
             if (t < 1) {
-                requestAnimationFrame(animate);
-            } else if (onComplete) {
-                onComplete(); // Trigger action when animation completes
+                animationFrameId = requestAnimationFrame(animate);
             }
+            else {
+                animationFrameId = null;
+                pausedTime = 0; // Reset pause time
+                if (onComplete) {
+                    onComplete();
+                }
+            }
+            
+
+          
         }
     
-        requestAnimationFrame(animate);
+        
+        animationFrameId = requestAnimationFrame(animate);
+        
     }
 
     function FlyingOctopusEnd(){
+
         normaloctopus.style.display="block";
         flyingoctopus.style.display="none";
         unfreezeScroll();
@@ -2488,7 +2626,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section7nextImage.style.display = "block";
     });
 
-
+    
 
 
 
@@ -2819,15 +2957,15 @@ document.addEventListener("DOMContentLoaded", () => {
     section9_TryAgainButton.style.display="none";
    
 
-    section9dialogBox.style.display = "inline-block";
-    section9dialogText.style.display = "block";
-    section9dialogText.innerHTML =
-     "Help me sort the organisms into producers, consumers and decomposers?<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
+    // section9dialogBox.style.display = "inline-block";
+    // section9dialogText.style.display = "block";
+    // section9dialogText.innerHTML =
+    //  "Help me sort the organisms into producers, consumers and decomposers?<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
     
-    adjustSection9ImageHeight();
-    audio_section9_test1.play().catch((error) => {
-        console.error('Error playing audio:', error);
-    });
+    // adjustSection9ImageHeight();
+    // audio_section9_test1.play().catch((error) => {
+    //     console.error('Error playing audio:', error);
+    // });
 
     audio_section9_test1.addEventListener("ended", () => {
         section9_SortitOut.style.display="block";
@@ -2862,7 +3000,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     
-    const draggableItemssection9 = document.querySelectorAll(".image-container_drag");
+    const draggableItemssection9 = document.querySelectorAll(".image-container_drag img");
     const dropAreas = document.querySelectorAll(".drop-area_section9");
      
     let draggedItemsection9 = null;
@@ -2990,6 +3128,21 @@ document.addEventListener("DOMContentLoaded", () => {
         section9_TryAgainButton.style.display="none";
         correctAnswerButton.style.display="none";
         submitButton_section9.style.display="block";
+
+            // Clear all drop areas
+            dropAreas.forEach(area => {
+                area.innerHTML = "";
+            });
+            draggedItemsection9 = null;
+
+            // Reset draggable items
+            draggableItemssection9.forEach(item => {
+                item.draggable = true;
+                item.style.opacity = "1"; // Restore original opacity
+            });
+
+            console.log("Reset successful! User can try again.");
+        
     });
 
 

@@ -22,9 +22,23 @@
         const audio8 = new Audio("assets/audio/Audios/You_can_choose_a_language_for.wav");
         const audio9 = new Audio("assets/audio/Audios/Select_another_organism_like.wav");
         const audio10 = new Audio("assets/audio/Audios/Select_hotspots_Youll_collect.wav");
+        
         const audio_test=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+        
+        const audio_test1=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+        const audio_test2=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+        const audio_test3=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+        const audio_test4=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
     
-        const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10, audio9,audio_test];
+        const audio_section9_test1=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+        const audio_section9_test2=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+        const audio_section9_test3=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+        const audio_section9_test4=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+        const audio_section9_test5=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+        const audio_section9_test6=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+        const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10,
+             audio9,audio_test,audio_test1,audio_test2,audio_test3,audio_test4,
+             audio_section9_test1,audio_section9_test2,audio_section9_test3,audio_section9_test4,audio_section9_test5,audio_section9_test6];
 
 // Function to preload images
 function preloadImages(images, callback) {
@@ -227,12 +241,21 @@ document.addEventListener("DOMContentLoaded", () => {
     const section8_plant = document.getElementById("section8_plant");
     const section8_dragArea = document.getElementById("section8_dragArea");
     const section8nextImage = document.getElementById("section8nextImage");
+    const section8_treeGround=document.getElementById("section8BG");// Need to change water/tree gund
     let section8mute=false;
     let section8played=false;
     let section8pausedAudio =null;
+    let feedback_audio=null;
+    let section8ActionStart=false;
+    let section8startTime = null;
+    let section8pausedTime = 0;
+    let section8isPaused = false;
+    let section8animationFrameId = null;
+    let section8lastAnimationParams = null;
 
 
     const section9 = document.getElementById("section9");
+    const section9_octopus = document.getElementById("section9_octopus");
     const section9dialogBox = document.querySelector(".section9dialogBox");
     const section9dialogText = document.getElementById("section9dialogText");
     const section9_SortitOut = document.getElementById("section9_SortitOut");
@@ -248,9 +271,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const section9_producers_label = document.getElementById("section9_producers_label");
     const section9_consumer_label = document.getElementById("section9_consumer_label");
     const section9_decomposer_label = document.getElementById("section9_decomposer_label");
+
+    const submitButton_section9 = document.getElementById("section9_SubmitButton");
+    const correctAnswerButton = document.getElementById("section9_CorrectAnswer");
+    const section9_TryAgainButton = document.getElementById("section9_TryAgainButton");
+
+    const draggableItemssection9 = document.querySelectorAll(".image-container_drag img");
+    const dropAreas = document.querySelectorAll(".drop-area_section9");
+
     let section9mute=false;
     let section9played=false;
     let section9pausedAudio =null;
+    let section9ActionStart=false;
+    let section9_submit_pressed=0;
 
 
 
@@ -461,6 +494,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentAudio.muted=section7mute;
                 commonsoundbutton.querySelector("img").src = section7mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
             break;
+            case 'section8':
+                section8mute=!section8mute;
+                audio_test1.muted = section8mute;
+                audio_test2.muted = section8mute;
+                audio_test3.muted = section8mute;
+                audio_test4.muted = section8mute;
+                currentAudio.muted=section8mute;
+                commonsoundbutton.querySelector("img").src = section8mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+            break;
+            case 'section9':
+                section9mute=!section9mute;
+                audio_section9_test1.muted = section9mute;audio_section9_test2.muted = section9mute;
+                audio_section9_test3.muted = section9mute;audio_section9_test4.muted = section9mute;
+                audio_section9_test5.muted = section9mute;audio_section9_test6.muted = section9mute;                
+                currentAudio.muted=section9mute;
+                commonsoundbutton.querySelector("img").src = section9mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+            break;
         }
     });
     commonplayButton.addEventListener("click", () => {
@@ -630,19 +680,22 @@ document.addEventListener("DOMContentLoaded", () => {
                         section7played=!section7played;
                          
                         const audio = audiosToPreload[10];
-                            if (isAudioPlaying(audio)) {
-                                 audio.pause();
-                                section7pausedAudio=audio;
-                            }
-                        isPaused=true;
-                        pausedTime += performance.now() - startTime; // Store correct paused time
-                        cancelAnimationFrame(animationFrameId);
+                        if (isAudioPlaying(audio)) {
+                            audio.pause();
+                            section7pausedAudio=audio;
+                        }
+                        if(animationFrameId){
+                            isPaused=true;
+                            pausedTime += performance.now() - startTime; // Store correct paused time
+                            cancelAnimationFrame(animationFrameId);
+                            animationFrameId = null;
+                        }
+                        
 
                     }else{
 
                         section7played=!section7played;
-                        isPaused=false;
-                        startTime=null;
+                        
 
                         if(!section7ActionStart){
                             section7triggerActions();
@@ -655,7 +708,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         }  
                         console.log("FKASS");
                         if (lastAnimationParams) {
-                             moveFlyingOctopus(
+                            isPaused=false;
+                            startTime=null;
+                            moveFlyingOctopus(
                                 lastAnimationParams.maxHeight,
                                 lastAnimationParams.minHeight,
                                 lastAnimationParams.duration,
@@ -664,6 +719,106 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     }
                     commonplayButton.querySelector("img").src=section7played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                }
+            break;
+            case 'section8':
+                if(section8handleGroundVisible()){
+                    if(section8played){
+                        section8played=!section8played;
+
+                        for (let i = 11; i < 15; i++) {
+                            const audio = audiosToPreload[i];
+                            if (isAudioPlaying(audio)) {
+                                 audio.pause();
+                                section8pausedAudio=audio;
+                            }
+                            
+                        }
+
+                        
+                        if(isAudioPlaying(errorAudio)){
+                             feedback_audio=errorAudio;
+                        }else if(isAudioPlaying(correctAudio)){
+                            feedback_audio=correctAudio;
+                        }else{
+                            feedback_audio=null; 
+                        }
+                        if (feedback_audio) {
+                            console.log("FKASS1");
+                            feedback_audio.pause();
+                           
+                        }  
+                        
+                       section8isPaused=true;
+                       section8pausedTime += performance.now() - section8startTime; 
+                       cancelAnimationFrame(section8animationFrameId);
+                       section8animationFrameId = null;
+
+                    }else{
+
+                        section8played=!section8played;
+                       
+
+                        if(!section8ActionStart){
+                            section8triggerActions();
+                        }
+                        
+                        if (section8pausedAudio) {
+                            console.log("FKASS1");
+                            section8pausedAudio.play();
+                            section8pausedAudio = null; // Clear the stored audio after resuming
+                        }  
+                        if (feedback_audio) {
+                            console.log("FKASS1");
+                            feedback_audio.play();
+                            feedback_audio = null; // Clear the stored audio after resuming
+                        }  
+                        console.log("FKASS");
+                        if (section8lastAnimationParams) {
+                            section8isPaused=false;
+                            section8startTime=null;
+                            movingFlyingOctopus(
+                                section8lastAnimationParams.maxHeight,
+                                section8lastAnimationParams.minHeight,
+                                section8lastAnimationParams.duration,
+                                section8lastAnimationParams.octopus,
+                                section8lastAnimationParams.onComplete
+                            );
+                        }
+                    }
+                    commonplayButton.querySelector("img").src=section8played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                }
+            break;
+            case 'section9':
+                if(section9_octopusVisible()){
+                    if(section9played){
+                        section9played=!section9played;
+
+                        for (let i = 15; i < 21; i++) {
+                            const audio = audiosToPreload[i];
+                            if (isAudioPlaying(audio)) {
+                                 audio.pause();
+                                section9pausedAudio=audio;
+                            }
+                            
+                        }
+                        //disableDraggingSection9();
+                    }else{
+
+                        section9played=!section9played;
+                        enableDraggingSection9();
+
+                        if(!section9ActionStart){
+                            section9triggerActions();
+                        }
+                        
+                        if (section9pausedAudio) {
+                            section9pausedAudio.play();
+                            section9pausedAudio = null; // Clear the stored audio after resuming
+                        }  
+                    
+                    }
+                    commonplayButton.querySelector("img").src=section9played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 }
             break;
 
@@ -852,6 +1007,101 @@ document.addEventListener("DOMContentLoaded", () => {
                 animationFrameId = null; // Store requestAnimationFrame ID
                
             break; 
+
+            case 'section8':
+                section8mute=false;
+                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                section8played=false;
+                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
+                section8ActionStart=false;
+
+                audio_test1.muted=section8mute;
+                audio_test1.currentTime=0;
+                audio_test1.pause();
+                audio_test2.muted=section8mute;
+                audio_test2.currentTime=0;
+                audio_test2.pause();
+                audio_test3.muted=section8mute;
+                audio_test3.currentTime=0;
+                audio_test3.pause();
+                audio_test4.muted=section8mute;
+                audio_test4.currentTime=0;
+                audio_test4.pause();
+                errorAudio.muted=section8mute;
+                errorAudio.currentTime=0;
+                errorAudio.pause();
+                correctAudio.muted=section8mute;
+                correctAudio.currentTime=0;
+                correctAudio.pause();
+                //startTime = null;
+                //pausedTime = 0; // Store elapsed time when paused
+                //animationFrameId = null; // Store requestAnimationFrame ID
+
+                section8_movingoctopus.style.display="none";
+                section8dialogBox .style.display="none";
+                section8_WhatEats.style.display="none";    
+                section8_TryAgain .style.display="none";
+                section8_WatchAction.style.display="none";
+                section8_bear.style.display="none";
+                section8_mushroom.style.display="none";
+                section8_plant.style.display="none";
+                section8_dragArea.style.display="none";
+                section8nextImage.style.display="none";
+                
+                ResetDragandDropSection8();
+                setDraggingState(false);
+                
+
+            break;
+            case 'section9':
+                section9mute=false;
+                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                section9played=false;
+                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
+                section9ActionStart=false;
+
+                audio_section9_test1.muted=section8mute;
+                audio_section9_test1.currentTime=0;
+                audio_section9_test1.pause();
+                audio_section9_test2.muted=section8mute;
+                audio_section9_test2.currentTime=0;
+                audio_section9_test2.pause();
+                audio_section9_test3.muted=section8mute;
+                audio_section9_test3.currentTime=0;
+                audio_section9_test3.pause();
+                audio_section9_test4.muted=section8mute;
+                audio_section9_test4.currentTime=0;
+                audio_section9_test4.pause();
+                audio_section9_test5.muted=section8mute;
+                audio_section9_test5.currentTime=0;
+                audio_section9_test5.pause();
+                audio_section9_test6.muted=section8mute;
+                audio_section9_test6.currentTime=0;
+                audio_section9_test6.pause();
+
+                section9dialogBox.style.display="none";;
+                section9_SortitOut.style.display="none";
+                section9_bear.style.display="none";
+                section9_mushroom.style.display="none";
+                section9_plant.style.display="none";
+                section9_fish.style.display="none";
+                section9_dragArea1.style.display="none";
+                section9_dragArea2.style.display="none";
+                section9_dragArea3.style.display="none";
+                
+                section9_Title_label.style.display="none";
+                section9_producers_label.style.display="none";
+                section9_consumer_label.style.display="none";
+                section9_decomposer_label.style.display="none";
+
+                submitButton_section9.style.display="none";
+                correctAnswerButton.style.display="none";
+                section9_TryAgainButton.style.display="none";
+
+                draggableItemssection9.style.display="none";
+                dropAreas.style.display="none";
+
+            break;
 
 
         }
@@ -2558,9 +2808,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     function section7triggerActions(){
         if(section7played){
-            section7ActionStart=!section7ActionStart;
+            section7ActionStart=true;
             normaloctopus.style.display="none";
-            flyingoctopus.style.display="none";
+            flyingoctopus.style.display="block";
             smoothScrollToFreezeCompleteTrigger(section7,1500,function(){
                 moveFlyingOctopus(-60, 10, 3000, function() {
                     console.log("Animation complete! Action triggered.");
@@ -2573,7 +2823,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function moveFlyingOctopus(maxHeight, minHeight, duration, onComplete) {
         
-        flyingoctopus.style.display="block";
+       
         lastAnimationParams = { maxHeight, minHeight, duration, onComplete }; 
 
         function lerp(start, end, t) {
@@ -2583,9 +2833,11 @@ document.addEventListener("DOMContentLoaded", () => {
         function animate(time) {
  
             if (isPaused) return; // Stop animation if paused
-            console.log("CONTINUE");
-
-            if (!startTime) startTime = time-pausedTime;
+ 
+            if (!startTime){
+                startTime = time-pausedTime;
+                pausedTime = 0;
+            }
             let elapsed = time - startTime;
             let t = Math.min(elapsed / duration, 1); // Normalize between 0 and 1
             let currentY = lerp(maxHeight, minHeight, t);
@@ -2597,6 +2849,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             else {
                 animationFrameId = null;
+                lastAnimationParams=null
                 pausedTime = 0; // Reset pause time
                 if (onComplete) {
                     onComplete();
@@ -2624,6 +2877,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     audio_test.addEventListener("ended", () => {
         section7nextImage.style.display = "block";
+        document.getElementById("gap8").style.display="block";
+        section8.style.display="block"
+        smoothScrollTo(section8,2000);
     });
 
     
@@ -2632,41 +2888,87 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Section 8
 
-    const audio_test1=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
-    const audio_test2=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
-    const audio_test3=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
-    const audio_test4=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+    const section8handleGroundVisible = () => {
+        const octopusRect = section8_treeGround.getBoundingClientRect(); // Get the bounding box of the container
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
+        // Check if the octopus is fully visible in the viewport
+        if (
+            octopusRect.bottom >= 0 &&
+            octopusRect.top <= windowHeight &&
+            octopusRect.right >= 0 &&
+            octopusRect.left <= windowWidth
+        ){
+            return true;
+        }
+        return false;
+    };
+
+    function section8triggerActions(){
+        section8ActionStart=true;
+                section8_movingoctopus.style.display="none";
+                section8dialogBox .style.display="none";
+                section8_WhatEats.style.display="none";    
+                section8_TryAgain .style.display="none";
+                section8_WatchAction.style.display="none";
+                section8_bear.style.display="none";
+                section8_mushroom.style.display="none";
+                section8_plant.style.display="none";
+                section8_dragArea.style.display="none";
+                section8nextImage.style.display="none";
+        //SECTION 8 ENABLE
+        movingFlyingOctopus(15, 80, 3000, section8_movingoctopus,function() {
+            console.log("Animation complete! Action triggered.");
+            audio_test1.play().catch((error) => {
+                console.error('Error playing audio:', error);
+            });
+            section8dialogBox.style.display = "inline-block";
+            section8dialogText.style.display = "block";
+            section8dialogText.innerHTML = "Tell me what a salmon eats."+
+            "<br><span style='color:#BC0404;font-style: italic;'>Select</span>"+
+            "<span style='color:#BC0404;font-weight: bold;font-style: italic;'>  What It Eats  </span>"+
+            "<span style='color:#BC0404;font-weight: normal;font-style: italic;'>to reveal a set of salmon feeding options.</span>";
+            adjustSection8ImageHeight();
+        });
+    }
 
 
-    section8_bear.style.display = "none";
-    section8_mushroom.style.display = "none";
-    section8_plant.style.display = "none";
-    section8_dragArea.style.display = "none";
+ 
 
     function movingFlyingOctopus(maxHeight, minHeight, duration,octopus, onComplete) {
-        
-        let startTime = null;
-    
+        section8_movingoctopus.style.display="block";
+        section8lastAnimationParams = { maxHeight, minHeight, duration,octopus, onComplete }; 
         function lerp(start, end, t) {
             return start * (1 - t) + end * t;
         }
     
         function animate(time) {
-            if (!startTime) startTime = time;
-            let elapsed = time - startTime;
+            
+            if (section8isPaused) return; // Stop animation if paused
+
+            if (!section8startTime){
+                section8startTime = time-section8pausedTime;
+                section8pausedTime=0
+            }
+            let elapsed = time - section8startTime;
             let t = Math.min(elapsed / duration, 1); // Normalize between 0 and 1
             let currentY = lerp(maxHeight, minHeight, t);
     
             octopus.style.top = currentY + "%";
     
             if (t < 1) {
-                requestAnimationFrame(animate);
-            } else if (onComplete) {
-                onComplete(); // Trigger action when animation completes
+                section8animationFrameId = requestAnimationFrame(animate);
+            } else {
+                section8animationFrameId = null;
+                section8lastAnimationParams=null;
+                section8pausedTime = 0; // Reset pause time
+                if (onComplete) {
+                    onComplete();
+                }
             }
         }
     
-        requestAnimationFrame(animate);
+        section8animationFrameId = requestAnimationFrame(animate);
     }
     function adjustSection8ImageHeight() {
         document.getElementById('section8dialogBoxx').style.width= document.querySelector('.section8dialogBox').style.minWidth;
@@ -2696,19 +2998,22 @@ document.addEventListener("DOMContentLoaded", () => {
         section8_WhatEats.style.display='block';
     });
     document.getElementById('section8_WhatEats').addEventListener('click', function() {
-        section8_WhatEats.style.display='none';
-        section8dialogBox.style.display = "none";
-
-        section8dialogBox.style.display = "inline-block";
-        section8dialogText.style.display = "block";
-        section8dialogText.innerHTML = "Is it a grizzly bear,mushrooms, or kelp?"+
-        "<br><span style='color:#BC0404;font-style: italic;'>Drag the correct food to the salmon.</span>"+
-        "<span style='color:#BC0404;font-style: italic;'>Select the info icon to view the info card about the organisms in the options.</span>";
+        if(section8played){
+            section8_WhatEats.style.display='none';
+            section8dialogBox.style.display = "none";
+    
+            section8dialogBox.style.display = "inline-block";
+            section8dialogText.style.display = "block";
+            section8dialogText.innerHTML = "Is it a grizzly bear,mushrooms, or kelp?"+
+            "<br><span style='color:#BC0404;font-style: italic;'>Drag the correct food to the salmon.</span>"+
+            "<span style='color:#BC0404;font-style: italic;'>Select the info icon to view the info card about the organisms in the options.</span>";
+            
+            adjustSection8ImageHeight();
+            audio_test2.play().catch((error) => {
+                console.error('Error playing audio:', error);
+            });
+        }
         
-        adjustSection8ImageHeight();
-        audio_test2.play().catch((error) => {
-            console.error('Error playing audio:', error);
-        });
 
     });
     audio_test2.addEventListener("ended", () => {
@@ -2719,6 +3024,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section8_mushroom.style.display = "block";
         section8_plant.style.display = "block";
         section8_dragArea.style.display = "block";
+        setDraggingState(true);
     });
 
 
@@ -2785,7 +3091,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         dropAreaContainer.addEventListener("drop", (e) => {
             e.preventDefault();
-            if (!isDraggingDisabled && draggedItem && allowedIds.includes(draggedItem.id)) { // Check if the dropped item is valid
+            if (!isDraggingDisabled && draggedItem && allowedIds.includes(draggedItem.id)&&section8played) { // Check if the dropped item is valid
                 const draggedSrc = draggedItem.querySelector("img").src;
 
                 // Update drop area's image
@@ -2850,12 +3156,13 @@ document.addEventListener("DOMContentLoaded", () => {
         function playErrorSound() {
             errorAudio.currentTime = 0; // Reset to the beginning
             errorAudio.play();
+ 
         }
 
         function playCorrectSound() {
             correctAudio.currentTime = 0; // Reset to the beginning
             correctAudio.play();
-        }
+         }
         
         // Add event listener to handle when the error sound finishes
         errorAudio.addEventListener("ended", () => {
@@ -2870,28 +3177,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Reset functionality when "Try Again" button is clicked
         section8_TryAgain.addEventListener("click", () => {
-            section8_TryAgain.style.display = "none"; // Hide Try Again button
-            section8dialogBox.style.display = "none";// Disable the dialog box
-            setDraggingState(true); // Enable dragging again
+            if(section8played){
+                section8_TryAgain.style.display = "none"; // Hide Try Again button
+                section8dialogBox.style.display = "none";// Disable the dialog box
+                setDraggingState(true); // Enable dragging again
+            }
+            
         });
         // Watch Action button clicked
         section8_WatchAction.addEventListener("click", () => {
-            section8_WatchAction.style.display = "none"; // Hide Try Again button
-            section8dialogBox.style.display = "none";// Disable the dialog box
-            setDraggingState(true); // Enable dragging again
-            section8_bear.style.display = "none";
-            section8_mushroom.style.display = "none";
-            section8_plant.style.display = "none";
-            section8_dragArea.style.display = "none";
-
-            section8dialogBox.style.display = "inline-block";
-            section8dialogText.style.display = "block";
-            section8dialogText.innerHTML = "Salmon eat kelp, a type of seaweed that gives them energy and nutrients to grow and stay healthy.";
+            if(section8played){
+                section8_WatchAction.style.display = "none"; // Hide Try Again button
+                section8dialogBox.style.display = "none";// Disable the dialog box
+                setDraggingState(true); // Enable dragging again
+                section8_bear.style.display = "none";
+                section8_mushroom.style.display = "none";
+                section8_plant.style.display = "none";
+                section8_dragArea.style.display = "none";
+    
+                section8dialogBox.style.display = "inline-block";
+                section8dialogText.style.display = "block";
+                section8dialogText.innerHTML = "Salmon eat kelp, a type of seaweed that gives them energy and nutrients to grow and stay healthy.";
+                
+                adjustSection8ImageHeight();
+                audio_test3.play().catch((error) => {
+                    console.error('Error playing audio:', error);
+                });
+            }
             
-            adjustSection8ImageHeight();
-            audio_test3.play().catch((error) => {
-                console.error('Error playing audio:', error);
-            });
 
         });
 
@@ -2908,6 +3221,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         audio_test4.addEventListener("ended", () => {
             section8nextImage.style.display="block";
+            //Section 9 Start
+            document.getElementById("gap9").style.display="block";
+            section9.style.display="block"
         });
 
 
@@ -2918,6 +3234,27 @@ document.addEventListener("DOMContentLoaded", () => {
             
             adjustSection8ImageHeight();
         }
+
+        function ResetDragandDropSection8(){
+            // Restore all draggable items
+            draggableItems.forEach(item => {
+                if (allowedIds.includes(item.id)) {
+                    item.style.opacity = "1"; // Make items fully visible
+                    item.style.pointerEvents = "auto"; // Enable interaction
+                    item.draggable = true; // Re-enable dragging
+                }
+            });
+        
+            // Reset the drop area image to a placeholder or empty
+            dropAreaImage.src = "assets/Feeding Frenzy/Scene2/kelp.png"; // Change this if a default image is needed
+        
+            // Remove any tick (✅) or cross (❌)
+            const existingResult = dropAreaContainer.querySelector(".result-icon");
+            if (existingResult) {
+                existingResult.remove();
+            }
+        
+        };
 
         
         
@@ -2936,57 +3273,74 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     //Section 9
-    const audio_section9_test1=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
-    const audio_section9_test2=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
-    const audio_section9_test3=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
-    const audio_section9_test4=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
-    const audio_section9_test5=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
-    const audio_section9_test6=new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
 
-    const submitButton_section9 = document.getElementById("section9_SubmitButton");
-    const correctAnswerButton = document.getElementById("section9_CorrectAnswer");
-    const section9_TryAgainButton = document.getElementById("section9_TryAgainButton");
 
-    let section9_submit_pressed=0;
+
+
+
  
+    
+    const section9_octopusVisible = () => {
+        const octopusRect = section9_octopus.getBoundingClientRect(); // Get the bounding box of the container
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
+        // Check if the octopus is fully visible in the viewport
+        if (
+            octopusRect.bottom >= 0 &&
+            octopusRect.top <= windowHeight &&
+            octopusRect.right >= 0 &&
+            octopusRect.left <= windowWidth
+        ){
+            return true;
+        }
+        return false;
+    };
 
-    //submitButton.style.display="none"
-    DisableContainersection9();
-    submitButton_section9.style.display="none";
-    correctAnswerButton.style.display="none";
-    section9_TryAgainButton.style.display="none";
+    function section9triggerActions(){
+        section9ActionStart=true;
+        DisableContainersection9();
+
+        section9dialogBox.style.display = "inline-block";
+        section9dialogText.style.display = "block";
+        section9dialogText.innerHTML =
+         "Help me sort the organisms into producers, consumers and decomposers?<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
+        
+        adjustSection9ImageHeight();
+        audio_section9_test1.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+       
+    }
+
+
+
    
 
-    // section9dialogBox.style.display = "inline-block";
-    // section9dialogText.style.display = "block";
-    // section9dialogText.innerHTML =
-    //  "Help me sort the organisms into producers, consumers and decomposers?<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
-    
-    // adjustSection9ImageHeight();
-    // audio_section9_test1.play().catch((error) => {
-    //     console.error('Error playing audio:', error);
-    // });
+   
 
     audio_section9_test1.addEventListener("ended", () => {
         section9_SortitOut.style.display="block";
     });
     section9_SortitOut.addEventListener("click", () => {
-        section9_SortitOut.style.display="none";
-        section9dialogBox.style.display = "inline-block";
-        section9dialogText.style.display = "block";
-        section9dialogText.innerHTML =
-        "<span style='color:#BC0404;font-style: italic;'>Drag and drop each organism into the correct category. Once you're done sorting, select Submit.</span>.";
-        
-        adjustSection9ImageHeight();
-        audio_section9_test2.play().catch((error) => {
-            console.error('Error playing audio:', error);
-        });
-        EnableContainersection9();
+        if(section9played){
+            section9_SortitOut.style.display="none";
+            section9dialogBox.style.display = "inline-block";
+            section9dialogText.style.display = "block";
+            section9dialogText.innerHTML =
+            "<span style='color:#BC0404;font-style: italic;'>Drag and drop each organism into the correct category. Once you're done sorting, select Submit.</span>.";
+            
+            adjustSection9ImageHeight();
+            audio_section9_test2.play().catch((error) => {
+                console.error('Error playing audio:', error);
+            });
+            EnableContainersection9();
+        }
+       
          
     });
 
     audio_section9_test2.addEventListener("ended", () => {
-       enableDragging();
+       enableDraggingSection9();
        submitButton_section9.style.display="block";
     });
 
@@ -2998,10 +3352,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('section9dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
     }
     
-
-    
-    const draggableItemssection9 = document.querySelectorAll(".image-container_drag img");
-    const dropAreas = document.querySelectorAll(".drop-area_section9");
      
     let draggedItemsection9 = null;
     
@@ -3038,15 +3388,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
     // Function to enable dragging when triggered
-    function enableDragging() {
+    function enableDraggingSection9() {
         draggableItemssection9.forEach(item => {
             item.draggable = true; // Enable dragging
+        });
+    }
+    function disableDraggingSection9(){
+        draggableItemssection9.forEach(item => {
+            console.log('kuku'+item);
+            item.draggable = false; // Enable dragging
+            item.opacity=0.3;
         });
     }
     
     // Submit button logic
     submitButton_section9.addEventListener("click", () => {
-        // Expected mapping of drop areas to correct items
+        if(section9played){
+            // Expected mapping of drop areas to correct items
         const correctMapping = {
             section9_dragArea1: ["section9_plant"],
             section9_dragArea2: ["section9_fish", "section9_bear"],
@@ -3111,8 +3469,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
 
         }
-
-        
+        } 
     });
 
     audio_section9_test3.addEventListener("ended", () => {
@@ -3125,30 +3482,35 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     section9_TryAgainButton.addEventListener("click", () => {
-        section9_TryAgainButton.style.display="none";
-        correctAnswerButton.style.display="none";
-        submitButton_section9.style.display="block";
+        if(section9played){
+            section9_TryAgainButton.style.display="none";
+            correctAnswerButton.style.display="none";
+            submitButton_section9.style.display="block";
 
-            // Clear all drop areas
-            dropAreas.forEach(area => {
-                area.innerHTML = "";
-            });
-            draggedItemsection9 = null;
+                // Clear all drop areas
+                dropAreas.forEach(area => {
+                    area.innerHTML = "";
+                });
+                draggedItemsection9 = null;
 
-            // Reset draggable items
-            draggableItemssection9.forEach(item => {
-                item.draggable = true;
-                item.style.opacity = "1"; // Restore original opacity
-            });
+                // Reset draggable items
+                draggableItemssection9.forEach(item => {
+                    item.draggable = true;
+                    item.style.opacity = "1"; // Restore original opacity
+                });
 
-            console.log("Reset successful! User can try again.");
+                console.log("Reset successful! User can try again.");
+        }
+        
         
     });
 
 
     // Correct Answer Button Functionality
     correctAnswerButton.addEventListener("click", () => {
-        // Disable dragging
+        if(section9played){
+
+            // Disable dragging
         draggableItemssection9.forEach(item => {
             item.draggable = false;
         });
@@ -3176,8 +3538,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 clonedItem.style.opacity = "1";
                 // clonedItem.setAttribute("data-original-id", correctId);
                 dropArea.appendChild(clonedItem);
+
+                originalItem.draggable = false;
+                originalItem.opacity="0.5";
             });
         }
+        disableDraggingSection9();
 
         console.log("Correct answer filled automatically ✅");
 
@@ -3194,7 +3560,7 @@ document.addEventListener("DOMContentLoaded", () => {
         audio_section9_test5.play().catch((error) => {
             console.error('Error playing audio:', error);
         });
-
+        }
     });
     
     audio_section9_test5.addEventListener("ended", () => {

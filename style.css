@@ -2808,7 +2808,7 @@ transition: transform 0.3s;
     /* max-width: 1120px; */
     height: auto;
     object-fit: contain;
-    
+    display: none;
     z-index: 1;
     transform: translateX(-50%) translateY(-50%);
 }
@@ -2910,6 +2910,8 @@ transition: transform 0.3s;
     width: 15%;  
     height: auto;  
     cursor: grab;
+    display: none;
+
     z-index: 3;
 }
 #section8_mushroom{
@@ -2920,6 +2922,8 @@ transition: transform 0.3s;
     width: 15%;  
     height: auto; 
     cursor: grab;
+    display: none;
+
     z-index: 3;
 
 }
@@ -2930,6 +2934,8 @@ transition: transform 0.3s;
     transform: translate(-50%, -50%);
     width: 15%;  
     cursor: grab;
+    display: none;
+
     z-index: 3;
 
 }
@@ -2940,6 +2946,8 @@ transition: transform 0.3s;
     transform: translate(-50%, -50%);
     width: 15%;  
     z-index: 3;
+    display: none;
+
     
 }
 
@@ -3270,6 +3278,7 @@ transition: transform 0.3s;
     width: 25%;  
     height: 25%;  
     z-index: 10;
+    display: none;
 }
 #section9_Title_label p{
     font-weight: bold;
@@ -3285,6 +3294,7 @@ transition: transform 0.3s;
     transform: translate(-50%, -50%);
     width: 14%;  
     height: auto;  
+    display: none;
 }
 #section9_consumer_label{
     top: 24%;
@@ -3292,13 +3302,15 @@ transition: transform 0.3s;
     transform: translate(-50%, -50%);
     width: 14%;  
     height: auto;  
+    display: none;
 }
 #section9_decomposer_label{
     top: 24%;
     left: 82.5%;
     transform: translate(-50%, -50%);
     width: 14%;  
-    height: auto;  
+    height: auto;
+    display: none;  
 }
 
 
@@ -3454,7 +3466,7 @@ transition: transform 0.3s;
     width: 14%;  
     height: auto;  
     z-index: 6;
-    display: block;
+    display: none;
     cursor: pointer;
     
    
@@ -3538,7 +3550,7 @@ transition: transform 0.3s;
     width: 14%;  
     height: auto;  
     z-index: 6;
-    display: block;
+    display: none;
     cursor: pointer;
     
    
@@ -3571,6 +3583,32 @@ transition: transform 0.3s;
       
 }
 
+
+#section9_bear{
+    display: none;
+}
+#section9_mushroom{
+    display: none;
+
+}
+#section9_plant{
+    display: none;
+}
+#section9_fish{
+    display: none;
+}
+#section9_dragArea1{
+    display: none;
+
+}
+#section9_dragArea2{
+    display: none;
+  
+}
+#section9_dragArea3{
+    display: none;
+  
+}
 
 
 

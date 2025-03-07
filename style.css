@@ -2689,6 +2689,17 @@ transition: transform 0.3s;
     z-index: 3;
     transform: translateX(-50%) translateY(-50%);
 }
+#section7_treeWood{
+    top: 58%;
+    left: 74%;
+    width: 28%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 4;
+    transform: translateX(-50%) translateY(-50%);
+}
 #section7_water{
     top: 54%;
     left: 50%;
@@ -3159,6 +3170,16 @@ transition: transform 0.3s;
     object-fit: contain;
     
     z-index: 3;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section9_treeWood{
+    top: 81%;
+    left: 74%;
+    width: 28%;
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 4;
     transform: translateX(-50%) translateY(-50%);
 }
 #section9_water{

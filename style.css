@@ -2800,12 +2800,24 @@ transition: transform 0.3s;
     z-index: 2;
     
 }
-
-#section8BG{
-    top: -15%;
+#section8toplayer{
+    top: -10%;
     left: 50%;
     width: 100%;
     height: auto;
+
+    object-fit: contain;
+     
+    z-index: 1;
+    transform: translateX(-50%);
+}
+
+#section8BG{
+    top: 1.5%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+
     object-fit: contain;
      
     z-index: 0;
@@ -2871,13 +2883,48 @@ transition: transform 0.3s;
     transform: translate(-50%, -50%);
 }
 
+#section8_DragLabel {
+    position: absolute;
+    top: 17%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;  
+    height: auto;  
+    z-index: 4;
+    display: none;
+   
+}
+#section8_DragLabel img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+#section8_DragLabel p {
+    position: absolute;
+    top: 30%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(1, 1, 1); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.7vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    font-weight: bold;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
+
 
 #section8_WhatEats {
     position: absolute;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 14%;  
+    width: 13%;  
     height: auto;  
     z-index: 2;
     display: none;
@@ -2897,7 +2944,7 @@ transition: transform 0.3s;
 }
 #section8_WhatEats p {
     position: absolute;
-    top: 10%; /* Center vertically */
+    top: 16%; /* Center vertically */
     left: 50%; /* Center horizontally */
     width:100% ;
     height: auto;
@@ -2915,8 +2962,8 @@ transition: transform 0.3s;
 
 #section8_bear{
     position: absolute;
-    top: 70%;
-    left: 37%;
+    top: 65%;
+    left: 35%;
     transform: translate(-50%, -50%);
     width: 15%;  
     height: auto;  
@@ -2927,7 +2974,7 @@ transition: transform 0.3s;
 }
 #section8_mushroom{
     position: absolute;
-    top: 70%;
+    top: 65%;
     left: 52%;
     transform: translate(-50%, -50%);
     width: 15%;  
@@ -2940,8 +2987,8 @@ transition: transform 0.3s;
 }
 #section8_plant{
     position: absolute;
-    top: 70%;
-    left: 67%;
+    top: 65%;
+    left: 69%;
     transform: translate(-50%, -50%);
     width: 15%;  
     cursor: grab;
@@ -2950,12 +2997,21 @@ transition: transform 0.3s;
     z-index: 3;
 
 }
-#section8_dragArea{
+#section8_dragImage{
     position: absolute;
-    top: 40%;
-    left: 50%;
+    top: 38%;
+    left: 35%;
     transform: translate(-50%, -50%);
     width: 15%;  
+    z-index: 3;
+    display: none;
+}
+#section8_dragArea{
+    position: absolute;
+    top: 38%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    width: 13%;  
     z-index: 3;
     display: none;
 
@@ -2974,10 +3030,8 @@ transition: transform 0.3s;
 }
 .drop-area {
     position: absolute;
-    width: 10%; /* Adjust as needed */
+    width: 0%; /* Adjust as needed */
     height: auto;
-    border: 5px dashed #ffffff;
-    border-radius: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2989,7 +3043,7 @@ transition: transform 0.3s;
     top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 14%;  
+    width: 13%;  
     height: auto;  
     z-index: 4;
     display: none;
@@ -3007,7 +3061,7 @@ transition: transform 0.3s;
 }
 #section8_TryAgain p {
     position: absolute;
-    top: 10%; /* Center vertically */
+    top: 15%; /* Center vertically */
     left: 50%; /* Center horizontally */
     width:100% ;
     height: auto;
@@ -3046,7 +3100,7 @@ transition: transform 0.3s;
 }
 #section8_WatchAction p {
     position: absolute;
-    top: 10%; /* Center vertically */
+    top: 20%; /* Center vertically */
     left: 50%; /* Center horizontally */
     width:100% ;
     height: auto;
@@ -3195,19 +3249,19 @@ transition: transform 0.3s;
  
 #section9_octopus{
     top: 80%;
-    left: 20%;
+    left: 13%;
     width: 22%;
      height: auto;
     object-fit: contain;
     
     z-index: 4;
-    transform: translateX(-50%) translateY(-50%);
+
 }
 
 .section9dialogBox {
     position: absolute;
     bottom: 30%; /* Position relative to viewport height */
-    left: 20%; /* Position relative to viewport width */
+    left: 15%; /* Position relative to viewport width */
     width: 15%; /* Adjust base width as needed */
     min-width: 15%;
     max-width: 34%;
@@ -3276,7 +3330,7 @@ transition: transform 0.3s;
 }
 #section9_SortitOut p {
     position: absolute;
-    top: 10%; /* Center vertically */
+    top: 18%; /* Center vertically */
     left: 50%; /* Center horizontally */
     width:100% ;
     height: auto;
@@ -3293,19 +3347,19 @@ transition: transform 0.3s;
 }
 
 #section9_Title_label{
-    top: 15%;
-    left: 65%;
+    top: 10%;
+    left: 63%;
     transform: translate(-50%, -50%);
     width: 25%;  
-    height: 25%;  
+    height: auto;  
     z-index: 10;
     display: none;
 }
 #section9_Title_label p{
     font-weight: bold;
     background-color: #08275200;
-    top: 10%;
-    height: 20%;
+    top: 23%;
+    height: 35%;
     font-size: 2vw;
 }
 
@@ -3356,18 +3410,19 @@ transition: transform 0.3s;
 }
 .dragarea_label p {
     position: absolute;
-    top: 10%; /* Center vertically */
+    top: 25%; /* Center vertically */
     left: 50%; /* Center horizontally */
     width:100% ;
     height: auto;
     transform: translate(-50%, -50%); /* Adjust positioning to center */
-    color: rgb(232, 232, 232); /* Text color */
+    color: rgb(0, 0, 0); /* Text color */
     font-family: 'Heinemann';
     font-style:normal ;
     font-size: 1.4vw; /* Adjust text size */
     text-align: center;
     text-wrap: wrap;
     background-color: #45a04900;
+    font-weight: bold;
     overflow: hidden;
       
 }
@@ -3504,7 +3559,7 @@ transition: transform 0.3s;
 }
 #section9_SubmitButton p {
     position: absolute;
-    top: 10%; /* Center vertically */
+    top: 17%; /* Center vertically */
     left: 50%; /* Center horizontally */
     width:100% ;
     height: auto;
@@ -3545,7 +3600,7 @@ transition: transform 0.3s;
 }
 #section9_TryAgainButton p {
     position: absolute;
-    top: 10%; /* Center vertically */
+    top: 17%; /* Center vertically */
     left: 50%; /* Center horizontally */
     width:100% ;
     height: auto;
@@ -3588,7 +3643,7 @@ transition: transform 0.3s;
 }
 #section9_CorrectAnswer p {
     position: absolute;
-    top: 10%; /* Center vertically */
+    top: 17%; /* Center vertically */
     left: 50%; /* Center horizontally */
     width:100% ;
     height: auto;

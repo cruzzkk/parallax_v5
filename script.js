@@ -240,6 +240,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const section8_mushroom = document.getElementById("section8_mushroom");
     const section8_plant = document.getElementById("section8_plant");
     const section8_dragArea = document.getElementById("section8_dragArea");
+    const section8_dragImage=document.getElementById("section8_dragImage");
+    const section8_DragLabel=document.getElementById("section8_DragLabel");
     const section8nextImage = document.getElementById("section8nextImage");
     const section8_treeGround=document.getElementById("section8BG");// Need to change water/tree gund
     let section8mute=false;
@@ -1043,9 +1045,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 section8_TryAgain .style.display="none";
                 section8_WatchAction.style.display="none";
                 section8_bear.style.display="none";
+                section8_DragLabel.style.display="none";
                 section8_mushroom.style.display="none";
                 section8_plant.style.display="none";
                 section8_dragArea.style.display="none";
+                section8_dragImage.style.display="none";
                 section8nextImage.style.display="none";
                 
                 ResetDragandDropSection8();
@@ -1059,6 +1063,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 section9played=false;
                 commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
                 section9ActionStart=false;
+                section9_submit_pressed=0;
 
                 audio_section9_test1.muted=section8mute;
                 audio_section9_test1.currentTime=0;
@@ -1098,8 +1103,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 correctAnswerButton.style.display="none";
                 section9_TryAgainButton.style.display="none";
 
-                draggableItemssection9.style.display="none";
-                dropAreas.style.display="none";
+                //draggableItemssection9.style.display="none";
+               // dropAreas.style.display="none";
+
+                 // Clear all drop areas
+                dropAreas.forEach(area => {
+                    area.innerHTML = "";
+                });
+                draggedItemsection9 = null;
+                // Reset draggable items
+                draggableItemssection9.forEach(item => {
+                    item.draggable = true;
+                    item.style.opacity = "1"; // Restore original opacity
+                });
+                //disableDraggingSection9();
+                
 
             break;
 
@@ -2912,9 +2930,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 section8_TryAgain .style.display="none";
                 section8_WatchAction.style.display="none";
                 section8_bear.style.display="none";
+                section8_DragLabel.style.display="none";
                 section8_mushroom.style.display="none";
                 section8_plant.style.display="none";
                 section8_dragArea.style.display="none";
+                section8_dragImage.style.display="none";
                 section8nextImage.style.display="none";
         //SECTION 8 ENABLE
         movingFlyingOctopus(15, 80, 3000, section8_movingoctopus,function() {
@@ -3021,9 +3041,11 @@ document.addEventListener("DOMContentLoaded", () => {
         section8dialogBox.style.display = "none";
 
         section8_bear.style.display = "block";
+        section8_DragLabel.style.display="block";
         section8_mushroom.style.display = "block";
         section8_plant.style.display = "block";
         section8_dragArea.style.display = "block";
+        section8_dragImage.style.display = "block";
         setDraggingState(true);
     });
 
@@ -3191,9 +3213,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 section8dialogBox.style.display = "none";// Disable the dialog box
                 setDraggingState(true); // Enable dragging again
                 section8_bear.style.display = "none";
+                section8_DragLabel.style.display="none";
                 section8_mushroom.style.display = "none";
                 section8_plant.style.display = "none";
                 section8_dragArea.style.display = "none";
+                section8_dragImage.style.display = "none";
     
                 section8dialogBox.style.display = "inline-block";
                 section8dialogText.style.display = "block";

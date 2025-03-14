@@ -2975,7 +2975,7 @@ transition: transform 0.3s;
 #section8_mushroom{
     position: absolute;
     top: 65%;
-    left: 52%;
+    left: 53%;
     transform: translate(-50%, -50%);
     width: 15%;  
     height: auto; 
@@ -2988,7 +2988,7 @@ transition: transform 0.3s;
 #section8_plant{
     position: absolute;
     top: 65%;
-    left: 69%;
+    left: 71%;
     transform: translate(-50%, -50%);
     width: 15%;  
     cursor: grab;
@@ -3152,6 +3152,113 @@ transition: transform 0.3s;
     color:#f0f0f0 ;
 }
 
+/* Main Panel Container */
+#section8discribtionPanel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.414);
+    font-family: 'Heinemann';
+    z-index: 10;
+    display: none;
+}
+
+/* Close Button */
+#section8_discribtionPanel_closebuton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Background */
+#section8_discribtionPanel_background {
+
+
+    top: -15%;
+    left: -8%;
+    width: 116%;
+    height: auto;
+    object-fit: contain;
+    
+
+
+}
+
+/* Main Image */
+#section8_discribtionPanel_mainImage {
+    position: absolute;
+    top: 30%;
+    left: 2%;
+    width: 30%;
+    height: auto;
+}
+
+/* Heading */
+#section8_discribtionPanel_heading {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    position: absolute;
+    top: 2%;
+    left: 0;
+    right: 0;
+    font-size: 1.4vw;
+    font-weight: bold;
+    color: #D65A19;
+    text-align: center;
+}
+
+/* Bullet Point Text */
+#section8_discribtionPanel_text {
+    position: absolute;
+    top: 15%;
+    left: 34%;
+    width: 60%;
+    font-size: 1.2vw;
+    line-height: 1.5;
+    background-color: #255eae00;
+}
+
+#section8_discribtionPanel_text ul {
+    list-style-type: disc; /* Bullet points */
+    padding-left: 30px; /* Align bullets properly */
+    background-color: #23b63400;
+}
+
+/* Bottom Instruction Text */
+.bottom-text {
+    position: absolute;
+    bottom: -5%;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2vw;
+    color: red;
+}
+#section8infoBear{
+    top: 5%;
+    left: 97%;
+    width: 17%;
+    height: auto; 
+}
+#section8infoMushroom{
+    top: 5%;
+    left: 97%;
+    width: 17%;
+    height: auto; 
+}
+#section8infoPlant{
+    top: 5%;
+    left: 97%;
+    width: 17%;
+    height: auto; 
+}
 
 
 
@@ -3166,7 +3273,8 @@ transition: transform 0.3s;
 
 
 
-/* Section 7 */
+
+/* Section 9 */
 
 #gap9{
     --vw-height: 15;
@@ -3659,6 +3767,45 @@ transition: transform 0.3s;
       
 }
 
+#section9_ok{
+    position: absolute;
+    top: 90%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 10%;  
+    height: auto;  
+    z-index: 6;
+    display: none;
+    cursor: pointer;
+}
+#section9_ok img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+#section9_ok:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+#section9_ok p {
+    position: absolute;
+    top: 9%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(232, 232, 232); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
+
 
 #section9_bear{
     display: none;
@@ -3685,6 +3832,10 @@ transition: transform 0.3s;
     display: none;
   
 }
+
+ 
+
+
 
 
 

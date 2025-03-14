@@ -254,6 +254,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let section8isPaused = false;
     let section8animationFrameId = null;
     let section8lastAnimationParams = null;
+    let section8panel = document.getElementById("section8discribtionPanel");
+    let section8descriptionclose = document.getElementById("section8_discribtionPanel_closebuton");
+    document.getElementById("section8infoBear").addEventListener("click", () => showDescription("Bear"));
+    document.getElementById("section8infoMushroom").addEventListener("click", () => showDescription("Salmon"));
+    document.getElementById("section8infoPlant").addEventListener("click", () => showDescription("Eagle"));
+    
 
 
     const section9 = document.getElementById("section9");
@@ -280,6 +286,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const draggableItemssection9 = document.querySelectorAll(".image-container_drag img");
     const dropAreas = document.querySelectorAll(".drop-area_section9");
+    const section9_ok = document.getElementById("section9_ok");
+
+
 
     let section9mute=false;
     let section9played=false;
@@ -992,130 +1001,17 @@ document.addEventListener("DOMContentLoaded", () => {
             break;
 
             case 'section7':
-                section7mute=false;
-                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
-                section7played=false;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
-                section7ActionStart=false;
-                normaloctopus.style.display="none";
-                flyingoctopus.style.display="none";
-                section7nextImage.style.display = "none";
-                
-                audio_test.muted=section7mute;
-                audio_test.currentTime=0;
-                audio_test.pause();
-                startTime = null;
-                pausedTime = 0; // Store elapsed time when paused
-                animationFrameId = null; // Store requestAnimationFrame ID
+                Section7Restart(); // Store requestAnimationFrame ID
                
             break; 
 
             case 'section8':
-                section8mute=false;
-                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
-                section8played=false;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
-                section8ActionStart=false;
-
-                audio_test1.muted=section8mute;
-                audio_test1.currentTime=0;
-                audio_test1.pause();
-                audio_test2.muted=section8mute;
-                audio_test2.currentTime=0;
-                audio_test2.pause();
-                audio_test3.muted=section8mute;
-                audio_test3.currentTime=0;
-                audio_test3.pause();
-                audio_test4.muted=section8mute;
-                audio_test4.currentTime=0;
-                audio_test4.pause();
-                errorAudio.muted=section8mute;
-                errorAudio.currentTime=0;
-                errorAudio.pause();
-                correctAudio.muted=section8mute;
-                correctAudio.currentTime=0;
-                correctAudio.pause();
-                //startTime = null;
-                //pausedTime = 0; // Store elapsed time when paused
-                //animationFrameId = null; // Store requestAnimationFrame ID
-
-                section8_movingoctopus.style.display="none";
-                section8dialogBox .style.display="none";
-                section8_WhatEats.style.display="none";    
-                section8_TryAgain .style.display="none";
-                section8_WatchAction.style.display="none";
-                section8_bear.style.display="none";
-                section8_DragLabel.style.display="none";
-                section8_mushroom.style.display="none";
-                section8_plant.style.display="none";
-                section8_dragArea.style.display="none";
-                section8_dragImage.style.display="none";
-                section8nextImage.style.display="none";
-                
-                ResetDragandDropSection8();
-                setDraggingState(false);
+                Section8Restart();
                 
 
             break;
             case 'section9':
-                section9mute=false;
-                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
-                section9played=false;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
-                section9ActionStart=false;
-                section9_submit_pressed=0;
-
-                audio_section9_test1.muted=section8mute;
-                audio_section9_test1.currentTime=0;
-                audio_section9_test1.pause();
-                audio_section9_test2.muted=section8mute;
-                audio_section9_test2.currentTime=0;
-                audio_section9_test2.pause();
-                audio_section9_test3.muted=section8mute;
-                audio_section9_test3.currentTime=0;
-                audio_section9_test3.pause();
-                audio_section9_test4.muted=section8mute;
-                audio_section9_test4.currentTime=0;
-                audio_section9_test4.pause();
-                audio_section9_test5.muted=section8mute;
-                audio_section9_test5.currentTime=0;
-                audio_section9_test5.pause();
-                audio_section9_test6.muted=section8mute;
-                audio_section9_test6.currentTime=0;
-                audio_section9_test6.pause();
-
-                section9dialogBox.style.display="none";;
-                section9_SortitOut.style.display="none";
-                section9_bear.style.display="none";
-                section9_mushroom.style.display="none";
-                section9_plant.style.display="none";
-                section9_fish.style.display="none";
-                section9_dragArea1.style.display="none";
-                section9_dragArea2.style.display="none";
-                section9_dragArea3.style.display="none";
-                
-                section9_Title_label.style.display="none";
-                section9_producers_label.style.display="none";
-                section9_consumer_label.style.display="none";
-                section9_decomposer_label.style.display="none";
-
-                submitButton_section9.style.display="none";
-                correctAnswerButton.style.display="none";
-                section9_TryAgainButton.style.display="none";
-
-                //draggableItemssection9.style.display="none";
-               // dropAreas.style.display="none";
-
-                 // Clear all drop areas
-                dropAreas.forEach(area => {
-                    area.innerHTML = "";
-                });
-                draggedItemsection9 = null;
-                // Reset draggable items
-                draggableItemssection9.forEach(item => {
-                    item.draggable = true;
-                    item.style.opacity = "1"; // Restore original opacity
-                });
+                Section9Restart();
                 //disableDraggingSection9();
                 
 
@@ -1123,12 +1019,136 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         }
+
     });
 
     
 
     //common
-   
+   //Section9 Restart
+   function Section9Restart() {
+        section9mute = false;
+        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        section9played = false;
+        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        section9ActionStart = false;
+        section9_submit_pressed = 0;
+
+        audio_section9_test1.muted = section8mute;
+        audio_section9_test1.currentTime = 0;
+        audio_section9_test1.pause();
+        audio_section9_test2.muted = section8mute;
+        audio_section9_test2.currentTime = 0;
+        audio_section9_test2.pause();
+        audio_section9_test3.muted = section8mute;
+        audio_section9_test3.currentTime = 0;
+        audio_section9_test3.pause();
+        audio_section9_test4.muted = section8mute;
+        audio_section9_test4.currentTime = 0;
+        audio_section9_test4.pause();
+        audio_section9_test5.muted = section8mute;
+        audio_section9_test5.currentTime = 0;
+        audio_section9_test5.pause();
+        audio_section9_test6.muted = section8mute;
+        audio_section9_test6.currentTime = 0;
+        audio_section9_test6.pause();
+
+        section9dialogBox.style.display = "none";;
+        section9_SortitOut.style.display = "none";
+        section9_bear.style.display = "none";
+        section9_mushroom.style.display = "none";
+        section9_plant.style.display = "none";
+        section9_fish.style.display = "none";
+        section9_dragArea1.style.display = "none";
+        section9_dragArea2.style.display = "none";
+        section9_dragArea3.style.display = "none";
+
+        section9_Title_label.style.display = "none";
+        section9_producers_label.style.display = "none";
+        section9_consumer_label.style.display = "none";
+        section9_decomposer_label.style.display = "none";
+
+        submitButton_section9.style.display = "none";
+        correctAnswerButton.style.display = "none";
+        section9_TryAgainButton.style.display = "none";
+
+        //draggableItemssection9.style.display="none";
+        // dropAreas.style.display="none";
+        // Clear all drop areas
+        dropAreas.forEach(area => {
+            area.innerHTML = "";
+        });
+        draggedItemsection9 = null;
+        // Reset draggable items
+        draggableItemssection9.forEach(item => {
+            item.draggable = true;
+            item.style.opacity = "1";
+        });
+    }
+   //Section8 Restart
+    function Section8Restart() {
+        section8panel.style.display="none";
+        section8mute = false;
+        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        section8played = false;
+        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        section8ActionStart = false;
+
+        audio_test1.muted = section8mute;
+        audio_test1.currentTime = 0;
+        audio_test1.pause();
+        audio_test2.muted = section8mute;
+        audio_test2.currentTime = 0;
+        audio_test2.pause();
+        audio_test3.muted = section8mute;
+        audio_test3.currentTime = 0;
+        audio_test3.pause();
+        audio_test4.muted = section8mute;
+        audio_test4.currentTime = 0;
+        audio_test4.pause();
+        errorAudio.muted = section8mute;
+        errorAudio.currentTime = 0;
+        errorAudio.pause();
+        correctAudio.muted = section8mute;
+        correctAudio.currentTime = 0;
+        correctAudio.pause();
+        //startTime = null;
+        //pausedTime = 0; // Store elapsed time when paused
+        //animationFrameId = null; // Store requestAnimationFrame ID
+        section8_movingoctopus.style.display = "none";
+        section8dialogBox.style.display = "none";
+        section8_WhatEats.style.display = "none";
+        section8_TryAgain.style.display = "none";
+        section8_WatchAction.style.display = "none";
+        section8_bear.style.display = "none";
+        section8_DragLabel.style.display = "none";
+        section8_mushroom.style.display = "none";
+        section8_plant.style.display = "none";
+        section8_dragArea.style.display = "none";
+        section8_dragImage.style.display = "none";
+        section8nextImage.style.display = "none";
+
+        ResetDragandDropSection8();
+        setDraggingState(false);
+    }
+    //Section7 Restart
+    function Section7Restart() {
+        section7mute = false;
+        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        section7played = false;
+        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        section7ActionStart = false;
+        normaloctopus.style.display = "none";
+        flyingoctopus.style.display = "none";
+        section7nextImage.style.display = "none";
+
+        audio_test.muted = section7mute;
+        audio_test.currentTime = 0;
+        audio_test.pause();
+        startTime = null;
+        pausedTime = 0; // Store elapsed time when paused
+        animationFrameId = null;
+    }
 
     //Gap resize code
     function adjustGapHeights() {
@@ -1749,6 +1769,9 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("gap4").style.display="block";
             section4.style.overflow="visible";
             section4.style.display="block"
+            section7.style.display="none";
+            section8.style.display="none";
+            section9.style.display="none";
             // smoothScrollTo(section4,2000);
             document.getElementById("section3nextImage").style.display="block";
         }
@@ -1762,7 +1785,12 @@ document.addEventListener("DOMContentLoaded", () => {
             meetfriends_button.style.pointerEvents="none";//       [Need to add in Reset]
              document.getElementById("gap7").style.display="block";
             // section4.style.overflow="visible";
-             section7.style.display="block"
+             section7.style.display="block";
+             Section7Restart();
+             section4.style.display="none";
+             section5.style.display="none";
+             section6.style.display="none";
+
              smoothScrollTo(section7,2000);
              document.getElementById("section3nextImage").style.display="block";
         }
@@ -2896,7 +2924,8 @@ document.addEventListener("DOMContentLoaded", () => {
     audio_test.addEventListener("ended", () => {
         section7nextImage.style.display = "block";
         document.getElementById("gap8").style.display="block";
-        section8.style.display="block"
+        section8.style.display="block";
+        Section8Restart();
         smoothScrollTo(section8,2000);
     });
 
@@ -3247,7 +3276,8 @@ document.addEventListener("DOMContentLoaded", () => {
             section8nextImage.style.display="block";
             //Section 9 Start
             document.getElementById("gap9").style.display="block";
-            section9.style.display="block"
+            section9.style.display="block";
+            Section9Restart();
         });
 
 
@@ -3279,6 +3309,63 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         
         };
+        section8descriptionclose.addEventListener("click", () => {
+            console.log("muyee");
+            section8panel.style.display="none";
+        });
+
+
+        function showDescription(animal) {
+            console.log(animal,"animal");
+            // Get elements
+            let panel = document.getElementById("section8discribtionPanel");
+            let heading = document.getElementById("section8_discribtionPanel_heading");
+            let descriptionText = document.getElementById("section8_discribtionPanel_text");
+            let descriptionImage = document.getElementById("section8_discribtionPanel_mainImage").querySelector("img");
+
+            // Data for each animal
+            let descriptions = {
+                "Bear": {
+                    "image": "assets/Slides_25-35/Grizzly_bear_outline.png",
+                    "text": `
+                        <ul>
+                            <li><strong>A grizzly bear is an omnivore.</strong> This means it consumes both plants and animals.</li>
+                            <li>It eats lots of different things. It will eat salmon and trout. It will also eat nuts, berries, and grasses.</li>
+                            <li>It will change its diet throughout the year and eat more before a winter <strong>hibernation.</strong> This means it goes into a deep sleep in winter.</li>
+                            <li>A grizzly bear has no <strong>predators.</strong> It is an apex predator. This means it is at the top of the food chain.</li>
+                        </ul>
+                    `
+                },
+                "Salmon": {
+                    "image": "assets/Slides_25-35/Salmon_outline.png",
+                    "text": `
+                        <ul>
+                            <li><strong>Salmon are fish that migrate.</strong> They travel from rivers to the ocean and back.</li>
+                            <li>They are an important food source for many predators like bears and eagles.</li>
+                            <li>Salmon lay their eggs in freshwater before they die.</li>
+                            <li>They have a strong sense of smell to find their way back to their birthplace.</li>
+                        </ul>
+                    `
+                },
+                "Eagle": {
+                    "image": "assets/Slides_25-35/Salmon_outline.png",
+                    "text": `
+                        <ul>
+                            <li><strong>Eagles are powerful birds of prey.</strong> They hunt fish, small mammals, and birds.</li>
+                            <li>They have excellent eyesight, which helps them spot prey from far away.</li>
+                            <li>They build large nests on tall trees or cliffs.</li>
+                            <li>Eagles are often symbols of strength and freedom.</li>
+                        </ul>
+                    `
+                }
+            };
+
+            // Update the panel content
+            heading.innerHTML = animal;
+            descriptionText.innerHTML = descriptions[animal].text;
+            descriptionImage.src = descriptions[animal].image;
+            panel.style.display = "block"; // Show panel
+        }
 
         
         
@@ -3335,12 +3422,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
        
     }
-
-
-
-   
-
-   
 
     audio_section9_test1.addEventListener("ended", () => {
         section9_SortitOut.style.display="block";
@@ -3421,7 +3502,7 @@ document.addEventListener("DOMContentLoaded", () => {
         draggableItemssection9.forEach(item => {
             console.log('kuku'+item);
             item.draggable = false; // Enable dragging
-            item.opacity=0.3;
+            item.style.opacity=0.3;
         });
     }
     
@@ -3534,10 +3615,12 @@ document.addEventListener("DOMContentLoaded", () => {
     correctAnswerButton.addEventListener("click", () => {
         if(section9played){
 
+        
             // Disable dragging
-        draggableItemssection9.forEach(item => {
-            item.draggable = false;
-        });
+        // draggableItemssection9.forEach(item => {
+        //     item.draggable = false;
+        //     item.opacity="0.5";
+        // });
 
         // Clear existing drop areas
         dropAreas.forEach(area => {
@@ -3564,7 +3647,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 dropArea.appendChild(clonedItem);
 
                 originalItem.draggable = false;
-                originalItem.opacity="0.5";
+                originalItem.style.opacity="0.5";
             });
         }
         disableDraggingSection9();
@@ -3596,6 +3679,10 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error('Error playing audio:', error);
         });
     });
+
+    audio_section9_test6.addEventListener("ended", () => {
+        section9_ok.style.display="block";
+    });
     
 
 
@@ -3626,6 +3713,11 @@ document.addEventListener("DOMContentLoaded", () => {
         section9_consumer_label.style.display="block";
         section9_decomposer_label.style.display="block";
     }
+
+    section9_ok.addEventListener("click", () => {
+        smoothScrollTo(section3,2000);
+    });
+
 
 
 

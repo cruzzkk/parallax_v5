@@ -3949,6 +3949,67 @@ transition: transform 0.3s;
         height: 310px;
     }
 
+    .section8dialogBox .text{
+        font-size: 23px;
+    }
+
+    #section8_WhatEats p{
+        font-size: 27px;
+    }
+    #section8_DragLabel p {
+        font-size: 34px;
+    }
+    #section8_discribtionPanel_heading{
+        font-size: 27px;;
+    }
+    #section8_discribtionPanel_text{
+        font-size: 23px;
+    }
+    .bottom-text{
+        font-size: 23px;
+    }
+    #section8_TryAgain p{
+        font-size: 27px;
+    }
+    #section8_WatchAction p{
+        font-size: 27px;
+    }
+    #section8nextImage  p{
+        font-size: 23px;
+    }
+
+    
+    .section9dialogBox .text{
+        font-size: 23px;
+    }
+    
+    #section9_SortitOut p{
+        font-size: 27px;
+    }
+    #section9_Title_label p{
+        font-size: 38px; 
+    }
+    #section9_producers_label p{
+        font-size: 27px; 
+    }
+    #section9_consumer_label p{
+        font-size: 27px; 
+    }
+    #section9_decomposer_label p{
+        font-size: 27px; 
+    }
+    #section9_SubmitButton p{
+        font-size: 27px;
+    }
+    #section9_TryAgainButton p{
+        font-size: 27px;
+    } 
+    #section9_CorrectAnswer p{
+        font-size: 27px;
+    } 
+    #section9_ok p{
+        font-size: 27px;
+    } 
 }
 
 

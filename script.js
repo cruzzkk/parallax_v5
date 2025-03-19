@@ -244,6 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const section8_DragLabel=document.getElementById("section8_DragLabel");
     const section8nextImage = document.getElementById("section8nextImage");
     const section8_treeGround=document.getElementById("section8BG");// Need to change water/tree gund
+    const section8discribtionOverlay = document.getElementById("section8discribtionOverlay");
     let section8mute=false;
     let section8played=false;
     let section8pausedAudio =null;
@@ -1088,6 +1089,7 @@ document.addEventListener("DOMContentLoaded", () => {
    //Section8 Restart
     function Section8Restart() {
         section8panel.style.display="none";
+        section8discribtionOverlay.style.display="none";
         section8mute = false;
         commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
         section8played = false;
@@ -3096,8 +3098,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const dropAreaContainer = document.querySelector(".drop-area");
         const dropAreaImage = dropAreaContainer.querySelector("img");
         
-        const correctTickSrc = "assets/Slides38-42/Tick.png"; // ✅ Path to tick image
-        const wrongCrossSrc = "assets/Slides38-42/Cross.png"; // ❌ Path to cross image
+        const correctTickSrc = "assets/Feeding Frenzy/Scene2/Tic.png"; // ✅ Path to tick image
+        const wrongCrossSrc = "assets/Feeding Frenzy/Scene2/cross.png"; // ❌ Path to cross image
         const errorSoundSrc = "assets/audio/Audios/You_can_also_click_on_any_glo.wav"; // Path to error sound
         const correctSoundSrc = "assets/audio/Audios/You_can_also_click_on_any_glo.wav"; // Path to error sound
         const wrongFeedbackText="Oops, that's not quite right. Try again!";
@@ -3338,6 +3340,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section8descriptionclose.addEventListener("click", () => {
             console.log("muyee");
             section8panel.style.display="none";
+            section8discribtionOverlay.style.display="none";
         });
 
 
@@ -3352,7 +3355,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Data for each animal
             let descriptions = {
                 "Bear": {
-                    "image": "assets/Slides_25-35/Grizzly_bear_outline.png",
+                    "image": "assets/Feeding Frenzy/Scene2/Bear.png",
                     "text": `
                         <ul>
                             <li><strong>A grizzly bear is an omnivore.</strong> This means it consumes both plants and animals.</li>
@@ -3363,7 +3366,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     `
                 },
                 "Salmon": {
-                    "image": "assets/Slides_25-35/Salmon_outline.png",
+                    "image": "assets/Feeding Frenzy/Scene2/Decomposers.png",
                     "text": `
                         <ul>
                             <li><strong>Salmon are fish that migrate.</strong> They travel from rivers to the ocean and back.</li>
@@ -3374,7 +3377,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     `
                 },
                 "Eagle": {
-                    "image": "assets/Slides_25-35/Salmon_outline.png",
+                    "image": "assets/Feeding Frenzy/Scene2/kelp.png",
                     "text": `
                         <ul>
                             <li><strong>Eagles are powerful birds of prey.</strong> They hunt fish, small mammals, and birds.</li>
@@ -3391,6 +3394,7 @@ document.addEventListener("DOMContentLoaded", () => {
             descriptionText.innerHTML = descriptions[animal].text;
             descriptionImage.src = descriptions[animal].image;
             panel.style.display = "block"; // Show panel
+            section8discribtionOverlay.style.display="block";
         }
 
         

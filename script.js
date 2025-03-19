@@ -1130,6 +1130,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         ResetDragandDropSection8();
         setDraggingState(false);
+        const section8_dragAreaImg =  section8_dragArea.querySelectorAll("img");
+        section8_dragAreaImg.forEach(a => {
+            a.style.display="none";
+        });
+        section8_dragArea.style.filter="blur(8px)";
     }
     //Section7 Restart
     function Section7Restart() {
@@ -3110,8 +3115,13 @@ document.addEventListener("DOMContentLoaded", () => {
             draggableItems.forEach(item => {
                 if (allowedIds.includes(item.id)) {
                     item.draggable = enabled;
-                    item.style.opacity = enabled ? "1" : "0.5"; // Dim when disabled
+                    item.style.opacity = enabled ? "1" : "1"; // Dim when disabled
                     item.style.pointerEvents = enabled ? "auto" : "none"; // Disable interaction
+                    
+                    let overlay = item.querySelector("#section8_drag_disableOverlay");
+                    if (overlay) {
+                        overlay.style.display = enabled ? "none" : "block"; // Show overlay when disabled
+                    }
                 }
             });
         }
@@ -3148,12 +3158,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Update drop area's image
                 dropAreaImage.src = draggedSrc;
 
+                 
+                
+
                 // Hide the dragged object after a successful drop
                 draggedItem.style.opacity = "0.5";
                 draggedItem.style.pointerEvents = "none"; // Disable interaction
 
                 // Check if the dropped object is correct
                 checkDropResult(draggedItem.id);
+
+                const section8_dragAreaImg =  section8_dragArea.querySelectorAll("img");
+                section8_dragAreaImg.forEach(a => {
+                    a.style.display="block";
+                });
+                section8_dragArea.style.filter="none";
 
                 // Reset draggedItem
                 draggedItem = null;
@@ -3174,8 +3193,8 @@ document.addEventListener("DOMContentLoaded", () => {
             resultImg.style.top = "0%";
             resultImg.style.left = "50%";
             resultImg.style.transform = "translate(-50%, -50%)";
-            resultImg.style.width = "50px"; // Adjust size
-            resultImg.style.height = "50px";
+            resultImg.style.width = "20%"; // Adjust size
+            resultImg.style.height = "20%";
 
             if (droppedId === correctItemId) {
                 // Correct drop: Show ✅ tick
@@ -3232,6 +3251,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 section8_TryAgain.style.display = "none"; // Hide Try Again button
                 section8dialogBox.style.display = "none";// Disable the dialog box
                 setDraggingState(true); // Enable dragging again
+
+                const section8_dragAreaImg =  section8_dragArea.querySelectorAll("img");
+                section8_dragAreaImg.forEach(a => {
+                    a.style.display="none";
+                });
+                section8_dragArea.style.filter="blur(8px)";
+
             }
             
         });

@@ -237,6 +237,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const section8_TryAgain = document.getElementById("section8_TryAgain");
     const section8_WatchAction = document.getElementById("section8_WatchAction");
     const section8_bear = document.getElementById("section8_bear");
+    const section8_fish = document.getElementById("section8_fish");
+    const section8_moveingfish = document.getElementById("section8_moveingfish");
     const section8_mushroom = document.getElementById("section8_mushroom");
     const section8_plant = document.getElementById("section8_plant");
     const section8_dragArea = document.getElementById("section8_dragArea");
@@ -255,6 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let section8isPaused = false;
     let section8animationFrameId = null;
     let section8lastAnimationParams = null;
+    let section8lastAnimationParamsfish = null;
     let section8panel = document.getElementById("section8discribtionPanel");
     let section8descriptionclose = document.getElementById("section8_discribtionPanel_closebuton");
     document.getElementById("section8infoBear").addEventListener("click", () => showDescription("Bear"));
@@ -797,6 +800,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                 section8lastAnimationParams.onComplete
                             );
                         }
+                        if (section8lastAnimationParamsfish) {
+                            section8isPaused=false;
+                            section8startTime=null;
+                            movingFish(
+                                section8lastAnimationParamsfish.maxHeight,
+                                section8lastAnimationParamsfish.minHeight,
+                                section8lastAnimationParamsfish.duration,
+                                section8lastAnimationParamsfish.fish,
+                                section8lastAnimationParamsfish.onComplete
+                            );
+                        }
                     }
                     commonplayButton.querySelector("img").src=section8played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 }
@@ -1123,6 +1137,8 @@ document.addEventListener("DOMContentLoaded", () => {
         section8_TryAgain.style.display = "none";
         section8_WatchAction.style.display = "none";
         section8_bear.style.display = "none";
+        section8_fish.style.display = "none";
+        section8_moveingfish.style.display = "none";
         section8_DragLabel.style.display = "none";
         section8_mushroom.style.display = "none";
         section8_plant.style.display = "none";
@@ -2966,6 +2982,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 section8_TryAgain .style.display="none";
                 section8_WatchAction.style.display="none";
                 section8_bear.style.display="none";
+                section8_fish.style.display = "none";
+                section8_moveingfish.style.display = "none";
                 section8_DragLabel.style.display="none";
                 section8_mushroom.style.display="none";
                 section8_plant.style.display="none";
@@ -3077,6 +3095,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section8dialogBox.style.display = "none";
 
         section8_bear.style.display = "block";
+        section8_fish.style.display = "block";
         section8_DragLabel.style.display="block";
         section8_mushroom.style.display = "block";
         section8_plant.style.display = "block";
@@ -3270,6 +3289,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 section8dialogBox.style.display = "none";// Disable the dialog box
                 setDraggingState(true); // Enable dragging again
                 section8_bear.style.display = "none";
+                section8_fish.style.display = "none";
                 section8_DragLabel.style.display="none";
                 section8_mushroom.style.display = "none";
                 section8_plant.style.display = "none";
@@ -3284,20 +3304,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_test3.play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
+                section8startTime=null;
+                section8pausedTime = 0;
+                movingFish(0, 105, 3000, section8_moveingfish,function() {
+                    console.log("Fish Animation complete! Action triggered.");
+                    // Reset pause time
+                    
+                });
+               
             }
             
 
         });
 
         audio_test3.addEventListener("ended", () => {
+           
             section8dialogText.innerHTML = "You did it!"+
-            "<br>Let's check out your sorting skills!"+
-            "<br><span style='color:#BC0404;font-style: italic;'>Scroll down to move ahead.</span>";
-            
-            adjustSection8ImageHeight();
-            audio_test4.play().catch((error) => {
-                console.error('Error playing audio:', error);
-            });
+                "<br>Let's check out your sorting skills!"+
+                "<br><span style='color:#BC0404;font-style: italic;'>Scroll down to move ahead.</span>";
+                
+                adjustSection8ImageHeight();
+                audio_test4.play().catch((error) => {
+                    console.error('Error playing audio:', error);
+                });
         });
 
         audio_test4.addEventListener("ended", () => {
@@ -3397,6 +3426,41 @@ document.addEventListener("DOMContentLoaded", () => {
             section8discribtionOverlay.style.display="block";
         }
 
+        function movingFish(maxHeight, minHeight, duration,fish, onComplete) {
+            fish.style.display="block";
+            section8lastAnimationParamsfish = { maxHeight, minHeight, duration,fish, onComplete }; 
+            function lerp(start, end, t) {
+                return start * (1 - t) + end * t;
+            }
+        
+            function animate(time) {
+                
+                if (section8isPaused) return; // Stop animation if paused
+    
+                if (!section8startTime){
+                    section8startTime = time-section8pausedTime;
+                    section8pausedTime=0
+                }
+                let elapsed = time - section8startTime;
+                let t = Math.min(elapsed / duration, 1); // Normalize between 0 and 1
+                let currentY = lerp(maxHeight, minHeight, t);
+        
+                fish.style.left = currentY + "%";
+        
+                if (t < 1) {
+                    section8animationFrameId = requestAnimationFrame(animate);
+                } else {
+                    section8animationFrameId = null;
+                    section8lastAnimationParamsfish=null;
+                    section8pausedTime = 0; // Reset pause time
+                    if (onComplete) {
+                        onComplete();
+                    }
+                }
+            }
+        
+            section8animationFrameId = requestAnimationFrame(animate);
+        }
         
         
 

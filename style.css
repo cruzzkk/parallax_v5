@@ -2808,7 +2808,8 @@ transition: transform 0.3s;
     max-height: 1080px;
     margin:0 auto;
     background-color: #1fc190bb;  
-    overflow: visible;
+    overflow: clip;
+    overflow-y: visible;
     z-index: 2;
     
 }
@@ -3047,7 +3048,27 @@ transition: transform 0.3s;
     overflow: hidden;
       
 }
+#section8_fish{
+    position: absolute;
+    top: 32%;
+    left: 62%;
+    transform: translate(-50%, -50%);
+    width: 38%;  
+    height: auto;  
+    display: none;
 
+    z-index: 6;  
+}
+#section8_moveingfish{
+    position: absolute;
+    top: 52%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    width: 30%;  
+    height: auto;  
+    display: block;
+    z-index: 3;  
+}
 #section8_bear{
     position: absolute;
     top: 63%;
@@ -3465,10 +3486,11 @@ transition: transform 0.3s;
     transform: translateX(-50%) translateY(-50%);
 }
 #section9_water{
-    top: 80%;
+    bottom: 0%;
     left: 50%;
     width: 100%;
-     height: auto;
+    /* max-width: 1120px; */
+    height: auto;
     object-fit: contain;
     
     z-index: 2;
@@ -3476,9 +3498,9 @@ transition: transform 0.3s;
 }
  
 #section9_octopus{
-    top: 80%;
+    top: 79%;
     left: 13%;
-    width: 22%;
+    width: 35%;
      height: auto;
     object-fit: contain;
     
@@ -3489,7 +3511,7 @@ transition: transform 0.3s;
 .section9dialogBox {
     position: absolute;
     bottom: 30%; /* Position relative to viewport height */
-    left: 15%; /* Position relative to viewport width */
+    left: 16%; /* Position relative to viewport width */
     width: 15%; /* Adjust base width as needed */
     min-width: 15%;
     max-width: 34%;
@@ -3535,7 +3557,7 @@ transition: transform 0.3s;
 
 #section9_SortitOut {
     position: absolute;
-    top: 55%;
+    top: 62%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 14%;  
@@ -3575,7 +3597,7 @@ transition: transform 0.3s;
 }
 
 #section9_Title_label{
-    top: 10%;
+    top: 11%;
     left: 63%;
     transform: translate(-50%, -50%);
     width: 25%;  
@@ -3592,26 +3614,26 @@ transition: transform 0.3s;
 }
 
 #section9_producers_label{
-    top: 24%;
-    left: 40%;
+    top: 26%;
+    left: 43.5%;
     transform: translate(-50%, -50%);
-    width: 14%;  
+    width: 18%;  
     height: auto;  
     display: none;
 }
 #section9_consumer_label{
-    top: 24%;
-    left: 62%;
+    top: 26%;
+    left: 63%;
     transform: translate(-50%, -50%);
-    width: 14%;  
+    width: 18%;  
     height: auto;  
     display: none;
 }
 #section9_decomposer_label{
-    top: 24%;
-    left: 82.5%;
+    top: 26%;
+    left: 82.2%;
     transform: translate(-50%, -50%);
-    width: 14%;  
+    width: 18%;  
     height: auto;
     display: none;  
 }
@@ -3646,7 +3668,7 @@ transition: transform 0.3s;
     color: rgb(0, 0, 0); /* Text color */
     font-family: 'Heinemann';
     font-style:normal ;
-    font-size: 1.4vw; /* Adjust text size */
+    font-size: 1.8vw; /* Adjust text size */
     text-align: center;
     text-wrap: wrap;
     background-color: #45a04900;
@@ -3660,7 +3682,7 @@ transition: transform 0.3s;
 .draggable-container {
     position: absolute; 
     top: 60%;   
-    left: 30%;  
+    left: 32%;  
     display: flex;
     gap: 3%;   
     justify-content: center;
@@ -3690,25 +3712,25 @@ transition: transform 0.3s;
 
 .container {
     position: absolute; 
-    top: 26%;   /* Adjust vertical position */
-    left: 30%;  /* Adjust horizontal position */
+    top: 29%;   /* Adjust vertical position */
+    left: 35%;  /* Adjust horizontal position */
     display: flex;
-    gap: 3%;   /* Space between draggable items */
+    gap: 4%;   /* Space between draggable items */
     justify-content: center;
      
     
 }
 
 .drop-area_section9 {
-    width: 20vw;
-    height: 16vw;
-    border: 0.4vw dashed rgb(255, 255, 255);
+    width: 18vw;
+    height: 15vw;
+    border: 0.3vw dashed rgb(255, 255, 255);
     border-radius: 5%;
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
     padding: 1%;
-    background-color: #26a7a17f;
+    background-color:#2b8f96ad;
     overflow-y: auto;
     z-index: 5;
     
@@ -3718,7 +3740,7 @@ transition: transform 0.3s;
     width: 45%;
     height: auto;
     margin: 2%;
-    background-color: #519e1a;
+    background-color: #519e1a00;
 }
 
 
@@ -3765,7 +3787,7 @@ transition: transform 0.3s;
 #section9_SubmitButton {
     position: absolute;
     top: 90%;
-    left: 60%;
+    left: 63%;
     transform: translate(-50%, -50%);
     width: 14%;  
     height: auto;  
@@ -3806,7 +3828,7 @@ transition: transform 0.3s;
 #section9_TryAgainButton {
     position: absolute;
     top: 90%;
-    left: 60%;
+    left: 63%;
     transform: translate(-50%, -50%);
     width: 14%;  
     height: auto;  
@@ -3849,7 +3871,7 @@ transition: transform 0.3s;
 #section9_CorrectAnswer {
     position: absolute;
     top: 90%;
-    left: 60%;
+    left: 63%;
     transform: translate(-50%, -50%);
     width: 14%;  
     height: auto;  
@@ -3890,7 +3912,7 @@ transition: transform 0.3s;
 #section9_ok{
     position: absolute;
     top: 90%;
-    left: 60%;
+    left: 63%;
     transform: translate(-50%, -50%);
     width: 10%;  
     height: auto;  
@@ -4065,8 +4087,8 @@ transition: transform 0.3s;
         height: 96px;
     }
     .drop-area_section9{
-        width: 385px;
-        height: 310px;
+        width: 345px;
+        height: 290px;
     }
 
     .section8dialogBox .text{
@@ -4110,13 +4132,13 @@ transition: transform 0.3s;
         font-size: 38px; 
     }
     #section9_producers_label p{
-        font-size: 27px; 
+        font-size: 35px; 
     }
     #section9_consumer_label p{
-        font-size: 27px; 
+        font-size: 35px; 
     }
     #section9_decomposer_label p{
-        font-size: 27px; 
+        font-size: 35px; 
     }
     #section9_SubmitButton p{
         font-size: 27px;

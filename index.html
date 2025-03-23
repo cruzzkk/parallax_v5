@@ -157,7 +157,7 @@
     <div class="gap" id="gap3" style="display: none;"></div>
 
     <!-- Third Section -->
-    <div id="section3" class="section"  style="display: none;">
+    <div id="section3" class="section"  style="display: block;">
 
       <div id="section3nextImage">
         <img src="assets/Slides11-17/Scroll_down_button.png" alt="Section3nextImage">
@@ -565,9 +565,9 @@
     </div>
 
     <!-- 7th section -->
-    <div class="gap" id="gap7" style="display: block;" ></div>
+    <div class="gap" id="gap7" style="display: none;" ></div>
 
-    <div id="section7" class="section" style="display: block;">
+    <div id="section7" class="section" style="display: none;">
       <div class="image-container" id="section7wall" >
         <img src="assets/Slides_25-35/Sky_crop.png" alt="Section7wall" />
       </div>
@@ -603,9 +603,9 @@
     </div>
 
   <!-- 8th section -->
-    <div class="gap" id="gap8" style="display: block;" ></div>
+    <div class="gap" id="gap8" style="display: none;" ></div>
 
-    <div id="section8" class="section" style="display: block;">
+    <div id="section8" class="section" style="display: none;">
 
  
       <div class="image-container" id="section8toplayerover"  data-speed="null" data-min="null" data-max="null"data-screen-presence="null">
@@ -749,9 +749,9 @@
     </div>
 
   <!-- 9th section -->
-  <div class="gap" id="gap9" style="display: block;" ></div>
+  <div class="gap" id="gap9" style="display: none;" ></div>
 
-  <div id="section9" class="section" style="display: block;">
+  <div id="section9" class="section" style="display: none;">
     <div class="image-container" id="section9wall" >
       <img src="assets/Slides38-42/Sky_crop.png" alt="Section9wall" />
     </div>
@@ -774,6 +774,10 @@
     
     <div class="image-container" id="section9_octopus"   data-speed="-0.6" data-min="-55" data-max="10" data-screen-presence="0.7"><!--  data-speed="-0.15" data-min="-10" data-max="10" data-screen-presence="0.4" -->
       <img src="assets/Feeding Frenzy/Scene1/octopus (1).png" alt="Section9_octopus">
+    </div>
+
+    <div class="image-container" id="section9_wateraboveOctopus"  >
+      <img src="assets/Slides18-20/Water_octopus.png" alt="Section9_wateraboveOctopus">
     </div>
 
     <div class="section9dialogBox" id="section9dialogBoxx" >
@@ -810,16 +814,23 @@
     <!-- Draggable Items -->
     <div class="draggable-container">
       <div class="image-container_drag" id="section9_bear">
-        <img src="assets/Feeding Frenzy/Scene2/Bear.png" alt="Section9_bear" data-original-id="section9_bear"  draggable="true">
+        <img id="section9_dragImage" src="assets/Feeding Frenzy/Scene2/Bear.png" alt="Section9_bear" data-original-id="section9_bear"  draggable="true">
+        <img id="section9_drag_disableOverlay" src="assets/Feeding Frenzy/Disable_Option_Overly_Box.png" alt="Section9_drag_disableOverlay" draggable="false">
       </div>
       <div class="image-container_drag" id="section9_mushroom">
-          <img src="assets/Feeding Frenzy/Scene2/Decomposers.png" alt="Section9_mushroom" data-original-id="section9_mushroom"  draggable="true">
+          <img id="section9_dragImage" src="assets/Feeding Frenzy/Scene2/Decomposers.png" alt="Section9_mushroom" data-original-id="section9_mushroom"  draggable="true">
+          <img id="section9_drag_disableOverlay" src="assets/Feeding Frenzy/Disable_Option_Overly_Box.png" alt="Section9_drag_disableOverlay" draggable="false">
+
       </div>
       <div class="image-container_drag" id="section9_plant" >
-          <img src="assets/Feeding Frenzy/Scene2/kelp.png" alt="Section9_plant" data-original-id="section9_plant"  draggable="true">
+           <img id="section9_dragImage" src="assets/Feeding Frenzy/Scene2/kelp.png" alt="Section9_plant" data-original-id="section9_plant"  draggable="true">
+           <img id="section9_drag_disableOverlay" src="assets/Feeding Frenzy/Disable_Option_Overly_Box.png" alt="Section9_drag_disableOverlay" draggable="false">
+
       </div>
       <div class="image-container_drag" id="section9_fish" >
-          <img src="assets/Feeding Frenzy/Scene2/kelp.png" alt="Section9_fish" data-original-id="section9_fish"  draggable="true">
+           <img id="section9_dragImage" src="assets/Feeding Frenzy/Scene2/Salmon (1).png" alt="Section9_fish" data-original-id="section9_fish"  draggable="true">
+           <img id="section9_drag_disableOverlay" src="assets/Feeding Frenzy/Disable_Option_Overly_Box.png" alt="Section9_drag_disableOverlay" draggable="false">
+
       </div>
     </div>
 
@@ -845,7 +856,7 @@
 
     <div  id="section9_ok"  >
       <img src="assets/Feeding Frenzy/Button_BG.png" alt="Section9_Ok">
-      <p>Ok</p>
+      <p>OK</p>
     </div>
 
     <!-- <div id="section9nextImage">

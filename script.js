@@ -261,8 +261,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let section8panel = document.getElementById("section8discribtionPanel");
     let section8descriptionclose = document.getElementById("section8_discribtionPanel_closebuton");
     document.getElementById("section8infoBear").addEventListener("click", () => showDescription("Bear"));
-    document.getElementById("section8infoMushroom").addEventListener("click", () => showDescription("Salmon"));
-    document.getElementById("section8infoPlant").addEventListener("click", () => showDescription("Eagle"));
+    document.getElementById("section8infoMushroom").addEventListener("click", () => showDescription("Mushroom"));
+    document.getElementById("section8infoPlant").addEventListener("click", () => showDescription("Kelp"));
     
 
 
@@ -288,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const correctAnswerButton = document.getElementById("section9_CorrectAnswer");
     const section9_TryAgainButton = document.getElementById("section9_TryAgainButton");
 
-    const draggableItemssection9 = document.querySelectorAll(".image-container_drag img");
+    const draggableItemssection9 = document.querySelectorAll(".image-container_drag #section9_dragImage");
     const dropAreas = document.querySelectorAll(".drop-area_section9");
     const section9_ok = document.getElementById("section9_ok");
 
@@ -828,7 +828,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                             
                         }
-                        //disableDraggingSection9();
+                        disableDraggingSection9();
                     }else{
 
                         section9played=!section9played;
@@ -1086,7 +1086,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submitButton_section9.style.display = "none";
         correctAnswerButton.style.display = "none";
         section9_TryAgainButton.style.display = "none";
-
+        section9_ok.style.display = "none";
         //draggableItemssection9.style.display="none";
         // dropAreas.style.display="none";
         // Clear all drop areas
@@ -1098,7 +1098,16 @@ document.addEventListener("DOMContentLoaded", () => {
         draggableItemssection9.forEach(item => {
             item.draggable = true;
             item.style.opacity = "1";
+            // Find the closest parent container
+            const container = item.closest(".image-container_drag");
+
+            // Find the overlay inside that container
+            const disableOverlay = container.querySelector("#section9_drag_disableOverlay");
+
+            // Show the overlay
+            disableOverlay.style.display = "none";
         });
+         
     }
    //Section8 Restart
     function Section8Restart() {
@@ -1218,6 +1227,34 @@ document.addEventListener("DOMContentLoaded", () => {
     
             if (progress < 1) {
                 requestAnimationFrame(step);
+            }
+
+        }
+    
+        // Easing functions for different effects
+        function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+        }
+    
+        requestAnimationFrame(step);
+    }
+    function smoothScrollToSceneandTrigger(target, duration,Oncomplete) {
+        const start = window.scrollY;
+        const end = target.offsetTop;
+        const distance = end - start;
+        const startTime = performance.now();
+    
+        function step(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = easeOutCubic(progress);
+    
+        window.scrollTo(0, start + distance * ease);
+    
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            }else{
+                Oncomplete();
             }
 
         }
@@ -1813,9 +1850,11 @@ document.addEventListener("DOMContentLoaded", () => {
              section4.style.display="none";
              section5.style.display="none";
              section6.style.display="none";
-
-             smoothScrollTo(section7,2000);
              document.getElementById("section3nextImage").style.display="block";
+             smoothScrollToSceneandTrigger(section7,2000,function(){
+                section7triggerActions();
+             });
+            
         }
 
 
@@ -2876,6 +2915,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return false;
     };
     function section7triggerActions(){
+        section7mute=false;
+        section7played=true;
+        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
         if(section7played){
             section7ActionStart=true;
             normaloctopus.style.display="none";
@@ -2949,7 +2991,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("gap8").style.display="block";
         section8.style.display="block";
         Section8Restart();
-        smoothScrollTo(section8,2000);
+        smoothScrollToSceneandTrigger(section8,2000,function(){
+            section8triggerActions();
+        });
+        
     });
 
     
@@ -2975,7 +3020,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function section8triggerActions(){
-        section8ActionStart=true;
+        section8mute=false;
+        section8played=true;
+        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+                section8ActionStart=true;
                 section8_movingoctopus.style.display="none";
                 section8dialogBox .style.display="none";
                 section8_WhatEats.style.display="none";    
@@ -3309,6 +3357,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 movingFish(0, 105, 3000, section8_moveingfish,function() {
                     console.log("Fish Animation complete! Action triggered.");
                     // Reset pause time
+                    section8_moveingfish.style.display = "none";
                     
                 });
                
@@ -3335,6 +3384,9 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("gap9").style.display="block";
             section9.style.display="block";
             Section9Restart();
+            smoothScrollToSceneandTrigger(section9,2000,function(){
+                section9triggerActions();
+            });
         });
 
 
@@ -3387,32 +3439,32 @@ document.addEventListener("DOMContentLoaded", () => {
                     "image": "assets/Feeding Frenzy/Scene2/Bear.png",
                     "text": `
                         <ul>
-                            <li><strong>A grizzly bear is an omnivore.</strong> This means it consumes both plants and animals.</li>
+                            <li>A grizzly bear is an <strong>omnivore.</strong> This means it consumes both plants and animals.</li>
                             <li>It eats lots of different things. It will eat salmon and trout. It will also eat nuts, berries, and grasses.</li>
                             <li>It will change its diet throughout the year and eat more before a winter <strong>hibernation.</strong> This means it goes into a deep sleep in winter.</li>
                             <li>A grizzly bear has no <strong>predators.</strong> It is an apex predator. This means it is at the top of the food chain.</li>
                         </ul>
                     `
                 },
-                "Salmon": {
+                "Mushroom": {
                     "image": "assets/Feeding Frenzy/Scene2/Decomposers.png",
                     "text": `
                         <ul>
-                            <li><strong>Salmon are fish that migrate.</strong> They travel from rivers to the ocean and back.</li>
-                            <li>They are an important food source for many predators like bears and eagles.</li>
-                            <li>Salmon lay their eggs in freshwater before they die.</li>
-                            <li>They have a strong sense of smell to find their way back to their birthplace.</li>
+                            <li>Mushrooms grow in many places, like forests, fields, and even backyards. They are often found in damp or dark areas.</li>
+                            <li>Mushrooms are decomposers. They break down dead plants, animals, and other organic materials to obtain <strong>nutrients</strong>.</li>
+                            <li>They recycle nutrients back into the soil. This makes it healthier for plants to grow.</li>
+                            <li>It makes their environment more <strong>nutrient-rich<strong>.</li>
                         </ul>
                     `
                 },
-                "Eagle": {
+                "Kelp": {
                     "image": "assets/Feeding Frenzy/Scene2/kelp.png",
                     "text": `
                         <ul>
-                            <li><strong>Eagles are powerful birds of prey.</strong> They hunt fish, small mammals, and birds.</li>
-                            <li>They have excellent eyesight, which helps them spot prey from far away.</li>
-                            <li>They build large nests on tall trees or cliffs.</li>
-                            <li>Eagles are often symbols of strength and freedom.</li>
+                            <li>Kelp are algae and seaweed. Kelp are found in large batches. These batches are called <strong>forests</strong>.</li>
+                            <li>Kelp grows best in a shallow, <strong>nutrient-rich environment</strong>. This means sunlight can reach the kelp.</li>
+                            <li>Kelp absorbs its nutrients from the sun and water around it. It uses photosynthesis to make its own food.</li>
+                            <li>Things that <strong>consume</strong>, or eat, kelp are marine <strong>herbivores</strong>. (A herbivore eats plants.) Sea urchins, mollusks, and some fish species also consume kelp.</li>
                         </ul>
                     `
                 }
@@ -3482,6 +3534,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+    // Paths for tick and wrong icons
+    const tickIconSrc = "assets/Feeding Frenzy/Scene2/Tic_Activity_02.png"; // ✅ Tick Image
+    const wrongIconSrc = "assets/Feeding Frenzy/Scene2/Cross_Activity_02.png"; // ❌ Cross Image
+
+
 
  
     
@@ -3502,6 +3559,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     function section9triggerActions(){
+        section9mute=false;
+        section9played=true;
+        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
         section9ActionStart=true;
         DisableContainersection9();
 
@@ -3581,7 +3641,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 area.appendChild(clonedItem);
                 draggedItemsection9.style.opacity = "0.5"; // Visually indicate used item
                 draggedItemsection9.draggable = false; // Disable further dragging
+                
+
+                // Find the closest parent container
+                const container = draggedItemsection9.closest(".image-container_drag");
+
+                // Find the overlay inside that container
+                const disableOverlay = container.querySelector("#section9_drag_disableOverlay");
+
+                // Show the overlay
+                disableOverlay.style.display = "block";
+
                 draggedItemsection9 = null;
+                
             }
         });
     });
@@ -3596,7 +3668,7 @@ document.addEventListener("DOMContentLoaded", () => {
         draggableItemssection9.forEach(item => {
             console.log('kuku'+item);
             item.draggable = false; // Enable dragging
-            item.style.opacity=0.3;
+            
         });
     }
     
@@ -3615,16 +3687,54 @@ document.addEventListener("DOMContentLoaded", () => {
         for (const areaId in correctMapping) {
             const dropArea = document.getElementById(areaId);
             const droppedItems = Array.from(dropArea.children)
-                .map(item => item.getAttribute("data-original-id")); // Use stored ID
-    
-            // Sort both arrays to ensure order doesn't matter
-            droppedItems.sort();
-            correctMapping[areaId].sort();
-    
-            // Check if the contents match the expected values
-            if (JSON.stringify(droppedItems) !== JSON.stringify(correctMapping[areaId])) {
+                .filter(child => child.tagName === "IMG") // Ensure only images
+                .map(img => img.getAttribute("data-original-id")); // Get stored ID
+
+            // Remove old tick/cross icons before adding new ones
+            dropArea.querySelectorAll(".result-icon").forEach(icon => icon.remove());
+
+            droppedItems.forEach(droppedId => {
+                const isCorrectDrop = correctMapping[areaId].includes(droppedId);
+
+                // Find the correct dropped image
+                const droppedImage = dropArea.querySelector(`[data-original-id="${droppedId}"]`);
+
+                if (droppedImage) {
+                    // Check if an existing icon is there and remove it
+                    //const existingIcon = droppedImage.parentElement.querySelector(".result-icon");
+                    //if (existingIcon) existingIcon.remove();
+
+                    // Create tick or cross icon
+                    const icon = document.createElement("img");
+                    icon.src = isCorrectDrop ? tickIconSrc : wrongIconSrc;
+                    icon.classList.add("result-icon");
+
+                    // Append icon inside the same container as the image
+                    const wrapperDiv = document.createElement("div");
+                    wrapperDiv.classList.add("image-wrapper");
+                    wrapperDiv.style.position = "relative";
+                    wrapperDiv.style.display = "inline-block";
+                    wrapperDiv.style.width =   "50%";
+                    wrapperDiv.style.height =   "50%";
+
+                    // Move image inside wrapper div
+                    droppedImage.parentElement.insertBefore(wrapperDiv, droppedImage);
+                    wrapperDiv.appendChild(droppedImage);
+
+                    // Style and position the tick/cross icon inside the wrapper
+                    icon.style.position = "absolute";
+                    icon.style.top = "7%";
+                    icon.style.left = "8%";
+                    icon.style.width = "33%"; // Adjust size
+                    icon.style.height = "33%";
+                    icon.style.pointerEvents = "none"; // Prevent interference
+
+                    wrapperDiv.appendChild(icon);
+                }
+            });
+
+            if (JSON.stringify(droppedItems.sort()) !== JSON.stringify(correctMapping[areaId].sort())) {
                 isCorrect = false;
-                break;
             }
         }
         section9_submit_pressed++;
@@ -3696,6 +3806,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 draggableItemssection9.forEach(item => {
                     item.draggable = true;
                     item.style.opacity = "1"; // Restore original opacity
+                     // Find the closest parent container
+                    const container = item.closest(".image-container_drag");
+
+                    // Find the overlay inside that container
+                    const disableOverlay = container.querySelector("#section9_drag_disableOverlay");
+
+                    // Show the overlay
+                    disableOverlay.style.display = "none";
                 });
 
                 console.log("Reset successful! User can try again.");
@@ -3708,14 +3826,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Correct Answer Button Functionality
     correctAnswerButton.addEventListener("click", () => {
         if(section9played){
-
-        
-            // Disable dragging
-        // draggableItemssection9.forEach(item => {
-        //     item.draggable = false;
-        //     item.opacity="0.5";
-        // });
-
+ 
         // Clear existing drop areas
         dropAreas.forEach(area => {
             area.innerHTML = "";
@@ -3733,15 +3844,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
             correctMapping[areaId].forEach(correctId => {
                 const originalItem = document.getElementById(correctId).querySelector("img");
-                console.log("Shit",originalItem);
+                console.log("Shit", originalItem);
                 const clonedItem = originalItem.cloneNode(true);
                 clonedItem.draggable = false; // Ensure it can't be dragged again
                 clonedItem.style.opacity = "1";
-                // clonedItem.setAttribute("data-original-id", correctId);
-                dropArea.appendChild(clonedItem);
+
+                // ✅ Create a wrapper div for the image and tick
+                const imageWrapper = document.createElement("div");
+                imageWrapper.classList.add("image-wrapper");
+
+                // ✅ Create the tick mark element
+                const tickIcon = document.createElement("img");
+                tickIcon.src = "assets/Feeding Frenzy/Scene2/Tic.png"; // Update with correct path
+                tickIcon.style.width = "32%"; // Change this to your desired size
+                tickIcon.style.height = "32%"; 
+                tickIcon.classList.add("tick-icon");
+
+                // Append both image and tick inside the wrapper
+                imageWrapper.appendChild(clonedItem);
+                imageWrapper.appendChild(tickIcon);
+
+                // Append the wrapper inside the drop area
+                dropArea.appendChild(imageWrapper);
 
                 originalItem.draggable = false;
-                originalItem.style.opacity="0.5";
+                originalItem.style.opacity = "0.5";
+
+                // Find the closest parent container
+                const container = originalItem.closest(".image-container_drag");
+
+                // Find the overlay inside that container
+                const disableOverlay = container.querySelector("#section9_drag_disableOverlay");
+
+                // Show the overlay
+                disableOverlay.style.display = "block";
             });
         }
         disableDraggingSection9();
@@ -3763,6 +3899,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         }
     });
+     
     
     audio_section9_test5.addEventListener("ended", () => {
         section9dialogText.innerHTML =

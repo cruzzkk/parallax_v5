@@ -2815,7 +2815,7 @@ transition: transform 0.3s;
 }
 
 #section8BG{
-    top: -65%;
+    top: -64%;
     left: 50%;
     width: 100%;
     height: auto;
@@ -3066,7 +3066,7 @@ transition: transform 0.3s;
     transform: translate(-50%, -50%);
     width: 30%;  
     height: auto;  
-    display: block;
+    display: none;
     z-index: 3;  
 }
 #section8_bear{
@@ -3434,7 +3434,7 @@ transition: transform 0.3s;
     
 }
 #section9wall {
-    top: -28%;
+    top: -27%;
     left: 50%;
     width: 100%;
     height: auto;
@@ -3486,7 +3486,7 @@ transition: transform 0.3s;
     transform: translateX(-50%) translateY(-50%);
 }
 #section9_water{
-    bottom: 0%;
+    bottom: -0.5%;
     left: 50%;
     width: 100%;
     /* max-width: 1120px; */
@@ -3506,6 +3506,17 @@ transition: transform 0.3s;
     
     z-index: 4;
 
+}
+#section9_wateraboveOctopus{
+    bottom: 5%;
+    left: 50%;
+    width: 100%;
+    /* max-width: 1536px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 5;
+    transform: translateX(-50%) translateY(0%);
 }
 
 .section9dialogBox {
@@ -3677,26 +3688,12 @@ transition: transform 0.3s;
       
 }
 
-
-
-.draggable-container {
-    position: absolute; 
-    top: 60%;   
-    left: 32%;  
-    display: flex;
-    gap: 3%;   
-    justify-content: center;
-    background-color: #3498db;
-    width: 62%;
-    height: auto;
-    
-}
-
 .image-container_drag {
+    position: relative; /* Ensures absolute positioning for child elements */
     width: 20%;
     height: auto;
     cursor: grab;
-    display: block;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgba(233, 1, 1, 0);
@@ -3709,6 +3706,34 @@ transition: transform 0.3s;
     height: auto;
     object-fit: contain;
 }
+
+/* Ensure the overlay is positioned on top of the image */
+#section9_drag_disableOverlay {
+    position: absolute;  /* Position it relative to .image-container_drag */
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 88%;
+    object-fit: cover;
+    z-index: 10; /* Ensures it's on top */
+    border-radius: 7%;
+    cursor: default;
+    display: none; /* Initially hidden */
+     
+}
+
+.draggable-container {
+    position: absolute; 
+    top: 60%;   
+    left: 32%;  
+    display: flex;
+    gap: 3%;   
+    justify-content: center;
+    background-color: #3498db;
+    width: 62%;
+    height: auto;
+}
+
 
 .container {
     position: absolute; 
@@ -3975,6 +4000,32 @@ transition: transform 0.3s;
   
 }
 
+.result-icon {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    z-index: 10;
+    pointer-events: none; /* Prevents interference with clicks */
+}
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    height: 50%;
+}
+.image-wrapper img {
+    width: 100%;  /* Ensures the image fits the wrapper */
+    height: 100%;
+    object-fit: contain;  /* Adjusts the image to fit without distortion */
+}
+.tick-icon {
+    position: absolute;
+    top: 5%;
+    right:55%;
+    width: 32%; /* Adjust size as needed */
+    height: 32%;
+    z-index: 10;
+}
  
 
 

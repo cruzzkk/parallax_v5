@@ -3771,6 +3771,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (isCorrect) {
             console.log("Correct ✅");
+            disableDraggingSection9();
+
+            console.log("Correct answer filled automatically ✅");
+    
+            correctAnswerButton.style.display="none";
+            submitButton_section9.style.display="none";
+            section9_TryAgainButton.style.display="none";
+    
+            section9dialogBox.style.display = "inline-block";
+            section9dialogText.style.display = "block";
+            section9dialogText.innerHTML =
+            "Here, these organisms are sorted by category.Produers make their own food, consumers eat other organisms, and decomposers break down dead organisms.";
+             
+            adjustSection9ImageHeight();
+            audio_section9_05.play().catch((error) => {
+                console.error('Error playing audio:', error);
+            });
         } else {
             console.log("Wrong ❌");
 

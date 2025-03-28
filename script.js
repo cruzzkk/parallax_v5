@@ -39,9 +39,13 @@
         const audio_section9_04=new Audio("assets/audio/Part_B_Audio/section9_04.mp3");
         const audio_section9_05=new Audio("assets/audio/Part_B_Audio/section9_05.mp3");
         const audio_section9_06=new Audio("assets/audio/Part_B_Audio/section9_06.mp3");
+
+        const audio_section10_01=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
+
         const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10,
              audio9,audio_section7,audio_section8_01,audio_section8_02,audio_section8_03,audio_section8_04,
-             audio_section9_01,audio_section9_02,audio_section9_03,audio_section9_04,audio_section9_05,audio_section9_06];
+             audio_section9_01,audio_section9_02,audio_section9_03,audio_section9_04,audio_section9_05,audio_section9_06,
+             audio_section10_01];
 
 // Function to preload images
 function preloadImages(images, callback) {
@@ -296,8 +300,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropAreas = document.querySelectorAll(".drop-area_section9");
     const section9_ok = document.getElementById("section9_ok");
 
-
-
     let section9mute=false;
     let section9played=false;
     let section9pausedAudio =null;
@@ -305,6 +307,24 @@ document.addEventListener("DOMContentLoaded", () => {
     let section9_submit_pressed=0;
 
 
+
+    const section10 = document.getElementById("section10");
+    const section10_zoomImage = document.getElementById("section10zoomImage");
+    const section10_FlyingOctopus = document.getElementById("section10_FlyingOctopus");
+
+    let section10mute=false;
+    let section10played=false;
+    let section10pausedAudio =null;
+    let section10ActionStart=false;
+
+    let section10startTime = null;
+    let section10pausedTime = 0;
+    let section10isPaused = false;
+    let section10animationFrameId = null;
+    let section10lastAnimationParams = null;
+
+    const section10nextImage = document.getElementById("section10nextImage");
+ 
 
 
 
@@ -529,6 +549,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_section9_03.muted = section9mute;audio_section9_04.muted = section9mute;                
                 currentAudio.muted=section9mute;
                 commonsoundbutton.querySelector("img").src = section9mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+            break;
+            case 'section10':
+                section10mute=!section10mute;
+                audio_section10_01.muted = section10mute               
+                currentAudio.muted=section10mute;
+                commonsoundbutton.querySelector("img").src = section10mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
             break;
         }
     });
@@ -853,6 +879,58 @@ document.addEventListener("DOMContentLoaded", () => {
                     commonplayButton.querySelector("img").src=section9played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 }
             break;
+            case 'section10':
+                 
+                if(section10played){
+                    section10played=!section10played;
+
+                    for (let i = 21; i < 22; i++) {
+                            const audio = audiosToPreload[i];
+                            if (isAudioPlaying(audio)) {
+                                 audio.pause();
+                                section10pausedAudio=audio;
+                            }
+                            
+                    }
+
+                     
+                    section10isPaused=true;
+                    section10pausedTime += performance.now() - section10startTime; 
+                    cancelAnimationFrame(section10animationFrameId);
+                    section10animationFrameId = null;
+                    
+
+                    }else{
+
+                        section10played=!section10played;
+                       
+
+                        if(!section10ActionStart){
+                            section10triggerActions();
+                        }
+                        
+                        if (section10pausedAudio) {
+                            console.log("FKASS1");
+                            section10pausedAudio.play();
+                            section10pausedAudio = null; // Clear the stored audio after resuming
+                        }  
+                        
+                        if (section10lastAnimationParams) {
+                            section10isPaused=false;
+                            section10startTime=null;
+                            movingSection10FlyingOctopus(
+                                section10lastAnimationParams.maxHeight,
+                                section10lastAnimationParams.minHeight,
+                                section10lastAnimationParams.duration,
+                                section10lastAnimationParams.octopus,
+                                section10lastAnimationParams.onComplete
+                            );
+                        }
+                         
+                    }
+                commonplayButton.querySelector("img").src=section10played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                
+            break;
 
         }
     });
@@ -1023,19 +1101,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             case 'section7':
                 Section7Restart(); // Store requestAnimationFrame ID
-               
             break; 
-
             case 'section8':
                 Section8Restart();
-                
-
             break;
             case 'section9':
                 Section9Restart();
-                //disableDraggingSection9();
-                
-
+            break;
+            case 'section10':
+                Section10Restart();
             break;
 
 
@@ -1045,7 +1119,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
 
-    //common
+   //Section8 Restart
+   function Section10Restart() {
+         
+        section10mute = false;
+        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        section10played = false;
+        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        section10ActionStart = false;
+
+        audio_section10_01.muted = section8mute;
+        audio_section10_01.currentTime = 0;
+        audio_section10_01.pause();
+        
+         
+        section8_movingoctopus.style.display = "none";
+        section8_movingoctopus.style.top = "15%";
+        
+        section8nextImage.style.display = "none";
+
+        //ResetDragandDropSection8();
+        //setDraggingState(false);
+        //const section8_dragAreaImg =  section8_dragArea.querySelectorAll("img");
+        //section8_dragAreaImg.forEach(a => {
+        //    a.style.display="none";
+        //});
+        //section8_dragArea.style.filter="blur(8px)";
+    }
    //Section9 Restart
    function Section9Restart() {
         section9mute = false;
@@ -1190,6 +1290,10 @@ document.addEventListener("DOMContentLoaded", () => {
         animationFrameId = null;
     }
 
+   
+
+
+//common
     //Gap resize code
     function adjustGapHeights() {
         const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9']; // IDs of the gap elements
@@ -1212,7 +1316,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
-
     // Adjust heights on page load
     adjustGapHeights();
 
@@ -1495,6 +1598,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 commonsoundbutton.querySelector("img").src = section9mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
                 commonplayButton.querySelector("img").src=section9played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
             break;
+            case 'section10':
+                commonsoundbutton.querySelector("img").src = section10mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonplayButton.querySelector("img").src=section10played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
         }
     }
 
@@ -1589,6 +1696,7 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(() => applyParallaxEffect("section6", 0.4));  
             requestAnimationFrame(() => applyParallaxEffect("section7", 0.5));
             requestAnimationFrame(() => applyParallaxEffect("section9", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section10", 0.5));
             ticking = true;
         }
     });
@@ -3995,6 +4103,108 @@ document.addEventListener("DOMContentLoaded", () => {
     section9_ok.addEventListener("click", () => {
         smoothScrollTo(section3,2000);
     });
+
+
+
+
+
+
+
+
+    //Section10
+
+    function section10triggerActions(){
+        let octopus = document.getElementById("section10_FlyingOctopus");
+        let zoomImage = document.getElementById("section10zoomImage"); // Ensure it exists
+    
+        console.log("myru", zoomImage); // Log to verify
+    
+        if (zoomImage) { // Ensure zoomImage is defined
+            movingSection10FlyingOctopus(-40, 30, 6000, octopus, zoomImage, function () {
+                console.log("Animation complete!");
+            });
+        } else {
+            console.error("section10zoomImage is undefined or not found!");
+        }
+    }
+
+    function movingSection10FlyingOctopus(maxHeight, minHeight, duration,octopus,zoomImage ,onComplete) {
+      
+        octopus.style.display="block";
+        section10lastAnimationParams = { maxHeight, minHeight, duration,octopus,zoomImage ,onComplete }; 
+        function lerp(start, end, t) {
+            let result = start + (end - start) * t;
+            console.log(`Lerp called: start=${start}, end=${end}, t=${t}, result=${result}`);
+            return result;
+        }
+    
+        function animate(time) {
+            if (section10isPaused) return; // Stop animation if paused
+            if (!zoomImage) {
+                console.error("zoomImage is undefined or null! Animation stopping.");
+                return;
+            }
+            
+            if (!section10startTime) {
+                section10startTime = time - section10pausedTime;
+                section10pausedTime = 0;
+            }
+        
+            let elapsed = Math.max(1, time - section10startTime); // Ensure positive elapsed time
+            let t = Math.min(elapsed / duration, 1); // Normalize between 0 and 1
+        
+            function lerp(start, end, t) {
+                return (1 - t) * start + t * end;
+            }
+        
+            // Move Octopus
+            let currentY = lerp(maxHeight, minHeight, t);
+            let currentLeft = lerp(22, 27, t);
+            let currentWidth = lerp(28, 25, t);
+        
+            octopus.style.top = `${currentY}%`;
+            octopus.style.left = `${currentLeft}%`;
+            octopus.style.width = `${currentWidth}%`;
+        
+            // Animate Zoom Image
+            let currentScale = lerp(2, 5, t);
+            let currentTranslateX = lerp(0, -10, t);
+            let currentTranslateY = lerp(-40, 0, t);
+        
+            // Fix small floating point errors by rounding near `t = 1`
+            if (t === 1) {
+                currentTranslateY = 0;
+                currentTranslateX = -10;
+                currentScale = 5;
+            }
+        
+            if (!zoomImage) {
+                console.error("zoomImage is undefined or null! Animation stopping.");
+                return;
+            }
+            zoomImage.style.transform = `translate(${currentTranslateX}%, ${currentTranslateY}%) scale(${currentScale})`;
+            zoomImage.style.transition = "transform 0.5s ease-in-out";
+        
+            if (t < 1) {
+                section10animationFrameId = requestAnimationFrame(animate);
+            } else {
+                console.log("Animation complete!");
+                section10animationFrameId = null;
+                section10pausedTime = 0;
+        
+                if (onComplete) {
+                    onComplete();
+                }
+            }
+        }
+    
+        section10animationFrameId = requestAnimationFrame(animate);
+    }
+
+
+
+
+
 
 
 

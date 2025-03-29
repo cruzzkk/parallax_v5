@@ -41,11 +41,12 @@
         const audio_section9_06=new Audio("assets/audio/Part_B_Audio/section9_06.mp3");
 
         const audio_section10_01=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
+        const audio_section10_02=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
 
         const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10,
              audio9,audio_section7,audio_section8_01,audio_section8_02,audio_section8_03,audio_section8_04,
              audio_section9_01,audio_section9_02,audio_section9_03,audio_section9_04,audio_section9_05,audio_section9_06,
-             audio_section10_01];
+             audio_section10_01,audio_section10_02];
 
 // Function to preload images
 function preloadImages(images, callback) {
@@ -311,6 +312,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const section10 = document.getElementById("section10");
     const section10_zoomImage = document.getElementById("section10zoomImage");
     const section10_FlyingOctopus = document.getElementById("section10_FlyingOctopus");
+    const section10_WhoEatWaht = document.getElementById("section10_WhoEatWaht");
+    const section10_buttons = document.querySelectorAll(".section10_NumberButtons");
 
     let section10mute=false;
     let section10played=false;
@@ -552,7 +555,8 @@ document.addEventListener("DOMContentLoaded", () => {
             break;
             case 'section10':
                 section10mute=!section10mute;
-                audio_section10_01.muted = section10mute               
+                audio_section10_01.muted = section10mute;
+                audio_section10_02.muted = section10mute               
                 currentAudio.muted=section10mute;
                 commonsoundbutton.querySelector("img").src = section10mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
             break;
@@ -884,7 +888,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(section10played){
                     section10played=!section10played;
 
-                    for (let i = 21; i < 22; i++) {
+                    for (let i = 21; i < 23; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
@@ -923,6 +927,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 section10lastAnimationParams.minHeight,
                                 section10lastAnimationParams.duration,
                                 section10lastAnimationParams.octopus,
+                                section10lastAnimationParams.zoomImage,
                                 section10lastAnimationParams.onComplete
                             );
                         }
@@ -1131,12 +1136,19 @@ document.addEventListener("DOMContentLoaded", () => {
         audio_section10_01.muted = section8mute;
         audio_section10_01.currentTime = 0;
         audio_section10_01.pause();
+        audio_section10_02.muted = section8mute;
+        audio_section10_02.currentTime = 0;
+        audio_section10_02.pause();
         
          
-        section8_movingoctopus.style.display = "none";
-        section8_movingoctopus.style.top = "15%";
-        
-        section8nextImage.style.display = "none";
+         section10_FlyingOctopus.style.top = "-40%";
+         section10_FlyingOctopus.style.left="22%";
+         section10_FlyingOctopus.style.width="28%";
+         section10_zoomImage.style.transform = `translate(0%, -40%) scale(2)`;
+         VisibleButtons("none");
+         resetButtons();
+         section10_WhoEatWaht.style.display="none";
+         section10nextImage.style.display = "none";
 
         //ResetDragandDropSection8();
         //setDraggingState(false);
@@ -1296,7 +1308,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //common
     //Gap resize code
     function adjustGapHeights() {
-        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9']; // IDs of the gap elements
+        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9','#gap11']; // IDs of the gap elements
         const maxWidth = 1920; // Maximum width threshold
 
         gapElements.forEach(selector => {
@@ -1697,6 +1709,7 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(() => applyParallaxEffect("section7", 0.5));
             requestAnimationFrame(() => applyParallaxEffect("section9", 0.5));
             requestAnimationFrame(() => applyParallaxEffect("section10", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section11", 0.5));
             ticking = true;
         }
     });
@@ -4113,86 +4126,151 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Section10
 
-    function section10triggerActions(){
-        let octopus = document.getElementById("section10_FlyingOctopus");
-        let zoomImage = document.getElementById("section10zoomImage"); // Ensure it exists
+    function section10triggerActions() {
+        section10mute=false;
+        section10played=true;
+        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        section10ActionStart=true;
     
-        console.log("myru", zoomImage); // Log to verify
+        console.log("myru", section10_zoomImage); // Should log an <img> element
     
-        if (zoomImage) { // Ensure zoomImage is defined
-            movingSection10FlyingOctopus(-40, 30, 6000, octopus, zoomImage, function () {
+        if (section10_zoomImage) {
+            movingSection10FlyingOctopus(-40, 30, 6000, section10_FlyingOctopus, section10_zoomImage, function () {
                 console.log("Animation complete!");
+                audio_section10_01.play().catch((error) => {
+                    console.error('Error playing audio:', error);
+                });
             });
         } else {
             console.error("section10zoomImage is undefined or not found!");
         }
     }
+    audio_section10_01.addEventListener("ended", () => {
+         
+        section10_WhoEatWaht.style.display="block";
+    });
+    section10_WhoEatWaht.addEventListener("click", () => {
+        section10_WhoEatWaht.style.display="none";
+        audio_section10_02.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+        VisibleButtons("block");
+        resetButtons();
+        
+    });
+    audio_section10_02.addEventListener("ended", () => {
+         
+        enableButton("NumberOne");
+    });
 
-    function movingSection10FlyingOctopus(maxHeight, minHeight, duration,octopus,zoomImage ,onComplete) {
-      
-        octopus.style.display="block";
-        section10lastAnimationParams = { maxHeight, minHeight, duration,octopus,zoomImage ,onComplete }; 
-        function lerp(start, end, t) {
-            let result = start + (end - start) * t;
-            console.log(`Lerp called: start=${start}, end=${end}, t=${t}, result=${result}`);
-            return result;
+    // Function to enable one button and disable others
+    function enableButton(buttonId) {
+        section10_buttons.forEach(button => {
+            let img = button.querySelector("img");
+            let isActive = button.id === buttonId; // Check if this is the selected button
+
+            if (isActive) {
+                img.src = "assets/FoodChain/Scene1/Crop_05_Active.png";
+                button.style.cursor = "pointer";
+                button.addEventListener("click", handleClick);
+            } else {
+                img.src = "assets/FoodChain/Scene1/Crop_05.png";
+                button.style.cursor = "default";
+                button.removeEventListener("click", handleClick);
+            }
+        });
+    }
+
+    // Click event handler
+    function handleClick(event) {
+        console.log(event.currentTarget.id + " clicked!");
+        // Add your click handling logic here
+    }
+
+    // Reset all buttons (optional function)
+    function resetButtons() {
+        section10_buttons.forEach(button => {
+            let img = button.querySelector("img");
+            img.src = "assets/FoodChain/Scene1/Crop_05.png";
+            button.style.cursor = "default";
+            button.removeEventListener("click", handleClick);
+           
+        });
+    } 
+    function VisibleButtons(val){
+        section10_buttons.forEach(button => {
+            button.style.display = val;
+        });
+        
+    } 
+    
+    
+   
+               
+
+    function movingSection10FlyingOctopus(maxHeight, minHeight, duration, octopus, zoomImage, onComplete) {
+        if (!octopus || !zoomImage) {
+            console.error("Missing elements: Octopus or zoomImage is null.");
+            return;
         }
     
+        octopus.style.display = "block";
+        section10lastAnimationParams = { maxHeight, minHeight, duration, octopus, zoomImage, onComplete };
+    
         function animate(time) {
-            if (section10isPaused) return; // Stop animation if paused
-            if (!zoomImage) {
-                console.error("zoomImage is undefined or null! Animation stopping.");
-                return;
+            if (section10isPaused) return; 
+            if (!zoomImage || typeof zoomImage !== "object" || !zoomImage.style) {
+                //console.error("zoomImage is invalid or missing! Animation stopping.");
+                zoomImage = section10_zoomImage;
             }
-            
+    
             if (!section10startTime) {
                 section10startTime = time - section10pausedTime;
                 section10pausedTime = 0;
             }
-        
-            let elapsed = Math.max(1, time - section10startTime); // Ensure positive elapsed time
-            let t = Math.min(elapsed / duration, 1); // Normalize between 0 and 1
-        
+    
+            let elapsed = Math.max(1, time - section10startTime);
+            let t = Math.min(elapsed / duration, 1);
+    
             function lerp(start, end, t) {
                 return (1 - t) * start + t * end;
             }
-        
-            // Move Octopus
+    
             let currentY = lerp(maxHeight, minHeight, t);
             let currentLeft = lerp(22, 27, t);
             let currentWidth = lerp(28, 25, t);
-        
+    
             octopus.style.top = `${currentY}%`;
             octopus.style.left = `${currentLeft}%`;
             octopus.style.width = `${currentWidth}%`;
-        
-            // Animate Zoom Image
+    
             let currentScale = lerp(2, 5, t);
             let currentTranslateX = lerp(0, -10, t);
             let currentTranslateY = lerp(-40, 0, t);
-        
-            // Fix small floating point errors by rounding near `t = 1`
+    
             if (t === 1) {
                 currentTranslateY = 0;
                 currentTranslateX = -10;
                 currentScale = 5;
             }
-        
-            if (!zoomImage) {
-                console.error("zoomImage is undefined or null! Animation stopping.");
+    
+            console.log("Applying transform:", currentTranslateX, currentTranslateY, currentScale);
+    
+            if (zoomImage && zoomImage.style) {
+                zoomImage.style.transform = `translate(${currentTranslateX}%, ${currentTranslateY}%) scale(${currentScale})`;
+            } else {
+                console.error("zoomImage is undefined or has no style property!");
                 return;
             }
-            zoomImage.style.transform = `translate(${currentTranslateX}%, ${currentTranslateY}%) scale(${currentScale})`;
-            zoomImage.style.transition = "transform 0.5s ease-in-out";
-        
+    
             if (t < 1) {
                 section10animationFrameId = requestAnimationFrame(animate);
             } else {
                 console.log("Animation complete!");
                 section10animationFrameId = null;
                 section10pausedTime = 0;
-        
-                if (onComplete) {
+    
+                if (typeof onComplete === "function") {
                     onComplete();
                 }
             }
@@ -4200,6 +4278,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
         section10animationFrameId = requestAnimationFrame(animate);
     }
+    
 
 
 

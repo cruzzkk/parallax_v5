@@ -4074,7 +4074,123 @@ transition: transform 0.3s;
     object-fit: contain;
     transform: translate(-50%, 0%);
     z-index: 1;
+    display: block;
  }
+
+
+
+ #section10_WhoEatWaht {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+    z-index: 2;
+    display: none;
+    cursor: pointer;
+    
+   
+}
+#section10_WhoEatWaht img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+#section10_WhoEatWaht:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+#section10_WhoEatWaht p {
+    position: absolute;
+    top: 17%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(232, 232, 232); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
+
+.section10_NumberButtons{
+    transform: translate(-50%, -50%);
+    width: 3%;  
+    height: auto;  
+    z-index: 2;
+    display: none;
+}
+.section10_NumberButtons img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+.section10_NumberButtons:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+.section10_NumberButtons p {
+    position: absolute;
+    top: 2%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(0, 0, 0); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
+
+#NumberOne{
+    position: absolute;
+    top: 14%;
+    left: 21%; 
+    z-index: 2;
+     cursor: pointer;
+}
+#NumberTwo{
+    position: absolute;
+    top: 18%;
+    left: 38.5%; 
+    z-index: 2;
+     cursor: pointer;
+}
+#NumberThree{
+    position: absolute;
+    top: 17%;
+    left: 59%; 
+    z-index: 2;
+     cursor: pointer;
+}
+#NumberFour{
+    position: absolute;
+    top: 35%;
+    left: 82%; 
+    z-index: 2;
+     cursor: pointer;
+}
+#NumberFive{
+    position: absolute;
+    top: 50%;
+    left: 70%; 
+    z-index: 2;
+     cursor: pointer;
+}
+
 
  #section10nextImage {
     position: absolute;
@@ -4129,6 +4245,338 @@ transition: transform 0.3s;
  width-25%
  
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Section 11 */
+
+#gap11{
+    --vw-height: 25;
+    height:   25vw; 
+}
+#section11 {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: calc(100vw * 9 / 16);  
+    max-height: 1080px;
+    margin:0 auto;
+    background-color: #1fc190bb;  
+    overflow: hidden;
+    z-index: 1;
+    
+}
+#section11wall {
+    top: -80%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+     
+    z-index: 0;
+    transform: translateX(-50%);
+ }
+ #section11_sun{
+ 
+    top: 15%;
+    left: 65%;
+    width: 70%;
+     height: auto;
+    object-fit: contain;
+    
+    z-index: 1;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section11_hill{
+ 
+    top: 40%;
+    left: 50%;
+    width: 100%;
+     height: auto;
+    object-fit: contain;
+    
+    z-index: 2;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section11_treeGround{
+    top: 40%;
+    left: 50%;
+    width: 100%;
+     height: auto;
+    object-fit: contain;
+    
+    z-index: 3;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section11_treeWood{
+    top: 0%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 4;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section11_water{
+    bottom: -0.5%;
+    left: 50%;
+    width: 100%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 2;
+    transform: translateX(-50%) translateY(-50%);
+}
+ 
+#section11_octopus{
+    top: 79%;
+    left: 13%;
+    width: 35%;
+     height: auto;
+    object-fit: contain;
+    
+    z-index: 4;
+
+}
+#section11_wateraboveOctopus{
+    bottom: 5%;
+    left: 50%;
+    width: 100%;
+    /* max-width: 1536px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 5;
+    transform: translateX(-50%) translateY(0%);
+}
+
+.section11dialogBox {
+    position: absolute;
+    bottom: 30%; /* Position relative to viewport height */
+    left: 16%; /* Position relative to viewport width */
+    width: 15%; /* Adjust base width as needed */
+    min-width: 15%;
+    max-width: 34%;
+    height: auto; /* Maintain aspect ratio */
+    transform: translateX(-50%);
+    z-index: 5;
+    background-color: rgba(0, 123, 255, 0);
+    display: none;
+}
+#section11dialogBoxImage{
+
+    width: 100%; /* Inherit container width */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transform: scaleX(1);
+}
+.section11dialogBox .text{
+    position: absolute; 
+    top: 35%; /* Adjust as per requirement */
+    left: 50%; /* Adjust as per requirement */
+    width: 80%;
+     
+    transform: translate(-50%,-50%); /* Center it */
+    background-color: rgba(209, 165, 33, 0); /* Optional for better visibility */
+    border-radius: 0.5vw; /* Optional styling */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.2vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    color: #000000; /* Ensure readability */
+    line-height: 1.5; /* Adjust line spacing */
+    padding: 10%; /* Space around the text */
+    
+}
+#section11dialogText{
+    top: 42%;
+  
+    transform: translate(-50%, -50%);
+}
+
+
+#section11_SortitOut {
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+    z-index: 4;
+    display: none;
+    cursor: pointer;
+    
+   
+}
+#section11_SortitOut img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+#section11_SortitOut:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+#section11_SortitOut p {
+    position: absolute;
+    top: 18%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(232, 232, 232); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
+
+
+#section11_fish{
+    position: absolute;
+    top: 70%;
+    left: 85%;
+    width: 16%;  
+    height: auto;  
+    display: block;
+
+    z-index: 4;  
+}
+#section11_labelFish{
+    position: absolute;
+    top: -13%;
+    width: 86%;
+}
+#section11_labelFish p{
+    top: 15%;
+}
+#section11_bear{
+    position: absolute;
+    top: 41%;
+    left: 47%;
+    width: 13%;  
+    height: auto;  
+    display: block;
+
+    z-index: 4;  
+}
+#section11_labelbear{
+    position: absolute;
+    top: -13%;
+    width: 110%;
+}
+#section11_labelbear p{
+    top: 15%;
+}
+#section11_mushroom{
+    position: absolute;
+    top: 47%;
+    left: 68%;
+    width: 13%;  
+    height: auto;  
+    display: block;
+
+    z-index: 4;  
+}
+#section11_labelmushroom{
+    position: absolute;
+    top: -13%;
+    width: 105%;
+}
+#section11_labelmushroom p{
+    top: 15%;
+}
+#section11_kelp{
+    position: absolute;
+    top: 78%;
+    left: 50%;
+    width: 20%;  
+    height: auto;  
+    display: block;
+
+    z-index: 4;  
+}
+#section11_labelkelp{
+    position: absolute;
+    top: -13%;
+    width: 80%;
+}
+#section11_labelkelp p{
+    top: 20%;
+}
+.section11_label{
+    position: absolute;
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+    z-index: 4;
+    cursor: pointer;
+}
+.section11_label img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+.section11_label:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+.section11_label p {
+    position: absolute;
+    top: 18%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(0, 0, 0); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -4290,7 +4738,13 @@ transition: transform 0.3s;
     } 
     #section9_ok p{
         font-size: 27px;
-    } 
+    }
+    #section10_WhoEatWaht{
+        font-size: 27px; 
+    }
+    #section10nextImage  p{
+        font-size: 23px;
+    }
 }
 
 

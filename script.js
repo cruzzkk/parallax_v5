@@ -45,12 +45,16 @@
 
         const audio_section11_01=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
         const audio_section11_02=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
+        const audio_section11_03=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
+        const audio_section11_04=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
+        const audio_section11_05=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
+        const audio_section11_06=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
 
         const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10,
              audio9,audio_section7,audio_section8_01,audio_section8_02,audio_section8_03,audio_section8_04,
              audio_section9_01,audio_section9_02,audio_section9_03,audio_section9_04,audio_section9_05,audio_section9_06,
              audio_section10_01,audio_section10_02,
-             audio_section11_01,audio_section11_02];
+             audio_section11_01,audio_section11_02,audio_section11_03,audio_section11_04,audio_section11_05,audio_section11_06];
 
 // Function to preload images
 function preloadImages(images, callback) {
@@ -366,6 +370,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const section11_dragArea4 = document.getElementById("section11_dragArea4");
     const draggableItemssection11 = document.querySelectorAll(".image-container_drag #section11_dragImage");
     const dropAreas11 = document.querySelectorAll(".drop-area_section11");
+    const section11_Headinglabel = document.getElementById("section11_Headinglabel");
+    const section11_Submit = document.getElementById("section11_Submit");
+    const section11_TryAgain = document.getElementById("section11_TryAgain");
+    const section11_CorrectAnswer = document.getElementById("section11_CorrectAnswer");
+    const section11_Ok = document.getElementById("section11_Ok");
 
 
 
@@ -602,6 +611,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 section11mute=!section11mute;
                 audio_section11_01.muted = section11mute;
                 audio_section11_02.muted = section11mute;
+                audio_section11_03.muted = section11mute;
+                audio_section11_04.muted = section11mute;
+                audio_section11_05.muted = section11mute;
+                audio_section11_06.muted = section11mute;
                 currentAudio.muted=section11mute;
                 commonsoundbutton.querySelector("img").src = section11mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
             break;
@@ -987,7 +1000,7 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      
  
-                    for (let i = 23; i < 25; i++) {
+                    for (let i = 23; i < 29; i++) {
                         const audio = audiosToPreload[i];
                         if (isAudioPlaying(audio)) {
                              audio.pause();
@@ -1237,19 +1250,52 @@ document.addEventListener("DOMContentLoaded", () => {
     audio_section11_02.muted = section11mute;
     audio_section11_02.currentTime = 0;
     audio_section11_02.pause();
+    audio_section11_03.muted = section11mute;
+    audio_section11_03.currentTime = 0;
+    audio_section11_03.pause();
+    audio_section11_04.muted = section11mute;
+    audio_section11_04.currentTime = 0;
+    audio_section11_04.pause();
+    audio_section11_05.muted = section11mute;
+    audio_section11_05.currentTime = 0;
+    audio_section11_05.pause();
+    audio_section11_06.muted = section11mute;
+    audio_section11_06.currentTime = 0;
+    audio_section11_06.pause();
 
     section11startTime = null;
     section11pausedTime = 0; // Store elapsed time when paused
     section11animationFrameId = null;
     section11lastAnimationParams=null
+    section11AnimationisCompleted=false;
 
+    section11dialogBox.style.display = "none";
     section11dialogText.style.display = "none";
     section11_octopus.style.display="none";
     section11_flyingoctopus.style.display="block";
+    section11_flyingoctopus.style.top="-90%";
     section11_kelp.style.display="block";
     section11_bear.style.display="block";
     section11_fish.style.display="block";
     section11_mushroom.style.display="block";
+    
+    section11_bear_container.style.display="none";
+    section11_mushroom_container.style.display="none";
+    section11_plant_container .style.display="none";
+    section11_fish_container.style.display="none";
+    section11_dragArea1.style.display="none";
+    section11_dragArea2.style.display="none";
+    section11_dragArea3.style.display="none";
+    section11_dragArea4.style.display="none";
+
+    section11_TryAgain.style.display="none";
+    section11_Submit.style.display="none";
+    section11_Headinglabel.style.display="none";
+    section11_CorrectAnswer.style.display="none";
+    section11_Ok.style.display="none";
+    Section11DragReset();
+    section11_submit_pressed=0;
+    
 
    }
 
@@ -4413,6 +4459,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Section11
 
+     
+
     function section11triggerActions(){
         console.log("section11triggerActions");
         section11mute=false;
@@ -4460,6 +4508,19 @@ document.addEventListener("DOMContentLoaded", () => {
         section11_bear.style.display="none";
         section11_fish.style.display="none";
         section11_mushroom.style.display="none";
+        section11_bear_container.style.display="block";
+        section11_mushroom_container.style.display="block";
+        section11_plant_container .style.display="block";
+        section11_fish_container.style.display="block";
+        section11_dragArea1.style.display="block";
+        section11_dragArea2.style.display="block";
+        section11_dragArea3.style.display="block";
+        section11_dragArea4.style.display="block";
+        section11_Headinglabel.style.display="block";
+    });
+    audio_section11_02.addEventListener("ended", () => {
+        section11_Submit.style.display="block";
+        
     });
 
     function adjustSection11ImageHeight(){
@@ -4495,7 +4556,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
     
             let currentY = lerp(maxHeight, minHeight, t);
-            let currentLeft = lerp(22, 27, t);
+            let currentLeft = lerp(22, 15, t);
             let currentWidth = lerp(28, 25, t);
     
             octopus.style.top = `${currentY}%`;
@@ -4521,14 +4582,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section11animationFrameId = requestAnimationFrame(animate);
     }
 
-    section11_bear_container.style.display="block";
-    section11_mushroom_container.style.display="block";
-    section11_plant_container .style.display="block";
-    section11_fish_container.style.display="block";
-    section11_dragArea1.style.display="block";
-    section11_dragArea2.style.display="block";
-    section11_dragArea3.style.display="block";
-    section11_dragArea4.style.display="block";
+    
 
 
 
@@ -4595,7 +4649,21 @@ document.addEventListener("DOMContentLoaded", () => {
             clonedImg.style.objectFit = "cover"; // Ensures the image fills the area
 
             // Append the cloned item inside wrapper
+            // wrapperDiv.appendChild(clonedImg);
+            // this.appendChild(wrapperDiv);
+            let clonedText = clonedItem.querySelector("p").cloneNode(true);
+            clonedText.style.position = "absolute";
+            clonedText.style.top = "80%"; // Center vertically
+            clonedText.style.left = "50%"; // Center horizontally
+            clonedText.style.width = "50%";
+            clonedText.style.height = "auto";
+            clonedText.style.transform = "translate(-50%, -50%)";
+            clonedText.style.textAlign = "center"; // Keep text centered
+            clonedText.style.fontWeight = "bold"; // Make text bold
+            clonedText.style.whiteSpace = "normal"; // Allow text wrapping
+            clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
             wrapperDiv.appendChild(clonedImg);
+            wrapperDiv.appendChild(clonedText);
             this.appendChild(wrapperDiv);
 
             // Disable original dragged item
@@ -4609,14 +4677,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    
     // Submit Button Event
-    document.getElementById("section11_Submit").addEventListener("click", function () {
+    section11_Submit.addEventListener("click", function () {
+        let allCorrect = true; // Track correctness
+
         section11dropAreas.forEach(area => {
             let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
             if (!wrapperDiv) return;
 
-            let placedItem = wrapperDiv.firstElementChild ? wrapperDiv.firstElementChild.id : null;
+            let placedItem = wrapperDiv.firstElementChild ? wrapperDiv.firstElementChild.getAttribute("data-original-id") : null;
             let expectedItem = correctMapping[area.id];
+            console.log("placeditem "+placedItem+"  expecteditem  "+expectedItem);
 
             // Remove previous tick/cross
             let existingIcon = wrapperDiv.querySelector(".result-icon");
@@ -4624,8 +4696,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Create new tick/cross icon
             const icon = document.createElement("img");
-            icon.src = placedItem === expectedItem ? tickIconSrc : wrongIconSrc;
+            let isCorrect = placedItem === expectedItem;
+            icon.src = isCorrect ? tickIconSrc : wrongIconSrc;
             icon.classList.add("result-icon");
+
+            // Update correctness tracking
+            if (!isCorrect) allCorrect = false;
 
             // Style and position the tick/cross icon inside the wrapper
             icon.style.position = "absolute";
@@ -4637,7 +4713,206 @@ document.addEventListener("DOMContentLoaded", () => {
 
             wrapperDiv.appendChild(icon);
         });
+        section11_submit_pressed++;
+        // Print result based on correctness
+        if (allCorrect) {
+            section11_Submit.style.display="none";
+            console.log("All correct!");
+            section11dialogBox.style.display = "inline-block";
+            section11dialogText.style.display = "block";
+            section11dialogText.innerHTML =
+            "Well done! You earned yourself a key!";//+
+            //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+            
+            adjustSection11ImageHeight();
+            audio_section11_05.play().catch((error) => {
+                console.error('Error playing audio:', error);
+            });
+        } else {
+            console.log("One of them is wrong");
+            switch(section11_submit_pressed){
+                case 1:
+                    section11_Submit.style.display="none";
+                    
+                    section11dialogBox.style.display = "inline-block";
+                    section11dialogText.style.display = "block";
+                    section11dialogText.innerHTML =
+                    "Oops, that's not quite right."+"<br>Try again!";
+                    
+                    adjustSection11ImageHeight();
+                    audio_section11_03.play().catch((error) => {
+                        console.error('Error playing audio:', error);
+                    });
+                break;
+                case 2:
+                    console.log("in 2");
+                    section11_Submit.style.display="none";
+                    
+                    section11dialogBox.style.display = "inline-block";
+                    section11dialogText.style.display = "block";
+                    section11dialogText.innerHTML =
+                    "Not quit right, but don't worry! I'll guid you. Select Coorect Answer to check the correct sorting.";//+
+                    //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+                    
+                    adjustSection11ImageHeight();
+                    audio_section11_04.play().catch((error) => {
+                        console.error('Error playing audio:', error);
+                    });
+                break;
+
+            }
+           
+        }
     });
+
+    audio_section11_03.addEventListener("ended", () => {
+        section11_TryAgain.style.display="block";
+        
+    });
+    audio_section11_04.addEventListener("ended", () => {
+        section11_CorrectAnswer.style.display="block";
+ 
+        Section11DragResetOnly();
+
+    });
+
+    // Try Again Button Event
+    section11_TryAgain.addEventListener("click", function () {
+        
+        Section11DragReset();
+        section11_TryAgain.style.display="none";
+        section11_Submit.style.display="block";
+        
+    });
+    function Section11DragReset(){
+        // Clear all drop areas
+        section11dropAreas.forEach(area => {
+            area.innerHTML = "";
+        });
+
+        // Make all draggable items draggable again
+        draggables.forEach(img => {
+            img.draggable = true;
+        });
+
+        // Hide all overlays and remove ticks/crosses
+        document.querySelectorAll("#section11_drag_disableOverlay").forEach(overlay => {
+            overlay.style.display = "none";
+        });
+
+        document.querySelectorAll(".result-icon").forEach(icon => {
+            icon.remove();
+        });
+
+        console.log("Try Again: Reset all areas.");
+    }
+    function Section11DragResetOnly(){
+        // Clear all drop areas
+        section11dropAreas.forEach(area => {
+            area.innerHTML = "";
+        });
+
+        // Make all draggable items draggable again
+        draggables.forEach(img => {
+            img.draggable = true;
+        });
+
+        document.querySelectorAll(".result-icon").forEach(icon => {
+            icon.remove();
+        });
+
+        console.log("Try Again: Reset all areas.");
+    }
+
+
+    section11_CorrectAnswer.addEventListener("click", function () {
+        section11_CorrectAnswer.style.display="none";
+         
+        // Clear all drop areas
+        section11dropAreas.forEach(area => {
+            area.innerHTML = "";
+
+            let correctItemId = correctMapping[area.id];
+            if (!correctItemId) return;
+
+            let originalItem = document.getElementById(correctItemId);
+            if (!originalItem) return;
+
+            // Clone the correct item
+            let clonedItem = originalItem.cloneNode(true);
+            let clonedImg = clonedItem.querySelector("img[draggable='true']");
+            clonedImg.draggable = false; // Disable dragging for cloned item
+
+            // Wrap cloned item inside a div
+            let wrapperDiv = document.createElement("div");
+            wrapperDiv.classList.add("image-wrapper");
+            wrapperDiv.style.position = "relative";
+            wrapperDiv.style.display = "flex";
+            wrapperDiv.style.justifyContent = "center";
+            wrapperDiv.style.alignItems = "center";
+            wrapperDiv.style.width = "100%";
+            wrapperDiv.style.height = "100%";
+
+            // Adjust cloned image size
+            clonedImg.style.width = "100%";
+            clonedImg.style.height = "100%";
+            clonedImg.style.objectFit = "cover";
+
+            // Create tick icon
+            const tickIcon = document.createElement("img");
+            tickIcon.src = tickIconSrc;
+            tickIcon.classList.add("result-icon");
+            tickIcon.style.position = "absolute";
+            tickIcon.style.top = "7%";
+            tickIcon.style.left = "8%";
+            tickIcon.style.width = "33%";
+            tickIcon.style.height = "33%";
+            tickIcon.style.pointerEvents = "none";
+
+            // Append cloned image and tick to wrapper
+            wrapperDiv.appendChild(clonedImg);
+            wrapperDiv.appendChild(tickIcon);
+            area.appendChild(wrapperDiv);
+
+            // Disable original draggable item
+            let overlay = originalItem.querySelector("#section11_drag_disableOverlay");
+            if (overlay) {
+                overlay.style.display = "block";
+            }
+            originalItem.querySelector("img[draggable='true']").draggable = false;
+        });
+
+        section11dialogBox.style.display = "inline-block";
+                    section11dialogText.style.display = "block";
+                    section11dialogText.innerHTML =
+                    "Well done! You earned yourself a key!";//+
+                    //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+                    
+                    adjustSection11ImageHeight();
+                    audio_section11_05.play().catch((error) => {
+                        console.error('Error playing audio:', error);
+                    });
+        
+
+    });
+
+    audio_section11_05.addEventListener("ended", () => {
+        section11dialogBox.style.display = "inline-block";
+        section11dialogText.style.display = "block";
+        section11dialogText.innerHTML =
+        "Well done! Grizzly bears eat salmon, which rely on kelp for energy. Mushrooms decompose organic matter, recycling nutrients in the ecosystem.";//+
+        //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+        
+        adjustSection11ImageHeight();
+        audio_section11_06.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+    });
+
+    audio_section11_05.addEventListener("ended", () => {
+        section11_Ok.style.display="block";
+    });
+
      
     
 

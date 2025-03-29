@@ -4347,12 +4347,12 @@ transition: transform 0.3s;
 #section11_Submit {
     position: absolute;
     top: 86%;
-    left: 50%;
+    left: 60%;
     transform: translate(-50%, -50%);
     width: 14%;  
     height: auto;  
     z-index: 4;
-    display: block;
+    display: none;
     cursor: pointer;
     
    
@@ -4385,6 +4385,129 @@ transition: transform 0.3s;
       
 }
 
+#section11_CorrectAnswer {
+    position: absolute;
+    top: 86%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+    z-index: 4;
+    display: none;
+    cursor: pointer;
+    
+   
+}
+#section11_CorrectAnswer img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+#section11_CorrectAnswer:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+#section11_CorrectAnswer p {
+    position: absolute;
+    top: 18%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(232, 232, 232); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
+
+#section11_Ok {
+    position: absolute;
+    top: 86%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+    z-index: 4;
+    display: none;
+    cursor: pointer;
+    
+   
+}
+#section11_Ok img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+#section11_Ok:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+#section11_Ok p {
+    position: absolute;
+    top: 18%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(232, 232, 232); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
+
+
+#section11_TryAgain {
+    position: absolute;
+    top: 86%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+    z-index: 4;
+    display: none;
+    cursor: pointer;
+    
+   
+}
+#section11_TryAgain img {
+    width: 100%; /* Ensure the image scales with the container */
+    height: auto;
+    object-fit: contain;
+}
+#section11_TryAgain:hover {
+    transform:  translate(-50%, -50%) scale(1.1); 
+    transform-origin: center;  
+    transition: transform 0.3s;
+}
+#section11_TryAgain p {
+    position: absolute;
+    top: 18%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(232, 232, 232); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
 
 #section11_fish{
     position: absolute;
@@ -4458,6 +4581,21 @@ transition: transform 0.3s;
 #section11_labelkelp p{
     top: 20%;
 }
+
+
+#section11_Headinglabel{
+    position: absolute;
+    top: 12%;
+    width: 35%;
+    left: 61%;
+    display: none;
+}
+#section11_Headinglabel p{
+    top: 29%;
+    font-size: 2vw;
+    font-weight: bold;
+}
+
 .section11_label{
     position: absolute;
     top: 62%;
@@ -4466,17 +4604,12 @@ transition: transform 0.3s;
     width: 14%;  
     height: auto;  
     z-index: 4;
-    cursor: pointer;
+    cursor: default;
 }
 .section11_label img {
     width: 100%; /* Ensure the image scales with the container */
     height: auto;
     object-fit: contain;
-}
-.section11_label:hover {
-    transform:  translate(-50%, -50%) scale(1.1); 
-    transform-origin: center;  
-    transition: transform 0.3s;
 }
 .section11_label p {
     position: absolute;
@@ -4511,7 +4644,7 @@ transition: transform 0.3s;
 #section11_octopus{
     display: none;
     top: 60%;
-    left: 29%;
+    left: 15%;
     width: 35%;
     /* max-width: 1120px; */
     height: auto;
@@ -4523,7 +4656,7 @@ transition: transform 0.3s;
 .section11dialogBox {
     position: absolute;
     bottom: 36%; /* Position relative to viewport height */
-    left: 31%; /* Position relative to viewport width */
+    left: 15%; /* Position relative to viewport width */
     width: 15%; /* Adjust base width as needed */
     min-width: 15%;
     max-width: 34%;
@@ -4571,7 +4704,7 @@ transition: transform 0.3s;
 .containersection11 {
     position: absolute; 
     top: 21%;   /* Adjust vertical position */
-    left: 25%;  /* Adjust horizontal position */
+    left: 29%;  /* Adjust horizontal position */
     display: flex;
     gap: 4%;   /* Space between draggable items */
     justify-content: center;
@@ -4581,9 +4714,9 @@ transition: transform 0.3s;
 .draggable-container11 {
     position: absolute; 
     top: 53%;   
-    left: 25%;  
+    left: 29%;  
     display: flex;
-    gap: 4%;   
+    gap: 7%;   
     justify-content: center;
     background-color: #3498db;
     width: 62%;
@@ -4627,15 +4760,83 @@ transition: transform 0.3s;
 #section11_bear_container{
     display: none;
 }
+#section11_bear_container p {
+    position: absolute;
+    top: 73%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(0, 0, 0); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
 #section11_mushroom_container{
     display: none;
 
 }
+#section11_mushroom_container p {
+    position: absolute;
+    top: 73%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(0, 0, 0); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
 #section11_plant_container{
     display: none;
 }
+#section11_plant_container p {
+    position: absolute;
+    top: 73%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(0, 0, 0); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
+}
 #section11_fish_container{
     display: none;
+}
+#section11_fish_container p {
+    position: absolute;
+    top: 73%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:100% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(0, 0, 0); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+      
 }
 #section11_dragArea1{
     display: none;

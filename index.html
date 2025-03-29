@@ -941,13 +941,14 @@
         <img src="assets/FoodChain/Scene2/BG_Water_crop.png" alt="Section11_water">
       </div>
       
-      <div class="image-container" id="section11_octopus"   data-speed="-0.6" data-min="-55" data-max="10" data-screen-presence="0.7"style="display: none;"><!--  data-speed="-0.15" data-min="-10" data-max="10" data-screen-presence="0.4" -->
+      <div class="image-container" id="section11_flyingoctopus"  ><!--  data-speed="-0.15" data-min="-10" data-max="10" data-screen-presence="0.4" -->
+        <img src="assets/Feeding Frenzy/Scene1/Oct.png" alt="Section11_flyingoctopus">
+      </div>
+      <div class="image-container" id="section11_octopus"  ><!--  data-speed="-0.15" data-min="-10" data-max="10" data-screen-presence="0.4" -->
         <img src="assets/Feeding Frenzy/Scene1/octopus (1).png" alt="Section11_octopus">
       </div>
   
-      <div class="image-container" id="section11_wateraboveOctopus" style="display: none;" >
-        <img src="assets/Slides18-20/Water_octopus.png" alt="Section11_wateraboveOctopus">
-      </div>
+
   
       <div class="section11dialogBox" id="section11dialogBoxx"style="display: none;" >
         <img id="section11dialogBoxImage" src="assets/Slides11-17/Callout01.png" alt="Section11dialogBoxImage">
@@ -986,12 +987,41 @@
       </div>
       
   
-      <div  id="section11_SortitOut" style="display: none;" >
-        <img src="assets/Feeding Frenzy/Button_BG.png" alt="Section11_SortitOut">
-        <p>Sort it Out</p>
+      <div  id="section11_Submit" >
+        <img src="assets/Feeding Frenzy/Button_BG.png" alt="Section11_Submit">
+        <p>Submit</p>
       </div>
   
-      
+       <!-- Draggable Items -->
+    <div class="draggable-container11">
+      <div class="image-container_drag" id="section11_bear_container">
+        <img id="section1_dragImage" src="assets/FoodChain/Scene2/Asset 7.png" alt="Section11_bear_container" data-original-id="section11_bear_container"  draggable="true">
+        <img id="section11_drag_disableOverlay" src="assets/FoodChain/Scene2/Asset 15.png" alt="Section11_drag_disableOverlay" draggable="false">
+      </div>
+      <div class="image-container_drag" id="section11_mushroom_container">
+          <img id="section11_dragImage" src="assets/FoodChain/Scene2/Asset 8.png" alt="Section11_mushroom_container" data-original-id="section11_mushroom_container"  draggable="true">
+          <img id="section11_drag_disableOverlay" src="assets/FoodChain/Scene2/Asset 15.png" alt="Section11_drag_disableOverlay" draggable="false">
+
+      </div>
+      <div class="image-container_drag" id="section11_plant_container" >
+           <img id="section11_dragImage" src="assets/FoodChain/Scene2/Asset 9.png" alt="Section11_plant_container" data-original-id="section11_plant_container"  draggable="true">
+           <img id="section11_drag_disableOverlay" src="assets/FoodChain/Scene2/Asset 15.png" alt="Section11_drag_disableOverlay" draggable="false">
+
+      </div>
+      <div class="image-container_drag" id="section11_fish_container" >
+           <img id="section11_dragImage" src="assets/FoodChain/Scene2/Asset 10.png" alt="Section11_fish_container" data-original-id="section11_fish_container"  draggable="true">
+           <img id="section11_drag_disableOverlay" src="assets/FoodChain/Scene2/Asset 15.png" alt="Section11_drag_disableOverlay" draggable="false">
+
+      </div>
+    </div>
+
+    <!-- Drop Areas -->
+    <div class="containersection11">
+        <div class="drop-area_section11" id="section11_dragArea1"></div>
+        <div class="drop-area_section11" id="section11_dragArea2"></div>
+        <div class="drop-area_section11" id="section11_dragArea3"></div>
+        <div class="drop-area_section11" id="section11_dragArea4"></div>
+    </div>
   
       <!-- <div id="section11nextImage">
         <img src="assets/Slides11-17/Scroll_down_button.png" alt="Section11nextImage">

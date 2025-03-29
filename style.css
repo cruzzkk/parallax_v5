@@ -4274,7 +4274,7 @@ transition: transform 0.3s;
     max-height: 1080px;
     margin:0 auto;
     background-color: #1fc190bb;  
-    overflow: hidden;
+    overflow: visible;
     z-index: 1;
     
 }
@@ -4342,99 +4342,32 @@ transition: transform 0.3s;
     transform: translateX(-50%) translateY(-50%);
 }
  
-#section11_octopus{
-    top: 79%;
-    left: 13%;
-    width: 35%;
-     height: auto;
-    object-fit: contain;
-    
-    z-index: 4;
 
-}
-#section11_wateraboveOctopus{
-    bottom: 5%;
-    left: 50%;
-    width: 100%;
-    /* max-width: 1536px; */
-    height: auto;
-    object-fit: contain;
-    
-    z-index: 5;
-    transform: translateX(-50%) translateY(0%);
-}
 
-.section11dialogBox {
+#section11_Submit {
     position: absolute;
-    bottom: 30%; /* Position relative to viewport height */
-    left: 16%; /* Position relative to viewport width */
-    width: 15%; /* Adjust base width as needed */
-    min-width: 15%;
-    max-width: 34%;
-    height: auto; /* Maintain aspect ratio */
-    transform: translateX(-50%);
-    z-index: 5;
-    background-color: rgba(0, 123, 255, 0);
-    display: none;
-}
-#section11dialogBoxImage{
-
-    width: 100%; /* Inherit container width */
-    height: auto;
-    object-fit: contain;
-    display: block;
-    transform: scaleX(1);
-}
-.section11dialogBox .text{
-    position: absolute; 
-    top: 35%; /* Adjust as per requirement */
-    left: 50%; /* Adjust as per requirement */
-    width: 80%;
-     
-    transform: translate(-50%,-50%); /* Center it */
-    background-color: rgba(209, 165, 33, 0); /* Optional for better visibility */
-    border-radius: 0.5vw; /* Optional styling */
-    font-family: 'Heinemann';
-    font-style:normal ;
-    font-size: 1.2vw; /* Adjust text size */
-    text-align: center;
-    text-wrap: wrap;
-    color: #000000; /* Ensure readability */
-    line-height: 1.5; /* Adjust line spacing */
-    padding: 10%; /* Space around the text */
-    
-}
-#section11dialogText{
-    top: 42%;
-  
-    transform: translate(-50%, -50%);
-}
-
-
-#section11_SortitOut {
-    position: absolute;
-    top: 62%;
+    top: 86%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 14%;  
     height: auto;  
     z-index: 4;
-    display: none;
+    display: block;
     cursor: pointer;
     
    
 }
-#section11_SortitOut img {
+#section11_Submit img {
     width: 100%; /* Ensure the image scales with the container */
     height: auto;
     object-fit: contain;
 }
-#section11_SortitOut:hover {
+#section11_Submit:hover {
     transform:  translate(-50%, -50%) scale(1.1); 
     transform-origin: center;  
     transition: transform 0.3s;
 }
-#section11_SortitOut p {
+#section11_Submit p {
     position: absolute;
     top: 18%; /* Center vertically */
     left: 50%; /* Center horizontally */
@@ -4459,7 +4392,7 @@ transition: transform 0.3s;
     left: 85%;
     width: 16%;  
     height: auto;  
-    display: block;
+    display: none;
 
     z-index: 4;  
 }
@@ -4477,7 +4410,7 @@ transition: transform 0.3s;
     left: 47%;
     width: 13%;  
     height: auto;  
-    display: block;
+    display: none;
 
     z-index: 4;  
 }
@@ -4495,7 +4428,7 @@ transition: transform 0.3s;
     left: 68%;
     width: 13%;  
     height: auto;  
-    display: block;
+    display: none;
 
     z-index: 4;  
 }
@@ -4513,7 +4446,7 @@ transition: transform 0.3s;
     left: 50%;
     width: 20%;  
     height: auto;  
-    display: block;
+    display: none;
 
     z-index: 4;  
 }
@@ -4562,6 +4495,167 @@ transition: transform 0.3s;
     overflow: hidden;
       
 }
+
+#section11_flyingoctopus{
+    display: none;
+    top: -90%;
+    left: 27%;
+    width: 22%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 4;
+    transform: translateX(-50%) translateY(0%);
+}
+#section11_octopus{
+    display: none;
+    top: 60%;
+    left: 29%;
+    width: 35%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 4;
+    transform: translateX(-50%) translateY(0%);
+}
+.section11dialogBox {
+    position: absolute;
+    bottom: 36%; /* Position relative to viewport height */
+    left: 31%; /* Position relative to viewport width */
+    width: 15%; /* Adjust base width as needed */
+    min-width: 15%;
+    max-width: 34%;
+    height: auto; /* Maintain aspect ratio */
+    transform: translateX(-50%);
+    z-index: 5;
+    background-color: rgba(0, 123, 255, 0);
+    display: none;
+}
+#section11dialogBoxImage{
+
+    width: 100%; /* Inherit container width */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transform: scaleX(1);
+}
+.section11dialogBox .text{
+    position: absolute; 
+    top: 35%; /* Adjust as per requirement */
+    left: 50%; /* Adjust as per requirement */
+    width: 80%;
+     
+    transform: translate(-50%,-50%); /* Center it */
+    background-color: rgba(209, 165, 33, 0); /* Optional for better visibility */
+    border-radius: 0.5vw; /* Optional styling */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.2vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    color: #000000; /* Ensure readability */
+    line-height: 1.5; /* Adjust line spacing */
+    padding: 10%; /* Space around the text */
+    
+}
+#section11dialogText{
+    top: 42%;
+  
+    transform: translate(-50%, -50%);
+}
+
+
+
+.containersection11 {
+    position: absolute; 
+    top: 21%;   /* Adjust vertical position */
+    left: 25%;  /* Adjust horizontal position */
+    display: flex;
+    gap: 4%;   /* Space between draggable items */
+    justify-content: center;
+     
+    
+}
+.draggable-container11 {
+    position: absolute; 
+    top: 53%;   
+    left: 25%;  
+    display: flex;
+    gap: 4%;   
+    justify-content: center;
+    background-color: #3498db;
+    width: 62%;
+    height: auto;
+}
+/* Ensure the overlay is positioned on top of the image */
+#section11_drag_disableOverlay {
+    position: absolute;  /* Position it relative to .image-container_drag */
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 88%;
+    object-fit: cover;
+    z-index: 10; /* Ensures it's on top */
+    border-radius: 7%;
+    cursor: default;
+    display: none; /* Initially hidden */
+     
+}
+.drop-area_section11 {
+    width: 15vw;
+    height: 12vw;
+    border: 0.3vw dashed rgb(255, 255, 255);
+    border-radius: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    padding: 1%;
+    background-color:#2b8f96ad;
+    overflow-y: auto;
+    z-index: 5;
+    
+}
+
+.drop-area_section11 img {
+    width: 45%;
+    height: auto;
+    margin: 2%;
+    background-color: #519e1a00;
+}
+#section11_bear_container{
+    display: none;
+}
+#section11_mushroom_container{
+    display: none;
+
+}
+#section11_plant_container{
+    display: none;
+}
+#section11_fish_container{
+    display: none;
+}
+#section11_dragArea1{
+    display: none;
+
+}
+#section11_dragArea2{
+    display: none;
+  
+}
+#section11_dragArea3{
+    display: none;
+  
+}
+#section11_dragArea4{
+    display: none;
+  
+}
+
+
+
 
 
 

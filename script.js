@@ -43,10 +43,14 @@
         const audio_section10_01=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
         const audio_section10_02=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
 
+        const audio_section11_01=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
+        const audio_section11_02=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
+
         const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10,
              audio9,audio_section7,audio_section8_01,audio_section8_02,audio_section8_03,audio_section8_04,
              audio_section9_01,audio_section9_02,audio_section9_03,audio_section9_04,audio_section9_05,audio_section9_06,
-             audio_section10_01,audio_section10_02];
+             audio_section10_01,audio_section10_02,
+             audio_section11_01,audio_section11_02];
 
 // Function to preload images
 function preloadImages(images, callback) {
@@ -287,6 +291,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const section9_dragArea1 = document.getElementById("section9_dragArea1");
     const section9_dragArea2 = document.getElementById("section9_dragArea2");
     const section9_dragArea3 = document.getElementById("section9_dragArea3");
+    const draggableItemssection9 = document.querySelectorAll(".image-container_drag #section9_dragImage");
+    const dropAreas = document.querySelectorAll(".drop-area_section9");
      
     const section9_Title_label = document.getElementById("section9_Title_label");
     const section9_producers_label = document.getElementById("section9_producers_label");
@@ -297,8 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const correctAnswerButton = document.getElementById("section9_CorrectAnswer");
     const section9_TryAgainButton = document.getElementById("section9_TryAgainButton");
 
-    const draggableItemssection9 = document.querySelectorAll(".image-container_drag #section9_dragImage");
-    const dropAreas = document.querySelectorAll(".drop-area_section9");
+    
     const section9_ok = document.getElementById("section9_ok");
 
     let section9mute=false;
@@ -327,7 +332,40 @@ document.addEventListener("DOMContentLoaded", () => {
     let section10lastAnimationParams = null;
 
     const section10nextImage = document.getElementById("section10nextImage");
- 
+
+
+
+    const section11 = document.getElementById("section11");
+    const section11_flyingoctopus = document.getElementById("section11_flyingoctopus");
+    const section11_octopus = document.getElementById("section11_octopus");
+    const section11dialogBox = document.querySelector(".section11dialogBox");
+    const section11dialogText = document.getElementById("section11dialogText");
+    const section11_fish = document.getElementById("section11_fish");
+    const section11_bear = document.getElementById("section11_bear");
+    const section11_mushroom = document.getElementById("section11_mushroom");
+    const section11_kelp = document.getElementById("section11_kelp");
+    let section11mute=false;
+    let section11played=false;
+    let section11pausedAudio =null;
+    let section11ActionStart=false;
+    let section11_submit_pressed=0;
+    let section11startTime = null;
+    let section11pausedTime = 0;
+    let section11isPaused = false;
+    let section11animationFrameId = null;
+    let section11lastAnimationParams = null;
+    let section11AnimationisCompleted=false;
+
+    const section11_bear_container = document.getElementById("section11_bear_container");
+    const section11_mushroom_container = document.getElementById("section11_mushroom_container");
+    const section11_plant_container = document.getElementById("section11_plant_container");
+    const section11_fish_container = document.getElementById("section11_fish_container");
+    const section11_dragArea1 = document.getElementById("section11_dragArea1");
+    const section11_dragArea2 = document.getElementById("section11_dragArea2");
+    const section11_dragArea3 = document.getElementById("section11_dragArea3");
+    const section11_dragArea4 = document.getElementById("section11_dragArea4");
+    const draggableItemssection11 = document.querySelectorAll(".image-container_drag #section11_dragImage");
+    const dropAreas11 = document.querySelectorAll(".drop-area_section11");
 
 
 
@@ -559,6 +597,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_section10_02.muted = section10mute               
                 currentAudio.muted=section10mute;
                 commonsoundbutton.querySelector("img").src = section10mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+            break;
+            case 'section11':
+                section11mute=!section11mute;
+                audio_section11_01.muted = section11mute;
+                audio_section11_02.muted = section11mute;
+                currentAudio.muted=section11mute;
+                commonsoundbutton.querySelector("img").src = section11mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
             break;
         }
     });
@@ -936,6 +981,58 @@ document.addEventListener("DOMContentLoaded", () => {
                 commonplayButton.querySelector("img").src=section10played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 
             break;
+            case 'section11':
+                if(section11played){
+                    section11played=!section11played;
+                     
+                     
+ 
+                    for (let i = 23; i < 25; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                             audio.pause();
+                            section11pausedAudio=audio;
+                        }
+                        
+                }
+                    if(section11animationFrameId){
+                        section11isPaused=true;
+                        section11pausedTime += performance.now() - section11startTime; // Store correct paused time
+                        cancelAnimationFrame(section11animationFrameId);
+                        section11animationFrameId = null;
+                    }
+                    
+                    
+
+                }else{
+
+                    section11played=!section11played;
+                    
+
+                    if(!section11ActionStart){
+                        section11triggerActions();
+                    }
+                    
+                    if (section11pausedAudio) {
+                        console.log("FKASS1");
+                        section11pausedAudio.play();
+                        section11pausedAudio = null; // Clear the stored audio after resuming
+                    }  
+                    console.log("FKASS"+section11lastAnimationParams);
+                    if (!section11AnimationisCompleted) {
+                        section11isPaused=false;
+                        section11startTime=null;
+                        movingSection11FlyingOctopus(
+                            section11lastAnimationParams.maxHeight,
+                            section11lastAnimationParams.minHeight,
+                            section11lastAnimationParams.duration,
+                            section11lastAnimationParams.octopus,
+                            section11lastAnimationParams.onComplete
+                        );
+                    }
+                }
+                commonplayButton.querySelector("img").src=section11played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
 
         }
     });
@@ -1116,6 +1213,9 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section10':
                 Section10Restart();
             break;
+            case 'section11':
+                Section11Restart();
+            break;
 
 
         }
@@ -1123,8 +1223,37 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     
+   //Section11 Restart
+   function Section11Restart(){
+    section11mute = false;
+    commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+    section11played = false;
+    commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+    section11ActionStart = false;
 
-   //Section8 Restart
+    audio_section11_01.muted = section11mute;
+    audio_section11_01.currentTime = 0;
+    audio_section11_01.pause();
+    audio_section11_02.muted = section11mute;
+    audio_section11_02.currentTime = 0;
+    audio_section11_02.pause();
+
+    section11startTime = null;
+    section11pausedTime = 0; // Store elapsed time when paused
+    section11animationFrameId = null;
+    section11lastAnimationParams=null
+
+    section11dialogText.style.display = "none";
+    section11_octopus.style.display="none";
+    section11_flyingoctopus.style.display="block";
+    section11_kelp.style.display="block";
+    section11_bear.style.display="block";
+    section11_fish.style.display="block";
+    section11_mushroom.style.display="block";
+
+   }
+
+   //Section10 Restart
    function Section10Restart() {
          
         section10mute = false;
@@ -1149,7 +1278,9 @@ document.addEventListener("DOMContentLoaded", () => {
          resetButtons();
          section10_WhoEatWaht.style.display="none";
          section10nextImage.style.display = "none";
-
+         section10startTime = null;
+         section10pausedTime = 0; // Store elapsed time when paused
+         section10animationFrameId = null;
         //ResetDragandDropSection8();
         //setDraggingState(false);
         //const section8_dragAreaImg =  section8_dragArea.querySelectorAll("img");
@@ -4203,11 +4334,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         
     } 
-    
-    
-   
-               
-
+             
     function movingSection10FlyingOctopus(maxHeight, minHeight, duration, octopus, zoomImage, onComplete) {
         if (!octopus || !zoomImage) {
             console.error("Missing elements: Octopus or zoomImage is null.");
@@ -4279,6 +4406,250 @@ document.addEventListener("DOMContentLoaded", () => {
         section10animationFrameId = requestAnimationFrame(animate);
     }
     
+
+
+
+
+
+    //Section11
+
+    function section11triggerActions(){
+        console.log("section11triggerActions");
+        section11mute=false;
+        section11played=true;
+        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        if(section11played){
+            section11ActionStart=true;
+            section11dialogText.style.display = "none";
+            section11_octopus.style.display="none";
+            section11_flyingoctopus.style.display="block";
+            section11_kelp.style.display="block";
+            section11_bear.style.display="block";
+            section11_fish.style.display="block";
+            section11_mushroom.style.display="block";
+            movingSection11FlyingOctopus(-90, 4, 6000, section11_flyingoctopus, function () {
+                console.log("Animation complete!");
+                section11_octopus.style.display="block";
+                section11_flyingoctopus.style.display="none";
+                
+                section11dialogBox.style.display = "inline-block";
+                section11dialogText.style.display = "block";
+                section11dialogText.innerHTML =
+                "Uh oh, the food chain is all messed up!.";// <br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>
+                
+                adjustSection11ImageHeight();
+                audio_section11_01.play().catch((error) => {
+                    console.error('Error playing audio:', error);
+                });
+            });
+        }
+       
+       
+    }
+
+    audio_section11_01.addEventListener("ended", () => {
+         
+        section11dialogText.innerHTML =
+        "<span style='color:#BC0404;font-style: italic;'>Can you drag the organisms to the boxes to show who eats what and keeps the ecosystem healthy.</span>";// <br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>
+        
+        adjustSection11ImageHeight();
+        audio_section11_02.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+        section11_kelp.style.display="none";
+        section11_bear.style.display="none";
+        section11_fish.style.display="none";
+        section11_mushroom.style.display="none";
+    });
+
+    function adjustSection11ImageHeight(){
+        document.getElementById('section11dialogBoxx').style.width= document.querySelector('.section11dialogBox').style.minWidth;
+        const textHeight = section11dialogText.offsetHeight;
+        const imageHeight = document.getElementById('section11dialogBoxImage').offsetHeight;
+        document.getElementById('section11dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
+    }
+
+    function movingSection11FlyingOctopus(maxHeight, minHeight, duration, octopus, onComplete) {
+        if (!octopus ) {
+            console.error("Missing elements: Octopus  is null.");
+            return;
+        }
+    
+        octopus.style.display = "block";
+        section11lastAnimationParams = { maxHeight, minHeight, duration, octopus, onComplete };
+    
+        function animate(time) {
+            if (section11isPaused) return; 
+ 
+    
+            if (!section11startTime) {
+                section11startTime = time - section11pausedTime;
+                section11pausedTime = 0;
+            }
+    
+            let elapsed = Math.max(1, time - section11startTime);
+            let t = Math.min(elapsed / duration, 1);
+    
+            function lerp(start, end, t) {
+                return (1 - t) * start + t * end;
+            }
+    
+            let currentY = lerp(maxHeight, minHeight, t);
+            let currentLeft = lerp(22, 27, t);
+            let currentWidth = lerp(28, 25, t);
+    
+            octopus.style.top = `${currentY}%`;
+            octopus.style.left = `${currentLeft}%`;
+            octopus.style.width = `${currentWidth}%`;
+    
+             
+    
+            if (t < 1) {
+                section11animationFrameId = requestAnimationFrame(animate);
+            } else {
+                console.log("Animation complete!");
+                section11animationFrameId = null;
+                section11pausedTime = 0;
+                section11AnimationisCompleted=true;
+    
+                if (typeof onComplete === "function") {
+                    onComplete();
+                }
+            }
+        }
+    
+        section11animationFrameId = requestAnimationFrame(animate);
+    }
+
+    section11_bear_container.style.display="block";
+    section11_mushroom_container.style.display="block";
+    section11_plant_container .style.display="block";
+    section11_fish_container.style.display="block";
+    section11_dragArea1.style.display="block";
+    section11_dragArea2.style.display="block";
+    section11_dragArea3.style.display="block";
+    section11_dragArea4.style.display="block";
+
+
+
+     
+    const draggables = document.querySelectorAll(".image-container_drag img[draggable='true']");
+    const section11dropAreas = document.querySelectorAll(".drop-area_section11");
+
+    let section11draggedItem = null; // Track the dragged item
+
+    // Correct mapping of drag areas to expected items
+    const correctMapping = {
+        "section11_dragArea1": "section11_plant_container",
+        "section11_dragArea2": "section11_fish_container",
+        "section11_dragArea3": "section11_bear_container",
+        "section11_dragArea4": "section11_mushroom_container"
+    };
+
+    
+
+    // Drag Start Event
+    draggables.forEach(img => {
+        img.addEventListener("dragstart", function (e) {
+            if (section11draggedItem) return; // Only one item can be dragged at a time
+
+            section11draggedItem = this.parentElement; // Store the container of the dragged image
+            e.dataTransfer.setData("text/plain", section11draggedItem.id);
+        });
+    });
+
+    // Drag Over Event - Allow Drop
+    section11dropAreas.forEach(area => {
+        area.addEventListener("dragover", function (e) {
+            e.preventDefault();
+        });
+
+        // Drop Event
+        area.addEventListener("drop", function (e) {
+            e.preventDefault();
+            if (!section11draggedItem) return; // No item dragged
+
+            // If drop area already has an item, prevent adding another
+            if (this.children.length > 0) return;
+
+            // Clone the dragged item
+            let clonedItem = section11draggedItem.cloneNode(true);
+            let clonedImg = clonedItem.querySelector("img[draggable='true']");
+
+            // Disable dragging for the cloned item
+            clonedImg.draggable = false;
+
+            // Wrap cloned item inside a div for positioning
+            let wrapperDiv = document.createElement("div");
+            wrapperDiv.classList.add("image-wrapper");
+            wrapperDiv.style.position = "relative";
+            wrapperDiv.style.display = "flex";
+            wrapperDiv.style.justifyContent = "center";
+            wrapperDiv.style.alignItems = "center";
+            wrapperDiv.style.width = "100%";
+            wrapperDiv.style.height = "100%";
+
+            // Adjust cloned image size to fit and fill the drop area properly
+            clonedImg.style.width = "100%";
+            clonedImg.style.height = "100%";
+            clonedImg.style.objectFit = "cover"; // Ensures the image fills the area
+
+            // Append the cloned item inside wrapper
+            wrapperDiv.appendChild(clonedImg);
+            this.appendChild(wrapperDiv);
+
+            // Disable original dragged item
+            let overlay = section11draggedItem.querySelector("#section11_drag_disableOverlay");
+            if (overlay) {
+                overlay.style.display = "block"; // Show overlay
+            }
+            section11draggedItem.querySelector("img[draggable='true']").draggable = false; // Disable dragging for the original
+
+            section11draggedItem = null; // Reset dragged item
+        });
+    });
+
+    // Submit Button Event
+    document.getElementById("section11_Submit").addEventListener("click", function () {
+        section11dropAreas.forEach(area => {
+            let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
+            if (!wrapperDiv) return;
+
+            let placedItem = wrapperDiv.firstElementChild ? wrapperDiv.firstElementChild.id : null;
+            let expectedItem = correctMapping[area.id];
+
+            // Remove previous tick/cross
+            let existingIcon = wrapperDiv.querySelector(".result-icon");
+            if (existingIcon) existingIcon.remove();
+
+            // Create new tick/cross icon
+            const icon = document.createElement("img");
+            icon.src = placedItem === expectedItem ? tickIconSrc : wrongIconSrc;
+            icon.classList.add("result-icon");
+
+            // Style and position the tick/cross icon inside the wrapper
+            icon.style.position = "absolute";
+            icon.style.top = "7%";
+            icon.style.left = "8%";
+            icon.style.width = "33%"; // Adjust size
+            icon.style.height = "33%";
+            icon.style.pointerEvents = "none"; // Prevent interference
+
+            wrapperDiv.appendChild(icon);
+        });
+    });
+     
+    
+
+
+
+
+
+
+
+
+
+
 
 
 

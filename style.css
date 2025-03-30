@@ -4059,7 +4059,7 @@ transition: transform 0.3s;
     object-fit: contain;
      
     z-index: 0;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
  }
  #section10zoomImage{
     transform: translate(0%, -40%) scale(2); /* 60% zoom */
@@ -4083,7 +4083,7 @@ transition: transform 0.3s;
     position: absolute;
     top: 90%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0%);
     width: 14%;  
     height: auto;  
     z-index: 2;
@@ -4098,7 +4098,7 @@ transition: transform 0.3s;
     object-fit: contain;
 }
 #section10_WhoEatWaht:hover {
-    transform:  translate(-50%, -50%) scale(1.1); 
+    transform:  translate(-50%, 0%) scale(1.1); 
     transform-origin: center;  
     transition: transform 0.3s;
 }

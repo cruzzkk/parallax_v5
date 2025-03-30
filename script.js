@@ -40,20 +40,24 @@
         const audio_section9_05=new Audio("assets/audio/Part_B_Audio/section9_05.mp3");
         const audio_section9_06=new Audio("assets/audio/Part_B_Audio/section9_06.mp3");
 
-        const audio_section10_01=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
-        const audio_section10_02=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
+        const audio_section10_01=new Audio("assets/audio/PartC_Audio/1_Alright_explorers!_Weve_reach.mp3");
+        const audio_section10_02=new Audio("assets/audio/PartC_Audio/2_Hey_there,_adventurers!_Get_re.mp3");
+        const audio_section10_03=new Audio("assets/audio/PartC_Audio/8_High_five!_Youre_mastering_th.mp3");
 
-        const audio_section11_01=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
-        const audio_section11_02=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
-        const audio_section11_03=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
-        const audio_section11_04=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
-        const audio_section11_05=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
-        const audio_section11_06=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
+
+        const audio_section11_01=new Audio("assets/audio/PartC_Audio/3_Uh_oh,_the_food_chain_is_all_m.mp3");
+        const audio_section11_02=new Audio("assets/audio/PartC_Audio/3_Can you.mp3");
+        const audio_section11_03=new Audio("assets/audio/PartC_Audio/5_Oops,_that’s_not_quite_right.mp3");
+        const audio_section11_04=new Audio("assets/audio/PartC_Audio/6_Not_quite_right,_but_don’t_wor.mp3");
+        const audio_section11_05=new Audio("assets/audio/PartC_Audio/4_Well_done!_You_earned_yourself.mp3");
+        const audio_section11_06=new Audio("assets/audio/PartC_Audio/4a_Well_done!_Grizzly_bears_eat_s.mp3");
+
+
 
         const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10,
              audio9,audio_section7,audio_section8_01,audio_section8_02,audio_section8_03,audio_section8_04,
              audio_section9_01,audio_section9_02,audio_section9_03,audio_section9_04,audio_section9_05,audio_section9_06,
-             audio_section10_01,audio_section10_02,
+             audio_section10_01,audio_section10_02,audio_section10_03,
              audio_section11_01,audio_section11_02,audio_section11_03,audio_section11_04,audio_section11_05,audio_section11_06];
 
 // Function to preload images
@@ -67,7 +71,7 @@ function preloadImages(images, callback) {
         img.onload = () => {
             loadedImages++;
             if (loadedImages === totalImages) {
-                 callback();  // Call the callback function once all images are loaded
+                 callback(); 
             }
         };
     });
@@ -110,31 +114,74 @@ function preloadVideo(videoElementId, videoSrc, callback) {
 }
 
 
+
+// Function to collect all images inside <div> elements
+function collectImages() {
+    const imageElements = document.querySelectorAll("div img");
+    return Array.from(imageElements).map(img => img.src); // Return all image URLs
+}
+
+// Function to preload images
+function preloadImages_all(images, callback) {
+    let loadedImages = 0;
+    const totalImages = images.length;
+    const preloadedImages = {}; // Store preloaded image elements
+
+    images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+        img.onload = () => {
+            preloadedImages[src] = img; // Store preloaded image
+            loadedImages++;
+            if (loadedImages === totalImages) {
+                callback(preloadedImages); // Call callback when all are loaded
+            }
+        };
+    });
+}
+
+// Function to replace existing images with preloaded ones
+function renderPreloadedImages(preloadedImages) {
+    document.querySelectorAll("div img").forEach(img => {
+        if (preloadedImages[img.src]) {
+            img.src = preloadedImages[img.src].src; // Replace with preloaded image
+        }
+    });
+}
+
+
+
+
+
 window.onload = function() {
+    const imagesToPreload = collectImages(); // Get all images inside divs
 
-
-    // Preload images, then preload audio, then preload video, then hide preloader
-    preloadImages(imagesToPreload, function() {
-        preloadAudios(audiosToPreload, function() {
-            preloadVideo('bgVideo', 'assets/video/Section1.mp4', function() {
-                // Once everything is preloaded, hide the preloader
-                const preloader = document.getElementById('preloader');
-                preloader.style.opacity = '0'; // Fade-out effect
-                setTimeout(() => {
-                    preloader.style.display = 'none'; // Hide the preloader after fade-out
-                }, 500); // Wait for fade-out to complete
-
-                // Add your code here that should run after preloading
-
-                
-
+    preloadImages_all(imagesToPreload, function(preloadedImages) {
+        renderPreloadedImages(preloadedImages); // Assign preloaded images
+        preloadImages(imagesToPreload, function() {
+            preloadAudios(audiosToPreload, function() {
+                preloadVideo('bgVideo', 'assets/video/Section1.mp4', function() {
+                    // Once everything is preloaded, hide the preloader
+                    const preloader = document.getElementById('preloader');
+                    preloader.style.opacity = '0'; // Fade-out effect
+                    setTimeout(() => {
+                        preloader.style.display = 'none'; // Hide the preloader after fade-out
+                    }, 500); // Wait for fade-out to complete
+    
+                    // Add your code here that should run after preloading
+    
+                    
+    
+                    
                 
             
-        
-                // Your other section-specific logic (like section 5, section 6, etc.) should also go here...
+                    // Your other section-specific logic (like section 5, section 6, etc.) should also go here...
+                });
             });
         });
     });
+
+    
 };
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -318,6 +365,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+    // Part C Globel variables
+    let is_fourkeyAccuired=false
+    let is_fivethkeyAccuired=false
+
+
     const section10 = document.getElementById("section10");
     const section10_zoomImage = document.getElementById("section10zoomImage");
     const section10_FlyingOctopus = document.getElementById("section10_FlyingOctopus");
@@ -334,6 +386,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let section10isPaused = false;
     let section10animationFrameId = null;
     let section10lastAnimationParams = null;
+    let section10AnimationisCompleted=false;
 
     const section10nextImage = document.getElementById("section10nextImage");
 
@@ -603,7 +656,8 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section10':
                 section10mute=!section10mute;
                 audio_section10_01.muted = section10mute;
-                audio_section10_02.muted = section10mute               
+                audio_section10_02.muted = section10mute;
+                audio_section10_03.muted = section10mute;      
                 currentAudio.muted=section10mute;
                 commonsoundbutton.querySelector("img").src = section10mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
             break;
@@ -946,7 +1000,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(section10played){
                     section10played=!section10played;
 
-                    for (let i = 21; i < 23; i++) {
+                    for (let i = 21; i < 24; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
@@ -977,7 +1031,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             section10pausedAudio = null; // Clear the stored audio after resuming
                         }  
                         
-                        if (section10lastAnimationParams) {
+                        if (section10lastAnimationParams&&!section10AnimationisCompleted) {
                             section10isPaused=false;
                             section10startTime=null;
                             movingSection10FlyingOctopus(
@@ -986,6 +1040,16 @@ document.addEventListener("DOMContentLoaded", () => {
                                 section10lastAnimationParams.duration,
                                 section10lastAnimationParams.octopus,
                                 section10lastAnimationParams.zoomImage,
+                                section10lastAnimationParams.octopusLeft_Start,
+                                section10lastAnimationParams.octopusLeft_End,
+                                section10lastAnimationParams.octopusWidth_Start,
+                                section10lastAnimationParams.octopusWidth_End,
+                                section10lastAnimationParams.zoomImageScale_Start,
+                                section10lastAnimationParams.zoomImageScale_End,
+                                section10lastAnimationParams.zoomImageTranslateX_Start,
+                                section10lastAnimationParams.zoomImageTranslateX_End,
+                                section10lastAnimationParams.zoomImageTranslateY_Start,
+                                section10lastAnimationParams.zoomImageTranslateY_End,
                                 section10lastAnimationParams.onComplete
                             );
                         }
@@ -1000,7 +1064,7 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      
  
-                    for (let i = 23; i < 29; i++) {
+                    for (let i = 24; i < 30; i++) {
                         const audio = audiosToPreload[i];
                         if (isAudioPlaying(audio)) {
                              audio.pause();
@@ -1314,8 +1378,11 @@ document.addEventListener("DOMContentLoaded", () => {
         audio_section10_02.muted = section8mute;
         audio_section10_02.currentTime = 0;
         audio_section10_02.pause();
+        audio_section10_03.muted = section8mute;
+        audio_section10_03.currentTime = 0;
+        audio_section10_03.pause();
         
-         
+         section10_FlyingOctopus.style.display="none";
          section10_FlyingOctopus.style.top = "-40%";
          section10_FlyingOctopus.style.left="22%";
          section10_FlyingOctopus.style.width="28%";
@@ -1327,6 +1394,8 @@ document.addEventListener("DOMContentLoaded", () => {
          section10startTime = null;
          section10pausedTime = 0; // Store elapsed time when paused
          section10animationFrameId = null;
+         section10lastAnimationParams=null
+         section10AnimationisCompleted=false;
         //ResetDragandDropSection8();
         //setDraggingState(false);
         //const section8_dragAreaImg =  section8_dragArea.querySelectorAll("img");
@@ -4308,19 +4377,39 @@ document.addEventListener("DOMContentLoaded", () => {
         section10played=true;
         commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
         section10ActionStart=true;
+        
+        if(!is_fourkeyAccuired&&!is_fivethkeyAccuired){
+
+            console.log("myru", section10_zoomImage); // Should log an <img> element
     
-        console.log("myru", section10_zoomImage); // Should log an <img> element
-    
-        if (section10_zoomImage) {
-            movingSection10FlyingOctopus(-40, 30, 6000, section10_FlyingOctopus, section10_zoomImage, function () {
+            if (section10_zoomImage) {
+                movingSection10FlyingOctopus(-40, 30, 6000, section10_FlyingOctopus, section10_zoomImage,
+                    22,27,28,25,2,5,0,-10,-40,0
+                    , function () {
+                    console.log("Animation complete!");
+                    audio_section10_01.play().catch((error) => {
+                        console.error('Error playing audio:', error);
+                    });
+                });
+            } else {
+                console.error("section10zoomImage is undefined or not found!");
+            }
+        }else if(is_fourkeyAccuired&&!is_fivethkeyAccuired){
+            section10_FlyingOctopus.style.top="30%";
+            section10_zoomImage.style.transform = `translate(-10%, 0%) scale(5)`;
+            VisibleButtons("block");
+            resetButtons();
+            movingSection10FlyingOctopus(30, 27, 6000, section10_FlyingOctopus, section10_zoomImage,
+                27,52,25,25,5,5,-10,-10,0,0
+                , function () {
                 console.log("Animation complete!");
-                audio_section10_01.play().catch((error) => {
+                audio_section10_03.play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
             });
-        } else {
-            console.error("section10zoomImage is undefined or not found!");
+
         }
+        
     }
     audio_section10_01.addEventListener("ended", () => {
          
@@ -4338,6 +4427,16 @@ document.addEventListener("DOMContentLoaded", () => {
     audio_section10_02.addEventListener("ended", () => {
          
         enableButton("NumberOne");
+    });
+
+
+
+
+    audio_section10_03.addEventListener("ended", () => {
+         
+        VisibleButtons("block");
+        resetButtons();
+        enableButton("NumberFive");
     });
 
     // Function to enable one button and disable others
@@ -4361,6 +4460,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // Click event handler
     function handleClick(event) {
         console.log(event.currentTarget.id + " clicked!");
+        switch(event.currentTarget.id){
+            case "NumberOne":
+            //Section 9 Start
+            document.getElementById("gap11").style.display="block";
+            section11.style.display="block";
+
+            smoothScrollToSceneandTrigger(section11,3000,function(){
+                Section11Restart();
+                section11triggerActions();
+             });
+            break;
+        }
         // Add your click handling logic here
     }
 
@@ -4381,14 +4492,23 @@ document.addEventListener("DOMContentLoaded", () => {
         
     } 
              
-    function movingSection10FlyingOctopus(maxHeight, minHeight, duration, octopus, zoomImage, onComplete) {
+    function movingSection10FlyingOctopus(maxHeight, minHeight, duration, octopus, zoomImage,
+        octopusLeft_Start,octopusLeft_End,octopusWidth_Start,octopusWidth_End,
+        zoomImageScale_Start,zoomImageScale_End,zoomImageTranslateX_Start,zoomImageTranslateX_End,zoomImageTranslateY_Start,zoomImageTranslateY_End,
+        onComplete
+        ) {
+
+        octopus.style.display="block";
         if (!octopus || !zoomImage) {
             console.error("Missing elements: Octopus or zoomImage is null.");
             return;
         }
     
         octopus.style.display = "block";
-        section10lastAnimationParams = { maxHeight, minHeight, duration, octopus, zoomImage, onComplete };
+        section10lastAnimationParams = { maxHeight, minHeight, duration, octopus, zoomImage,
+            octopusLeft_Start,octopusLeft_End,octopusWidth_Start,octopusWidth_End,
+            zoomImageScale_Start,zoomImageScale_End,zoomImageTranslateX_Start,zoomImageTranslateX_End,zoomImageTranslateY_Start,zoomImageTranslateY_End,
+            onComplete};
     
         function animate(time) {
             if (section10isPaused) return; 
@@ -4409,22 +4529,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 return (1 - t) * start + t * end;
             }
     
-            let currentY = lerp(maxHeight, minHeight, t);
-            let currentLeft = lerp(22, 27, t);
-            let currentWidth = lerp(28, 25, t);
+            let currentY = lerp(maxHeight, minHeight, t);  //22,27,28,25,2,5,0,-10,-40,0
+            let currentLeft = lerp(octopusLeft_Start, octopusLeft_End, t);
+            let currentWidth = lerp(octopusWidth_Start, octopusWidth_End, t);
     
             octopus.style.top = `${currentY}%`;
             octopus.style.left = `${currentLeft}%`;
             octopus.style.width = `${currentWidth}%`;
     
-            let currentScale = lerp(2, 5, t);
-            let currentTranslateX = lerp(0, -10, t);
-            let currentTranslateY = lerp(-40, 0, t);
+            let currentScale = lerp(zoomImageScale_Start,zoomImageScale_End, t);
+            let currentTranslateX = lerp(zoomImageTranslateX_Start, zoomImageTranslateX_End, t);
+            let currentTranslateY = lerp(zoomImageTranslateY_Start, zoomImageTranslateY_End, t);
     
             if (t === 1) {
-                currentTranslateY = 0;
-                currentTranslateX = -10;
-                currentScale = 5;
+                currentTranslateY = zoomImageTranslateY_End;
+                currentTranslateX = zoomImageTranslateX_End;
+                currentScale = zoomImageScale_End;
             }
     
             console.log("Applying transform:", currentTranslateX, currentTranslateY, currentScale);
@@ -4442,7 +4562,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log("Animation complete!");
                 section10animationFrameId = null;
                 section10pausedTime = 0;
-    
+                section10AnimationisCompleted=true;
                 if (typeof onComplete === "function") {
                     onComplete();
                 }
@@ -4451,6 +4571,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
         section10animationFrameId = requestAnimationFrame(animate);
     }
+
     
 
 
@@ -4458,8 +4579,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     //Section11
-
-     
 
     function section11triggerActions(){
         console.log("section11triggerActions");
@@ -4909,11 +5028,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    audio_section11_05.addEventListener("ended", () => {
+    audio_section11_06.addEventListener("ended", () => {
         section11_Ok.style.display="block";
     });
 
-     
+    section11_Ok.addEventListener("click", function () {
+        is_fourkeyAccuired=true;
+         smoothScrollToSceneandTrigger(section10,3000,function(){
+            Section10Restart();
+            section10triggerActions();
+         });
+    });
     
 
 

@@ -4881,7 +4881,7 @@ transition: transform 0.3s;
 
 
 
-/* Section 9 */
+/* Section 12 */
 
 #gap12{
     --vw-height: 15;
@@ -5171,6 +5171,145 @@ transition: transform 0.3s;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+ #gap13{
+     --vw-height: 15;
+     height:   15vw; 
+     background-color: #4492c300;
+ }
+ #section13 {
+     position: relative;
+     width: 100%;
+     max-width: 1920px;
+     height: calc(100vw * 9 / 16);  
+     max-height: 1080px;
+     margin:0 auto;
+     background-color: #1fc190bb;  
+     overflow: visible;
+     z-index: 1;
+     
+ }
+ #section13wall {
+     top: -56%;
+     left: 50%;
+     width: 100%;
+     height: auto;
+     object-fit: contain;
+      
+     z-index: 0;
+     transform: translateX(-50%);
+  }
+  #section13_sun{
+  
+     top: 15%;
+     left: 52%;
+     width: 70%;
+      height: auto;
+     object-fit: contain;
+     
+     z-index: 1;
+     transform: translateX(-50%) translateY(-50%);
+ }
+ #section13_hill{
+  
+     top: 30%;
+     left: 50%;
+     width: 100%;
+      height: auto;
+     object-fit: contain;
+     
+     z-index: 2;
+     transform: translateX(-50%) translateY(-50%);
+ }
+ #section13_treeGround{
+     top: 50%;
+     left: 50%;
+     width: 100%;
+      height: auto;
+     object-fit: contain;
+     
+     z-index: 3;
+     transform: translateX(-50%) translateY(-50%);
+}
+
+#section13_octopus{
+    top: 79%;
+    left: 13%;
+    width: 35%;
+     height: auto;
+    object-fit: contain;
+    
+    z-index: 4;
+
+}
+.section13dialogBox {
+    position: absolute;
+    bottom: 30%; /* Position relative to viewport height */
+    left: 16%; /* Position relative to viewport width */
+    width: 15%; /* Adjust base width as needed */
+    min-width: 15%;
+    max-width: 34%;
+    height: auto; /* Maintain aspect ratio */
+    transform: translateX(-50%);
+    z-index: 5;
+    background-color: rgba(0, 123, 255, 0);
+    display: none;
+}
+#section13dialogBoxImage{
+
+    width: 100%; /* Inherit container width */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transform: scaleX(1);
+}
+.section13dialogBox .text{
+    position: absolute; 
+    top: 35%; /* Adjust as per requirement */
+    left: 50%; /* Adjust as per requirement */
+    width: 80%;
+     
+    transform: translate(-50%,-50%); /* Center it */
+    background-color: rgba(209, 165, 33, 0); /* Optional for better visibility */
+    border-radius: 0.5vw; /* Optional styling */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.2vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    color: #000000; /* Ensure readability */
+    line-height: 1.5; /* Adjust line spacing */
+    padding: 10%; /* Space around the text */
+    
+}
+#section13dialogText{
+    top: 42%;
+  
+    transform: translate(-50%, -50%);
+}
 
 
 

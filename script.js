@@ -161,18 +161,20 @@ function renderPreloadedImages(preloadedImages) {
 window.onload = function() {
     const imagesToPreload = collectImages(); // Get all images inside divs
 
-    preloadImages_all(imagesToPreload, function(preloadedImages) {
-        renderPreloadedImages(preloadedImages); // Assign preloaded images
-        preloadImages(imagesToPreload, function() {
-            preloadAudios(audiosToPreload, function() {
-                preloadVideo('bgVideo', 'assets/video/Section1.mp4', function() {
-                    // Once everything is preloaded, hide the preloader
-                    const preloader = document.getElementById('preloader');
-                    preloader.style.opacity = '0'; // Fade-out effect
-                    setTimeout(() => {
-                        preloader.style.display = 'none'; // Hide the preloader after fade-out
-                    }, 500); // Wait for fade-out to complete
-                });
+    // preloadImages_all(imagesToPreload, function(preloadedImages) {
+    //     renderPreloadedImages(preloadedImages); // Assign preloaded images
+       
+    // });
+
+    preloadImages(imagesToPreload, function() {
+        preloadAudios(audiosToPreload, function() {
+            preloadVideo('bgVideo', 'assets/video/Section1.mp4', function() {
+                // Once everything is preloaded, hide the preloader
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0'; // Fade-out effect
+                setTimeout(() => {
+                    preloader.style.display = 'none'; // Hide the preloader after fade-out
+                }, 500); // Wait for fade-out to complete
             });
         });
     });
@@ -2044,6 +2046,7 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(() => applyParallaxEffect("section10", 0.5));
             requestAnimationFrame(() => applyParallaxEffect("section11", 0.5));
             requestAnimationFrame(() => applyParallaxEffect("section12", 0.5));
+            //requestAnimationFrame(() => applyParallaxEffect("section13", 0.5));
             ticking = true;
         }
     });

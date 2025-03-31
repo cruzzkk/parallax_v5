@@ -54,11 +54,16 @@
 
 
 
+        const audio_section12_01=new Audio("assets/audio/PartC_Audio/9_Read_more_about_ecosystems_and.mp3");
+        const audio_section12_02=new Audio("assets/audio/PartC_Audio/10_Use_the_arrow_keys_to_move_for.mp3");
+
+
         const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10,
              audio9,audio_section7,audio_section8_01,audio_section8_02,audio_section8_03,audio_section8_04,
              audio_section9_01,audio_section9_02,audio_section9_03,audio_section9_04,audio_section9_05,audio_section9_06,
              audio_section10_01,audio_section10_02,audio_section10_03,
-             audio_section11_01,audio_section11_02,audio_section11_03,audio_section11_04,audio_section11_05,audio_section11_06];
+             audio_section11_01,audio_section11_02,audio_section11_03,audio_section11_04,audio_section11_05,audio_section11_06,
+             audio_section12_01,audio_section12_02];
 
 // Function to preload images
 function preloadImages(images, callback) {
@@ -167,15 +172,6 @@ window.onload = function() {
                     setTimeout(() => {
                         preloader.style.display = 'none'; // Hide the preloader after fade-out
                     }, 500); // Wait for fade-out to complete
-    
-                    // Add your code here that should run after preloading
-    
-                    
-    
-                    
-                
-            
-                    // Your other section-specific logic (like section 5, section 6, etc.) should also go here...
                 });
             });
         });
@@ -431,6 +427,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+    const section12 = document.getElementById("section12");
+    const section12_octopus = document.getElementById("section12_octopus");
+    const section12dialogBox = document.querySelector(".section12dialogBox");
+    const section12dialogText = document.getElementById("section12dialogText");
+    const section12discribtionPanel = document.getElementById("section12discribtionPanel");
+    const mainText = document.querySelector(".section12MainText");
+    const descriptionPanel = document.getElementById("section12_discribtionPanel_text");
+    const leftButton = document.getElementById("section12_discribtionPanel_leftButton");
+    const rightButton = document.getElementById("section12_discribtionPanel_rightButton");
+    const section12_discribtionPanel_closebuton = document.getElementById("section12_discribtionPanel_closebuton");
+    const section12_wood = document.getElementById("section12_wood");
+     
+    let section12mute=false;
+    let section12played=false;
+    let section12pausedAudio =null;
+    let section12ActionStart=false;
+    let currentTextIndex = 0;
+    let thirdTextTriggered = false; // Flag to ensure action triggers only once
+ 
+
+
+
+
     // Get the section element
     const elem  = document.documentElement;
 
@@ -671,6 +691,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_section11_06.muted = section11mute;
                 currentAudio.muted=section11mute;
                 commonsoundbutton.querySelector("img").src = section11mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+            break;
+            case 'section12':
+                section12mute=!section12mute;
+                audio_section12_01.muted = section12mute;
+                currentAudio.muted=section12mute;
+                commonsoundbutton.querySelector("img").src = section12mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
             break;
         }
     });
@@ -1071,7 +1097,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             section11pausedAudio=audio;
                         }
                         
-                }
+                    }
                     if(section11animationFrameId){
                         section11isPaused=true;
                         section11pausedTime += performance.now() - section11startTime; // Store correct paused time
@@ -1079,12 +1105,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         section11animationFrameId = null;
                     }
                     
+                    disableDraggingSection11();
                     
 
                 }else{
 
                     section11played=!section11played;
                     
+                    enableDraggingSection11();
 
                     if(!section11ActionStart){
                         section11triggerActions();
@@ -1109,6 +1137,36 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
                 commonplayButton.querySelector("img").src=section11played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
+            case "section12":
+                if(section12_octopusVisible()){
+                    if(section12played){
+                        section12played=!section12played;
+
+                        for (let i = 30; i < 32; i++) {
+                            const audio = audiosToPreload[i];
+                            if (isAudioPlaying(audio)) {
+                                 audio.pause();
+                                section12pausedAudio=audio;
+                            }
+                            
+                        }
+                     }else{
+
+                        section12played=!section12played;
+
+                        if(!section12ActionStart){
+                            section12triggerActions();
+                        }
+                        
+                        if (section12pausedAudio) {
+                            section12pausedAudio.play();
+                            section12pausedAudio = null; // Clear the stored audio after resuming
+                        }  
+                    
+                    }
+                    commonplayButton.querySelector("img").src=section12played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                }
             break;
 
         }
@@ -1293,12 +1351,41 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section11':
                 Section11Restart();
             break;
+            case 'section12':
+                Section12Restart();
+            break;
 
 
         }
 
     });
 
+
+    //Section12 Restart
+    function Section12Restart(){
+        section12mute = false;
+        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        section12played = false;
+        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        section12ActionStart = false;
+
+        audio_section12_01.muted = section8mute;
+        audio_section12_01.currentTime = 0;
+        audio_section12_01.pause();
+        audio_section12_02.muted = section8mute;
+        audio_section12_02.currentTime = 0;
+        audio_section12_02.pause();
+
+        section12dialogBox.style.display = "none";
+        section12_wood.style.pointerEvents="none";
+        leftButton.style.pointerEvents="none";
+        rightButton.style.pointerEvents="none";
+        currentTextIndex = 0;
+        thirdTextTriggered = false; 
+        section12discribtionPanel.style.display = "none";
+        
+        
+    }
     
    //Section11 Restart
    function Section11Restart(){
@@ -1554,7 +1641,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //common
     //Gap resize code
     function adjustGapHeights() {
-        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9','#gap11']; // IDs of the gap elements
+        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9','#gap11','#gap12']; // IDs of the gap elements
         const maxWidth = 1920; // Maximum width threshold
 
         gapElements.forEach(selector => {
@@ -1956,6 +2043,7 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(() => applyParallaxEffect("section9", 0.5));
             requestAnimationFrame(() => applyParallaxEffect("section10", 0.5));
             requestAnimationFrame(() => applyParallaxEffect("section11", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section12", 0.5));
             ticking = true;
         }
     });
@@ -4471,6 +4559,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 section11triggerActions();
              });
             break;
+            case "NumberFive":
+
+            break;
         }
         // Add your click handling logic here
     }
@@ -4942,6 +5033,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         console.log("Try Again: Reset all areas.");
     }
+    function enableDraggingSection11() {
+            // Make all draggable items draggable again
+            draggables.forEach(img => {
+                img.draggable = true;
+            });
+    }
+    function disableDraggingSection11(){
+        draggables.forEach(img => {
+            img.draggable = false;
+        });
+    }
 
 
     section11_CorrectAnswer.addEventListener("click", function () {
@@ -5037,6 +5139,8 @@ document.addEventListener("DOMContentLoaded", () => {
          smoothScrollToSceneandTrigger(section10,3000,function(){
             Section10Restart();
             section10triggerActions();
+            document.getElementById("gap11").style.display="none";
+            section11.style.display="none";
          });
     });
     
@@ -5053,6 +5157,137 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+
+
+
+
+
+
+
+
+    //Section12
+
+
+
+
+    function section12triggerActions(){
+        section12mute=false;
+        section12played=true;
+        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        section12ActionStart=true;
+        section12dialogBox.style.display = "inline-block";
+        section12dialogText.style.display = "block";
+        section12dialogText.innerHTML =
+         "Read more about eosystems and food chains. Tap on the wooden icon to learn more.";///<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
+        
+        adjustSection12ImageHeight();
+        audio_section12_01.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+        leftButton.style.pointerEvents="none";
+        rightButton.style.pointerEvents="none";
+       
+    }
+    const section12_octopusVisible = () => {
+        const octopusRect = section12_octopus.getBoundingClientRect(); // Get the bounding box of the container
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
+        // Check if the octopus is fully visible in the viewport
+        if (
+            octopusRect.bottom >= 0 &&
+            octopusRect.top <= windowHeight &&
+            octopusRect.right >= 0 &&
+            octopusRect.left <= windowWidth
+        ){
+            return true;
+        }
+        return false;
+    };
+
+    function adjustSection12ImageHeight() {
+        document.getElementById('section12dialogBoxx').style.width= document.querySelector('.section12dialogBox').style.minWidth;
+        const textHeight = section12dialogText.offsetHeight;
+        const imageHeight = document.getElementById('section12dialogBoxImage').offsetHeight;
+        document.getElementById('section12dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
+    }
+
+    audio_section12_01.addEventListener("ended", () => {
+        section12dialogBox.style.display = "none";
+        section12_wood.style.pointerEvents="visible";
+    });
+
+    section12_wood.addEventListener("click", function () {
+       
+        section12discribtionPanel.style.display="block";
+        updateText();
+        audio_section12_02.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+    });
+    audio_section12_02.addEventListener("ended", () => {
+        leftButton.style.pointerEvents="visible";
+        rightButton.style.pointerEvents="visible";
+    });
+
+    const texts = [
+        "There are many different types of ecosystems on planet Earth.",  // First text (initial state)
+        "Each ecosystem has unique groups of living things.\n\nThese living things share and compete for space and resources. In every ecosystem, there are relationships between plants and animal species within.\n\nThese relationships can be represented with food chains.", // Second text
+        "These models show how living things transfer matter and energy from one to another. Food chains include exchanges we can easily see, such as a bear eating a salmon. They also show energy flows that are unseen to humans, like kelp absorbing energy from sunlight. Actually, you are also part of a food chain, as is every living organism." // Third text
+    ];
+
+
+    function updateText() {
+        // Update the main text
+        mainText.innerHTML = texts[currentTextIndex].replace(/\n/g, "<br>"); // Ensures line breaks are added
+
+        // Hide the description panel after the first text
+        descriptionPanel.style.display = currentTextIndex === 0 ? "block" : "none";
+
+        // Disable left button on the first text
+        //leftButton.style.pointerEvents = currentTextIndex === 0 ? "none" : "auto";
+        leftButton.style.opacity = currentTextIndex === 0 ? "0.5" : "1";
+
+        // Disable right button on the last text
+        //rightButton.style.pointerEvents = currentTextIndex === texts.length - 1 ? "none" : "auto";
+        rightButton.style.opacity = currentTextIndex === texts.length - 1 ? "0.5" : "1";
+
+        // Trigger action when first reaching the third text
+        if (currentTextIndex === 2 && !thirdTextTriggered) {
+            console.log("You are at the third text!"); // Replace with your desired action
+            thirdTextTriggered = true; // Prevent re-triggering
+        }
+    }
+
+    // Right button click (next text)
+    rightButton.addEventListener("click", () => {
+        if (currentTextIndex < texts.length - 1) {
+            currentTextIndex++;
+            updateText();
+        }
+    });
+
+    // Left button click (previous text)
+    leftButton.addEventListener("click", () => {
+        if (currentTextIndex > 0) {
+            currentTextIndex--;
+            updateText();
+        }
+    });
+
+    section12_discribtionPanel_closebuton.addEventListener("click", () => {
+        section12discribtionPanel.style.display="none"; 
+    });
+
+
+    
+
+
+ 
+
+
+    
 
 
 

@@ -4881,6 +4881,336 @@ transition: transform 0.3s;
 
 
 
+/* Section 9 */
+
+#gap12{
+    --vw-height: 15;
+    height:   15vw; 
+}
+#section12 {
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    height: calc(100vw * 9 / 16);  
+    max-height: 1080px;
+    margin:0 auto;
+    background-color: #1fc190bb;  
+    overflow: visible;
+    z-index: 1;
+    
+}
+#section12wall {
+    top: -56%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+     
+    z-index: 0;
+    transform: translateX(-50%);
+ }
+ #section12_sun{
+ 
+    top: 15%;
+    left: 65%;
+    width: 70%;
+     height: auto;
+    object-fit: contain;
+    
+    z-index: 1;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section12_hill{
+ 
+    top: 40%;
+    left: 50%;
+    width: 100%;
+     height: auto;
+    object-fit: contain;
+    
+    z-index: 2;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section12_treeGround{
+    top: 40%;
+    left: 50%;
+    width: 100%;
+     height: auto;
+    object-fit: contain;
+    
+    z-index: 3;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section12_treeWood{
+    top: 81%;
+    left: 74%;
+    width: 28%;
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 4;
+    transform: translateX(-50%) translateY(-50%);
+}
+#section12_water{
+    bottom: -0.5%;
+    left: 50%;
+    width: 100%;
+    /* max-width: 1120px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 2;
+    transform: translateX(-50%) translateY(-50%);
+}
+ 
+#section12_octopus{
+    top: 79%;
+    left: 13%;
+    width: 35%;
+     height: auto;
+    object-fit: contain;
+    
+    z-index: 4;
+
+}
+#section12_wateraboveOctopus{
+    bottom: 5%;
+    left: 50%;
+    width: 100%;
+    /* max-width: 1536px; */
+    height: auto;
+    object-fit: contain;
+    
+    z-index: 5;
+    transform: translateX(-50%) translateY(0%);
+}
+
+.section12dialogBox {
+    position: absolute;
+    bottom: 30%; /* Position relative to viewport height */
+    left: 16%; /* Position relative to viewport width */
+    width: 15%; /* Adjust base width as needed */
+    min-width: 15%;
+    max-width: 34%;
+    height: auto; /* Maintain aspect ratio */
+    transform: translateX(-50%);
+    z-index: 5;
+    background-color: rgba(0, 123, 255, 0);
+    display: none;
+}
+#section12dialogBoxImage{
+
+    width: 100%; /* Inherit container width */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transform: scaleX(1);
+}
+.section12dialogBox .text{
+    position: absolute; 
+    top: 35%; /* Adjust as per requirement */
+    left: 50%; /* Adjust as per requirement */
+    width: 80%;
+     
+    transform: translate(-50%,-50%); /* Center it */
+    background-color: rgba(209, 165, 33, 0); /* Optional for better visibility */
+    border-radius: 0.5vw; /* Optional styling */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-size: 1.2vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    color: #000000; /* Ensure readability */
+    line-height: 1.5; /* Adjust line spacing */
+    padding: 10%; /* Space around the text */
+    
+}
+#section12dialogText{
+    top: 42%;
+  
+    transform: translate(-50%, -50%);
+}
+
+#section12_wood{
+    top: 17%;
+    left: 73%;
+    width: 36%;
+     height: auto;
+    object-fit: contain;
+    transform: translateX(-50%) translateY(0%);
+    pointer-events: none;
+}
+#section12_wood p {
+    position: absolute;
+    top: 20%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    width:90% ;
+    height: auto;
+    transform: translate(-50%, -50%); /* Adjust positioning to center */
+    color: rgb(255, 255, 255); /* Text color */
+    font-family: 'Heinemann';
+    font-style:normal ;
+    font-weight: bold;
+    font-size: 3.4vw; /* Adjust text size */
+    text-align: center;
+    text-wrap: wrap;
+    background-color: #45a04900;
+    overflow: hidden;
+    pointer-events: none;
+      
+}
+
+/* Main Panel Container */
+#section12discribtionPanel {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 66%;
+    background-color: rgba(255, 255, 255, 0);
+    font-family: 'Heinemann';
+    z-index: 10;
+    display: none;
+}
+
+/* Close Button */
+#section12_discribtionPanel_closebuton {
+    position: absolute;
+    top: -1%;
+    right: -4%;
+    width: 6%;
+    height: 12%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Background */
+#section12_discribtionPanel_background {
+    top: 0%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transform: translateX(-50%) translateY(0%);
+}
+
+ 
+
+/* Heading */
+#section12_discribtionPanel_heading {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    font-size: 3vw;
+    font-weight: bold;
+    color: #2f7611;
+    text-align: center;
+}
+
+.heading-line {
+    width: 86%; /* Adjust width */
+    height: 0.3%; /* 1px or 2px thickness */
+    background-color: black;
+    border: none;
+    position: absolute;
+    top: 20%;
+    left: 7%;
+}
+/* Bullet Point Text */
+#section12_discribtionPanel_text {
+    position: absolute;
+    top: 40%;
+    left: 7.7%;
+    width: 60%;
+    font-size: 2vw;
+    line-height: 1.5;
+    background-color: #255eae00;
+}
+/* #section12_discribtionPanel_text ul::before {
+    content: "These include:";
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px; /* Adds spacing before bullets
+} */
+#section12_discribtionPanel_text ul {
+    list-style-type: disc; /* Bullet points */
+    padding-left: 30px; /* Align bullets properly */
+    background-color: #23b63400;
+}
+
+/* Bottom Instruction Text */
+.section12MainText {
+    position: absolute;
+    top: 33%;
+    width: 85%;
+    left: 7.7%;
+    text-align: left;
+    font-size: 2vw;
+    color: rgb(0, 0, 0);
+}
+#section12_discribtionPanel_leftButton{
+    bottom: -10%;
+    left: 88%;
+    width: 5%;
+    height: auto;
+    object-fit: contain;
+ }
+#section12_discribtionPanel_rightButton{
+    bottom: -10%;
+    left: 95%;
+    width: 5%;
+    height: auto;
+    object-fit: contain;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Restrict font scaling for larger widths */
 @media (min-width: 1920px) {

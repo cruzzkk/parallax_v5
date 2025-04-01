@@ -379,6 +379,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Part C Globel variables
     let is_fourkeyAccuired=false;
     let is_fivethkeyAccuired=false;
+    let thirdTextTriggered = false; // Flag to ensure action triggers only once
 
 
     const section10 = document.getElementById("section10");
@@ -386,6 +387,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const section10_FlyingOctopus = document.getElementById("section10_FlyingOctopus");
     const section10_WhoEatWaht = document.getElementById("section10_WhoEatWaht");
     const section10_buttons = document.querySelectorAll(".section10_NumberButtons");
+    const allKeys = document.querySelectorAll(".section10keys");
+
+
 
     let section10mute=false;
     let section10played=false;
@@ -460,7 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let section12pausedAudio =null;
     let section12ActionStart=false;
     let currentTextIndex = 0;
-    let thirdTextTriggered = false; // Flag to ensure action triggers only once
+    
 
 
     const section13 = document.getElementById("section13");
@@ -496,6 +500,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const section14 = document.getElementById("section14");
     const section14_octopus = document.getElementById("section14_octopus");
+    const section14_Ok = document.getElementById("section14_Ok");
      
     let section14mute=false;
     let section14played=false;
@@ -1260,14 +1265,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                     
                     
-                    //disableDraggingSection11();
+                    disableDraggingSection13();
                     
 
                 }else{
 
                     section13played=!section13played;
                     
-                   // enableDraggingSection11();
+                    enableDraggingSection13();
 
                     if(!section13ActionStart){
                         section13triggerActions();
@@ -1519,6 +1524,8 @@ document.addEventListener("DOMContentLoaded", () => {
         section14played = false;
         commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
         section14ActionStart = false;
+
+        section14_Ok.style.display="none";
     
         audio_section14_01.muted = section13mute;
         audio_section14_01.currentTime = 0;
@@ -1596,7 +1603,7 @@ document.addEventListener("DOMContentLoaded", () => {
         leftButton.style.pointerEvents="none";
         rightButton.style.pointerEvents="none";
         currentTextIndex = 0;
-        thirdTextTriggered = false; 
+        //thirdTextTriggered = false; 
         section12discribtionPanel.style.display = "none";
         
         
@@ -1639,7 +1646,7 @@ document.addEventListener("DOMContentLoaded", () => {
     section11dialogText.style.display = "none";
     section11_octopus.style.display="none";
     section11_flyingoctopus.style.display="block";
-    section11_flyingoctopus.style.top="-90%";
+    section11_flyingoctopus.style.top="-30%";
     section11_kelp.style.display="block";
     section11_bear.style.display="block";
     section11_fish.style.display="block";
@@ -1688,12 +1695,13 @@ document.addEventListener("DOMContentLoaded", () => {
         audio_section10_04.pause();
         
          section10_FlyingOctopus.style.display="none";
-         section10_FlyingOctopus.style.top = "-40%";
-         section10_FlyingOctopus.style.left="22%";
+        section10_FlyingOctopus.style.top = "-40%";
+        section10_FlyingOctopus.style.left="22%";
          section10_FlyingOctopus.style.width="28%";
-         section10_zoomImage.style.transform = `translate(0%, -40%) scale(2)`;
+         //section10_zoomImage.style.transform = `translate(0%, -40%) scale(2)`;
          VisibleButtons("none");
          resetButtons();
+         updateKeys([""]);
          section10_WhoEatWaht.style.display="none";
          section10nextImage.style.display = "none";
          section10startTime = null;
@@ -1912,61 +1920,70 @@ document.addEventListener("DOMContentLoaded", () => {
     
         requestAnimationFrame(step);
     }
-    function smoothScrollToSceneandTrigger(target, duration,Oncomplete) {
-        const start = window.scrollY;
-        const end = target.offsetTop;
-        const distance = end - start;
-        const startTime = performance.now();
-    
-        function step(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = easeOutCubic(progress);
-    
-        window.scrollTo(0, start + distance * ease);
-    
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            }else{
-                Oncomplete();
-            }
-
-        }
-    
-        // Easing functions for different effects
-        function easeOutCubic(t) {
-            return 1 - Math.pow(1 - t, 3);
-        }
-    
-        requestAnimationFrame(step);
-    }
-
-    // function smoothScrollTo(target, duration) {
+    // function smoothScrollToSceneandTrigger(target, duration,Oncomplete) {
     //     const start = window.scrollY;
     //     const end = target.offsetTop;
     //     const distance = end - start;
-    //     let startTime = null;
+    //     const startTime = performance.now();
     
     //     function step(currentTime) {
-    //         if (!startTime) startTime = currentTime;
-    //         const elapsed = currentTime - startTime;
-    //         const progress = Math.min(elapsed / duration, 1);
-    //         const ease = easeOutSlow(progress); // Use a slow easing function
+    //     const elapsed = currentTime - startTime;
+    //     const progress = Math.min(elapsed / duration, 1);
+    //     const ease = easeOutCubic(progress);
     
-    //         window.scrollTo(0, start + distance * ease);
+    //     window.scrollTo(0, start + distance * ease);
     
     //         if (progress < 1) {
     //             requestAnimationFrame(step);
+    //         }else{
+    //             Oncomplete();
     //         }
+
     //     }
     
-    //     // Custom easing function for **extra slow start**
-    //     function easeOutSlow(t) {
-    //         return 1 - Math.pow(1 - t, 4); // Makes it start **extra slow**
+    //     // Easing functions for different effects
+    //     function easeOutCubic(t) {
+    //         return 1 - Math.pow(1 - t, 3);
     //     }
     
     //     requestAnimationFrame(step);
     // }
+
+    //Fixed Version: Prevents Jerking & Smooth Scrolling
+    function smoothScrollToSceneandTrigger(target, duration, Oncomplete) {
+        const start = window.scrollY;
+        const end = target.getBoundingClientRect().top + window.scrollY; // More accurate position
+        const distance = end - start;
+        let startTime = null;
+    
+        function step(currentTime) {
+            if (!startTime) startTime = currentTime; // Ensure a smooth start
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const ease = easeOutCubic(progress);
+    
+            window.scrollTo(0, start + distance * ease);
+    
+            if (progress < 1) {
+                requestAnimationFrame(step);
+            } else {
+                if (typeof Oncomplete === "function") {
+                    Oncomplete();
+                }
+            }
+        }
+    
+        function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+        }
+    
+        // Ensure layout is stable before starting the animation
+        requestAnimationFrame(() => {
+            requestAnimationFrame(step);
+        });
+    }
+    
+ 
     
     function smoothScrollToFreeze(target, duration) {
         const start = window.scrollY;
@@ -2185,7 +2202,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
+    function waitForElementToRender(element, callback) {
+        if (element.offsetHeight > 0 && element.offsetWidth > 0) {
+            // Element is visible, call the function
+            requestAnimationFrame(callback);
+        } else {
+            // Use MutationObserver to wait for changes
+            const observer = new MutationObserver(() => {
+                if (element.offsetHeight > 0 && element.offsetWidth > 0) {
+                    observer.disconnect(); // Stop observing
+                    requestAnimationFrame(callback);
+                }
+            });
+    
+            observer.observe(element, { attributes: true, childList: true, subtree: true });
+        }
+    }
 
 
 
@@ -4704,6 +4736,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
         if(!is_fourkeyAccuired&&!is_fivethkeyAccuired){
 
+            // Set opacity for all keys (disable them)
+            updateKeys([""]);
             console.log("myru", section10_zoomImage); // Should log an <img> element
     
             if (section10_zoomImage) {
@@ -4723,6 +4757,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section10_zoomImage.style.transform = `translate(-10%, 0%) scale(5)`;
             VisibleButtons("block");
             resetButtons();
+            updateKeys(["section10keyone", "section10keytwo","section10keythree","section10keyfour"]);
             movingSection10FlyingOctopus(30, 27, 6000, section10_FlyingOctopus, section10_zoomImage,
                 27,52,25,25,5,5,-10,-10,0,0
                 , function () {
@@ -4737,6 +4772,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section10_zoomImage.style.transform = `translate(-10%, 0%) scale(5)`;
             VisibleButtons("block");
             resetButtons();
+            updateKeys(["section10keyone", "section10keytwo","section10keythree","section10keyfour","section10keyfive"]);
             movingSection10FlyingOctopus(27, 27, 6000, section10_FlyingOctopus, section10_zoomImage,
                 52,67,25,25,5,5,-10,-10,0,0
                 , function () {
@@ -4748,6 +4784,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
     }
+
+
+    function updateKeys(keysToEnable) {
+     
+        // Set opacity for all keys
+        allKeys.forEach(key => {
+            key.style.opacity = "0.5"; // Disable by reducing opacity
+        });
+    
+        // Enable the specified keys
+        keysToEnable.forEach(keyId => {
+            const keyElement = document.getElementById(keyId);
+            if (keyElement) {
+                keyElement.style.opacity = "1"; // Fully visible when enabled
+            }
+        });
+    }
+
     audio_section10_01.addEventListener("ended", () => {
          
         section10_WhoEatWaht.style.display="block";
@@ -4780,6 +4834,14 @@ document.addEventListener("DOMContentLoaded", () => {
         VisibleButtons("block");
         resetButtons();
         //move to setion14
+        document.getElementById("gap14").style.display="block";
+        section14.style.display="block";
+        smoothScrollToSceneandTrigger(section14,3000,function(){
+            Section14Restart();
+            section14triggerActions();
+          
+           
+         });
     });
 
     // Function to enable one button and disable others
@@ -4805,17 +4867,33 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log(event.currentTarget.id + " clicked!");
         switch(event.currentTarget.id){
             case "NumberOne":
-            //Section 9 Start
+            //Section 11 Start
             document.getElementById("gap11").style.display="block";
             section11.style.display="block";
+            // Wait until section11 is fully visible, then scroll smoothly
+            waitForElementToRender(section11, () => {
+                smoothScrollToSceneandTrigger(section11, 3000, function () {
+                    Section11Restart();
+                    section11triggerActions();
+                });
+            });
 
-            smoothScrollToSceneandTrigger(section11,3000,function(){
-                Section11Restart();
-                section11triggerActions();
-             });
+            // smoothScrollToSceneandTrigger(section11,3000,function(){
+            //     Section11Restart();
+            //     section11triggerActions();
+            //  });
             break;
             case "NumberFive":
+                document.getElementById("gap12").style.display="block";
+                section12.style.display="block";
 
+                waitForElementToRender(section12, () => {
+                    smoothScrollToSceneandTrigger(section12,3000,function(){
+                        Section12Restart();
+                        section12triggerActions();
+                    });
+                });
+                
             break;
         }
         // Add your click handling logic here
@@ -4940,7 +5018,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section11_bear.style.display="block";
             section11_fish.style.display="block";
             section11_mushroom.style.display="block";
-            movingSection11FlyingOctopus(-90, 4, 6000, section11_flyingoctopus, function () {
+            movingSection11FlyingOctopus(-30, 4, 6000, section11_flyingoctopus, function () {
                 console.log("Animation complete!");
                 section11_octopus.style.display="block";
                 section11_flyingoctopus.style.display="none";
@@ -5334,6 +5412,19 @@ document.addEventListener("DOMContentLoaded", () => {
             clonedImg.style.height = "100%";
             clonedImg.style.objectFit = "cover";
 
+            let clonedText = clonedItem.querySelector("p").cloneNode(true);
+            clonedText.style.position = "absolute";
+            clonedText.style.top = "80%"; // Center vertically
+            clonedText.style.left = "50%"; // Center horizontally
+            clonedText.style.width = "50%";
+            clonedText.style.height = "auto";
+            clonedText.style.transform = "translate(-50%, -50%)";
+            clonedText.style.textAlign = "center"; // Keep text centered
+            clonedText.style.fontWeight = "bold"; // Make text bold
+            clonedText.style.whiteSpace = "normal"; // Allow text wrapping
+            clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
+ 
+
             // Create tick icon
             const tickIcon = document.createElement("img");
             tickIcon.src = tickIconSrc;
@@ -5347,6 +5438,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Append cloned image and tick to wrapper
             wrapperDiv.appendChild(clonedImg);
+            wrapperDiv.appendChild(clonedText);
             wrapperDiv.appendChild(tickIcon);
             area.appendChild(wrapperDiv);
 
@@ -5391,12 +5483,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     section11_Ok.addEventListener("click", function () {
         is_fourkeyAccuired=true;
-         smoothScrollToSceneandTrigger(section10,3000,function(){
-            Section10Restart();
-            section10triggerActions();
-            document.getElementById("gap11").style.display="none";
-            section11.style.display="none";
-         });
+        waitForElementToRender(section10, () => {
+            smoothScrollToSceneandTrigger(section10,3000,function(){
+                Section10Restart();
+                section10triggerActions();
+                document.getElementById("gap11").style.display="none";
+                section11.style.display="none";
+             });
+        });
+         
     });
     
 
@@ -5510,8 +5605,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Trigger action when first reaching the third text
         if (currentTextIndex === 2 && !thirdTextTriggered) {
-            console.log("You are at the third text!"); // Replace with your desired action
-            thirdTextTriggered = true; // Prevent re-triggering
+            console.log("You are at the third text!");
+            thirdTextTriggered = true; // Prevent re-triggering 
+            document.getElementById("gap13").style.display="block";
+            section13.style.display="block";
+
+            waitForElementToRender(section13, () => {
+                smoothScrollToSceneandTrigger(section13,3000,function(){
+                    Section13Restart();
+                    section13triggerActions();
+                 });
+            });
+            
+            
         }
     }
 
@@ -5895,6 +6001,19 @@ document.addEventListener("DOMContentLoaded", () => {
             clonedImg.style.height = "100%";
             clonedImg.style.objectFit = "cover";
 
+            let clonedText = clonedItem.querySelector("p").cloneNode(true);
+             clonedText.style.position = "absolute";
+             clonedText.style.top = "80%"; // Center vertically
+             clonedText.style.left = "50%"; // Center horizontally
+             clonedText.style.width = "50%";
+             clonedText.style.height = "auto";
+             clonedText.style.transform = "translate(-50%, -50%)";
+             clonedText.style.textAlign = "center"; // Keep text centered
+             clonedText.style.fontWeight = "bold"; // Make text bold
+             clonedText.style.whiteSpace = "normal"; // Allow text wrapping
+             clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
+              
+
             // Create tick icon
             const tickIcon = document.createElement("img");
             tickIcon.src = tickIconSrc;
@@ -5908,6 +6027,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Append cloned image and tick to wrapper
             wrapperDiv.appendChild(clonedImg);
+            wrapperDiv.appendChild(clonedText);
             wrapperDiv.appendChild(tickIcon);
             area.appendChild(wrapperDiv);
 
@@ -5940,12 +6060,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     section13_Ok.addEventListener("click", function () {
         is_fivethkeyAccuired=true;
-         smoothScrollToSceneandTrigger(section10,3000,function(){
-            Section10Restart();
-            section10triggerActions();
-            document.getElementById("gap13").style.display="none";
-            section13.style.display="none";
-         });
+        waitForElementToRender(section10, () => {
+            smoothScrollToSceneandTrigger(section10,3000,function(){
+                Section10Restart();
+                section10triggerActions();
+                document.getElementById("gap13").style.display="none";
+                section13.style.display="none";
+                document.getElementById("gap12").style.display="none";
+                section12.style.display="none";
+             });
+        });
+         
     });
 
 
@@ -5990,6 +6115,21 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     audio_section14_01.addEventListener("ended", () => {
        //Next part
+       section14_Ok.style.display="block";
+    });
+
+    section14_Ok.addEventListener("click", function () {
+      
+        waitForElementToRender(section3, () => {
+            smoothScrollToSceneandTrigger(section3,3000,function(){
+                
+                // document.getElementById("gap14").style.display="none";
+                // section14.style.display="none";
+                // document.getElementById("gap14").style.display="none";
+                // section12.style.display="none";
+             });
+        });
+         
     });
 
 

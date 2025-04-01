@@ -43,6 +43,7 @@
         const audio_section10_01=new Audio("assets/audio/PartC_Audio/1_Alright_explorers!_Weve_reach.mp3");
         const audio_section10_02=new Audio("assets/audio/PartC_Audio/2_Hey_there,_adventurers!_Get_re.mp3");
         const audio_section10_03=new Audio("assets/audio/PartC_Audio/8_High_five!_Youre_mastering_th.mp3");
+        const audio_section10_04=new Audio("assets/audio/PartC_Audio/14_Hooray!_You_did_it!_Youve_nav.mp3");
 
 
         const audio_section11_01=new Audio("assets/audio/PartC_Audio/3_Uh_oh,_the_food_chain_is_all_m.mp3");
@@ -57,13 +58,26 @@
         const audio_section12_01=new Audio("assets/audio/PartC_Audio/9_Read_more_about_ecosystems_and.mp3");
         const audio_section12_02=new Audio("assets/audio/PartC_Audio/10_Use_the_arrow_keys_to_move_for.mp3");
 
+        const audio_section13_01=new Audio("assets/audio/PartC_Audio/upTheres_a_crisis_in_t.mp3");
+        const audio_section13_02=new Audio("assets/audio/PartC_Audio/Drag the animal to box.mp3");
+        const audio_section13_03=new Audio("assets/audio/PartC_Audio/5_Oops,_that’s_not_quite_right.mp3");
+        const audio_section13_04=new Audio("assets/audio/PartC_Audio/13_The_order_looks_almost_right.mp3");
+        const audio_section13_05=new Audio("assets/audio/PartC_Audio/12_Great_job_placing_all_the_anim.mp3");
+
+
+
+        const audio_section14_01=new Audio("assets/audio/PartC_Audio/16_Look_out,_world!_Weve_got_a_b.mp3");
+        
+
 
         const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10,
              audio9,audio_section7,audio_section8_01,audio_section8_02,audio_section8_03,audio_section8_04,
              audio_section9_01,audio_section9_02,audio_section9_03,audio_section9_04,audio_section9_05,audio_section9_06,
-             audio_section10_01,audio_section10_02,audio_section10_03,
+             audio_section10_01,audio_section10_02,audio_section10_03,audio_section10_04,
              audio_section11_01,audio_section11_02,audio_section11_03,audio_section11_04,audio_section11_05,audio_section11_06,
-             audio_section12_01,audio_section12_02];
+             audio_section12_01,audio_section12_02,
+             audio_section13_01,audio_section13_02,audio_section13_03,audio_section13_04,audio_section13_05,
+             audio_section14_01];
 
 // Function to preload images
 function preloadImages(images, callback) {
@@ -122,8 +136,8 @@ function preloadVideo(videoElementId, videoSrc, callback) {
 
 // Function to collect all images inside <div> elements
 function collectImages() {
-    const imageElements = document.querySelectorAll("div img");
-    return Array.from(imageElements).map(img => img.src); // Return all image URLs
+    const imageElements = document.querySelectorAll("div img"); 
+    return Array.from(imageElements).map(img => img.src).filter(src => src !== ""); 
 }
 
 // Function to preload images
@@ -159,27 +173,26 @@ function renderPreloadedImages(preloadedImages) {
 
 
 window.onload = function() {
-    const imagesToPreload = collectImages(); // Get all images inside divs
 
-    // preloadImages_all(imagesToPreload, function(preloadedImages) {
-    //     renderPreloadedImages(preloadedImages); // Assign preloaded images
-       
-    // });
-
-    preloadImages(imagesToPreload, function() {
-        preloadAudios(audiosToPreload, function() {
-            preloadVideo('bgVideo', 'assets/video/Section1.mp4', function() {
-                // Once everything is preloaded, hide the preloader
-                const preloader = document.getElementById('preloader');
-                preloader.style.opacity = '0'; // Fade-out effect
-                setTimeout(() => {
-                    preloader.style.display = 'none'; // Hide the preloader after fade-out
-                }, 500); // Wait for fade-out to complete
+    const imagesToPreload = collectImages();
+    preloadImages_all(imagesToPreload, function (preloadedImages) {
+        renderPreloadedImages(preloadedImages); // Assign preloaded images
+        preloadImages(imagesToPreload, function() {
+            preloadAudios(audiosToPreload, function() {
+                preloadVideo('bgVideo', 'assets/video/Section1.mp4', function() {
+                    // Once everything is preloaded, hide the preloader
+                    const preloader = document.getElementById('preloader');
+                    preloader.style.opacity = '0'; // Fade-out effect
+                    setTimeout(() => {
+                        preloader.style.display = 'none'; // Hide the preloader after fade-out
+                    }, 500); // Wait for fade-out to complete
+                });
             });
         });
+         
     });
-
     
+
 };
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -364,8 +377,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // Part C Globel variables
-    let is_fourkeyAccuired=false
-    let is_fivethkeyAccuired=false
+    let is_fourkeyAccuired=false;
+    let is_fivethkeyAccuired=false;
 
 
     const section10 = document.getElementById("section10");
@@ -448,6 +461,48 @@ document.addEventListener("DOMContentLoaded", () => {
     let section12ActionStart=false;
     let currentTextIndex = 0;
     let thirdTextTriggered = false; // Flag to ensure action triggers only once
+
+
+    const section13 = document.getElementById("section13");
+    const section13_octopus = document.getElementById("section13_octopus");
+    const section13dialogBox = document.querySelector(".section13dialogBox");
+    const section13dialogText = document.getElementById("section13dialogText");
+    const section13_snake = document.getElementById("section13_snake");
+    const section13_frog = document.getElementById("section13_frog");
+    const section13_ant = document.getElementById("section13_ant");
+    const section13_hawk = document.getElementById("section13_hawk");
+    let section13mute=false;
+    let section13played=false;
+    let section13pausedAudio =null;
+    let section13ActionStart=false;
+    let section13_submit_pressed=0;
+
+
+    const section13_snake_container = document.getElementById("section13_snake_container");
+    const section13_hawk_container = document.getElementById("section13_hawk_container");
+    const section13_ant_container = document.getElementById("section13_ant_container");
+    const section13_frog_container = document.getElementById("section13_frog_container");
+    const section13_dragArea1 = document.getElementById("section13_dragArea1");
+    const section13_dragArea2 = document.getElementById("section13_dragArea2");
+    const section13_dragArea3 = document.getElementById("section13_dragArea3");
+    const section13_dragArea4 = document.getElementById("section13_dragArea4");
+    const section13_Headinglabel = document.getElementById("section13_Headinglabel");
+    const section13_Submit = document.getElementById("section13_Submit");
+    const section13_TryAgain = document.getElementById("section13_TryAgain");
+    const section13_CorrectAnswer = document.getElementById("section13_CorrectAnswer");
+    const section13_Ok = document.getElementById("section13_Ok");
+
+
+
+    const section14 = document.getElementById("section14");
+    const section14_octopus = document.getElementById("section14_octopus");
+     
+    let section14mute=false;
+    let section14played=false;
+    let section14pausedAudio =null;
+    let section14ActionStart=false;
+
+
  
 
 
@@ -680,6 +735,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_section10_01.muted = section10mute;
                 audio_section10_02.muted = section10mute;
                 audio_section10_03.muted = section10mute;      
+                audio_section10_04.muted = section10mute;   
                 currentAudio.muted=section10mute;
                 commonsoundbutton.querySelector("img").src = section10mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
             break;
@@ -697,8 +753,26 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section12':
                 section12mute=!section12mute;
                 audio_section12_01.muted = section12mute;
+                audio_section12_02.muted = section12mute;
                 currentAudio.muted=section12mute;
                 commonsoundbutton.querySelector("img").src = section12mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+            break;
+            case 'section13':
+                section13mute=!section13mute;
+                audio_section13_01.muted = section13mute;
+                audio_section13_02.muted = section13mute;
+                audio_section13_03.muted = section13mute;
+                audio_section13_04.muted = section13mute;
+                audio_section13_05.muted = section13mute;
+                
+                currentAudio.muted=section13mute;
+                commonsoundbutton.querySelector("img").src = section13mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+            break;
+            case 'section14':
+                section14mute=!section14mute;
+                audio_section14_01.muted = section14mute;
+                currentAudio.muted=section14mute;
+                commonsoundbutton.querySelector("img").src = section14mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
             break;
         }
     });
@@ -1028,7 +1102,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(section10played){
                     section10played=!section10played;
 
-                    for (let i = 21; i < 24; i++) {
+                    for (let i = 21; i < 25; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
@@ -1092,7 +1166,7 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      
  
-                    for (let i = 24; i < 30; i++) {
+                    for (let i = 25; i < 31; i++) {
                         const audio = audiosToPreload[i];
                         if (isAudioPlaying(audio)) {
                              audio.pause();
@@ -1145,7 +1219,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(section12played){
                         section12played=!section12played;
 
-                        for (let i = 30; i < 32; i++) {
+                        for (let i = 31; i < 33; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
@@ -1170,6 +1244,75 @@ document.addEventListener("DOMContentLoaded", () => {
                     commonplayButton.querySelector("img").src=section12played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 }
             break;
+            case 'section13':
+                if(section13played){
+                    section13played=!section13played;
+                     
+                     
+ 
+                    for (let i = 33; i < 38; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                             audio.pause();
+                            section13pausedAudio=audio;
+                        }
+                        
+                    }
+                    
+                    
+                    //disableDraggingSection11();
+                    
+
+                }else{
+
+                    section13played=!section13played;
+                    
+                   // enableDraggingSection11();
+
+                    if(!section13ActionStart){
+                        section13triggerActions();
+                    }
+                    
+                    if (section13pausedAudio) {
+                        console.log("FKASS1");
+                        section13pausedAudio.play();
+                        section13pausedAudio = null; // Clear the stored audio after resuming
+                    }  
+                    
+                }
+                commonplayButton.querySelector("img").src=section13played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
+            case "section14":
+                if(section14_octopusVisible()){
+                    if(section14played){
+                        section14played=!section14played;
+
+                        for (let i = 38; i < 39; i++) {
+                            const audio = audiosToPreload[i];
+                            if (isAudioPlaying(audio)) {
+                                 audio.pause();
+                                section14pausedAudio=audio;
+                            }
+                            
+                        }
+                     }else{
+
+                        section14played=!section14played;
+
+                        if(!section14ActionStart){
+                            section14triggerActions();
+                        }
+                        
+                        if (section14pausedAudio) {
+                            section14pausedAudio.play();
+                            section14pausedAudio = null; // Clear the stored audio after resuming
+                        }  
+                    
+                    }
+                    commonplayButton.querySelector("img").src=section14played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                }
+            break;
+            
 
         }
     });
@@ -1356,11 +1499,81 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section12':
                 Section12Restart();
             break;
+            case 'section13':
+                Section13Restart();
+            break;
+            case 'section14':
+                Section14Restart();
+            break;
 
 
         }
 
     });
+
+
+
+    function Section14Restart(){
+        section14mute = false;
+        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        section14played = false;
+        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        section14ActionStart = false;
+    
+        audio_section14_01.muted = section13mute;
+        audio_section14_01.currentTime = 0;
+        audio_section14_01.pause();
+    }
+
+    function Section13Restart(){
+        section13mute = false;
+        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        section13played = false;
+        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        section13ActionStart = false;
+    
+        audio_section13_01.muted = section13mute;
+        audio_section13_01.currentTime = 0;
+        audio_section13_01.pause();
+        audio_section13_02.muted = section13mute;
+        audio_section13_02.currentTime = 0;
+        audio_section13_02.pause();
+        audio_section13_03.muted = section13mute;
+        audio_section13_03.currentTime = 0;
+        audio_section13_03.pause();
+        audio_section13_04.muted = section13mute;
+        audio_section13_04.currentTime = 0;
+        audio_section13_04.pause();
+        audio_section13_05.muted = section13mute;
+        audio_section13_05.currentTime = 0;
+        audio_section13_05.pause();
+         
+
+        section13_snake.style.display="block";
+        section13_frog.style.display="block";
+        section13_ant.style.display="block";
+        section13_hawk.style.display="block";
+        section13dialogBox.style.display = "none";
+        section13dialogText.style.display = "none";
+
+        section13_snake_container.style.display="none";
+        section13_hawk_container.style.display="none";
+        section13_ant_container .style.display="none";
+        section13_frog_container.style.display="none";
+        section13_dragArea1.style.display="none";
+        section13_dragArea2.style.display="none";
+        section13_dragArea3.style.display="none";
+        section13_dragArea4.style.display="none";
+        section13_Headinglabel.style.display="none";
+
+        section13_TryAgain.style.display="none";
+        section13_Submit.style.display="none";
+        section13_Headinglabel.style.display="none";
+        section13_CorrectAnswer.style.display="none";
+        section13_Ok.style.display="none";
+        Section13DragReset();
+        section13_submit_pressed=0;
+    }
 
 
     //Section12 Restart
@@ -1470,6 +1683,9 @@ document.addEventListener("DOMContentLoaded", () => {
         audio_section10_03.muted = section8mute;
         audio_section10_03.currentTime = 0;
         audio_section10_03.pause();
+        audio_section10_04.muted = section8mute;
+        audio_section10_04.currentTime = 0;
+        audio_section10_04.pause();
         
          section10_FlyingOctopus.style.display="none";
          section10_FlyingOctopus.style.top = "-40%";
@@ -1643,7 +1859,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //common
     //Gap resize code
     function adjustGapHeights() {
-        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9','#gap11','#gap12']; // IDs of the gap elements
+        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9','#gap11','#gap12','gap13','gap14']; // IDs of the gap elements
         const maxWidth = 1920; // Maximum width threshold
 
         gapElements.forEach(selector => {
@@ -1949,6 +2165,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 commonsoundbutton.querySelector("img").src = section10mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
                 commonplayButton.querySelector("img").src=section10played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
             break;
+            case 'section11':
+                commonsoundbutton.querySelector("img").src = section11mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonplayButton.querySelector("img").src=section11played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
+            case 'section12':
+                commonsoundbutton.querySelector("img").src = section12mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonplayButton.querySelector("img").src=section12played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
+            case 'section13':
+                commonsoundbutton.querySelector("img").src = section13mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonplayButton.querySelector("img").src=section13played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
+            case 'section14':
+                commonsoundbutton.querySelector("img").src = section14mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonplayButton.querySelector("img").src=section14played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
         }
     }
 
@@ -2046,7 +2278,8 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(() => applyParallaxEffect("section10", 0.5));
             requestAnimationFrame(() => applyParallaxEffect("section11", 0.5));
             requestAnimationFrame(() => applyParallaxEffect("section12", 0.5));
-            //requestAnimationFrame(() => applyParallaxEffect("section13", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section13", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section14", 0.5));
             ticking = true;
         }
     });
@@ -4499,6 +4732,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             });
 
+        }else if(is_fourkeyAccuired&&is_fivethkeyAccuired){
+            section10_FlyingOctopus.style.top="30%";
+            section10_zoomImage.style.transform = `translate(-10%, 0%) scale(5)`;
+            VisibleButtons("block");
+            resetButtons();
+            movingSection10FlyingOctopus(27, 27, 6000, section10_FlyingOctopus, section10_zoomImage,
+                52,67,25,25,5,5,-10,-10,0,0
+                , function () {
+                console.log("Animation complete!");
+                audio_section10_04.play().catch((error) => {
+                    console.error('Error playing audio:', error);
+                });
+            });
         }
         
     }
@@ -4528,6 +4774,12 @@ document.addEventListener("DOMContentLoaded", () => {
         VisibleButtons("block");
         resetButtons();
         enableButton("NumberFive");
+    });
+    audio_section10_04.addEventListener("ended", () => {
+         
+        VisibleButtons("block");
+        resetButtons();
+        //move to setion14
     });
 
     // Function to enable one button and disable others
@@ -5282,6 +5534,475 @@ document.addEventListener("DOMContentLoaded", () => {
     section12_discribtionPanel_closebuton.addEventListener("click", () => {
         section12discribtionPanel.style.display="none"; 
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Section13
+
+
+
+    function section13triggerActions(){
+        section13mute=false;
+        section13played=true;
+        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        if(section13played){
+            section13_snake.style.display="block";
+            section13_frog.style.display="block";
+            section13_ant.style.display="block";
+            section13_hawk.style.display="block";
+            
+            
+            section13ActionStart=true;
+            section13dialogBox.style.display = "inline-block";
+            section13dialogText.style.display = "block";
+            section13dialogText.innerHTML =
+             "There's a crisis in the ecosystem! Help these animals survive by placing them in the orrect order of the food chain.<br><span style='color:#BC0404;font-style: italic;'>Drag the animals to the boxes to create a food chain.</span>";///<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
+            
+            adjustSection13ImageHeight();
+            audio_section13_01.play().catch((error) => {
+                console.error('Error playing audio:', error);
+            });
+        }
+    }
+    function adjustSection13ImageHeight() {
+        document.getElementById('section13dialogBoxx').style.width= document.querySelector('.section13dialogBox').style.minWidth;
+        const textHeight = section13dialogText.offsetHeight;
+        const imageHeight = document.getElementById('section13dialogBoxImage').offsetHeight;
+        document.getElementById('section13dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
+    }
+
+
+    audio_section13_01.addEventListener("ended", () => {
+
+        section13dialogText.innerHTML =
+        "<span style='color:#BC0404;font-style: italic;'>Drag the animals to the boxes to create a food chain.</span>";
+        adjustSection13ImageHeight();
+        audio_section13_02.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+
+        section13_snake.style.display="none";
+        section13_frog.style.display="none";
+        section13_ant.style.display="none";
+        section13_hawk.style.display="none";
+        section13dialogBox.style.display = "none";
+
+        section13_snake_container.style.display="block";
+        section13_hawk_container.style.display="block";
+        section13_ant_container .style.display="block";
+        section13_frog_container.style.display="block";
+        section13_dragArea1.style.display="block";
+        section13_dragArea2.style.display="block";
+        section13_dragArea3.style.display="block";
+        section13_dragArea4.style.display="block";
+        section13_Headinglabel.style.display="block";
+     });
+
+     audio_section13_02.addEventListener("ended", () => {
+        section13_Submit.style.display="block";
+     });
+
+
+     const section13draggables = document.querySelectorAll(".image-container_drag_section13 img[draggable='true']");
+     const section13dropAreas = document.querySelectorAll(".drop-area_section13");
+ 
+     let section13draggedItem = null; // Track the dragged item
+ 
+     // Correct mapping of drag areas to expected items
+     const section13correctMapping = {
+         "section13_dragArea1": "section13_ant_container",
+         "section13_dragArea2": "section13_frog_container",
+         "section13_dragArea3": "section13_snake_container",
+         "section13_dragArea4": "section13_hawk_container"
+     };
+ 
+     
+ 
+     // Drag Start Event
+     section13draggables.forEach(img => {
+         img.addEventListener("dragstart", function (e) {
+             if (section13draggedItem) return; // Only one item can be dragged at a time
+ 
+             section13draggedItem = this.parentElement; // Store the container of the dragged image
+             e.dataTransfer.setData("text/plain", section13draggedItem.id);
+         });
+     });
+ 
+     // Drag Over Event - Allow Drop
+     section13dropAreas.forEach(area => {
+         area.addEventListener("dragover", function (e) {
+             e.preventDefault();
+         });
+ 
+         // Drop Event
+         area.addEventListener("drop", function (e) {
+             e.preventDefault();
+             if (!section13draggedItem) return; // No item dragged
+ 
+             // If drop area already has an item, prevent adding another
+             if (this.children.length > 0) return;
+ 
+             // Clone the dragged item
+             let clonedItem = section13draggedItem.cloneNode(true);
+             let clonedImg = clonedItem.querySelector("img[draggable='true']");
+ 
+             // Disable dragging for the cloned item
+             clonedImg.draggable = false;
+ 
+             // Wrap cloned item inside a div for positioning
+             let wrapperDiv = document.createElement("div");
+             wrapperDiv.classList.add("image-wrapper");
+             wrapperDiv.style.position = "relative";
+             wrapperDiv.style.display = "flex";
+             wrapperDiv.style.justifyContent = "center";
+             wrapperDiv.style.alignItems = "center";
+             wrapperDiv.style.width = "100%";
+             wrapperDiv.style.height = "100%";
+ 
+             // Adjust cloned image size to fit and fill the drop area properly
+             clonedImg.style.width = "100%";
+             clonedImg.style.height = "100%";
+             clonedImg.style.objectFit = "cover"; // Ensures the image fills the area
+ 
+             // Append the cloned item inside wrapper
+             // wrapperDiv.appendChild(clonedImg);
+             // this.appendChild(wrapperDiv);
+             let clonedText = clonedItem.querySelector("p").cloneNode(true);
+             clonedText.style.position = "absolute";
+             clonedText.style.top = "80%"; // Center vertically
+             clonedText.style.left = "50%"; // Center horizontally
+             clonedText.style.width = "50%";
+             clonedText.style.height = "auto";
+             clonedText.style.transform = "translate(-50%, -50%)";
+             clonedText.style.textAlign = "center"; // Keep text centered
+             clonedText.style.fontWeight = "bold"; // Make text bold
+             clonedText.style.whiteSpace = "normal"; // Allow text wrapping
+             clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
+             wrapperDiv.appendChild(clonedImg);
+             wrapperDiv.appendChild(clonedText);
+             this.appendChild(wrapperDiv);
+ 
+             // Disable original dragged item
+             let overlay = section13draggedItem.querySelector("#section13_drag_disableOverlay");
+             if (overlay) {
+                 overlay.style.display = "block"; // Show overlay
+             }
+             section13draggedItem.querySelector("img[draggable='true']").draggable = false; // Disable dragging for the original
+ 
+             section13draggedItem = null; // Reset dragged item
+         });
+     });
+ 
+     
+     // Submit Button Event
+     section13_Submit.addEventListener("click", function () {
+         let allCorrect = true; // Track correctness
+ 
+         section13dropAreas.forEach(area => {
+             let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
+             if (!wrapperDiv) return;
+ 
+             let placedItem = wrapperDiv.firstElementChild ? wrapperDiv.firstElementChild.getAttribute("data-original-id") : null;
+             let expectedItem = section13correctMapping[area.id];
+             console.log("placeditem "+placedItem+"  expecteditem  "+expectedItem);
+ 
+             // Remove previous tick/cross
+             let existingIcon = wrapperDiv.querySelector(".result-icon");
+             if (existingIcon) existingIcon.remove();
+ 
+             // Create new tick/cross icon
+             const icon = document.createElement("img");
+             let isCorrect = placedItem === expectedItem;
+             icon.src = isCorrect ? tickIconSrc : wrongIconSrc;
+             icon.classList.add("result-icon");
+ 
+             // Update correctness tracking
+             if (!isCorrect) allCorrect = false;
+ 
+             // Style and position the tick/cross icon inside the wrapper
+             icon.style.position = "absolute";
+             icon.style.top = "7%";
+             icon.style.left = "8%";
+             icon.style.width = "33%"; // Adjust size
+             icon.style.height = "33%";
+             icon.style.pointerEvents = "none"; // Prevent interference
+ 
+             wrapperDiv.appendChild(icon);
+         });
+         section13_submit_pressed++;
+         // Print result based on correctness
+         if (allCorrect) {
+             section13_Submit.style.display="none";
+             console.log("All correct!");
+             section13dialogBox.style.display = "inline-block";
+             section13dialogText.style.display = "block";
+             section13dialogText.innerHTML =
+             "Great job placing all the animals in the food chain correctly!";//+
+             //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+             
+             adjustSection13ImageHeight();
+             audio_section13_05.play().catch((error) => {
+                 console.error('Error playing audio:', error);
+             });
+         } else {
+             console.log("One of them is wrong");
+             switch(section13_submit_pressed){
+                 case 1:
+                     section13_Submit.style.display="none";
+                     
+                     section13dialogBox.style.display = "inline-block";
+                     section13dialogText.style.display = "block";
+                     section13dialogText.innerHTML =
+                     "Oops, that's not quite right."+"<br>Try again!";
+                     
+                     adjustSection13ImageHeight();
+                     audio_section13_03.play().catch((error) => {
+                         console.error('Error playing audio:', error);
+                     });
+                 break;
+                 case 2:
+                     console.log("in 2");
+                     section13_Submit.style.display="none";
+                     
+                     section13dialogBox.style.display = "inline-block";
+                     section13dialogText.style.display = "block";
+                     section13dialogText.innerHTML =
+                     "The order looks almost right, but it's not quite complete enough to give you the key.";//+
+                     //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+                     
+                     adjustSection13ImageHeight();
+                     audio_section13_04.play().catch((error) => {
+                         console.error('Error playing audio:', error);
+                     });
+                 break;
+ 
+             }
+            
+         }
+     });
+
+    audio_section13_03.addEventListener("ended", () => {
+        section13_TryAgain.style.display="block";
+        
+    });
+    audio_section13_04.addEventListener("ended", () => {
+        section13_CorrectAnswer.style.display="block";
+ 
+        Section13DragResetOnly();
+
+    });
+     // Try Again Button Event
+     section13_TryAgain.addEventListener("click", function () {
+        
+        Section13DragReset();
+        section13_TryAgain.style.display="none";
+        section13_Submit.style.display="block";
+        
+    });
+    function Section13DragReset(){
+        // Clear all drop areas
+        section13dropAreas.forEach(area => {
+            area.innerHTML = "";
+        });
+
+        // Make all draggable items draggable again
+        section13draggables.forEach(img => {
+            img.draggable = true;
+        });
+
+        // Hide all overlays and remove ticks/crosses
+        document.querySelectorAll("#section13_drag_disableOverlay").forEach(overlay => {
+            overlay.style.display = "none";
+        });
+
+        document.querySelectorAll(".result-icon").forEach(icon => {
+            icon.remove();
+        });
+
+        console.log("Try Again: Reset all areas.");
+    }
+    function Section13DragResetOnly(){
+        // Clear all drop areas
+        section13dropAreas.forEach(area => {
+            area.innerHTML = "";
+        });
+
+        // Make all draggable items draggable again
+        section13draggables.forEach(img => {
+            img.draggable = true;
+        });
+
+        document.querySelectorAll(".result-icon").forEach(icon => {
+            icon.remove();
+        });
+
+        console.log("Try Again: Reset all areas.");
+    }
+    function enableDraggingSection13() {
+            // Make all draggable items draggable again
+            section13draggables.forEach(img => {
+                img.draggable = true;
+            });
+    }
+    function disableDraggingSection13(){
+        section13draggables.forEach(img => {
+            img.draggable = false;
+        });
+    }
+
+
+    section13_CorrectAnswer.addEventListener("click", function () {
+        section13_CorrectAnswer.style.display="none";
+         
+        // Clear all drop areas
+        section13dropAreas.forEach(area => {
+            area.innerHTML = "";
+
+            let correctItemId = section13correctMapping[area.id];
+            if (!correctItemId) return;
+
+            let originalItem = document.getElementById(correctItemId);
+            if (!originalItem) return;
+
+            // Clone the correct item
+            let clonedItem = originalItem.cloneNode(true);
+            let clonedImg = clonedItem.querySelector("img[draggable='true']");
+            clonedImg.draggable = false; // Disable dragging for cloned item
+
+            // Wrap cloned item inside a div
+            let wrapperDiv = document.createElement("div");
+            wrapperDiv.classList.add("image-wrapper");
+            wrapperDiv.style.position = "relative";
+            wrapperDiv.style.display = "flex";
+            wrapperDiv.style.justifyContent = "center";
+            wrapperDiv.style.alignItems = "center";
+            wrapperDiv.style.width = "100%";
+            wrapperDiv.style.height = "100%";
+
+            // Adjust cloned image size
+            clonedImg.style.width = "100%";
+            clonedImg.style.height = "100%";
+            clonedImg.style.objectFit = "cover";
+
+            // Create tick icon
+            const tickIcon = document.createElement("img");
+            tickIcon.src = tickIconSrc;
+            tickIcon.classList.add("result-icon");
+            tickIcon.style.position = "absolute";
+            tickIcon.style.top = "7%";
+            tickIcon.style.left = "8%";
+            tickIcon.style.width = "33%";
+            tickIcon.style.height = "33%";
+            tickIcon.style.pointerEvents = "none";
+
+            // Append cloned image and tick to wrapper
+            wrapperDiv.appendChild(clonedImg);
+            wrapperDiv.appendChild(tickIcon);
+            area.appendChild(wrapperDiv);
+
+            // Disable original draggable item
+            let overlay = originalItem.querySelector("#section13_drag_disableOverlay");
+            if (overlay) {
+                overlay.style.display = "block";
+            }
+            originalItem.querySelector("img[draggable='true']").draggable = false;
+        });
+
+        section13dialogBox.style.display = "inline-block";
+                    section13dialogText.style.display = "block";
+                    section13dialogText.innerHTML =
+                    "Great job placing all the animals in the food chain correctly!";//+
+                    //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+                    
+                    adjustSection13ImageHeight();
+                    audio_section13_05.play().catch((error) => {
+                        console.error('Error playing audio:', error);
+                    });
+        
+
+    });
+
+    audio_section13_05.addEventListener("ended", () => {
+        section13_Ok.style.display="block";
+    });
+
+
+    section13_Ok.addEventListener("click", function () {
+        is_fivethkeyAccuired=true;
+         smoothScrollToSceneandTrigger(section10,3000,function(){
+            Section10Restart();
+            section10triggerActions();
+            document.getElementById("gap13").style.display="none";
+            section13.style.display="none";
+         });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+    //Section14
+
+    function section14triggerActions(){
+        section14mute=false;
+        section14played=true;
+        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        section14ActionStart=true;
+        
+        audio_section14_01.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+        
+       
+    }
+    const section14_octopusVisible = () => {
+        const octopusRect = section14_octopus.getBoundingClientRect(); // Get the bounding box of the container
+        const windowHeight = window.innerHeight;
+        const windowWidth = window.innerWidth;
+        // Check if the octopus is fully visible in the viewport
+        if (
+            octopusRect.bottom >= 0 &&
+            octopusRect.top <= windowHeight &&
+            octopusRect.right >= 0 &&
+            octopusRect.left <= windowWidth
+        ){
+            return true;
+        }
+        return false;
+    };
+    audio_section14_01.addEventListener("ended", () => {
+       //Next part
+    });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     

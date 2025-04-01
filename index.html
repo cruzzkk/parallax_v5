@@ -37,7 +37,7 @@
   
 
     <!-- First Section -->
-    <div id="section1" class="section" style="display: block;">
+    <div id="section1" class="section" style="display: none;">
       <video id="bgVideo"  >
         <source src="assets/video/Section1.mp4" type="video/mp4">
         Your browser does not support the video tag.
@@ -871,7 +871,7 @@
 
   <!-- Part C 10th section -->
   
-  <div id="section10" class="section" style="display: none;">
+  <div id="section10" class="section" style="display: block;">
     <div class="image-container" id="section10wall"  data-speed="null" data-min="null" data-max="null" data-screen-presence="null">
       <img id="section10zoomImage" src="assets/FoodChain/Scene1/Hi_Res_BG.jpg" alt="Section10wall" />
     </div>
@@ -1146,9 +1146,9 @@
   </div>
 
   <!-- 13th section -->
-  <!-- <div class="gap" id="gap13" style="display: none;" ></div> -->
+  <div class="gap" id="gap13" style="display: none;" ></div>
 
-  <!-- <div id="section13" class="section" style="display: none;">
+  <div id="section13" class="section" style="display: none;">
     <div class="image-container" id="section13wall" >
       <img src="assets/FoodChain/Scene4/Sky_01_crop (1).png" alt="Section13wall" />
     </div>
@@ -1160,6 +1160,35 @@
     </div>
     <div class="image-container" id="section13_treeGround"  data-speed="-0.6" data-min="-50" data-max="10" data-screen-presence="0.5" > 
        <img src="assets/FoodChain/Scene5/BG_Ground.png" alt="Section13_treeGround">
+
+       <div class="image-container" id="section13_snake" >
+        <img src="assets/FoodChain/Scene5/Snake.png" alt="Section13_snake">
+        <div class="section13_label"  id="section13_labelsnake" >
+          <img src="assets/Feeding Frenzy/Activiry_Title_BG_Box.png" alt="Section13_labelsnake">
+          <p>Snake</p>
+        </div>
+      </div>
+      <div class="image-container" id="section13_frog" >
+        <img src="assets/FoodChain/Scene5/Frog.png" alt="Section13_frog">
+        <div class="section13_label"  id="section13_labelfrog" >
+          <img src="assets/Feeding Frenzy/Activiry_Title_BG_Box.png" alt="Section13_labelfrog">
+          <p>Frog</p>
+        </div>
+      </div>
+      <div class="image-container" id="section13_ant" >
+        <img src="assets/FoodChain/Scene5/Ant.png" alt="Section13_ant">
+        <div class="section13_label"  id="section13_labelant" >
+          <img src="assets/Feeding Frenzy/Activiry_Title_BG_Box.png" alt="Section13_labelant">
+          <p>Ant</p>
+        </div>
+      </div>
+      <div class="image-container" id="section13_hawk" >
+        <img src="assets/FoodChain/Scene5/Hawk.png" alt="Section13_hawk">
+        <div class="section13_label"  id="section13_labelhawk" >
+          <img src="assets/Feeding Frenzy/Activiry_Title_BG_Box.png" alt="Section13_labelhawk">
+          <p>Hawk</p>
+        </div>
+      </div>
     </div>
 
 
@@ -1174,12 +1203,98 @@
       </div>
     </div>
 
-    <div class="image-container" id="section13_snake" >
-      <img src="assets/FoodChain/Scene5/" alt="Section13_snake">
+
+    <div class="section13_label"  id="section13_Headinglabel" >
+      <img src="assets/FoodChain/Scene2/Asset 6.png" alt="Section13_Headinglabel">
+      <p>Let's build a food chain!</p>
     </div>
+    <div  id="section13_Submit" >
+      <img src="assets/Feeding Frenzy/Button_BG.png" alt="Section13_Submit">
+      <p>Submit</p>
+    </div>
+    <div  id="section13_TryAgain" >
+      <img src="assets/Feeding Frenzy/Button_BG.png" alt="Section13_TryAgain">
+      <p>Try Again</p>
+    </div>
+    <div  id="section13_CorrectAnswer" >
+      <img src="assets/Feeding Frenzy/Button_BG.png" alt="Section13_CorrectAnswer">
+      <p>Correct Answer</p>
+    </div>
+    <div  id="section13_Ok" >
+      <img src="assets/Feeding Frenzy/Button_BG.png" alt="Section13_Ok">
+      <p>OK</p>
+    </div>
+
+     <!-- Draggable Items -->
+  <div class="draggable-container13">
+    <div class="image-container_drag_section13" id="section13_snake_container">
+      <img id="section13_dragImage" src="assets/FoodChain/Scene5/Asset 4.png" alt="Section13_snake_container" data-original-id="section13_snake_container"  draggable="true">
+      <p>Snake</p>
+      <img id="section13_drag_disableOverlay" src="assets/FoodChain/Scene5/Asset 10.png" alt="Section13_drag_disableOverlay" draggable="false">
+    </div>
+    <div class="image-container_drag_section13" id="section13_hawk_container">
+        <img id="section13_dragImage" src="assets/FoodChain/Scene5/Asset 5.png" alt="Section13_hawk_container" data-original-id="section13_hawk_container"  draggable="true">
+        <p>Hawk</p>
+        <img id="section13_drag_disableOverlay" src="assets/FoodChain/Scene5/Asset 10.png" alt="Section13_drag_disableOverlay" draggable="false">
+    </div>
+    <div class="image-container_drag_section13" id="section13_ant_container" >
+         <img id="section13_dragImage" src="assets/FoodChain/Scene5/Asset 6.png" alt="Section13_ant_container" data-original-id="section13_ant_container"  draggable="true">
+         <p>Ant</p>
+         <img id="section13_drag_disableOverlay" src="assets/FoodChain/Scene5/Asset 10.png" alt="Section13_drag_disableOverlay" draggable="false">
+    </div>
+    <div class="image-container_drag_section13" id="section13_frog_container" >
+         <img id="section13_dragImage" src="assets/FoodChain/Scene5/Asset 7.png" alt="Section13_frog_container" data-original-id="section13_frog_container"  draggable="true">
+         <p>Frog</p>
+         <img id="section13_drag_disableOverlay" src="assets/FoodChain/Scene5/Asset 10.png" alt="Section13_drag_disableOverlay" draggable="false">
+    </div>
+  </div>
+
+  <!-- Drop Areas -->
+  <div class="containersection13">
+      <div class="drop-area_section13" id="section13_dragArea1"></div>
+      <div class="drop-area_section13" id="section13_dragArea2"></div>
+      <div class="drop-area_section13" id="section13_dragArea3"></div>
+      <div class="drop-area_section13" id="section13_dragArea4"></div>
+  </div>
+
+ 
+   
  
      
-  </div> -->
+  </div>
+
+  <!-- 14th section -->
+  <div class="gap" id="gap14" style="display: block;" ></div>
+
+  <div id="section14" class="section" style="display: block;">
+         <div class="image-container" id="section14wall" >
+           <img src="assets/FoodChain/Scene4/Sky_01_crop (1).png" alt="Section14wall" />
+         </div>
+         <div class="image-container" id="section14_sun"  data-speed="-0.6" data-min="-50" data-max="10" data-screen-presence="0.3" >
+           <img src="assets/Slides18-20/Sun02.png" alt="Section14_sun">
+         </div>
+         <div class="image-container" id="section14_hill"  data-speed="-0.6" data-min="-50" data-max="10" data-screen-presence="0.35" ><!--  data-speed="-0.15" data-min="-10" data-max="10" data-screen-presence="0.4" -->
+           <img src="assets/FoodChain/Scene4/BG_Hills.png" alt="Section14_hill">
+         </div>
+         <div class="image-container" id="section14_treeGround"  data-speed="-0.6" data-min="-50" data-max="10" data-screen-presence="0.5" ><!--  data-speed="-0.15" data-min="-10" data-max="10" data-screen-presence="0.4" -->
+           <img src="assets/FoodChain/Scene6/BG_Ground.png" alt="Section14_treeGround">
+           <div class="image-container" id="section14_treasure"  data-speed="null" data-min="null" data-max="null" data-screen-presence="null" > 
+             <img src="assets/FoodChain/Scene6/Treasure_Box.png" alt="Section14_treasure">
+           </div>
+         </div>
+     
+         <div class="image-container" id="section14_water"  data-speed="null" data-min="null" data-max="null" data-screen-presence="null" > 
+           <img src="assets/Feeding Frenzy/Scene3/bottomlayer.png" alt="Section14_water">
+         </div>
+         
+         <div class="image-container" id="section14_octopus"   data-speed="-0.6" data-min="-55" data-max="10" data-screen-presence="0.7"><!--  data-speed="-0.15" data-min="-10" data-max="10" data-screen-presence="0.4" -->
+           <img src="assets/Feeding Frenzy/Scene1/octopus (1).png" alt="Section14_octopus">
+         </div>
+         <div class="image-container" id="section14_wateraboveOctopus"  data-speed="null" data-min="null" data-max="null" data-screen-presence="null" > 
+           <img src="assets/FoodChain/Scene4/Water_octopus.png" alt="Section14_water">
+         </div>
+     
+     </div>
  
 
  <script src="script.js"></script>

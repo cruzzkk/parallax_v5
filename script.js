@@ -2566,6 +2566,18 @@ document.addEventListener("DOMContentLoaded", () => {
     meetfriends_button.addEventListener('click', () => {
 
         if(section3played){
+
+            for (let i = 0; i < audiosToPreload.length; i++) {
+                
+                if (isAudioPlaying(audiosToPreload[i])) {
+                    audiosToPreload[i].pause();
+                    audiosToPreload[i].currentTime=0;
+                    
+                }
+                
+            }
+
+
             document.getElementById("section3nextImage").style.display="block";
  
             section5.style.display="none";
@@ -2604,6 +2616,16 @@ document.addEventListener("DOMContentLoaded", () => {
     feedingfrenzy_button.addEventListener('click', () => {
 
         if(section3played){
+
+            for (let i = 0; i < audiosToPreload.length; i++) {
+                
+                if (isAudioPlaying(audiosToPreload[i])) {
+                    audiosToPreload[i].pause();
+                    audiosToPreload[i].currentTime=0;
+                    
+                }
+                
+            }
             document.getElementById("section3nextImage").style.display="block";
 
 
@@ -2645,6 +2667,16 @@ document.addEventListener("DOMContentLoaded", () => {
     foodchain_button.addEventListener('click', () => {
 
         if(section3played){
+
+            for (let i = 0; i < audiosToPreload.length; i++) {
+                
+                if (isAudioPlaying(audiosToPreload[i])) {
+                    audiosToPreload[i].pause();
+                    audiosToPreload[i].currentTime=0;
+                    
+                }
+                
+            }
              document.getElementById("section3nextImage").style.display="block";
 
              //Disable globel variable for part C

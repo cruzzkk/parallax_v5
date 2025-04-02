@@ -1208,7 +1208,7 @@ body {
 #foodchain {
     top: 31%; /* Adjust position based on image content */
     left: 19%;
-    cursor: auto;
+    cursor: pointer;
 }
  
 
@@ -4557,11 +4557,11 @@ transition: transform 0.3s;
 }
 #section11_labelFish{
     position: absolute;
-    top: -13%;
+    top: -6%;
     width: 86%;
 }
 #section11_labelFish p{
-    top: 15%;
+    top: 22%;
 }
 #section11_bear{
     position: absolute;
@@ -4576,10 +4576,10 @@ transition: transform 0.3s;
 #section11_labelbear{
     position: absolute;
     top: -13%;
-    width: 110%;
+    width: 100%;
 }
 #section11_labelbear p{
-    top: 15%;
+    top: 23%;
 }
 #section11_mushroom{
     position: absolute;
@@ -4593,11 +4593,11 @@ transition: transform 0.3s;
 }
 #section11_labelmushroom{
     position: absolute;
-    top: -13%;
-    width: 105%;
+    top: -24%;
+    width: 90%;
 }
 #section11_labelmushroom p{
-    top: 15%;
+    top: 25%;
 }
 #section11_kelp{
     position: absolute;
@@ -4612,10 +4612,10 @@ transition: transform 0.3s;
 #section11_labelkelp{
     position: absolute;
     top: -13%;
-    width: 80%;
+    width: 66%;
 }
 #section11_labelkelp p{
-    top: 20%;
+    top: 22%;
 }
 
 
@@ -5123,12 +5123,31 @@ transition: transform 0.3s;
 
 /* Background */
 #section12_discribtionPanel_background {
-    top: 0%;
+    /* top: 0%;
     left: 50%;
     width: 100%;
     height: auto;
     object-fit: contain;
+    transform: translateX(-50%) translateY(0%); */
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    width: 95%; /* Adjust width as needed */
+    height: 103%;
+    background: white; /* White background */
     transform: translateX(-50%) translateY(0%);
+    box-shadow: 0px 1px 9px 9px rgba(0, 0, 0, 0.3); /* Soft shadow */
+    border-radius: 10px; /* Optional rounded corners */
+    padding: 20px; /* Space inside */
+}
+.section12_image-container{
+    position: absolute;
+    width: auto;
+    height: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    will-change: transform;  
+    transition: transform 0.2s ease-out;  
 }
 
  
@@ -5284,7 +5303,7 @@ transition: transform 0.3s;
      transform: translateX(-50%) translateY(-50%);
  }
  #section13_treeGround{
-     top: 50%;
+     top: 51%;
      left: 50%;
      width: 100%;
       height: auto;
@@ -5366,7 +5385,7 @@ transition: transform 0.3s;
     width: 86%;
 }
 #section13_labelsnake p{
-    top: -7%;
+    top: 25%;
     left: 50%;
     width: 63%;
     height: 62%;
@@ -5389,7 +5408,7 @@ transition: transform 0.3s;
     width: 86%;
 }
 #section13_labelfrog p{
-    top: -8%;
+    top: 30%;
     left: 50%;
     width: 63%;
     height: 75%;
@@ -5410,7 +5429,7 @@ transition: transform 0.3s;
     width: 86%;
 }
 #section13_labelant p{
-    top: -7%;
+    top: 25%;
     left: 50%;
     width: 63%;
     height: 62%;
@@ -5432,7 +5451,7 @@ transition: transform 0.3s;
     width: 40%;
 }
 #section13_labelhawk p{
-    top: -7%;
+    top: 27%;
     left: 50%;
     width: 63%;
     height: 62%;
@@ -5959,6 +5978,20 @@ transition: transform 0.3s;
     object-fit: contain;
     transform: translateX(-50%) translateY(0%);
     pointer-events: none;
+}
+
+#section14_Ok {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14%;  
+    height: auto;  
+    z-index: 5;
+    display: none;
+    cursor: pointer;
+    
+   
 }
 
 #section14_Ok img {

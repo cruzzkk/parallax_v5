@@ -244,6 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const section3_button= document.getElementById("section3_button");
     const meetfriends_button=document.getElementById('meetfriends');
     const feedingfrenzy_button=document.getElementById('feedingfrenzy');
+    const foodchain_button=document.getElementById('foodchain');
     let section3mute=false;
     let section3played=false;
     let section3pausedAudio =null;
@@ -1390,57 +1391,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             break;
             case 'section4':
-                section4dialogBox.style.display = "none";
-                section4dialogText.style.display = "none";
-                section4played=false;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";  
-                section4actiontriggered = false;
-                section4languageguidedoonce=false;
-                section4readguidedoonce=false;
-                section4mute=false;
-                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
-                section4actiontriggered=false;
-                section4allButtonsClicked=false;
-                audio6.muted=section4mute;
-                audio7.muted=section4mute;
-                audio8.muted=section4mute;
-                audio10.muted=section4mute;
-                audio6.currentTime=0;
-                audio6.pause();
-                audio7.currentTime=0;
-                audio7.pause();
-                audio8.currentTime=0;
-                audio8.pause();
-                audio10.currentTime=0;
-                audio10.pause();
-                document.querySelector("#section4button1 img").src = "assets/Slides_25-35/Kelp.png";
-                document.querySelector("#section4button2 img").src = "assets/Slides_25-35/Grizzly_bear.png";
-                document.querySelector("#section4button3 img").src = "assets/Slides_25-35/Salmon.png";
-                document.querySelector("#section4button4 img").src = "assets/Slides_25-35/Yeast_crop.png";
-                clickedButtons.clear();
-                
-                buttons.forEach(button => {
-                    button.style.cursor = "none"; 
-                    button.style.pointerEvents="none"
-                });
-
-                const overlay = document.querySelector('.overlay');
-                if (overlay) {
-                overlay.remove();
-                }
-                document.getElementById('section4ReadHelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
-                section4languageguidedoonce=false;
-                const overlay2 = document.querySelector('.overlay2');
-                if (overlay2) {
-                overlay2.remove();
-                }
-                section4readguidedoonce=false;
-                document.getElementById('section4HelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
-                document.getElementById("section4nextImage").style.display="none";
-                document.getElementById("section4ReadHelpText").classList.remove("active");
-                document.getElementById("section4HelpText").classList.remove("active");
-                document.getElementById('section4Help').style.pointerEvents='none'; 
-                document.getElementById('section4ReadHelp').style.pointerEvents='none'; 
+                Section4Restart(); 
                   
                 
             break;
@@ -1514,9 +1465,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
 
+
+
     });
 
 
+
+    function Section4Restart() {
+        section4dialogBox.style.display = "none";
+        section4dialogText.style.display = "none";
+        section4played = false;
+        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        section4actiontriggered = false;
+        section4languageguidedoonce = false;
+        section4readguidedoonce = false;
+        section4mute = false;
+        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        section4actiontriggered = false;
+        section4allButtonsClicked = false;
+        audio6.muted = section4mute;
+        audio7.muted = section4mute;
+        audio8.muted = section4mute;
+        audio10.muted = section4mute;
+        audio6.currentTime = 0;
+        audio6.pause();
+        audio7.currentTime = 0;
+        audio7.pause();
+        audio8.currentTime = 0;
+        audio8.pause();
+        audio10.currentTime = 0;
+        audio10.pause();
+        document.querySelector("#section4button1 img").src = "assets/Slides_25-35/Kelp.png";
+        document.querySelector("#section4button2 img").src = "assets/Slides_25-35/Grizzly_bear.png";
+        document.querySelector("#section4button3 img").src = "assets/Slides_25-35/Salmon.png";
+        document.querySelector("#section4button4 img").src = "assets/Slides_25-35/Yeast_crop.png";
+        clickedButtons.clear();
+
+        buttons.forEach(button => {
+            button.style.cursor = "none";
+            button.style.pointerEvents = "none";
+        });
+
+        const overlay = document.querySelector('.overlay');
+        if (overlay) {
+            overlay.remove();
+        }
+        document.getElementById('section4ReadHelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
+        section4languageguidedoonce = false;
+        const overlay2 = document.querySelector('.overlay2');
+        if (overlay2) {
+            overlay2.remove();
+        }
+        section4readguidedoonce = false;
+        document.getElementById('section4HelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
+        document.getElementById("section4nextImage").style.display = "none";
+        document.getElementById("section4ReadHelpText").classList.remove("active");
+        document.getElementById("section4HelpText").classList.remove("active");
+        document.getElementById('section4Help').style.pointerEvents = 'none';
+        document.getElementById('section4ReadHelp').style.pointerEvents = 'none';
+    }
 
     function Section14Restart(){
         section14mute = false;
@@ -1600,6 +1607,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         section12dialogBox.style.display = "none";
         section12_wood.style.pointerEvents="none";
+        section12_wood.style.cursor="auto";
         leftButton.style.pointerEvents="none";
         rightButton.style.pointerEvents="none";
         currentTextIndex = 0;
@@ -1967,6 +1975,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (progress < 1) {
                 requestAnimationFrame(step);
             } else {
+                // Ensure we're at the exact position
+                window.scrollTo(0, end);
                 if (typeof Oncomplete === "function") {
                     Oncomplete();
                 }
@@ -2556,18 +2566,37 @@ document.addEventListener("DOMContentLoaded", () => {
     meetfriends_button.addEventListener('click', () => {
 
         if(section3played){
-            //feedingfrenzy_button.style.pointerEvents="none";//       [Need to add in Reset]
-            document.getElementById("gap4").style.display="block";
-            section4.style.overflow="visible";
-            section4.style.display="block"
+            document.getElementById("section3nextImage").style.display="block";
+ 
+            section5.style.display="none";
+            document.getElementById("gap6").style.display="none";
+            section6.style.display="none";
             section7.style.display="none";
             document.getElementById("gap7").style.display="none";
             section8.style.display="none";
             document.getElementById("gap8").style.display="none";
             section9.style.display="none";
             document.getElementById("gap9").style.display="none";
-            // smoothScrollTo(section4,2000);
-            document.getElementById("section3nextImage").style.display="block";
+            section10.style.display="none";
+            document.getElementById("gap11").style.display="none";
+            section11.style.display="none";
+            document.getElementById("gap12").style.display="none";
+            section12.style.display="none";
+            document.getElementById("gap13").style.display="none";
+            section13.style.display="none";
+            document.getElementById("gap14").style.display="none";
+            section14.style.display="none";
+
+            document.getElementById("gap4").style.display="block";
+            section4.style.overflow="visible";
+            section4.style.display="block";
+            waitForElementToRender(section4, () => {
+                smoothScrollToSceneandTrigger(section4,2000,function(){
+                    Section4Restart();
+                    section4triggerOctopusActions();
+                });
+            });
+           
         }
 
 
@@ -2575,22 +2604,84 @@ document.addEventListener("DOMContentLoaded", () => {
     feedingfrenzy_button.addEventListener('click', () => {
 
         if(section3played){
-          
-            //meetfriends_button.style.pointerEvents="none";//       [Need to add in Reset]
-            document.getElementById("gap7").style.display="block";
-            // section4.style.overflow="visible";
-             section7.style.display="block";
-             Section7Restart();
-             section4.style.display="none";
+            document.getElementById("section3nextImage").style.display="block";
+
+
+             
              document.getElementById("gap4").style.display="none";
+             section4.style.display="none";
              section5.style.display="none";
-             section6.style.display="none";
              document.getElementById("gap6").style.display="none";
+             section6.style.display="none";
+             section8.style.display="none";
+             document.getElementById("gap8").style.display="none";
+             section9.style.display="none";
+             document.getElementById("gap9").style.display="none";
+             section10.style.display="none";
+             document.getElementById("gap11").style.display="none";
+             section11.style.display="none";
+             document.getElementById("gap12").style.display="none";
+             section12.style.display="none";
+             document.getElementById("gap13").style.display="none";
+             section13.style.display="none";
+             document.getElementById("gap14").style.display="none";
+             section14.style.display="none";
+ 
+             document.getElementById("gap7").style.display="block";
+             section7.style.display="block";
+             
+             
+             waitForElementToRender(section7, () => {
+                smoothScrollToSceneandTrigger(section7,2000,function(){
+                    Section7Restart();
+                    section7triggerActions();
+                });
+            });
+             
+        }
+
+
+    });
+    foodchain_button.addEventListener('click', () => {
+
+        if(section3played){
              document.getElementById("section3nextImage").style.display="block";
-            //  smoothScrollToSceneandTrigger(section7,2000,function(){
-               
-            //  });
-             section7triggerActions();
+
+             //Disable globel variable for part C
+             is_fourkeyAccuired=false;
+             is_fivethkeyAccuired=false;
+             thirdTextTriggered = false;
+
+             document.getElementById("gap4").style.display="none";
+             section4.style.display="none";
+             section5.style.display="none";
+             document.getElementById("gap6").style.display="none";
+             section6.style.display="none";
+             document.getElementById("gap7").style.display="none";
+             section7.style.display="none";
+             section8.style.display="none";
+             document.getElementById("gap8").style.display="none";
+             section9.style.display="none";
+             document.getElementById("gap9").style.display="none";
+             
+             document.getElementById("gap11").style.display="none";
+             section11.style.display="none";
+             document.getElementById("gap12").style.display="none";
+             section12.style.display="none";
+             document.getElementById("gap13").style.display="none";
+             section13.style.display="none";
+             document.getElementById("gap14").style.display="none";
+             section14.style.display="none";
+
+             section10.style.display="block";
+             waitForElementToRender(section10, () => {
+                smoothScrollToSceneandTrigger(section10,2000,function(){
+                    Section10Restart();
+                    section10triggerActions();
+                });
+            });
+ 
+             
             
         }
 
@@ -3727,10 +3818,14 @@ document.addEventListener("DOMContentLoaded", () => {
         section7nextImage.style.display = "block";
         document.getElementById("gap8").style.display="block";
         section8.style.display="block";
-        Section8Restart();
-        smoothScrollToSceneandTrigger(section8,2000,function(){
-            section8triggerActions();
+       
+        waitForElementToRender(section8, () => {
+            smoothScrollToSceneandTrigger(section8,2000,function(){
+                Section8Restart();
+                section8triggerActions();
+            });
         });
+        
         
     });
 
@@ -4135,11 +4230,13 @@ document.addEventListener("DOMContentLoaded", () => {
             //Section 9 Start
             document.getElementById("gap9").style.display="block";
             section9.style.display="block";
-            
-            smoothScrollToSceneandTrigger(section9,3000,function(){
-               Section9Restart();
-               section9triggerActions();
+            waitForElementToRender(section9, () => {
+                smoothScrollToSceneandTrigger(section9,3000,function(){
+                    Section9Restart();
+                    section9triggerActions();
+                 });
             });
+           
         });
 
 
@@ -4836,12 +4933,15 @@ document.addEventListener("DOMContentLoaded", () => {
         //move to setion14
         document.getElementById("gap14").style.display="block";
         section14.style.display="block";
-        smoothScrollToSceneandTrigger(section14,3000,function(){
-            Section14Restart();
-            section14triggerActions();
-          
-           
-         });
+        waitForElementToRender(section14, () => {
+            smoothScrollToSceneandTrigger(section14,3000,function(){
+                Section14Restart();
+                section14triggerActions();
+              
+               
+             });
+        });
+       
     });
 
     // Function to enable one button and disable others
@@ -5224,6 +5324,25 @@ document.addEventListener("DOMContentLoaded", () => {
     // Submit Button Event
     section11_Submit.addEventListener("click", function () {
         let allCorrect = true; // Track correctness
+        let allPlaced = true; // Track if all items are placed
+
+        // Check if every drop area has a dragged item
+        section11dropAreas.forEach(area => {
+            let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
+            if (!wrapperDiv || !wrapperDiv.firstElementChild) {
+                allPlaced = false; // If any drop area is empty, mark as false
+            }
+        });
+
+        // If not all items are placed, show a warning and exit
+        if (!allPlaced) {
+            console.log("Please place all items before submitting.");
+            section11dialogBox.style.display = "inline-block";
+            section11dialogText.style.display = "block";
+            section11dialogText.innerHTML = "Please place all items before submitting!";
+            adjustSection11ImageHeight();
+            return;
+        }
 
         section11dropAreas.forEach(area => {
             let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
@@ -5487,8 +5606,11 @@ document.addEventListener("DOMContentLoaded", () => {
             smoothScrollToSceneandTrigger(section10,3000,function(){
                 Section10Restart();
                 section10triggerActions();
-                document.getElementById("gap11").style.display="none";
-                section11.style.display="none";
+                setTimeout(() => {
+                    document.getElementById("gap11").style.display="none";
+                    section11.style.display="none";
+                },100);
+                
              });
         });
          
@@ -5566,6 +5688,7 @@ document.addEventListener("DOMContentLoaded", () => {
     audio_section12_01.addEventListener("ended", () => {
         section12dialogBox.style.display = "none";
         section12_wood.style.pointerEvents="visible";
+        section12_wood.style.cursor="pointer";
     });
 
     section12_wood.addEventListener("click", function () {
@@ -5814,6 +5937,26 @@ document.addEventListener("DOMContentLoaded", () => {
      // Submit Button Event
      section13_Submit.addEventListener("click", function () {
          let allCorrect = true; // Track correctness
+         let allPlaced = true; // Track if all items are placed
+
+        // Check if every drop area has a dragged item
+        section13dropAreas.forEach(area => {
+            let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
+            if (!wrapperDiv || !wrapperDiv.firstElementChild) {
+                allPlaced = false; // If any drop area is empty, mark as false
+            }
+        });
+
+        // If not all items are placed, show a warning and exit
+        if (!allPlaced) {
+            console.log("Please place all items before submitting.");
+            section13dialogBox.style.display = "inline-block";
+            section13dialogText.style.display = "block";
+            section13dialogText.innerHTML = "Please place all items before submitting!";
+            adjustSection13ImageHeight();
+            return;
+        }
+
  
          section13dropAreas.forEach(area => {
              let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
@@ -6040,15 +6183,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         section13dialogBox.style.display = "inline-block";
-                    section13dialogText.style.display = "block";
-                    section13dialogText.innerHTML =
-                    "Great job placing all the animals in the food chain correctly!";//+
-                    //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+            section13dialogText.style.display = "block";
+            section13dialogText.innerHTML =
+            "Great job placing all the animals in the food chain correctly!";
                     
-                    adjustSection13ImageHeight();
-                    audio_section13_05.play().catch((error) => {
-                        console.error('Error playing audio:', error);
-                    });
+            adjustSection13ImageHeight();
+            audio_section13_05.play().catch((error) => {
+                console.error('Error playing audio:', error);
+            });
         
 
     });
@@ -6064,10 +6206,13 @@ document.addEventListener("DOMContentLoaded", () => {
             smoothScrollToSceneandTrigger(section10,3000,function(){
                 Section10Restart();
                 section10triggerActions();
-                document.getElementById("gap13").style.display="none";
-                section13.style.display="none";
-                document.getElementById("gap12").style.display="none";
-                section12.style.display="none";
+                setTimeout(() => {
+                    document.getElementById("gap13").style.display="none";
+                    section13.style.display="none";
+                    document.getElementById("gap12").style.display="none";
+                    section12.style.display="none";
+                },100);
+               
              });
         });
          
@@ -6122,11 +6267,20 @@ document.addEventListener("DOMContentLoaded", () => {
       
         waitForElementToRender(section3, () => {
             smoothScrollToSceneandTrigger(section3,3000,function(){
+
+                setTimeout(() => {
+                    section10.style.display="none";
+                document.getElementById("gap11").style.display="none";
+                section11.style.display="none";
+                document.getElementById("gap12").style.display="none";
+                section12.style.display="none";
+                document.getElementById("gap13").style.display="none";
+                section13.style.display="none";
+                document.getElementById("gap14").style.display="none";
+                section14.style.display="none";
+                },100);
                 
-                // document.getElementById("gap14").style.display="none";
-                // section14.style.display="none";
-                // document.getElementById("gap14").style.display="none";
-                // section12.style.display="none";
+
              });
         });
          

@@ -16,7 +16,8 @@
     
         // Audio files
         const audio1 = new Audio("assets/audio/Audios/7._A_food_chain_shows_how_differ.mp3");
-        const audio2 = new Audio("assets/audio/Audios/5._Select_each_icon_to_know_abou.mp3");
+        const audio2 = new Audio("assets/audio/Audios/section2_Take a look.mp3");
+        const audio11 = new Audio("assets/audio/Audios/section2_select each icon.mp3");
         const audio3 = new Audio("assets/audio/Audios/7._When_creating_a_food_chain,_a.mp3");
         const audio4 = new Audio("assets/audio/Audios/7._Weve_learned_all_about_the_f.mp3");
         const audio5 = new Audio("assets/audio/Audios/7._Let's explore this forest together.mp3");
@@ -25,6 +26,7 @@
         const audio8 = new Audio("assets/audio/Audios/You_can_choose_a_language_for.wav");
         const audio9 = new Audio("assets/audio/Audios/Select_another_organism_like.wav");
         const audio10 = new Audio("assets/audio/Audios/Select_hotspots_Youll_collect.wav");
+       
         
         const audio_section7=new Audio("assets/audio/Part_B_Audio/section7.mp3");
         
@@ -70,7 +72,7 @@
         
 
 
-        const audiosToPreload = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio10,
+        const audiosToPreload = [audio1, audio2, audio3,audio11, audio4, audio5, audio6, audio7, audio8, audio10,
              audio9,audio_section7,audio_section8_01,audio_section8_02,audio_section8_03,audio_section8_04,
              audio_section9_01,audio_section9_02,audio_section9_03,audio_section9_04,audio_section9_05,audio_section9_06,
              audio_section10_01,audio_section10_02,audio_section10_03,audio_section10_04,
@@ -417,6 +419,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const section11_bear = document.getElementById("section11_bear");
     const section11_mushroom = document.getElementById("section11_mushroom");
     const section11_kelp = document.getElementById("section11_kelp");
+    const section11_labelkelp = document.getElementById("section11_labelkelp");
+    const section11_labelFish = document.getElementById("section11_labelFish");
+    const section11_labelmushroom = document.getElementById("section11_labelmushroom");
+    const section11_labelbear = document.getElementById("section11_labelbear");
+    
     let section11mute=false;
     let section11played=false;
     let section11pausedAudio =null;
@@ -666,6 +673,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio1.muted=section2mute;
                 audio2.muted=section2mute;
                 audio3.muted=section2mute;
+                audio11.muted=section2mute;
             break;
             case 'section3':
                 section3mute=!section3mute;
@@ -793,7 +801,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(section2played){
                         section2played=!section2played;
                         
-                        for (let i = 0; i < 3; i++) {
+                        for (let i = 0; i < 4; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                     audio.pause();
@@ -830,7 +838,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                     if(section3played){
                         section3played=!section3played;
-                        for (let i = 3; i < 5; i++) {
+                        for (let i = 4; i < 6; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                 audio.pause();
@@ -859,7 +867,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                     if(section4played){
                         section4played=!section4played;
-                        for (let i = 5; i < 10; i++) {
+                        for (let i = 6; i < 11; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
@@ -995,7 +1003,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(section8played){
                         section8played=!section8played;
 
-                        for (let i = 11; i < 15; i++) {
+                        for (let i = 12; i < 16; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
@@ -1076,7 +1084,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(section9played){
                         section9played=!section9played;
 
-                        for (let i = 15; i < 21; i++) {
+                        for (let i = 16; i < 22; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
@@ -1108,7 +1116,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(section10played){
                     section10played=!section10played;
 
-                    for (let i = 21; i < 25; i++) {
+                    for (let i = 22; i < 26; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
@@ -1127,7 +1135,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }else{
 
                         section10played=!section10played;
-                       
+                      
 
                         if(!section10ActionStart){
                             section10triggerActions();
@@ -1142,6 +1150,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (section10lastAnimationParams&&!section10AnimationisCompleted) {
                             section10isPaused=false;
                             section10startTime=null;
+                            console.log("i am here");
                             movingSection10FlyingOctopus(
                                 section10lastAnimationParams.maxHeight,
                                 section10lastAnimationParams.minHeight,
@@ -1172,7 +1181,7 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      
  
-                    for (let i = 25; i < 31; i++) {
+                    for (let i = 26; i < 32; i++) {
                         const audio = audiosToPreload[i];
                         if (isAudioPlaying(audio)) {
                              audio.pause();
@@ -1225,7 +1234,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(section12played){
                         section12played=!section12played;
 
-                        for (let i = 31; i < 33; i++) {
+                        for (let i = 32; i < 34; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
@@ -1256,7 +1265,7 @@ document.addEventListener("DOMContentLoaded", () => {
                      
                      
  
-                    for (let i = 33; i < 38; i++) {
+                    for (let i = 34; i < 39; i++) {
                         const audio = audiosToPreload[i];
                         if (isAudioPlaying(audio)) {
                              audio.pause();
@@ -1293,7 +1302,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(section14played){
                         section14played=!section14played;
 
-                        for (let i = 38; i < 39; i++) {
+                        for (let i = 39; i < 40; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
@@ -1345,18 +1354,21 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio1.muted=section2mute;
                 audio2.muted=section2mute;
                 audio3.muted=section2mute;
+                audio11.muted=section2mute;
                 audio1.currentTime=0;
                 audio1.pause();
                 audio2.currentTime=0;
                 audio2.pause();
                 audio3.currentTime=0;
                 audio3.pause();
+                audio11.currentTime=0;
+                audio11.pause();
                 section2popup_audio.currentTime=0;
                 section2popup_audio.pause();
                 whiteOverlay.style.display = "none";
                 buttonContainers.forEach(element => {
                     element.style.display = "none";
-                    element.style.pointerEvents="visible";
+                    element.style.pointerEvents="none";
                     
                 });
                 section2popup.style.display = 'none';
@@ -1659,6 +1671,10 @@ document.addEventListener("DOMContentLoaded", () => {
     section11_bear.style.display="block";
     section11_fish.style.display="block";
     section11_mushroom.style.display="block";
+    section11_labelkelp.style.display="none";
+    section11_labelFish.style.display="none";
+    section11_labelmushroom.style.display="none";
+    section11_labelbear.style.display="none";
     
     section11_bear_container.style.display="none";
     section11_mushroom_container.style.display="none";
@@ -1711,12 +1727,14 @@ document.addEventListener("DOMContentLoaded", () => {
          resetButtons();
          updateKeys([""]);
          section10_WhoEatWaht.style.display="none";
+         section10_WhoEatWaht.style.pointerEvents="none";
          section10nextImage.style.display = "none";
          section10startTime = null;
          section10pausedTime = 0; // Store elapsed time when paused
          section10animationFrameId = null;
          section10lastAnimationParams=null
          section10AnimationisCompleted=false;
+         section10isPaused=true;
         //ResetDragandDropSection8();
         //setDraggingState(false);
         //const section8_dragAreaImg =  section8_dragArea.querySelectorAll("img");
@@ -2350,7 +2368,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add your additional logic here
         dialogBox.style.display = "block";
         
-        textElement.textContent ="A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden.";
+        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;font-style: italic;'>Select each icon to know about them.</span>";
+        adjustImageHeight();
         adjustImageHeight();
         audio1.play();
         section2played=true;
@@ -2361,19 +2380,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Trigger 2: When First Audio Ends, Play Second Audio
     audio1.addEventListener("ended", () => {
-        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;font-style: italic;'>Select each icon to know about them.</span>";
-        adjustImageHeight();
+        //textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;font-style: italic;'>Select each icon to know about them.</span>";
+        //adjustImageHeight();
         audio2.play();
+        whiteOverlay.style.display = "block";
+        // Loop through all button containers and make them visible
+        buttonContainers.forEach(element => {
+            element.style.display = "block";
+            element.style.pointerEvents="none";
+        });
     });
 
     // Trigger 3: When Second Audio Ends, Show White Image and Buttons
     audio2.addEventListener("ended", () => {
-        whiteOverlay.style.display = "block";
-                // Loop through all button containers and make them visible
+        
+        audio11.play();
+    });
+    audio11.addEventListener("ended", () => {
         buttonContainers.forEach(element => {
             element.style.display = "block";
+            element.style.pointerEvents="visible";
         });
-    });
+     });
 
 
     // Total number of buttons
@@ -3983,7 +4011,7 @@ document.addEventListener("DOMContentLoaded", () => {
        
         section8_WhatEats.style.display='block';
     });
-    document.getElementById('section8_WhatEats').addEventListener('click', function() {
+    section8_WhatEats.addEventListener('click', function() {
         if(section8played){
             section8_WhatEats.style.display='none';
             section8dialogBox.style.display = "none";
@@ -3998,6 +4026,15 @@ document.addEventListener("DOMContentLoaded", () => {
             audio_section8_02.play().catch((error) => {
                 console.error('Error playing audio:', error);
             });
+ 
+            section8_bear.style.display = "block";
+            section8_fish.style.display = "block";
+            section8_DragLabel.style.display="block";
+            section8_mushroom.style.display = "block";
+            section8_plant.style.display = "block";
+            section8_dragArea.style.display = "block";
+            section8_dragImage.style.display = "block";
+            setDraggingStatePointer(false);
         }
         
 
@@ -4055,6 +4092,20 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (overlay) {
                         overlay.style.display = enabled ? "none" : "block"; // Show overlay when disabled
                     }
+                }
+            });
+        }
+        function setDraggingStatePointer(enabled) {
+             draggableItems.forEach(item => {
+                if (allowedIds.includes(item.id)) {
+                    item.draggable = enabled;
+                    item.style.pointerEvents = enabled ? "visible" : "none"; // Disable interaction
+                    
+                    let overlay = item.querySelector("#section8_drag_disableOverlay");
+                    if (overlay) {
+                        overlay.style.display = "none"; // Show overlay when disabled
+                    }
+                    
                 }
             });
         }
@@ -4753,15 +4804,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 imageWrapper.classList.add("image-wrapper");
 
                 // ✅ Create the tick mark element
-                const tickIcon = document.createElement("img");
-                tickIcon.src = "assets/Feeding Frenzy/Scene2/Tic.png"; // Update with correct path
-                tickIcon.style.width = "32%"; // Change this to your desired size
-                tickIcon.style.height = "32%"; 
-                tickIcon.classList.add("tick-icon");
+                // const tickIcon = document.createElement("img");
+                // tickIcon.src = "assets/Feeding Frenzy/Scene2/Tic.png";  
+                // tickIcon.style.width = "32%"; 
+                // tickIcon.style.height = "32%"; 
+                // tickIcon.classList.add("tick-icon");
 
                 // Append both image and tick inside the wrapper
                 imageWrapper.appendChild(clonedItem);
-                imageWrapper.appendChild(tickIcon);
+                //imageWrapper.appendChild(tickIcon);
 
                 // Append the wrapper inside the drop area
                 dropArea.appendChild(imageWrapper);
@@ -4808,6 +4859,31 @@ document.addEventListener("DOMContentLoaded", () => {
         audio_section9_06.play().catch((error) => {
             console.error('Error playing audio:', error);
         });
+        // Correct answer placement
+         const correctMapping = {
+            section9_dragArea1: ["section9_plant"],
+            section9_dragArea2: ["section9_fish", "section9_bear"],
+            section9_dragArea3: ["section9_mushroom"]
+        };
+        // Loop through drop areas and add tick marks
+        for (const areaId in correctMapping) {
+            const dropArea = document.getElementById(areaId);
+            
+            // Select all wrapper divs inside this drop area
+            const wrapperDivs = dropArea.querySelectorAll(".image-wrapper");
+
+            wrapperDivs.forEach(wrapperDiv => {
+                // ✅ Create the tick mark element
+                const tickIcon = document.createElement("img");
+                tickIcon.src = "assets/Feeding Frenzy/Scene2/Tic.png"; // Update with correct path
+                tickIcon.style.width = "32%"; // Adjust size
+                tickIcon.style.height = "32%";
+                tickIcon.classList.add("tick-icon");
+
+                // Append tick mark inside each wrapper
+                wrapperDiv.appendChild(tickIcon);
+            });
+        }
     });
 
     audio_section9_06.addEventListener("ended", () => {
@@ -4865,6 +4941,8 @@ document.addEventListener("DOMContentLoaded", () => {
         
         if(!is_fourkeyAccuired&&!is_fivethkeyAccuired){
 
+            section10_WhoEatWaht.style.display="block";
+            section10_WhoEatWaht.style.pointerEvents="none";
             // Set opacity for all keys (disable them)
             updateKeys([""]);
             console.log("myru", section10_zoomImage); // Should log an <img> element
@@ -4933,7 +5011,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     audio_section10_01.addEventListener("ended", () => {
          
-        section10_WhoEatWaht.style.display="block";
+        section10_WhoEatWaht.style.pointerEvents="visible";
     });
     section10_WhoEatWaht.addEventListener("click", () => {
         section10_WhoEatWaht.style.display="none";
@@ -5136,6 +5214,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     //Section11
 
+
+
     function section11triggerActions(){
         console.log("section11triggerActions");
         section11mute=false;
@@ -5164,6 +5244,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_section11_01.play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
+                section11_labelkelp.style.display="block";
+                section11_labelFish.style.display="block";
+                section11_labelmushroom.style.display="block";
+                section11_labelbear.style.display="block";
             });
         }
        
@@ -5191,10 +5275,13 @@ document.addEventListener("DOMContentLoaded", () => {
         section11_dragArea2.style.display="block";
         section11_dragArea3.style.display="block";
         section11_dragArea4.style.display="block";
-        section11_Headinglabel.style.display="block";
+        section11_Headinglabel.style.display="flex";
+        disableDraggingSection11();
     });
     audio_section11_02.addEventListener("ended", () => {
         section11_Submit.style.display="block";
+        section11dialogBox.style.display = "none";
+        enableDraggingSection11();
         
     });
 
@@ -5312,31 +5399,36 @@ document.addEventListener("DOMContentLoaded", () => {
             let wrapperDiv = document.createElement("div");
             wrapperDiv.classList.add("image-wrapper");
             wrapperDiv.style.position = "relative";
-            wrapperDiv.style.display = "flex";
-            wrapperDiv.style.justifyContent = "center";
+            wrapperDiv.style.display = "block";
             wrapperDiv.style.alignItems = "center";
             wrapperDiv.style.width = "100%";
             wrapperDiv.style.height = "100%";
-
+ 
             // Adjust cloned image size to fit and fill the drop area properly
-            clonedImg.style.width = "100%";
-            clonedImg.style.height = "100%";
+            clonedImg.style.position="absolute";
+            clonedImg.style.top="50%";
+            clonedImg.style.left="50%";
+            clonedImg.style.width = "108%";
+            clonedImg.style.height = "auto";
             clonedImg.style.objectFit = "cover"; // Ensures the image fills the area
-
+            clonedImg.style.transform='translate(-50%, -50%)';
             // Append the cloned item inside wrapper
             // wrapperDiv.appendChild(clonedImg);
             // this.appendChild(wrapperDiv);
             let clonedText = clonedItem.querySelector("p").cloneNode(true);
             clonedText.style.position = "absolute";
-            clonedText.style.top = "80%"; // Center vertically
+            clonedText.style.bottom = "0%"; // Center vertically
             clonedText.style.left = "50%"; // Center horizontally
-            clonedText.style.width = "50%";
+            clonedText.style.width = "100%";
             clonedText.style.height = "auto";
             clonedText.style.transform = "translate(-50%, -50%)";
             clonedText.style.textAlign = "center"; // Keep text centered
             clonedText.style.fontWeight = "bold"; // Make text bold
             clonedText.style.whiteSpace = "normal"; // Allow text wrapping
             clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
+            clonedText.style.margin="0";
+
+            //clonedImg.appendChild(clonedText);
             wrapperDiv.appendChild(clonedImg);
             wrapperDiv.appendChild(clonedText);
             this.appendChild(wrapperDiv);
@@ -5399,11 +5491,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Style and position the tick/cross icon inside the wrapper
             icon.style.position = "absolute";
-            icon.style.top = "7%";
-            icon.style.left = "8%";
-            icon.style.width = "33%"; // Adjust size
-            icon.style.height = "33%";
+            icon.style.top = "0%";
+            icon.style.left = "50%";
+            icon.style.width = "25%"; // Adjust size
+            icon.style.height = "auto";
             icon.style.pointerEvents = "none"; // Prevent interference
+            icon.style.transform="translate(-50%, -50%)";
 
             wrapperDiv.appendChild(icon);
         });
@@ -5419,6 +5512,8 @@ document.addEventListener("DOMContentLoaded", () => {
             //"<br><span style='color:#BC0404;font-style: italic;'></span>";
             
             adjustSection11ImageHeight();
+            section11_Ok.style.display="block";
+            section11_Ok.style.pointerEvents="none";
             audio_section11_05.play().catch((error) => {
                 console.error('Error playing audio:', error);
             });
@@ -5431,7 +5526,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     section11dialogBox.style.display = "inline-block";
                     section11dialogText.style.display = "block";
                     section11dialogText.innerHTML =
-                    "Oops, that's not quite right."+"<br>Try again!";
+                    "Oops, that's <br>not quite right."+"<br>Try again!";
                     
                     adjustSection11ImageHeight();
                     audio_section11_03.play().catch((error) => {
@@ -5476,6 +5571,7 @@ document.addEventListener("DOMContentLoaded", () => {
         Section11DragReset();
         section11_TryAgain.style.display="none";
         section11_Submit.style.display="block";
+        section11dialogBox.style.display = "none";
         
     });
     function Section11DragReset(){
@@ -5532,6 +5628,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     section11_CorrectAnswer.addEventListener("click", function () {
         section11_CorrectAnswer.style.display="none";
+        section11dialogBox.style.display = "none";
          
         // Clear all drop areas
         section11dropAreas.forEach(area => {
@@ -5547,33 +5644,40 @@ document.addEventListener("DOMContentLoaded", () => {
             let clonedItem = originalItem.cloneNode(true);
             let clonedImg = clonedItem.querySelector("img[draggable='true']");
             clonedImg.draggable = false; // Disable dragging for cloned item
-
-            // Wrap cloned item inside a div
+         
+            // Wrap cloned item inside a div for positioning
             let wrapperDiv = document.createElement("div");
             wrapperDiv.classList.add("image-wrapper");
             wrapperDiv.style.position = "relative";
-            wrapperDiv.style.display = "flex";
-            wrapperDiv.style.justifyContent = "center";
+            wrapperDiv.style.display = "block";
             wrapperDiv.style.alignItems = "center";
             wrapperDiv.style.width = "100%";
             wrapperDiv.style.height = "100%";
-
-            // Adjust cloned image size
-            clonedImg.style.width = "100%";
-            clonedImg.style.height = "100%";
-            clonedImg.style.objectFit = "cover";
-
+ 
+            // Adjust cloned image size to fit and fill the drop area properly
+            clonedImg.style.position="absolute";
+            clonedImg.style.top="50%";
+            clonedImg.style.left="50%";
+            clonedImg.style.width = "108%";
+            clonedImg.style.height = "auto";
+            clonedImg.style.objectFit = "cover"; // Ensures the image fills the area
+            clonedImg.style.transform='translate(-50%, -50%)';
+            // Append the cloned item inside wrapper
+            // wrapperDiv.appendChild(clonedImg);
+            // this.appendChild(wrapperDiv);
             let clonedText = clonedItem.querySelector("p").cloneNode(true);
             clonedText.style.position = "absolute";
-            clonedText.style.top = "80%"; // Center vertically
+            clonedText.style.bottom = "0%"; // Center vertically
             clonedText.style.left = "50%"; // Center horizontally
-            clonedText.style.width = "50%";
+            clonedText.style.width = "100%";
             clonedText.style.height = "auto";
             clonedText.style.transform = "translate(-50%, -50%)";
             clonedText.style.textAlign = "center"; // Keep text centered
             clonedText.style.fontWeight = "bold"; // Make text bold
             clonedText.style.whiteSpace = "normal"; // Allow text wrapping
             clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
+            clonedText.style.margin="0";
+
  
 
             // Create tick icon
@@ -5581,11 +5685,14 @@ document.addEventListener("DOMContentLoaded", () => {
             tickIcon.src = tickIconSrc;
             tickIcon.classList.add("result-icon");
             tickIcon.style.position = "absolute";
-            tickIcon.style.top = "7%";
-            tickIcon.style.left = "8%";
-            tickIcon.style.width = "33%";
-            tickIcon.style.height = "33%";
+            tickIcon.style.top = "0%";
+            tickIcon.style.left = "50%";
+            tickIcon.style.width = "25%";
+            tickIcon.style.height = "auto";
             tickIcon.style.pointerEvents = "none";
+            tickIcon.style.transform="translate(-50%, -50%)";
+            
+           
 
             // Append cloned image and tick to wrapper
             wrapperDiv.appendChild(clonedImg);
@@ -5608,6 +5715,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     //"<br><span style='color:#BC0404;font-style: italic;'></span>";
                     
                     adjustSection11ImageHeight();
+                    section11_Ok.style.display="block";
+                    section11_Ok.style.pointerEvents="none";
                     audio_section11_05.play().catch((error) => {
                         console.error('Error playing audio:', error);
                     });
@@ -5616,6 +5725,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     audio_section11_05.addEventListener("ended", () => {
+        section11dialogBox.style.display = "none";
+
         section11dialogBox.style.display = "inline-block";
         section11dialogText.style.display = "block";
         section11dialogText.innerHTML =
@@ -5629,7 +5740,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     audio_section11_06.addEventListener("ended", () => {
-        section11_Ok.style.display="block";
+        section11_Ok.style.pointerEvents="visible";
     });
 
     section11_Ok.addEventListener("click", function () {
@@ -5684,7 +5795,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section12dialogBox.style.display = "inline-block";
         section12dialogText.style.display = "block";
         section12dialogText.innerHTML =
-         "Read more about eosystems and food chains. Tap on the wooden icon to learn more.";///<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
+         "<strong>Read more about eosystems and food chains. Tap on the wooden icon to learn more</strong>.";///<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
         
         adjustSection12ImageHeight();
         audio_section12_01.play().catch((error) => {

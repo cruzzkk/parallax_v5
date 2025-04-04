@@ -2,7 +2,7 @@
 // preload.js
 
     // Arrays of images to preload from different folders
-    const imagesToPreload = [
+    const imagesToPreload_path = [
         //Slide25-35
         'assets/Slides_25-35/Audio_button.png', 'assets/Slides_25-35/Audio_button_Mute.png', 'assets/Slides_25-35/Audio_icon.png', 'assets/Slides_25-35/Audio_icon_selected.png', 'assets/Slides_25-35/Cantonese.png', 'assets/Slides_25-35/Cantonese_selected.png', 'assets/Slides_25-35/English.png', 'assets/Slides_25-35/English_selected.png', 'assets/Slides_25-35/Grizzly_bear.png', 'assets/Slides_25-35/Grizzly_bear_outline.png', 'assets/Slides_25-35/Hills.png', 'assets/Slides_25-35/Kelp.png', 'assets/Slides_25-35/Kelp_outline.png', 'assets/Slides_25-35/Mandarin.png', 'assets/Slides_25-35/Mandarin_selected.png', 'assets/Slides_25-35/octopus.png', 'assets/Slides_25-35/Pause_Button.png', 'assets/Slides_25-35/Photo01.png', 'assets/Slides_25-35/Photo02.png', 'assets/Slides_25-35/Photo03.png', 'assets/Slides_25-35/Photo04.png', 'assets/Slides_25-35/Plau_Button.png', 'assets/Slides_25-35/Popup_window.png', 'assets/Slides_25-35/Popup_window_close.png', 'assets/Slides_25-35/Reading-Language_button.png', 'assets/Slides_25-35/Reading-Language_button_Selected.png', 'assets/Slides_25-35/Reading_Help_popup.png', 'assets/Slides_25-35/Replay_Button.png', 'assets/Slides_25-35/Salmon.png', 'assets/Slides_25-35/Salmon_outline.png', 'assets/Slides_25-35/Sky_crop.png', 'assets/Slides_25-35/Spanish.png', 'assets/Slides_25-35/Spanish_selected.png', 'assets/Slides_25-35/Tagalog.png', 'assets/Slides_25-35/Tagalog_selected.png', 'assets/Slides_25-35/Trees_ground.png', 'assets/Slides_25-35/Water_crop.png', 'assets/Slides_25-35/Water_over_octopus.png', 'assets/Slides_25-35/Yeast_crop.png', 'assets/Slides_25-35/Yeast_outline_01.png', 'assets/Slides_25-35/Yeast_plant.png', 'assets/Slides_25-35/Yeast_plant_focus.png',
         'assets/Slides11-17/Callout01.png', 'assets/Slides11-17/Consumers.png', 'assets/Slides11-17/Consumers01.png', 'assets/Slides11-17/Consumers_text_box.png', 'assets/Slides11-17/Curved_arrow.png', 'assets/Slides11-17/Curved_arrow_highlighted.png', 'assets/Slides11-17/Decomposers.png', 'assets/Slides11-17/Decomposers_text_box.png', 'assets/Slides11-17/Garden_crop.png', 'assets/Slides11-17/Grass_top_layer.png', 'assets/Slides11-17/Grass_top_layer_crop.png', 'assets/Slides11-17/House_CROP_2.png', 'assets/Slides11-17/Mountains_01.png', 'assets/Slides11-17/Octopus_inset.png', 'assets/Slides11-17/Parallax_scroll_BG_updated.png', 'assets/Slides11-17/popup_close.png', 'assets/Slides11-17/Popup_text_box.png', 'assets/Slides11-17/Producers-Consumers_text_box.png', 'assets/Slides11-17/Producers.png', 'assets/Slides11-17/Producers_text_box.png', 'assets/Slides11-17/Scroll_down_button.png', 'assets/Slides11-17/Sun_01.png', 'assets/Slides11-17/Tree.png','assets/Slides11-17/Fullscreen_Exit_button.png',
@@ -11,7 +11,9 @@
         'assets/Feeding Frenzy/Activiry_Title_BG_Box.png','assets/Feeding Frenzy/Button_BG.png','assets/Feeding Frenzy/Disable_Option_Overly_Box.png','assets/Feeding Frenzy/Drop box yellow title BG.png','assets/Feeding Frenzy/Drop_Zone.png',
         'assets/Feeding Frenzy/Scene1/bottomlayer.png','assets/Feeding Frenzy/Scene1/CropWatertest2.png','assets/Feeding Frenzy/Scene1/Hill.png','assets/Feeding Frenzy/Scene1/Oct.png','assets/Feeding Frenzy/Scene1/octopus (1).png','assets/Feeding Frenzy/Scene1/Text_box.png','assets/Feeding Frenzy/Scene1/Trees_Ground.png','assets/Feeding Frenzy/Scene1/wood.png',
         'assets/Feeding Frenzy/Scene2/Bear.png','assets/Feeding Frenzy/Scene2/BG.png','assets/Feeding Frenzy/Scene2/Close.png','assets/Feeding Frenzy/Scene2/Cross.png','assets/Feeding Frenzy/Scene2/Cross_Activity_02.png','assets/Feeding Frenzy/Scene2/Decomposers.png','assets/Feeding Frenzy/Scene2/Drop_box.png','assets/Feeding Frenzy/Scene2/kelp.png','assets/Feeding Frenzy/Scene2/Popup_BG.png','assets/Feeding Frenzy/Scene2/Salmon (1).png','assets/Feeding Frenzy/Scene2/Tic.png','assets/Feeding Frenzy/Scene2/Tic_Activity_02.png','assets/Feeding Frenzy/Scene2/toplayer.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_01.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_02.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_03.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_03_test.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_04.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_041.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_05.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_05_test.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_06.png','assets/Feeding Frenzy/Scene2/under_water_Full.png','assets/Feeding Frenzy/Scene2/Water_BG.png','assets/Feeding Frenzy/Scene2/Water_Sarface_1920_New.png',
-        'assets/Feeding Frenzy/Scene3/bottomlayer.png'
+        'assets/Feeding Frenzy/Scene3/bottomlayer.png',
+        'assets/FoodChain/BG_Water_crop_Updated.png','assets/Slides18-20/Water_.png',
+        'assets/FoodChain/Scene2/BG_Water_crop.png','assets/FoodChain/BG_Water_crop_scene11.png'
         ];
     
         // Audio files
@@ -179,7 +181,7 @@ window.onload = function() {
     const imagesToPreload = collectImages();
     preloadImages_all(imagesToPreload, function (preloadedImages) {
         renderPreloadedImages(preloadedImages); // Assign preloaded images
-        preloadImages(imagesToPreload, function() {
+        preloadImages(imagesToPreload_path, function() {
             preloadAudios(audiosToPreload, function() {
                 preloadVideo('bgVideo', 'assets/video/Section1.mp4', function() {
                     // Once everything is preloaded, hide the preloader
@@ -247,6 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const meetfriends_button=document.getElementById('meetfriends');
     const feedingfrenzy_button=document.getElementById('feedingfrenzy');
     const foodchain_button=document.getElementById('foodchain');
+    const section3_underwater=document.getElementById('section3_underwater');
     let section3mute=false;
     let section3played=false;
     let section3pausedAudio =null;
@@ -423,6 +426,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const section11_labelFish = document.getElementById("section11_labelFish");
     const section11_labelmushroom = document.getElementById("section11_labelmushroom");
     const section11_labelbear = document.getElementById("section11_labelbear");
+    const section11_water = document.getElementById("section11_water");
+
     
     let section11mute=false;
     let section11played=false;
@@ -517,6 +522,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
  
+
+    const section15 = document.getElementById("section15");
+    const section15_zoomImage = document.getElementById("section15zoomImage");
+    const section15_FlyingOctopus = document.getElementById("section15_FlyingOctopus");
+    const section15_buttons = document.querySelectorAll(".section15_NumberButtons");
+    const section15_allKeys = document.querySelectorAll(".section15keys");
+
+
+
+    let section15mute=false;
+    let section15played=false;
+    let section15pausedAudio =null;
+    let section15ActionStart=false;
+
+    let section15startTime = null;
+    let section15pausedTime = 0;
+    let section15isPaused = false;
+    let section15animationFrameId = null;
+    let section15lastAnimationParams = null;
+    let section15AnimationisCompleted=false;
+
+ 
+
+
+
+    const section16 = document.getElementById("section16");
+    const section16_zoomImage = document.getElementById("section16zoomImage");
+    const section16_FlyingOctopus = document.getElementById("section16_FlyingOctopus");
+     const section16_buttons = document.querySelectorAll(".section16_NumberButtons");
+    const section16_allKeys = document.querySelectorAll(".section16keys");
+
+
+
+    let section16mute=false;
+    let section16played=false;
+    let section16pausedAudio =null;
+    let section16ActionStart=false;
+
+    let section16startTime = null;
+    let section16pausedTime = 0;
+    let section16isPaused = false;
+    let section16animationFrameId = null;
+    let section16lastAnimationParams = null;
+    let section16AnimationisCompleted=false;
+
+ 
+
+
 
 
 
@@ -787,6 +840,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_section14_01.muted = section14mute;
                 currentAudio.muted=section14mute;
                 commonsoundbutton.querySelector("img").src = section14mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+            break;
+            case 'section15':
+                section15mute=!section15mute;
+                audio_section10_03.muted = section15mute;
+                   
+                currentAudio.muted=section15mute;
+                commonsoundbutton.querySelector("img").src = section15mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+            break;
+            case 'section16':
+                section16mute=!section16mute;
+                audio_section10_04.muted = section16mute;
+                  
+                currentAudio.muted=section16mute;
+                commonsoundbutton.querySelector("img").src = section16mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
             break;
         }
     });
@@ -1327,6 +1394,134 @@ document.addEventListener("DOMContentLoaded", () => {
                     commonplayButton.querySelector("img").src=section14played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
                 }
             break;
+            case 'section15':
+                 
+                if(section15played){
+                    section15played=!section15played;
+
+                    for (let i = 24; i < 25; i++) {
+                            const audio = audiosToPreload[i];
+                            if (isAudioPlaying(audio)) {
+                                 audio.pause();
+                                section15pausedAudio=audio;
+                            }
+                            
+                    }
+
+                     
+                    section15isPaused=true;
+                    section15pausedTime += performance.now() - section15startTime; 
+                    cancelAnimationFrame(section15animationFrameId);
+                    section15animationFrameId = null;
+                    
+
+                    }else{
+
+                        section15played=!section15played;
+                      
+
+                        if(!section15ActionStart){
+                            section15triggerActions();
+                        }
+                        
+                        if (section15pausedAudio) {
+                            console.log("FKASS1");
+                            section15pausedAudio.play();
+                            section15pausedAudio = null; // Clear the stored audio after resuming
+                        }  
+                        
+                        if (section15lastAnimationParams&&!section15AnimationisCompleted) {
+                            section15isPaused=false;
+                            section15startTime=null;
+                            console.log("i am here");
+                            movingSection15FlyingOctopus(
+                                section15lastAnimationParams.maxHeight,
+                                section15lastAnimationParams.minHeight,
+                                section15lastAnimationParams.duration,
+                                section15lastAnimationParams.octopus,
+                                section15lastAnimationParams.zoomImage,
+                                section15lastAnimationParams.octopusLeft_Start,
+                                section15lastAnimationParams.octopusLeft_End,
+                                section15lastAnimationParams.octopusWidth_Start,
+                                section15lastAnimationParams.octopusWidth_End,
+                                section15lastAnimationParams.zoomImageScale_Start,
+                                section15lastAnimationParams.zoomImageScale_End,
+                                section15lastAnimationParams.zoomImageTranslateX_Start,
+                                section15lastAnimationParams.zoomImageTranslateX_End,
+                                section15lastAnimationParams.zoomImageTranslateY_Start,
+                                section15lastAnimationParams.zoomImageTranslateY_End,
+                                section15lastAnimationParams.onComplete
+                            );
+                        }
+                         
+                    }
+                commonplayButton.querySelector("img").src=section15played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                
+            break;
+            case 'section16':
+                 
+                if(section16played){
+                    section16played=!section16played;
+
+                    for (let i = 25; i < 26; i++) {
+                            const audio = audiosToPreload[i];
+                            if (isAudioPlaying(audio)) {
+                                 audio.pause();
+                                section16pausedAudio=audio;
+                            }
+                            
+                    }
+
+                     
+                    section16isPaused=true;
+                    section16pausedTime += performance.now() - section16startTime; 
+                    cancelAnimationFrame(section16animationFrameId);
+                    section16animationFrameId = null;
+                    
+
+                    }else{
+
+                        section16played=!section16played;
+                      
+
+                        if(!section16ActionStart){
+                            section16triggerActions();
+                        }
+                        
+                        if (section16pausedAudio) {
+                            console.log("FKASS1");
+                            section16pausedAudio.play();
+                            section16pausedAudio = null; // Clear the stored audio after resuming
+                        }  
+                        
+                        if (section16lastAnimationParams&&!section16AnimationisCompleted) {
+                            section16isPaused=false;
+                            section16startTime=null;
+                            console.log("i am here");
+                            movingSection16FlyingOctopus(
+                                section16lastAnimationParams.maxHeight,
+                                section16lastAnimationParams.minHeight,
+                                section16lastAnimationParams.duration,
+                                section16lastAnimationParams.octopus,
+                                section16lastAnimationParams.zoomImage,
+                                section16lastAnimationParams.octopusLeft_Start,
+                                section16lastAnimationParams.octopusLeft_End,
+                                section16lastAnimationParams.octopusWidth_Start,
+                                section16lastAnimationParams.octopusWidth_End,
+                                section16lastAnimationParams.zoomImageScale_Start,
+                                section16lastAnimationParams.zoomImageScale_End,
+                                section16lastAnimationParams.zoomImageTranslateX_Start,
+                                section16lastAnimationParams.zoomImageTranslateX_End,
+                                section16lastAnimationParams.zoomImageTranslateY_Start,
+                                section16lastAnimationParams.zoomImageTranslateY_End,
+                                section16lastAnimationParams.onComplete
+                            );
+                        }
+                         
+                    }
+                commonplayButton.querySelector("img").src=section16played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                
+            break;
             
 
         }
@@ -1387,6 +1582,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
                 section3played=false;
                 commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
+                section3_underwater.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Water_.png'));
+                section3_underwater.style.bottom="-5%";
                 section3Octopusidelvisible=false;
                 section3dialogBox.style.display = "none";
                 audio4.muted=section3mute;
@@ -1473,6 +1670,12 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section14':
                 Section14Restart();
             break;
+            case 'section15':
+                Section15Restart();
+            break;
+            case 'section16':
+                Section16Restart();
+            break;
 
 
         }
@@ -1480,6 +1683,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     });
+
+
+
+        //Section16 Restart
+   function Section16Restart() {
+         
+        section16mute = false;
+        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        section16played = false;
+        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        section16ActionStart = false;
+
+        audio_section10_04.muted = section8mute;
+        audio_section10_04.currentTime = 0;
+        audio_section10_04.pause();
+
+        
+        section16_FlyingOctopus.style.display="none";
+        section16_FlyingOctopus.style.top = "27%";
+        section16_FlyingOctopus.style.left="52%";
+        section16_FlyingOctopus.style.width="25%";
+        section16VisibleButtons("none");
+        section16updateKeys([""]);
+
+        section16startTime = null;
+        section16pausedTime = 0; // Store elapsed time when paused
+        section16animationFrameId = null;
+        section16lastAnimationParams=null
+        section16AnimationisCompleted=false;
+        section16isPaused=true;
+
+    }
+
+
+
+
+
+    //Section15 Restart
+   function Section15Restart() {
+         
+        section15mute = false;
+        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        section15played = false;
+        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        section15ActionStart = false;
+
+        audio_section10_03.muted = section8mute;
+        audio_section10_03.currentTime = 0;
+        audio_section10_03.pause();
+
+        
+        section15_FlyingOctopus.style.display="none";
+        section15_FlyingOctopus.style.top = "-40%";
+        section15_FlyingOctopus.style.left="22%";
+        section15_FlyingOctopus.style.width="28%";
+        section15VisibleButtons("none");
+        section15resetButtons();
+        section15updateKeys([""]);
+    
+        section15startTime = null;
+        section15pausedTime = 0; // Store elapsed time when paused
+        section15animationFrameId = null;
+        section15lastAnimationParams=null
+        section15AnimationisCompleted=false;
+        section15isPaused=true;
+ 
+    }
+
+
 
 
 
@@ -1593,9 +1865,12 @@ document.addEventListener("DOMContentLoaded", () => {
         section13_Headinglabel.style.display="none";
 
         section13_TryAgain.style.display="none";
+        section13_TryAgain.style.pointerEvents="none";
         section13_Submit.style.display="none";
+        section13_Submit.style.pointerEvents="none";
         section13_Headinglabel.style.display="none";
         section13_CorrectAnswer.style.display="none";
+        section13_CorrectAnswer.style.pointerEvents="none";
         section13_Ok.style.display="none";
         Section13DragReset();
         section13_submit_pressed=0;
@@ -1637,6 +1912,10 @@ document.addEventListener("DOMContentLoaded", () => {
     commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
     section11ActionStart = false;
 
+
+    section11_water.querySelector("img").src = imagesToPreload_path.find(src => src.includes('BG_Water_crop.png'));
+    section11_water.style.bottom="-0.5%";
+
     audio_section11_01.muted = section11mute;
     audio_section11_01.currentTime = 0;
     audio_section11_01.pause();
@@ -1661,6 +1940,7 @@ document.addEventListener("DOMContentLoaded", () => {
     section11animationFrameId = null;
     section11lastAnimationParams=null
     section11AnimationisCompleted=false;
+    section11isPaused=true;
 
     section11dialogBox.style.display = "none";
     section11dialogText.style.display = "none";
@@ -1735,13 +2015,8 @@ document.addEventListener("DOMContentLoaded", () => {
          section10lastAnimationParams=null
          section10AnimationisCompleted=false;
          section10isPaused=true;
-        //ResetDragandDropSection8();
-        //setDraggingState(false);
-        //const section8_dragAreaImg =  section8_dragArea.querySelectorAll("img");
-        //section8_dragAreaImg.forEach(a => {
-        //    a.style.display="none";
-        //});
-        //section8_dragArea.style.filter="blur(8px)";
+ 
+
     }
    //Section9 Restart
    function Section9Restart() {
@@ -2226,6 +2501,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 commonsoundbutton.querySelector("img").src = section14mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
                 commonplayButton.querySelector("img").src=section14played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
             break;
+            case 'section15':
+                commonsoundbutton.querySelector("img").src = section15mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonplayButton.querySelector("img").src=section15played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
+            case 'section16':
+                commonsoundbutton.querySelector("img").src = section16mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonplayButton.querySelector("img").src=section16played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+            break;
         }
     }
 
@@ -2340,6 +2623,8 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(() => applyParallaxEffect("section12", 0.5));
             requestAnimationFrame(() => applyParallaxEffect("section13", 0.5));
             requestAnimationFrame(() => applyParallaxEffect("section14", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section15", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section16", 0.5));
             ticking = true;
         }
     });
@@ -2473,7 +2758,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         
         const grassTopLayerImg = grass_toplayer.querySelector('img');
-        const newSrc = imagesToPreload.find(src => src.includes('Grass_top_layer.png'));
+        const newSrc = imagesToPreload_path.find(src => src.includes('Grass_top_layer.png'));
 
         if (newSrc) {
             grassTopLayerImg.src = newSrc;
@@ -2731,12 +3016,21 @@ document.addEventListener("DOMContentLoaded", () => {
              document.getElementById("gap13").style.display="none";
              section13.style.display="none";
              document.getElementById("gap14").style.display="none";
-             section14.style.display="none";
+             section14.style.display="none"; 
+             section15.style.display="none"; 
+             section16.style.display="none"; 
+             
+             
+          
+             section3_underwater.querySelector("img").src = imagesToPreload_path.find(src => src.includes('BG_Water_crop_Updated.png'));
+             section3_underwater.style.bottom="-13%";
 
              section10.style.display="block";
              waitForElementToRender(section10, () => {
                 smoothScrollToSceneandTrigger(section10,2000,function(){
+                    console.log("fare load");
                     Section10Restart();
+                    section10isPaused=false;
                     section10triggerActions();
                 });
             });
@@ -4775,6 +5069,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Correct Answer Button Functionality
     correctAnswerButton.addEventListener("click", () => {
+        
         if(section9played){
  
         // Clear existing drop areas
@@ -4921,7 +5216,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     section9_ok.addEventListener("click", () => {
-        smoothScrollTo(section3,2000);
+        if(section9played){
+            smoothScrollTo(section3,2000);
+        }
     });
 
 
@@ -4934,12 +5231,13 @@ document.addEventListener("DOMContentLoaded", () => {
     //Section10
 
     function section10triggerActions() {
+         
         section10mute=false;
         section10played=true;
         commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
         section10ActionStart=true;
         
-        if(!is_fourkeyAccuired&&!is_fivethkeyAccuired){
+        
 
             section10_WhoEatWaht.style.display="block";
             section10_WhoEatWaht.style.pointerEvents="none";
@@ -4948,6 +5246,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("myru", section10_zoomImage); // Should log an <img> element
     
             if (section10_zoomImage) {
+                console.log("Animation Start!");
                 movingSection10FlyingOctopus(-40, 30, 6000, section10_FlyingOctopus, section10_zoomImage,
                     22,27,28,25,2,5,0,-10,-40,0
                     , function () {
@@ -4959,36 +5258,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 console.error("section10zoomImage is undefined or not found!");
             }
-        }else if(is_fourkeyAccuired&&!is_fivethkeyAccuired){
-            section10_FlyingOctopus.style.top="30%";
-            section10_zoomImage.style.transform = `translate(-10%, 0%) scale(5)`;
-            VisibleButtons("block");
-            resetButtons();
-            updateKeys(["section10keyone", "section10keytwo","section10keythree","section10keyfour"]);
-            movingSection10FlyingOctopus(30, 27, 6000, section10_FlyingOctopus, section10_zoomImage,
-                27,52,25,25,5,5,-10,-10,0,0
-                , function () {
-                console.log("Animation complete!");
-                audio_section10_03.play().catch((error) => {
-                    console.error('Error playing audio:', error);
-                });
-            });
-
-        }else if(is_fourkeyAccuired&&is_fivethkeyAccuired){
-            section10_FlyingOctopus.style.top="30%";
-            section10_zoomImage.style.transform = `translate(-10%, 0%) scale(5)`;
-            VisibleButtons("block");
-            resetButtons();
-            updateKeys(["section10keyone", "section10keytwo","section10keythree","section10keyfour","section10keyfive"]);
-            movingSection10FlyingOctopus(27, 27, 6000, section10_FlyingOctopus, section10_zoomImage,
-                52,67,25,25,5,5,-10,-10,0,0
-                , function () {
-                console.log("Animation complete!");
-                audio_section10_04.play().catch((error) => {
-                    console.error('Error playing audio:', error);
-                });
-            });
-        }
+        
         
     }
 
@@ -5014,12 +5284,14 @@ document.addEventListener("DOMContentLoaded", () => {
         section10_WhoEatWaht.style.pointerEvents="visible";
     });
     section10_WhoEatWaht.addEventListener("click", () => {
-        section10_WhoEatWaht.style.display="none";
-        audio_section10_02.play().catch((error) => {
-            console.error('Error playing audio:', error);
-        });
-        VisibleButtons("block");
-        resetButtons();
+        if(section10played){
+            section10_WhoEatWaht.style.display="none";
+            audio_section10_02.play().catch((error) => {
+                console.error('Error playing audio:', error);
+            });
+            VisibleButtons("block");
+            resetButtons();
+        }
         
     });
     audio_section10_02.addEventListener("ended", () => {
@@ -5028,32 +5300,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-
-
-    audio_section10_03.addEventListener("ended", () => {
-         
-        VisibleButtons("block");
-        resetButtons();
-        enableButton("NumberFive");
-    });
-    audio_section10_04.addEventListener("ended", () => {
-         
-        VisibleButtons("block");
-        resetButtons();
-        //move to setion14
-        document.getElementById("gap14").style.display="block";
-        section14.style.display="block";
-        waitForElementToRender(section14, () => {
-            smoothScrollToSceneandTrigger(section14,3000,function(){
-                Section14Restart();
-                section14triggerActions();
-              
-               
-             });
-        });
-       
-    });
-
     // Function to enable one button and disable others
     function enableButton(buttonId) {
         section10_buttons.forEach(button => {
@@ -5061,7 +5307,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let isActive = button.id === buttonId; // Check if this is the selected button
 
             if (isActive) {
-                img.src = "assets/FoodChain/Scene1/Crop_05_Active.png";
+                img.src = "assets/FoodChain/Scene1/Crop_05.png";
                 button.style.cursor = "pointer";
                 button.addEventListener("click", handleClick);
             } else {
@@ -5074,39 +5320,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Click event handler
     function handleClick(event) {
-        console.log(event.currentTarget.id + " clicked!");
-        switch(event.currentTarget.id){
-            case "NumberOne":
-            //Section 11 Start
-            document.getElementById("gap11").style.display="block";
-            section11.style.display="block";
-            // Wait until section11 is fully visible, then scroll smoothly
-            waitForElementToRender(section11, () => {
-                smoothScrollToSceneandTrigger(section11, 3000, function () {
-                    Section11Restart();
-                    section11triggerActions();
-                });
-            });
 
-            // smoothScrollToSceneandTrigger(section11,3000,function(){
-            //     Section11Restart();
-            //     section11triggerActions();
-            //  });
-            break;
-            case "NumberFive":
-                document.getElementById("gap12").style.display="block";
-                section12.style.display="block";
-
-                waitForElementToRender(section12, () => {
-                    smoothScrollToSceneandTrigger(section12,3000,function(){
-                        Section12Restart();
-                        section12triggerActions();
+        if(section10played){
+            console.log(event.currentTarget.id + " clicked!");
+            switch(event.currentTarget.id){
+                case "NumberOne":
+                //Section 11 Start
+                document.getElementById("gap11").style.display="block";
+                section11.style.display="block";
+                // Wait until section11 is fully visible, then scroll smoothly
+                waitForElementToRender(section11, () => {
+                    smoothScrollToSceneandTrigger(section11, 3000, function () {
+                        Section11Restart();
+                        section11triggerActions();
                     });
                 });
+
+                // smoothScrollToSceneandTrigger(section11,3000,function(){
+                //     Section11Restart();
+                //     section11triggerActions();
+                //  });
+                break;
                 
-            break;
+            }
         }
-        // Add your click handling logic here
     }
 
     // Reset all buttons (optional function)
@@ -5132,6 +5369,7 @@ document.addEventListener("DOMContentLoaded", () => {
         onComplete
         ) {
 
+        console.log("Start Here");
         octopus.style.display="block";
         if (!octopus || !zoomImage) {
             console.error("Missing elements: Octopus or zoomImage is null.");
@@ -5147,7 +5385,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function animate(time) {
             if (section10isPaused) return; 
             if (!zoomImage || typeof zoomImage !== "object" || !zoomImage.style) {
-                //console.error("zoomImage is invalid or missing! Animation stopping.");
+                console.error("zoomImage is invalid or missing! Animation stopping.");
                 zoomImage = section10_zoomImage;
             }
     
@@ -5230,7 +5468,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section11_bear.style.display="block";
             section11_fish.style.display="block";
             section11_mushroom.style.display="block";
-            movingSection11FlyingOctopus(-30, 4, 6000, section11_flyingoctopus, function () {
+            movingSection11FlyingOctopus(-35, 4, 6000, section11_flyingoctopus, function () {
                 console.log("Animation complete!");
                 section11_octopus.style.display="block";
                 section11_flyingoctopus.style.display="none";
@@ -5447,110 +5685,112 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Submit Button Event
     section11_Submit.addEventListener("click", function () {
-        let allCorrect = true; // Track correctness
-        let allPlaced = true; // Track if all items are placed
+        if(section11played){
+            let allCorrect = true; // Track correctness
+            let allPlaced = true; // Track if all items are placed
 
-        // Check if every drop area has a dragged item
-        section11dropAreas.forEach(area => {
-            let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
-            if (!wrapperDiv || !wrapperDiv.firstElementChild) {
-                allPlaced = false; // If any drop area is empty, mark as false
-            }
-        });
-
-        // If not all items are placed, show a warning and exit
-        if (!allPlaced) {
-            console.log("Please place all items before submitting.");
-            section11dialogBox.style.display = "inline-block";
-            section11dialogText.style.display = "block";
-            section11dialogText.innerHTML = "Please place all items before submitting!";
-            adjustSection11ImageHeight();
-            return;
-        }
-
-        section11dropAreas.forEach(area => {
-            let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
-            if (!wrapperDiv) return;
-
-            let placedItem = wrapperDiv.firstElementChild ? wrapperDiv.firstElementChild.getAttribute("data-original-id") : null;
-            let expectedItem = correctMapping[area.id];
-            console.log("placeditem "+placedItem+"  expecteditem  "+expectedItem);
-
-            // Remove previous tick/cross
-            let existingIcon = wrapperDiv.querySelector(".result-icon");
-            if (existingIcon) existingIcon.remove();
-
-            // Create new tick/cross icon
-            const icon = document.createElement("img");
-            let isCorrect = placedItem === expectedItem;
-            icon.src = isCorrect ? tickIconSrc : wrongIconSrc;
-            icon.classList.add("result-icon");
-
-            // Update correctness tracking
-            if (!isCorrect) allCorrect = false;
-
-            // Style and position the tick/cross icon inside the wrapper
-            icon.style.position = "absolute";
-            icon.style.top = "0%";
-            icon.style.left = "50%";
-            icon.style.width = "25%"; // Adjust size
-            icon.style.height = "auto";
-            icon.style.pointerEvents = "none"; // Prevent interference
-            icon.style.transform="translate(-50%, -50%)";
-
-            wrapperDiv.appendChild(icon);
-        });
-        section11_submit_pressed++;
-        // Print result based on correctness
-        if (allCorrect) {
-            section11_Submit.style.display="none";
-            console.log("All correct!");
-            section11dialogBox.style.display = "inline-block";
-            section11dialogText.style.display = "block";
-            section11dialogText.innerHTML =
-            "Well done! You earned yourself a key!";//+
-            //"<br><span style='color:#BC0404;font-style: italic;'></span>";
-            
-            adjustSection11ImageHeight();
-            section11_Ok.style.display="block";
-            section11_Ok.style.pointerEvents="none";
-            audio_section11_05.play().catch((error) => {
-                console.error('Error playing audio:', error);
+            // Check if every drop area has a dragged item
+            section11dropAreas.forEach(area => {
+                let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
+                if (!wrapperDiv || !wrapperDiv.firstElementChild) {
+                    allPlaced = false; // If any drop area is empty, mark as false
+                }
             });
-        } else {
-            console.log("One of them is wrong");
-            switch(section11_submit_pressed){
-                case 1:
-                    section11_Submit.style.display="none";
-                    
-                    section11dialogBox.style.display = "inline-block";
-                    section11dialogText.style.display = "block";
-                    section11dialogText.innerHTML =
-                    "Oops, that's <br>not quite right."+"<br>Try again!";
-                    
-                    adjustSection11ImageHeight();
-                    audio_section11_03.play().catch((error) => {
-                        console.error('Error playing audio:', error);
-                    });
-                break;
-                case 2:
-                    console.log("in 2");
-                    section11_Submit.style.display="none";
-                    
-                    section11dialogBox.style.display = "inline-block";
-                    section11dialogText.style.display = "block";
-                    section11dialogText.innerHTML =
-                    "Not quit right, but don't worry! I'll guid you. Select Coorect Answer to check the correct sorting.";//+
-                    //"<br><span style='color:#BC0404;font-style: italic;'></span>";
-                    
-                    adjustSection11ImageHeight();
-                    audio_section11_04.play().catch((error) => {
-                        console.error('Error playing audio:', error);
-                    });
-                break;
 
+            // If not all items are placed, show a warning and exit
+            if (!allPlaced) {
+                console.log("Please place all items before submitting.");
+                section11dialogBox.style.display = "inline-block";
+                section11dialogText.style.display = "block";
+                section11dialogText.innerHTML = "Please place all items before submitting!";
+                adjustSection11ImageHeight();
+                return;
             }
-           
+
+            section11dropAreas.forEach(area => {
+                let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
+                if (!wrapperDiv) return;
+
+                let placedItem = wrapperDiv.firstElementChild ? wrapperDiv.firstElementChild.getAttribute("data-original-id") : null;
+                let expectedItem = correctMapping[area.id];
+                console.log("placeditem "+placedItem+"  expecteditem  "+expectedItem);
+
+                // Remove previous tick/cross
+                let existingIcon = wrapperDiv.querySelector(".result-icon");
+                if (existingIcon) existingIcon.remove();
+
+                // Create new tick/cross icon
+                const icon = document.createElement("img");
+                let isCorrect = placedItem === expectedItem;
+                icon.src = isCorrect ? tickIconSrc : wrongIconSrc;
+                icon.classList.add("result-icon");
+
+                // Update correctness tracking
+                if (!isCorrect) allCorrect = false;
+
+                // Style and position the tick/cross icon inside the wrapper
+                icon.style.position = "absolute";
+                icon.style.top = "0%";
+                icon.style.left = "50%";
+                icon.style.width = "25%"; // Adjust size
+                icon.style.height = "auto";
+                icon.style.pointerEvents = "none"; // Prevent interference
+                icon.style.transform="translate(-50%, -50%)";
+
+                wrapperDiv.appendChild(icon);
+            });
+            section11_submit_pressed++;
+            // Print result based on correctness
+            if (allCorrect) {
+                section11_Submit.style.display="none";
+                console.log("All correct!");
+                section11dialogBox.style.display = "inline-block";
+                section11dialogText.style.display = "block";
+                section11dialogText.innerHTML =
+                "Well done! You earned yourself a key!";//+
+                //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+                
+                adjustSection11ImageHeight();
+                section11_Ok.style.display="block";
+                section11_Ok.style.pointerEvents="none";
+                audio_section11_05.play().catch((error) => {
+                    console.error('Error playing audio:', error);
+                });
+            } else {
+                console.log("One of them is wrong");
+                switch(section11_submit_pressed){
+                    case 1:
+                        section11_Submit.style.display="none";
+                        
+                        section11dialogBox.style.display = "inline-block";
+                        section11dialogText.style.display = "block";
+                        section11dialogText.innerHTML =
+                        "Oops, that's <br>not quite right."+"<br>Try again!";
+                        
+                        adjustSection11ImageHeight();
+                        audio_section11_03.play().catch((error) => {
+                            console.error('Error playing audio:', error);
+                        });
+                    break;
+                    case 2:
+                        console.log("in 2");
+                        section11_Submit.style.display="none";
+                        
+                        section11dialogBox.style.display = "inline-block";
+                        section11dialogText.style.display = "block";
+                        section11dialogText.innerHTML =
+                        "Not quit right, but don't worry! I'll guid you. Select Coorect Answer to check the correct sorting.";//+
+                        //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+                        
+                        adjustSection11ImageHeight();
+                        audio_section11_04.play().catch((error) => {
+                            console.error('Error playing audio:', error);
+                        });
+                    break;
+
+                }
+            
+            }
         }
     });
 
@@ -5567,11 +5807,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Try Again Button Event
     section11_TryAgain.addEventListener("click", function () {
-        
-        Section11DragReset();
-        section11_TryAgain.style.display="none";
-        section11_Submit.style.display="block";
-        section11dialogBox.style.display = "none";
+        if(section11played){
+            Section11DragReset();
+            section11_TryAgain.style.display="none";
+            section11_Submit.style.display="block";
+            section11dialogBox.style.display = "none";
+        }
         
     });
     function Section11DragReset(){
@@ -5627,99 +5868,102 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     section11_CorrectAnswer.addEventListener("click", function () {
-        section11_CorrectAnswer.style.display="none";
-        section11dialogBox.style.display = "none";
-         
-        // Clear all drop areas
-        section11dropAreas.forEach(area => {
-            area.innerHTML = "";
 
-            let correctItemId = correctMapping[area.id];
-            if (!correctItemId) return;
+        if(section11played){
+                section11_CorrectAnswer.style.display="none";
+                section11dialogBox.style.display = "none";
+                
+                // Clear all drop areas
+                section11dropAreas.forEach(area => {
+                    area.innerHTML = "";
 
-            let originalItem = document.getElementById(correctItemId);
-            if (!originalItem) return;
+                    let correctItemId = correctMapping[area.id];
+                    if (!correctItemId) return;
 
-            // Clone the correct item
-            let clonedItem = originalItem.cloneNode(true);
-            let clonedImg = clonedItem.querySelector("img[draggable='true']");
-            clonedImg.draggable = false; // Disable dragging for cloned item
-         
-            // Wrap cloned item inside a div for positioning
-            let wrapperDiv = document.createElement("div");
-            wrapperDiv.classList.add("image-wrapper");
-            wrapperDiv.style.position = "relative";
-            wrapperDiv.style.display = "block";
-            wrapperDiv.style.alignItems = "center";
-            wrapperDiv.style.width = "100%";
-            wrapperDiv.style.height = "100%";
- 
-            // Adjust cloned image size to fit and fill the drop area properly
-            clonedImg.style.position="absolute";
-            clonedImg.style.top="50%";
-            clonedImg.style.left="50%";
-            clonedImg.style.width = "108%";
-            clonedImg.style.height = "auto";
-            clonedImg.style.objectFit = "cover"; // Ensures the image fills the area
-            clonedImg.style.transform='translate(-50%, -50%)';
-            // Append the cloned item inside wrapper
-            // wrapperDiv.appendChild(clonedImg);
-            // this.appendChild(wrapperDiv);
-            let clonedText = clonedItem.querySelector("p").cloneNode(true);
-            clonedText.style.position = "absolute";
-            clonedText.style.bottom = "0%"; // Center vertically
-            clonedText.style.left = "50%"; // Center horizontally
-            clonedText.style.width = "100%";
-            clonedText.style.height = "auto";
-            clonedText.style.transform = "translate(-50%, -50%)";
-            clonedText.style.textAlign = "center"; // Keep text centered
-            clonedText.style.fontWeight = "bold"; // Make text bold
-            clonedText.style.whiteSpace = "normal"; // Allow text wrapping
-            clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
-            clonedText.style.margin="0";
+                    let originalItem = document.getElementById(correctItemId);
+                    if (!originalItem) return;
 
- 
+                    // Clone the correct item
+                    let clonedItem = originalItem.cloneNode(true);
+                    let clonedImg = clonedItem.querySelector("img[draggable='true']");
+                    clonedImg.draggable = false; // Disable dragging for cloned item
+                
+                    // Wrap cloned item inside a div for positioning
+                    let wrapperDiv = document.createElement("div");
+                    wrapperDiv.classList.add("image-wrapper");
+                    wrapperDiv.style.position = "relative";
+                    wrapperDiv.style.display = "block";
+                    wrapperDiv.style.alignItems = "center";
+                    wrapperDiv.style.width = "100%";
+                    wrapperDiv.style.height = "100%";
+        
+                    // Adjust cloned image size to fit and fill the drop area properly
+                    clonedImg.style.position="absolute";
+                    clonedImg.style.top="50%";
+                    clonedImg.style.left="50%";
+                    clonedImg.style.width = "108%";
+                    clonedImg.style.height = "auto";
+                    clonedImg.style.objectFit = "cover"; // Ensures the image fills the area
+                    clonedImg.style.transform='translate(-50%, -50%)';
+                    // Append the cloned item inside wrapper
+                    // wrapperDiv.appendChild(clonedImg);
+                    // this.appendChild(wrapperDiv);
+                    let clonedText = clonedItem.querySelector("p").cloneNode(true);
+                    clonedText.style.position = "absolute";
+                    clonedText.style.bottom = "0%"; // Center vertically
+                    clonedText.style.left = "50%"; // Center horizontally
+                    clonedText.style.width = "100%";
+                    clonedText.style.height = "auto";
+                    clonedText.style.transform = "translate(-50%, -50%)";
+                    clonedText.style.textAlign = "center"; // Keep text centered
+                    clonedText.style.fontWeight = "bold"; // Make text bold
+                    clonedText.style.whiteSpace = "normal"; // Allow text wrapping
+                    clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
+                    clonedText.style.margin="0";
 
-            // Create tick icon
-            const tickIcon = document.createElement("img");
-            tickIcon.src = tickIconSrc;
-            tickIcon.classList.add("result-icon");
-            tickIcon.style.position = "absolute";
-            tickIcon.style.top = "0%";
-            tickIcon.style.left = "50%";
-            tickIcon.style.width = "25%";
-            tickIcon.style.height = "auto";
-            tickIcon.style.pointerEvents = "none";
-            tickIcon.style.transform="translate(-50%, -50%)";
-            
-           
+        
 
-            // Append cloned image and tick to wrapper
-            wrapperDiv.appendChild(clonedImg);
-            wrapperDiv.appendChild(clonedText);
-            wrapperDiv.appendChild(tickIcon);
-            area.appendChild(wrapperDiv);
-
-            // Disable original draggable item
-            let overlay = originalItem.querySelector("#section11_drag_disableOverlay");
-            if (overlay) {
-                overlay.style.display = "block";
-            }
-            originalItem.querySelector("img[draggable='true']").draggable = false;
-        });
-
-        section11dialogBox.style.display = "inline-block";
-                    section11dialogText.style.display = "block";
-                    section11dialogText.innerHTML =
-                    "Well done! You earned yourself a key!";//+
-                    //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+                    // Create tick icon
+                    const tickIcon = document.createElement("img");
+                    tickIcon.src = tickIconSrc;
+                    tickIcon.classList.add("result-icon");
+                    tickIcon.style.position = "absolute";
+                    tickIcon.style.top = "0%";
+                    tickIcon.style.left = "50%";
+                    tickIcon.style.width = "25%";
+                    tickIcon.style.height = "auto";
+                    tickIcon.style.pointerEvents = "none";
+                    tickIcon.style.transform="translate(-50%, -50%)";
                     
-                    adjustSection11ImageHeight();
-                    section11_Ok.style.display="block";
-                    section11_Ok.style.pointerEvents="none";
-                    audio_section11_05.play().catch((error) => {
-                        console.error('Error playing audio:', error);
-                    });
+                
+
+                    // Append cloned image and tick to wrapper
+                    wrapperDiv.appendChild(clonedImg);
+                    wrapperDiv.appendChild(clonedText);
+                    wrapperDiv.appendChild(tickIcon);
+                    area.appendChild(wrapperDiv);
+
+                    // Disable original draggable item
+                    let overlay = originalItem.querySelector("#section11_drag_disableOverlay");
+                    if (overlay) {
+                        overlay.style.display = "block";
+                    }
+                    originalItem.querySelector("img[draggable='true']").draggable = false;
+                });
+
+                section11dialogBox.style.display = "inline-block";
+                section11dialogText.style.display = "block";
+                section11dialogText.innerHTML =
+                "Well done! You earned yourself a key!";//+//"<br><span style='color:#BC0404;font-style: italic;'></span>";
+                            
+                adjustSection11ImageHeight();
+                section11_Ok.style.display="block";
+                section11_Ok.style.pointerEvents="none";
+                audio_section11_05.play().catch((error) => {
+                    console.error('Error playing audio:', error);
+                });
+        
+        }
         
 
     });
@@ -5744,18 +5988,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     section11_Ok.addEventListener("click", function () {
-        is_fourkeyAccuired=true;
-        waitForElementToRender(section10, () => {
-            smoothScrollToSceneandTrigger(section10,3000,function(){
-                Section10Restart();
-                section10triggerActions();
-                setTimeout(() => {
-                    document.getElementById("gap11").style.display="none";
-                    section11.style.display="none";
-                },100);
-                
-             });
-        });
+        if(section11played){
+            is_fourkeyAccuired=true;
+            section11_water.querySelector("img").src = imagesToPreload_path.find(src => src.includes('BG_Water_crop_scene11.png'));
+            section11_water.style.bottom="-5%";
+            section15.style.display="block";
+            waitForElementToRender(section15, () => {
+                smoothScrollToSceneandTrigger(section15,3000,function(){
+                    Section15Restart();
+                    section15isPaused=false;
+                    section15triggerActions();
+                });
+            });
+        }
          
     });
     
@@ -5835,12 +6080,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     section12_wood.addEventListener("click", function () {
+
+        if(section12played){
+            section12discribtionPanel.style.display="block";
+            updateText();
+            audio_section12_02.play().catch((error) => {
+                console.error('Error playing audio:', error);
+            });
+        }
        
-        section12discribtionPanel.style.display="block";
-        updateText();
-        audio_section12_02.play().catch((error) => {
-            console.error('Error playing audio:', error);
-        });
     });
     audio_section12_02.addEventListener("ended", () => {
         leftButton.style.pointerEvents="visible";
@@ -5889,22 +6137,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Right button click (next text)
     rightButton.addEventListener("click", () => {
-        if (currentTextIndex < texts.length - 1) {
-            currentTextIndex++;
-            updateText();
+        if(section12played){
+            if (currentTextIndex < texts.length - 1) {
+                currentTextIndex++;
+                updateText();
+            }
         }
     });
 
     // Left button click (previous text)
     leftButton.addEventListener("click", () => {
-        if (currentTextIndex > 0) {
-            currentTextIndex--;
-            updateText();
+        if(section12played){
+            if (currentTextIndex > 0) {
+                currentTextIndex--;
+                updateText();
+            }
         }
+
     });
 
     section12_discribtionPanel_closebuton.addEventListener("click", () => {
-        section12discribtionPanel.style.display="none"; 
+        if(section12played){
+            section12discribtionPanel.style.display="none"; 
+        }
     });
 
 
@@ -5939,7 +6194,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section13dialogBox.style.display = "inline-block";
             section13dialogText.style.display = "block";
             section13dialogText.innerHTML =
-             "There's a crisis in the ecosystem! Help these animals survive by placing them in the orrect order of the food chain.<br><span style='color:#BC0404;font-style: italic;'>Drag the animals to the boxes to create a food chain.</span>";///<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
+             "There's a crisis in the ecosystem! Help these animals survive by placing them in the correct order of the food chain.<br><span style='color:#BC0404;font-style: italic;'>Drag the animals to the boxes to create a food chain.</span>";///<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
             
             adjustSection13ImageHeight();
             audio_section13_01.play().catch((error) => {
@@ -5958,7 +6213,7 @@ document.addEventListener("DOMContentLoaded", () => {
     audio_section13_01.addEventListener("ended", () => {
 
         section13dialogText.innerHTML =
-        "<span style='color:#BC0404;font-style: italic;'>Drag the animals to the boxes to create a food chain.</span>";
+        "There's a crisis in the ecosystem! Help these animals survive by placing them in the correct order of the food chain.<br><span style='color:#BC0404;font-style: italic;'>Drag the animals to the boxes to create a food chain.</span>";
         adjustSection13ImageHeight();
         audio_section13_02.play().catch((error) => {
             console.error('Error playing audio:', error);
@@ -5968,7 +6223,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section13_frog.style.display="none";
         section13_ant.style.display="none";
         section13_hawk.style.display="none";
-        section13dialogBox.style.display = "none";
+        
 
         section13_snake_container.style.display="block";
         section13_hawk_container.style.display="block";
@@ -5979,10 +6234,13 @@ document.addEventListener("DOMContentLoaded", () => {
         section13_dragArea3.style.display="block";
         section13_dragArea4.style.display="block";
         section13_Headinglabel.style.display="block";
+        section13_Submit.style.display="block";
+        section13_Submit.style.pointerEvents="none";
      });
 
      audio_section13_02.addEventListener("ended", () => {
-        section13_Submit.style.display="block";
+        section13dialogBox.style.display = "none";
+        section13_Submit.style.pointerEvents="visible";
      });
 
 
@@ -6036,31 +6294,37 @@ document.addEventListener("DOMContentLoaded", () => {
              let wrapperDiv = document.createElement("div");
              wrapperDiv.classList.add("image-wrapper");
              wrapperDiv.style.position = "relative";
-             wrapperDiv.style.display = "flex";
-             wrapperDiv.style.justifyContent = "center";
+             wrapperDiv.style.display = "block";
              wrapperDiv.style.alignItems = "center";
              wrapperDiv.style.width = "100%";
              wrapperDiv.style.height = "100%";
  
-             // Adjust cloned image size to fit and fill the drop area properly
-             clonedImg.style.width = "100%";
-             clonedImg.style.height = "100%";
-             clonedImg.style.objectFit = "cover"; // Ensures the image fills the area
+            // Adjust cloned image size to fit and fill the drop area properly
+            clonedImg.style.position="absolute";
+            clonedImg.style.top="50%";
+            clonedImg.style.left="50%";
+            clonedImg.style.width = "108%";
+            clonedImg.style.height = "auto";
+            clonedImg.style.objectFit = "cover"; // Ensures the image fills the area
+            clonedImg.style.transform='translate(-50%, -50%)';
  
              // Append the cloned item inside wrapper
              // wrapperDiv.appendChild(clonedImg);
              // this.appendChild(wrapperDiv);
              let clonedText = clonedItem.querySelector("p").cloneNode(true);
              clonedText.style.position = "absolute";
-             clonedText.style.top = "80%"; // Center vertically
+             clonedText.style.bottom = "0%"; // Center vertically
              clonedText.style.left = "50%"; // Center horizontally
-             clonedText.style.width = "50%";
+             clonedText.style.width = "100%";
              clonedText.style.height = "auto";
              clonedText.style.transform = "translate(-50%, -50%)";
              clonedText.style.textAlign = "center"; // Keep text centered
              clonedText.style.fontWeight = "bold"; // Make text bold
              clonedText.style.whiteSpace = "normal"; // Allow text wrapping
              clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
+             clonedText.style.margin="0";
+
+
              wrapperDiv.appendChild(clonedImg);
              wrapperDiv.appendChild(clonedText);
              this.appendChild(wrapperDiv);
@@ -6079,127 +6343,144 @@ document.addEventListener("DOMContentLoaded", () => {
      
      // Submit Button Event
      section13_Submit.addEventListener("click", function () {
-         let allCorrect = true; // Track correctness
-         let allPlaced = true; // Track if all items are placed
 
-        // Check if every drop area has a dragged item
-        section13dropAreas.forEach(area => {
-            let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
-            if (!wrapperDiv || !wrapperDiv.firstElementChild) {
-                allPlaced = false; // If any drop area is empty, mark as false
-            }
-        });
+        if(section13played){
+                let allCorrect = true; // Track correctness
+                let allPlaced = true; // Track if all items are placed
 
-        // If not all items are placed, show a warning and exit
-        if (!allPlaced) {
-            console.log("Please place all items before submitting.");
-            section13dialogBox.style.display = "inline-block";
-            section13dialogText.style.display = "block";
-            section13dialogText.innerHTML = "Please place all items before submitting!";
-            adjustSection13ImageHeight();
-            return;
+                // Check if every drop area has a dragged item
+                section13dropAreas.forEach(area => {
+                    let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
+                    if (!wrapperDiv || !wrapperDiv.firstElementChild) {
+                        allPlaced = false; // If any drop area is empty, mark as false
+                    }
+                });
+
+                // If not all items are placed, show a warning and exit
+                if (!allPlaced) {
+                    console.log("Please place all items before submitting.");
+                    section13dialogBox.style.display = "inline-block";
+                    section13dialogText.style.display = "block";
+                    section13dialogText.innerHTML = "Please place all items before submitting!";
+                    adjustSection13ImageHeight();
+                    return;
+                }
+
+        
+                section13dropAreas.forEach(area => {
+                    let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
+                    if (!wrapperDiv) return;
+        
+                    let placedItem = wrapperDiv.firstElementChild ? wrapperDiv.firstElementChild.getAttribute("data-original-id") : null;
+                    let expectedItem = section13correctMapping[area.id];
+                    console.log("placeditem "+placedItem+"  expecteditem  "+expectedItem);
+        
+                    // Remove previous tick/cross
+                    let existingIcon = wrapperDiv.querySelector(".result-icon");
+                    if (existingIcon) existingIcon.remove();
+        
+                    // Create new tick/cross icon
+                    const icon = document.createElement("img");
+                    let isCorrect = placedItem === expectedItem;
+                    icon.src = isCorrect ? tickIconSrc : wrongIconSrc;
+                    icon.classList.add("result-icon");
+        
+                    // Update correctness tracking
+                    if (!isCorrect) allCorrect = false;
+        
+                    // Style and position the tick/cross icon inside the wrapper
+                    icon.style.position = "absolute";
+                    icon.style.top = "0%";
+                    icon.style.left = "50%";
+                    icon.style.width = "25%"; // Adjust size
+                    icon.style.height = "auto";
+                    icon.style.pointerEvents = "none"; // Prevent interference
+                    icon.style.transform="translate(-50%, -50%)";
+
+
+        
+                    wrapperDiv.appendChild(icon);
+                });
+                section13_submit_pressed++;
+                // Print result based on correctness
+                if (allCorrect) {
+                    section13_Submit.style.display="none";
+                    console.log("All correct!");
+                    section13dialogBox.style.display = "inline-block";
+                    section13dialogText.style.display = "block";
+                    section13dialogText.innerHTML =
+                    "Great job placing all the animals in the food chain correctly!";//+
+                    //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+                    
+                    adjustSection13ImageHeight();
+                    section13_Ok.style.pointerEvents="none";
+                    section13_Ok.style.display="block";
+                    audio_section13_05.play().catch((error) => {
+                        console.error('Error playing audio:', error);
+                    });
+                } else {
+                    console.log("One of them is wrong");
+                    switch(section13_submit_pressed){
+                        case 1:
+                            section13_Submit.style.display="none";
+                            
+                            section13dialogBox.style.display = "inline-block";
+                            section13dialogText.style.display = "block";
+                            section13dialogText.innerHTML =
+                            "Oops, that's <br>not quite right."+"<br>Try again!";
+                            
+                            adjustSection13ImageHeight();
+
+                            section13_TryAgain.style.pointerEvents="none";
+                            section13_TryAgain.style.display="block";
+                            audio_section13_03.play().catch((error) => {
+                                console.error('Error playing audio:', error);
+                            });
+                        break;
+                        case 2:
+                            console.log("in 2");
+                            section13_Submit.style.display="none";
+                            
+                            section13dialogBox.style.display = "inline-block";
+                            section13dialogText.style.display = "block";
+                            section13dialogText.innerHTML =
+                            "The order looks almost right, but it's not quite complete enough to give you the key.";//+
+                            //"<br><span style='color:#BC0404;font-style: italic;'></span>";
+                            
+                            adjustSection13ImageHeight();
+                            section13_CorrectAnswer.style.pointerEvents="none";
+                            section13_CorrectAnswer.style.display="block";
+                            audio_section13_04.play().catch((error) => {
+                                console.error('Error playing audio:', error);
+                            });
+                        break;
+        
+                    }
+                    
+                }
         }
-
- 
-         section13dropAreas.forEach(area => {
-             let wrapperDiv = area.querySelector(".image-wrapper"); // Find the wrapper div
-             if (!wrapperDiv) return;
- 
-             let placedItem = wrapperDiv.firstElementChild ? wrapperDiv.firstElementChild.getAttribute("data-original-id") : null;
-             let expectedItem = section13correctMapping[area.id];
-             console.log("placeditem "+placedItem+"  expecteditem  "+expectedItem);
- 
-             // Remove previous tick/cross
-             let existingIcon = wrapperDiv.querySelector(".result-icon");
-             if (existingIcon) existingIcon.remove();
- 
-             // Create new tick/cross icon
-             const icon = document.createElement("img");
-             let isCorrect = placedItem === expectedItem;
-             icon.src = isCorrect ? tickIconSrc : wrongIconSrc;
-             icon.classList.add("result-icon");
- 
-             // Update correctness tracking
-             if (!isCorrect) allCorrect = false;
- 
-             // Style and position the tick/cross icon inside the wrapper
-             icon.style.position = "absolute";
-             icon.style.top = "7%";
-             icon.style.left = "8%";
-             icon.style.width = "33%"; // Adjust size
-             icon.style.height = "33%";
-             icon.style.pointerEvents = "none"; // Prevent interference
- 
-             wrapperDiv.appendChild(icon);
-         });
-         section13_submit_pressed++;
-         // Print result based on correctness
-         if (allCorrect) {
-             section13_Submit.style.display="none";
-             console.log("All correct!");
-             section13dialogBox.style.display = "inline-block";
-             section13dialogText.style.display = "block";
-             section13dialogText.innerHTML =
-             "Great job placing all the animals in the food chain correctly!";//+
-             //"<br><span style='color:#BC0404;font-style: italic;'></span>";
-             
-             adjustSection13ImageHeight();
-             audio_section13_05.play().catch((error) => {
-                 console.error('Error playing audio:', error);
-             });
-         } else {
-             console.log("One of them is wrong");
-             switch(section13_submit_pressed){
-                 case 1:
-                     section13_Submit.style.display="none";
-                     
-                     section13dialogBox.style.display = "inline-block";
-                     section13dialogText.style.display = "block";
-                     section13dialogText.innerHTML =
-                     "Oops, that's not quite right."+"<br>Try again!";
-                     
-                     adjustSection13ImageHeight();
-                     audio_section13_03.play().catch((error) => {
-                         console.error('Error playing audio:', error);
-                     });
-                 break;
-                 case 2:
-                     console.log("in 2");
-                     section13_Submit.style.display="none";
-                     
-                     section13dialogBox.style.display = "inline-block";
-                     section13dialogText.style.display = "block";
-                     section13dialogText.innerHTML =
-                     "The order looks almost right, but it's not quite complete enough to give you the key.";//+
-                     //"<br><span style='color:#BC0404;font-style: italic;'></span>";
-                     
-                     adjustSection13ImageHeight();
-                     audio_section13_04.play().catch((error) => {
-                         console.error('Error playing audio:', error);
-                     });
-                 break;
- 
-             }
-            
-         }
      });
 
     audio_section13_03.addEventListener("ended", () => {
-        section13_TryAgain.style.display="block";
+ 
+        section13dialogBox.style.display = "none";
+        section13_TryAgain.style.pointerEvents="visible";
+    
         
     });
     audio_section13_04.addEventListener("ended", () => {
-        section13_CorrectAnswer.style.display="block";
- 
+        section13dialogBox.style.display = "none";
+        section13_CorrectAnswer.style.pointerEvents="visible";
         Section13DragResetOnly();
 
     });
      // Try Again Button Event
      section13_TryAgain.addEventListener("click", function () {
-        
-        Section13DragReset();
-        section13_TryAgain.style.display="none";
-        section13_Submit.style.display="block";
+        if(section13played){
+            Section13DragReset();
+            section13_TryAgain.style.display="none";
+            section13_Submit.style.display="block";
+        }
         
     });
     function Section13DragReset(){
@@ -6255,109 +6536,121 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     section13_CorrectAnswer.addEventListener("click", function () {
-        section13_CorrectAnswer.style.display="none";
-         
-        // Clear all drop areas
-        section13dropAreas.forEach(area => {
-            area.innerHTML = "";
+        if(section13played){
 
-            let correctItemId = section13correctMapping[area.id];
-            if (!correctItemId) return;
+                
 
-            let originalItem = document.getElementById(correctItemId);
-            if (!originalItem) return;
+                section13_CorrectAnswer.style.display="none";
+                
+                // Clear all drop areas
+                section13dropAreas.forEach(area => {
+                    area.innerHTML = "";
 
-            // Clone the correct item
-            let clonedItem = originalItem.cloneNode(true);
-            let clonedImg = clonedItem.querySelector("img[draggable='true']");
-            clonedImg.draggable = false; // Disable dragging for cloned item
+                    let correctItemId = section13correctMapping[area.id];
+                    if (!correctItemId) return;
 
-            // Wrap cloned item inside a div
-            let wrapperDiv = document.createElement("div");
-            wrapperDiv.classList.add("image-wrapper");
-            wrapperDiv.style.position = "relative";
-            wrapperDiv.style.display = "flex";
-            wrapperDiv.style.justifyContent = "center";
-            wrapperDiv.style.alignItems = "center";
-            wrapperDiv.style.width = "100%";
-            wrapperDiv.style.height = "100%";
+                    let originalItem = document.getElementById(correctItemId);
+                    if (!originalItem) return;
 
-            // Adjust cloned image size
-            clonedImg.style.width = "100%";
-            clonedImg.style.height = "100%";
-            clonedImg.style.objectFit = "cover";
+                    // Clone the correct item
+                    let clonedItem = originalItem.cloneNode(true);
+                    let clonedImg = clonedItem.querySelector("img[draggable='true']");
+                    clonedImg.draggable = false; // Disable dragging for cloned item
 
-            let clonedText = clonedItem.querySelector("p").cloneNode(true);
-             clonedText.style.position = "absolute";
-             clonedText.style.top = "80%"; // Center vertically
-             clonedText.style.left = "50%"; // Center horizontally
-             clonedText.style.width = "50%";
-             clonedText.style.height = "auto";
-             clonedText.style.transform = "translate(-50%, -50%)";
-             clonedText.style.textAlign = "center"; // Keep text centered
-             clonedText.style.fontWeight = "bold"; // Make text bold
-             clonedText.style.whiteSpace = "normal"; // Allow text wrapping
-             clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
-              
+                    // Wrap cloned item inside a div
+                    let wrapperDiv = document.createElement("div");
+                    wrapperDiv.classList.add("image-wrapper");
+                    wrapperDiv.style.position = "relative";
+                    wrapperDiv.style.display = "block";
+                    wrapperDiv.style.alignItems = "center";
+                    wrapperDiv.style.width = "100%";
+                    wrapperDiv.style.height = "100%";
 
-            // Create tick icon
-            const tickIcon = document.createElement("img");
-            tickIcon.src = tickIconSrc;
-            tickIcon.classList.add("result-icon");
-            tickIcon.style.position = "absolute";
-            tickIcon.style.top = "7%";
-            tickIcon.style.left = "8%";
-            tickIcon.style.width = "33%";
-            tickIcon.style.height = "33%";
-            tickIcon.style.pointerEvents = "none";
+                    clonedImg.style.position="absolute";
+                    clonedImg.style.top="50%";
+                    clonedImg.style.left="50%";
+                    clonedImg.style.width = "108%";
+                    clonedImg.style.height = "auto";
+                    clonedImg.style.objectFit = "cover"; // Ensures the image fills the area
+                    clonedImg.style.transform='translate(-50%, -50%)';
 
-            // Append cloned image and tick to wrapper
-            wrapperDiv.appendChild(clonedImg);
-            wrapperDiv.appendChild(clonedText);
-            wrapperDiv.appendChild(tickIcon);
-            area.appendChild(wrapperDiv);
-
-            // Disable original draggable item
-            let overlay = originalItem.querySelector("#section13_drag_disableOverlay");
-            if (overlay) {
-                overlay.style.display = "block";
-            }
-            originalItem.querySelector("img[draggable='true']").draggable = false;
-        });
-
-        section13dialogBox.style.display = "inline-block";
-            section13dialogText.style.display = "block";
-            section13dialogText.innerHTML =
-            "Great job placing all the animals in the food chain correctly!";
+                    let clonedText = clonedItem.querySelector("p").cloneNode(true);
+                    clonedText.style.position = "absolute";
+                    clonedText.style.bottom = "0%"; // Center vertically
+                    clonedText.style.left = "50%"; // Center horizontally
+                    clonedText.style.width = "100%";
+                    clonedText.style.height = "auto";
+                    clonedText.style.transform = "translate(-50%, -50%)";
+                    clonedText.style.textAlign = "center"; // Keep text centered
+                    clonedText.style.fontWeight = "bold"; // Make text bold
+                    clonedText.style.whiteSpace = "normal"; // Allow text wrapping
+                    clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
+                    clonedText.style.margin="0";
                     
-            adjustSection13ImageHeight();
-            audio_section13_05.play().catch((error) => {
-                console.error('Error playing audio:', error);
-            });
+
+                    // Create tick icon
+                    const tickIcon = document.createElement("img");
+                    tickIcon.src = tickIconSrc;
+                    tickIcon.classList.add("result-icon");
+                    tickIcon.style.position = "absolute";
+                    tickIcon.style.top = "0%";
+                    tickIcon.style.left = "50%";
+                    tickIcon.style.width = "25%";
+                    tickIcon.style.height = "auto";
+                    tickIcon.style.pointerEvents = "none";
+                    tickIcon.style.transform="translate(-50%, -50%)";
+
+                    // Append cloned image and tick to wrapper
+                    wrapperDiv.appendChild(clonedImg);
+                    wrapperDiv.appendChild(clonedText);
+                    wrapperDiv.appendChild(tickIcon);
+                    area.appendChild(wrapperDiv);
+
+                    // Disable original draggable item
+                    let overlay = originalItem.querySelector("#section13_drag_disableOverlay");
+                    if (overlay) {
+                        overlay.style.display = "block";
+                    }
+                    originalItem.querySelector("img[draggable='true']").draggable = false;
+                });
+
+                section13dialogBox.style.display = "inline-block";
+                    section13dialogText.style.display = "block";
+                    section13dialogText.innerHTML =
+                    "Great job placing all the animals in the food chain correctly!";
+                            
+                    adjustSection13ImageHeight();
+                    section13_Ok.style.pointerEvents="none";
+                    section13_Ok.style.display="block";
+                    audio_section13_05.play().catch((error) => {
+                        console.error('Error playing audio:', error);
+                    });
+
+        }
         
 
     });
 
     audio_section13_05.addEventListener("ended", () => {
-        section13_Ok.style.display="block";
+        section13dialogBox.style.display = "none";
+        section13_Ok.style.pointerEvents="visible";
+        
     });
 
 
     section13_Ok.addEventListener("click", function () {
-        is_fivethkeyAccuired=true;
-        waitForElementToRender(section10, () => {
-            smoothScrollToSceneandTrigger(section10,3000,function(){
-                Section10Restart();
-                section10triggerActions();
-                setTimeout(() => {
-                    document.getElementById("gap13").style.display="none";
-                    section13.style.display="none";
-                    document.getElementById("gap12").style.display="none";
-                    section12.style.display="none";
-                },100);
-               
-             });
-        });
+
+        if(section13played){
+            is_fivethkeyAccuired=true;
+            section16.style.display="block";
+            waitForElementToRender(section16, () => {
+                smoothScrollToSceneandTrigger(section16,3000,function(){
+                    Section16Restart();
+                    section16isPaused=false;
+                    section16triggerActions();
+                });
+            });
+        }
          
     });
 
@@ -6408,24 +6701,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     section14_Ok.addEventListener("click", function () {
       
-        waitForElementToRender(section3, () => {
-            smoothScrollToSceneandTrigger(section3,3000,function(){
+        if(section14played){
 
-                setTimeout(() => {
-                    section10.style.display="none";
-                document.getElementById("gap11").style.display="none";
-                section11.style.display="none";
-                document.getElementById("gap12").style.display="none";
-                section12.style.display="none";
-                document.getElementById("gap13").style.display="none";
-                section13.style.display="none";
-                document.getElementById("gap14").style.display="none";
-                section14.style.display="none";
-                },100);
-                
+        
+            waitForElementToRender(section3, () => {
+                smoothScrollToSceneandTrigger(section3,3000,function(){
+                });
+            });
 
-             });
-        });
+        }
          
     });
 
@@ -6443,12 +6727,398 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     
+        //Section15
 
+        function section15triggerActions() {
+            section15mute=false;
+            section15played=true;
+            commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+            section15ActionStart=true;
+            
+            
+            section15_FlyingOctopus.style.top="30%";
+            section15_FlyingOctopus.style.display="block";
+            section15VisibleButtons("block");
+            section15resetButtons();
+            section15updateKeys(["section15keyone", "section15keytwo","section15keythree","section15keyfour"]);
+            movingSection15FlyingOctopus(30, 27, 6000, section15_FlyingOctopus, section15_zoomImage,
+                27,52,25,25,5,5,-10,-10,0,0
+                , function () {
+                console.log("Animation complete!");
+                audio_section10_03.play().catch((error) => {
+                    console.error('Error playing audio:', error);
+                });
+            });
+            section15_buttons.forEach(button => {
+                let img = button.querySelector("img");
+                let isActive = button.id === "NumberFive"; // Check if this is the selected button
+
+                if (isActive) {
+                    img.src = "assets/FoodChain/Scene1/Crop_05.png";
+                    button.style.cursor = "pointer";
+                } else {
+                    img.src = "assets/FoodChain/Scene1/Crop_05_Active.png";
+                    button.style.cursor = "default";
+                   
+                }
+            });
+
+           
+            
+        }
+
+
+        function section15updateKeys(keysToEnable) {
+        
+            // Set opacity for all keys
+            section15_allKeys.forEach(key => {
+                key.style.opacity = "0.5"; // Disable by reducing opacity
+            });
+
+            // Enable the specified keys
+            keysToEnable.forEach(keyId => {
+                const keyElement = document.getElementById(keyId);
+                if (keyElement) {
+                    keyElement.style.opacity = "1"; // Fully visible when enabled
+                }
+            });
+        }
+ 
+
+        audio_section10_03.addEventListener("ended", () => {
+            
+            section15VisibleButtons("block");
+            section15resetButtons();
+            section15enableButton("NumberFive");
+        });
+ 
+
+        // Function to enable one button and disable others
+        function section15enableButton(buttonId) {
+            section15_buttons.forEach(button => {
+                let img = button.querySelector("img");
+                let isActive = button.id === buttonId; // Check if this is the selected button
+
+                if (isActive) {
+                    img.src = "assets/FoodChain/Scene1/Crop_05.png";
+                    button.style.cursor = "pointer";
+                    button.addEventListener("click", section15handleClick);
+                } else {
+                    img.src = "assets/FoodChain/Scene1/Crop_05_Active.png";
+                    button.style.cursor = "default";
+                   
+                }
+            });
+        }
+
+        // Click event handler
+        function section15handleClick(event) {
+            console.log(event.currentTarget.id + " clicked!");
+            if(section15played){
+                switch(event.currentTarget.id){
+                    case "NumberFive":
+                        document.getElementById("gap12").style.display="block";
+                        section12.style.display="block";
+    
+                        waitForElementToRender(section12, () => {
+                            smoothScrollToSceneandTrigger(section12,3000,function(){
+                                Section12Restart();
+                                section12triggerActions();
+                            });
+                        });
+                        
+                    break;
+                }
+            }
+
+           
+        }
+
+        // Reset all buttons (optional function)
+        function section15resetButtons() {
+            section15_buttons.forEach(button => {
+                let img = button.querySelector("img");
+                img.src = "assets/FoodChain/Scene1/Crop_05.png";
+                button.style.cursor = "default";
+                button.removeEventListener("click", section15handleClick);
+            
+            });
+        } 
+        function section15VisibleButtons(val){
+            section15_buttons.forEach(button => {
+                button.style.display = val;
+            });
+            
+        } 
+                
+        function movingSection15FlyingOctopus(maxHeight, minHeight, duration, octopus, zoomImage,
+            octopusLeft_Start,octopusLeft_End,octopusWidth_Start,octopusWidth_End,
+            zoomImageScale_Start,zoomImageScale_End,zoomImageTranslateX_Start,zoomImageTranslateX_End,zoomImageTranslateY_Start,zoomImageTranslateY_End,
+            onComplete
+            ) {
+
+            octopus.style.display="block";
+            if (!octopus || !zoomImage) {
+                console.error("Missing elements: Octopus or zoomImage is null.");
+                return;
+            }
+
+            octopus.style.display = "block";
+            section15lastAnimationParams = { maxHeight, minHeight, duration, octopus, zoomImage,
+                octopusLeft_Start,octopusLeft_End,octopusWidth_Start,octopusWidth_End,
+                zoomImageScale_Start,zoomImageScale_End,zoomImageTranslateX_Start,zoomImageTranslateX_End,zoomImageTranslateY_Start,zoomImageTranslateY_End,
+                onComplete};
+
+            function animate(time) {
+                if (section15isPaused) return; 
+                if (!zoomImage || typeof zoomImage !== "object" || !zoomImage.style) {
+                    //console.error("zoomImage is invalid or missing! Animation stopping.");
+                    zoomImage = section15_zoomImage;
+                }
+
+                if (!section15startTime) {
+                    section15startTime = time - section15pausedTime;
+                    section15pausedTime = 0;
+                }
+
+                let elapsed = Math.max(1, time - section15startTime);
+                let t = Math.min(elapsed / duration, 1);
+
+                function lerp(start, end, t) {
+                    return (1 - t) * start + t * end;
+                }
+
+                let currentY = lerp(maxHeight, minHeight, t);  //22,27,28,25,2,5,0,-10,-40,0
+                let currentLeft = lerp(octopusLeft_Start, octopusLeft_End, t);
+                let currentWidth = lerp(octopusWidth_Start, octopusWidth_End, t);
+
+                octopus.style.top = `${currentY}%`;
+                octopus.style.left = `${currentLeft}%`;
+                octopus.style.width = `${currentWidth}%`;
+
+                let currentScale = lerp(zoomImageScale_Start,zoomImageScale_End, t);
+                let currentTranslateX = lerp(zoomImageTranslateX_Start, zoomImageTranslateX_End, t);
+                let currentTranslateY = lerp(zoomImageTranslateY_Start, zoomImageTranslateY_End, t);
+
+                if (t === 1) {
+                    currentTranslateY = zoomImageTranslateY_End;
+                    currentTranslateX = zoomImageTranslateX_End;
+                    currentScale = zoomImageScale_End;
+                }
+
+                console.log("Applying transform:", currentTranslateX, currentTranslateY, currentScale);
+
+                if (zoomImage && zoomImage.style) {
+                    zoomImage.style.transform = `translate(${currentTranslateX}%, ${currentTranslateY}%) scale(${currentScale})`;
+                } else {
+                    console.error("zoomImage is undefined or has no style property!");
+                    return;
+                }
+
+                if (t < 1) {
+                    section15animationFrameId = requestAnimationFrame(animate);
+                } else {
+                    console.log("Animation complete!");
+                    section15animationFrameId = null;
+                    section15pausedTime = 0;
+                    section15AnimationisCompleted=true;
+                    if (typeof onComplete === "function") {
+                        onComplete();
+                    }
+                }
+            }
+
+            section15animationFrameId = requestAnimationFrame(animate);
+        }
 
  
 
 
     
+
+
+
+
+
+
+       //Section16
+
+
+
+    function section16triggerActions() {
+        section16mute=false;
+        section16played=true;
+        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        section16ActionStart=true;
+        
+       
+         
+        section16_FlyingOctopus.style.top = "27%";
+        section16_FlyingOctopus.style.left="52%";
+        section16_FlyingOctopus.style.width="25%";
+        section16VisibleButtons("block");
+        section16VisitetdAllButton();
+        section16updateKeys(["section16keyone", "section16keytwo","section16keythree","section16keyfour","section16keyfive"]);
+        section16_FlyingOctopus.style.display="block";
+        audio_section10_04.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+        
+        
+    }
+
+
+    function section16updateKeys(keysToEnable) {
+     
+        // Set opacity for all keys
+        section16_allKeys.forEach(key => {
+            key.style.opacity = "0.5"; // Disable by reducing opacity
+        });
+    
+        // Enable the specified keys
+        keysToEnable.forEach(keyId => {
+            const keyElement = document.getElementById(keyId);
+            if (keyElement) {
+                keyElement.style.opacity = "1"; // Fully visible when enabled
+            }
+        });
+    }
+ 
+    audio_section10_04.addEventListener("ended", () => {
+        //move to setion14
+        document.getElementById("gap14").style.display="block";
+        section14.style.display="block";
+        waitForElementToRender(section14, () => {
+            smoothScrollToSceneandTrigger(section14,3000,function(){
+                Section14Restart();
+                section14triggerActions();
+              
+               
+             });
+        });
+       
+    });
+
+    // Function to enable one button and disable others
+    function section16VisitetdAllButton() {
+        section16_buttons.forEach(button => {
+            let img = button.querySelector("img");
+
+            img.src = "assets/FoodChain/Scene1/Crop_05_Active.png";
+            button.style.cursor = "default";
+            button.style.pointerEvents="none";
+            
+        });
+    }
+
+    function section16VisibleButtons(val){
+        section16_buttons.forEach(button => {
+            button.style.display = val;
+        });
+        
+    } 
+            
+    function movingSection16FlyingOctopus(maxHeight, minHeight, duration, octopus, zoomImage,
+        octopusLeft_Start,octopusLeft_End,octopusWidth_Start,octopusWidth_End,
+        zoomImageScale_Start,zoomImageScale_End,zoomImageTranslateX_Start,zoomImageTranslateX_End,zoomImageTranslateY_Start,zoomImageTranslateY_End,
+        onComplete
+        ) {
+
+        octopus.style.display="block";
+        if (!octopus || !zoomImage) {
+            console.error("Missing elements: Octopus or zoomImage is null.");
+            return;
+        }
+
+        octopus.style.display = "block";
+        section16lastAnimationParams = { maxHeight, minHeight, duration, octopus, zoomImage,
+            octopusLeft_Start,octopusLeft_End,octopusWidth_Start,octopusWidth_End,
+            zoomImageScale_Start,zoomImageScale_End,zoomImageTranslateX_Start,zoomImageTranslateX_End,zoomImageTranslateY_Start,zoomImageTranslateY_End,
+            onComplete};
+
+        function animate(time) {
+            if (section16isPaused) return; 
+            if (!zoomImage || typeof zoomImage !== "object" || !zoomImage.style) {
+                //console.error("zoomImage is invalid or missing! Animation stopping.");
+                zoomImage = section16_zoomImage;
+            }
+
+            if (!section16startTime) {
+                section16startTime = time - section16pausedTime;
+                section16pausedTime = 0;
+            }
+
+            let elapsed = Math.max(1, time - section16startTime);
+            let t = Math.min(elapsed / duration, 1);
+
+            function lerp(start, end, t) {
+                return (1 - t) * start + t * end;
+            }
+
+            let currentY = lerp(maxHeight, minHeight, t);  //22,27,28,25,2,5,0,-10,-40,0
+            let currentLeft = lerp(octopusLeft_Start, octopusLeft_End, t);
+            let currentWidth = lerp(octopusWidth_Start, octopusWidth_End, t);
+
+            octopus.style.top = `${currentY}%`;
+            octopus.style.left = `${currentLeft}%`;
+            octopus.style.width = `${currentWidth}%`;
+
+            let currentScale = lerp(zoomImageScale_Start,zoomImageScale_End, t);
+            let currentTranslateX = lerp(zoomImageTranslateX_Start, zoomImageTranslateX_End, t);
+            let currentTranslateY = lerp(zoomImageTranslateY_Start, zoomImageTranslateY_End, t);
+
+            if (t === 1) {
+                currentTranslateY = zoomImageTranslateY_End;
+                currentTranslateX = zoomImageTranslateX_End;
+                currentScale = zoomImageScale_End;
+            }
+
+            console.log("Applying transform:", currentTranslateX, currentTranslateY, currentScale);
+
+            if (zoomImage && zoomImage.style) {
+                zoomImage.style.transform = `translate(${currentTranslateX}%, ${currentTranslateY}%) scale(${currentScale})`;
+            } else {
+                console.error("zoomImage is undefined or has no style property!");
+                return;
+            }
+
+            if (t < 1) {
+                section16animationFrameId = requestAnimationFrame(animate);
+            } else {
+                console.log("Animation complete!");
+                section16animationFrameId = null;
+                section16pausedTime = 0;
+                section16AnimationisCompleted=true;
+                if (typeof onComplete === "function") {
+                    onComplete();
+                }
+            }
+        }
+
+        section16animationFrameId = requestAnimationFrame(animate);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

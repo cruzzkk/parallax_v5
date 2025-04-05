@@ -2890,6 +2890,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 
             }
+            section3_underwater.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Water_.png'));
+            section3_underwater.style.bottom="-5%";
 
 
             document.getElementById("section3nextImage").style.display="block";
@@ -2912,6 +2914,14 @@ document.addEventListener("DOMContentLoaded", () => {
             section13.style.display="none";
             document.getElementById("gap14").style.display="none";
             section14.style.display="none";
+            section15.style.display="none"; 
+            document.getElementById("gap16").style.display="none";
+            section16.style.display="none"; 
+            section8isPaused=true;
+            section10isPaused=true;
+            section11isPaused=true;
+            section15isPaused=true;
+            section16isPaused=true;
 
             document.getElementById("gap4").style.display="block";
             section4.style.overflow="visible";
@@ -2940,6 +2950,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 
             }
+            section3_underwater.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Water_.png'));
+            section3_underwater.style.bottom="-5%";
             document.getElementById("section3nextImage").style.display="block";
 
 
@@ -2962,6 +2974,14 @@ document.addEventListener("DOMContentLoaded", () => {
              section13.style.display="none";
              document.getElementById("gap14").style.display="none";
              section14.style.display="none";
+             section15.style.display="none"; 
+             document.getElementById("gap16").style.display="none";
+             section16.style.display="none"; 
+             section8isPaused=true;
+             section10isPaused=true;
+             section11isPaused=true;
+             section15isPaused=true;
+             section16isPaused=true;
  
              document.getElementById("gap7").style.display="block";
              section7.style.display="block";
@@ -3020,7 +3040,12 @@ document.addEventListener("DOMContentLoaded", () => {
              section14.style.display="none"; 
              section15.style.display="none"; 
              document.getElementById("gap16").style.display="none";
-             section16.style.display="none"; 
+             section16.style.display="none";
+             section8isPaused=true;
+             section10isPaused=true;
+             section11isPaused=true;
+             section15isPaused=true;
+             section16isPaused=true; 
              
              
           

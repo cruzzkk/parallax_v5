@@ -1941,6 +1941,7 @@ document.addEventListener("DOMContentLoaded", () => {
     section11lastAnimationParams=null
     section11AnimationisCompleted=false;
     section11isPaused=true;
+    
 
     section11dialogBox.style.display = "none";
     section11dialogText.style.display = "none";
@@ -2168,7 +2169,7 @@ document.addEventListener("DOMContentLoaded", () => {
 //common
     //Gap resize code
     function adjustGapHeights() {
-        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9','#gap11','#gap12','gap13','gap14']; // IDs of the gap elements
+        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9','#gap11','#gap12','gap13','gap14','gap16']; // IDs of the gap elements
         const maxWidth = 1920; // Maximum width threshold
 
         gapElements.forEach(selector => {
@@ -3018,6 +3019,7 @@ document.addEventListener("DOMContentLoaded", () => {
              document.getElementById("gap14").style.display="none";
              section14.style.display="none"; 
              section15.style.display="none"; 
+             document.getElementById("gap16").style.display="none";
              section16.style.display="none"; 
              
              
@@ -5069,7 +5071,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Correct Answer Button Functionality
     correctAnswerButton.addEventListener("click", () => {
-        
+
         if(section9played){
  
         // Clear existing drop areas
@@ -5332,6 +5334,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 waitForElementToRender(section11, () => {
                     smoothScrollToSceneandTrigger(section11, 3000, function () {
                         Section11Restart();
+                        section11isPaused=false;
                         section11triggerActions();
                     });
                 });
@@ -6642,6 +6645,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if(section13played){
             is_fivethkeyAccuired=true;
+            document.getElementById("gap16").style.display="block";
             section16.style.display="block";
             waitForElementToRender(section16, () => {
                 smoothScrollToSceneandTrigger(section16,3000,function(){
@@ -6703,7 +6707,7 @@ document.addEventListener("DOMContentLoaded", () => {
       
         if(section14played){
 
-        
+            section3nextImage.style.display="block";
             waitForElementToRender(section3, () => {
                 smoothScrollToSceneandTrigger(section3,3000,function(){
                 });
@@ -6823,6 +6827,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         waitForElementToRender(section12, () => {
                             smoothScrollToSceneandTrigger(section12,3000,function(){
                                 Section12Restart();
+                                
                                 section12triggerActions();
                             });
                         });

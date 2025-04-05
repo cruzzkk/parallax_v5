@@ -4252,23 +4252,23 @@ transition: transform 0.3s;
 
 #section10keyone{
    
-    top:6%;
+    top:9%;
     left: 70%;
 }
 #section10keytwo{
-    top:6%;
+    top:9%;
     left: 75%;
 }
 #section10keythree{
-    top:6%;
+    top:9%;
     left: 80%;
 }
 #section10keyfour{
-    top:6%;
+    top:9%;
     left: 85%;
 }
 #section10keyfive{
-    top:6%;
+    top:9%;
     left: 90%;
 }
 
@@ -5130,19 +5130,16 @@ transition: transform 0.3s;
     pointer-events: none;
     
     /* Add shadow */
-    text-shadow:  
-    -3px -3px 0 black,  
-     3px -3px 0 black,  
-    -3px  3px 0 black,  
-     3px  3px 0 black,  
-    -3px  0px 0 black,  
-     3px  0px 0 black,  
-     0px -3px 0 black,  
-     0px  3px 0 black,  
-    -4px -4px 0 black,  
-     4px -4px 0 black,  
-    -4px  4px 0 black,  
-     4px  4px 0 black;
+    text-shadow:
+    -3px -3px 0 #00000060,
+     3px -3px 0 #00000060,
+    -3px  3px 0 #00000060,
+     3px  3px 0 #00000060,
+    -4px  0px 0 #00000060,
+     4px  0px 0 #00000060,
+     0px -4px 0 #00000060,
+     0px  4px 0 #00000060;
+     
 
 }
 
@@ -6168,23 +6165,23 @@ transition: transform 0.3s;
 
 #section15keyone{
    
-    top:6%;
+    top:9%;
     left: 70%;
 }
 #section15keytwo{
-    top:6%;
+    top:9%;
     left: 75%;
 }
 #section15keythree{
-    top:6%;
+    top:9%;
     left: 80%;
 }
 #section15keyfour{
-    top:6%;
+    top:9%;
     left: 85%;
 }
 #section15keyfive{
-    top:6%;
+    top:9%;
     left: 90%;
 }
 
@@ -6197,6 +6194,22 @@ transition: transform 0.3s;
 
 
 /* Section16 */
+#gap16{
+    --vw-height: 10;
+    height:   10vw; 
+    background-color: #357030;
+}
+
+#section16topLayer{
+    top: -36%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+     
+    z-index: 0;
+    transform: translate(-50%, 0%);  
+}
 
 #section16 {
     position: relative;
@@ -6210,6 +6223,7 @@ transition: transform 0.3s;
     z-index: 0;
     
 }
+
 #section16wall {
     top: 50%;
     left: 50%;
@@ -6368,23 +6382,23 @@ transition: transform 0.3s;
 
 #section16keyone{
    
-    top:6%;
+    top:9%;
     left: 70%;
 }
 #section16keytwo{
-    top:6%;
+    top:9%;
     left: 75%;
 }
 #section16keythree{
-    top:6%;
+    top:9%;
     left: 80%;
 }
 #section16keyfour{
-    top:6%;
+    top:9%;
     left: 85%;
 }
 #section16keyfive{
-    top:6%;
+    top:9%;
     left: 90%;
 }
 

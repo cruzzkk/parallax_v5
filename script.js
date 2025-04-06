@@ -291,6 +291,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let section6played=false;
     let section6pausedAudio =null;
     const popup = document.getElementById("iconpopupcall");
+    const section6_ok = document.getElementById("section6_ok");
 
 
     const section7 = document.getElementById("section7");
@@ -1643,6 +1644,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     button.src = nonVisitedImage;
                 });
                 document.getElementById("iconpopupcall").style.display="none";
+                section6_ok.style.display = "none";
                 section6doonce=false;
             break;
 
@@ -4041,6 +4043,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     feedbackImage1.src = feedbackImage1.getAttribute('correct');
                     feedbackImage3.src = feedbackImage3.getAttribute('correct');
                     feedbackText1.textContent = "Well done!";
+                    section6_ok.style.display="block";
         
                 
                 } else {
@@ -4087,6 +4090,12 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             
         });
+    });
+
+    section6_ok.addEventListener("click", () => {
+        if(section6played){
+            smoothScrollTo(section3,2000);
+        }
     });
 
 

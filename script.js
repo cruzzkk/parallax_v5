@@ -1927,8 +1927,7 @@ document.addEventListener("DOMContentLoaded", () => {
     section11ActionStart = false;
 
 
-    section11_water.querySelector("img").src = imagesToPreload_path.find(src => src.includes('BG_Water_crop.png'));
-    section11_water.style.bottom="-0.5%";
+    
 
     audio_section11_01.muted = section11mute;
     audio_section11_01.currentTime = 0;
@@ -2669,7 +2668,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add your additional logic here
         dialogBox.style.display = "block";
         
-        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;font-style: italic;display:none;'>Select each icon to know about them.</span>";
+        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-style: italic;display:none;'>Select each icon to know about them.</span>";
         adjustImageHeight();
         adjustImageHeight();
         audio1.play();
@@ -2694,7 +2693,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Trigger 3: When Second Audio Ends, Show White Image and Buttons
     audio2.addEventListener("ended", () => {
-        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;font-style: italic;display:block;'>Select each icon to know about them.</span>";
+        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-style: italic;display:block;'>Select each icon to know about them.</span>";
         adjustImageHeight();
         adjustImageHeight();
         audio11.play();
@@ -3019,6 +3018,9 @@ document.addEventListener("DOMContentLoaded", () => {
     foodchain_button.addEventListener('click', () => {
 
         if(section3played){
+
+            section11_water.querySelector("img").src = imagesToPreload_path.find(src => src.includes('BG_Water_crop.png'));
+            section11_water.style.bottom="-0.5%";
 
             for (let i = 0; i < audiosToPreload.length; i++) {
                 
@@ -4294,8 +4296,8 @@ document.addEventListener("DOMContentLoaded", () => {
             section8dialogText.style.display = "block";
             section8dialogText.innerHTML = "Tell me what a salmon eats."+
             "<br><span style='color:#BC0404;font-style: italic;'>Select</span>"+
-            "<span style='color:#BC0404;font-weight: bold;font-style: italic;'>  What It Eats  </span>"+
-            "<span style='color:#BC0404;font-weight: normal;font-style: italic;'>to reveal a set of salmon feeding options.</span>";
+            "<span style='color:#BC0404;font-style: italic;'>  What It Eats  </span>"+
+            "<span style='color:#BC0404;font-style: italic;'>to reveal a set of salmon feeding options.</span>";
             adjustSection8ImageHeight();
         });
     }
@@ -4822,8 +4824,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // Paths for tick and wrong icons
-    const tickIconSrc = "assets/Feeding Frenzy/Scene2/Tic_Activity_02.png"; // ✅ Tick Image
-    const wrongIconSrc = "assets/Feeding Frenzy/Scene2/Cross_Activity_02.png"; // ❌ Cross Image
+    const tickIconSrc = "assets/Feeding Frenzy/Scene2/Asset-14.png"; // ✅ Tick Image
+    const wrongIconSrc = "assets/Feeding Frenzy/Scene2/Asset-13.png"; // ❌ Cross Image
 
 
 
@@ -4875,7 +4877,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section9dialogBox.style.display = "inline-block";
             section9dialogText.style.display = "block";
             section9dialogText.innerHTML =
-            "<span style='color:#BC0404;font-style: italic;font-weight: bold;'>Drag and drop each organism into the correct category. Once you're done sorting, select Submit.</span>";
+            "<span style='color:#BC0404;font-style: italic;'>Drag and drop each organism into the correct category. Once you're done sorting, Select Submit.</span>";
             
             adjustSection9ImageHeight();
             audio_section9_02.play().catch((error) => {
@@ -5012,11 +5014,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     // Style and position the tick/cross icon inside the wrapper
                     icon.style.position = "absolute";
-                    icon.style.top = "7%";
-                    icon.style.left = "8%";
-                    icon.style.width = "33%"; // Adjust size
-                    icon.style.height = "33%";
+                    icon.style.top = "5%";
+                    icon.style.left = "50%";
+                    icon.style.width = "20%"; // Adjust size
+                    icon.style.height = "20%";
                     icon.style.pointerEvents = "none"; // Prevent interference
+                    icon.style.transform = "translate(-50%,-50%)";
 
                     wrapperDiv.appendChild(icon);
                 }
@@ -5236,9 +5239,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 // ✅ Create the tick mark element
                 const tickIcon = document.createElement("img");
                 tickIcon.src = "assets/Feeding Frenzy/Scene2/Tic.png"; // Update with correct path
-                tickIcon.style.width = "32%"; // Adjust size
-                tickIcon.style.height = "32%";
+ 
+                tickIcon.style.top = "5%";
+                tickIcon.style.left = "50%";
+                tickIcon.style.width = "20%"; // Adjust size
+                tickIcon.style.height = "20%";
+                tickIcon.style.pointerEvents = "none"; // Prevent interference
+                tickIcon.style.transform = "translate(-50%,-50%)";
                 tickIcon.classList.add("tick-icon");
+                
+                
+                
+               
+
+ 
 
                 // Append tick mark inside each wrapper
                 wrapperDiv.appendChild(tickIcon);
@@ -5721,7 +5735,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // this.appendChild(wrapperDiv);
             let clonedText = clonedItem.querySelector("p").cloneNode(true);
             clonedText.style.position = "absolute";
-            clonedText.style.bottom = "0%"; // Center vertically
+            clonedText.style.bottom = "-3%"; // Center vertically
             clonedText.style.left = "50%"; // Center horizontally
             clonedText.style.width = "100%";
             clonedText.style.height = "auto";
@@ -5731,6 +5745,7 @@ document.addEventListener("DOMContentLoaded", () => {
             clonedText.style.whiteSpace = "normal"; // Allow text wrapping
             clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
             clonedText.style.margin="0";
+            clonedText.classList.add("cloned-Text");
 
             //clonedImg.appendChild(clonedText);
             wrapperDiv.appendChild(clonedImg);
@@ -5798,8 +5813,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 icon.style.position = "absolute";
                 icon.style.top = "0%";
                 icon.style.left = "50%";
-                icon.style.width = "25%"; // Adjust size
-                icon.style.height = "auto";
+                icon.style.width = "20%"; // Adjust size
+                icon.style.height = "20%";
                 icon.style.pointerEvents = "none"; // Prevent interference
                 icon.style.transform="translate(-50%, -50%)";
 
@@ -5976,7 +5991,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     // this.appendChild(wrapperDiv);
                     let clonedText = clonedItem.querySelector("p").cloneNode(true);
                     clonedText.style.position = "absolute";
-                    clonedText.style.bottom = "0%"; // Center vertically
+                    clonedText.style.bottom = "-3%"; // Center vertically
                     clonedText.style.left = "50%"; // Center horizontally
                     clonedText.style.width = "100%";
                     clonedText.style.height = "auto";
@@ -5986,6 +6001,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     clonedText.style.whiteSpace = "normal"; // Allow text wrapping
                     clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
                     clonedText.style.margin="0";
+                    clonedText.classList.add("cloned-Text");
 
         
 
@@ -5996,8 +6012,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     tickIcon.style.position = "absolute";
                     tickIcon.style.top = "0%";
                     tickIcon.style.left = "50%";
-                    tickIcon.style.width = "25%";
-                    tickIcon.style.height = "auto";
+                    tickIcon.style.width = "20%";
+                    tickIcon.style.height = "20%";
                     tickIcon.style.pointerEvents = "none";
                     tickIcon.style.transform="translate(-50%, -50%)";
                     
@@ -6106,7 +6122,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section12dialogBox.style.display = "inline-block";
         section12dialogText.style.display = "block";
         section12dialogText.innerHTML =
-         "<strong>Read more about eosystems and food chains. Tap on the wooden icon to learn more</strong>.";///<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
+         "Read more about<br>eosystems and food<br>chains.Tap on the wooden<br>icon to learn more.";///<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
         
         adjustSection12ImageHeight();
         
@@ -6188,18 +6204,22 @@ document.addEventListener("DOMContentLoaded", () => {
         if (currentTextIndex === 2 && !thirdTextTriggered) {
             console.log("You are at the third text!");
             thirdTextTriggered = true; // Prevent re-triggering 
-            document.getElementById("gap13").style.display="block";
-            section13.style.display="block";
+           // Delay the actions by 3 seconds (3000 milliseconds)
+           setTimeout(() => {
+            document.getElementById("gap13").style.display = "block";
+            section13.style.display = "block";
 
             waitForElementToRender(section13, () => {
-                smoothScrollToSceneandTrigger(section13,3000,function(){
+                smoothScrollToSceneandTrigger(section13, 3000, function () {
                     Section13Restart();
                     section13triggerActions();
-                 });
+                });
             });
+            }, 3000); // 3 seconds delay
             
             
         }
+            
     }
 
     // Right button click (next text)
@@ -6385,7 +6405,7 @@ document.addEventListener("DOMContentLoaded", () => {
              // this.appendChild(wrapperDiv);
              let clonedText = clonedItem.querySelector("p").cloneNode(true);
              clonedText.style.position = "absolute";
-             clonedText.style.bottom = "0%"; // Center vertically
+             clonedText.style.bottom = "-3%"; // Center vertically
              clonedText.style.left = "50%"; // Center horizontally
              clonedText.style.width = "100%";
              clonedText.style.height = "auto";
@@ -6395,6 +6415,7 @@ document.addEventListener("DOMContentLoaded", () => {
              clonedText.style.whiteSpace = "normal"; // Allow text wrapping
              clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
              clonedText.style.margin="0";
+             clonedText.classList.add("cloned-Text");
 
 
              wrapperDiv.appendChild(clonedImg);
@@ -6433,7 +6454,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     console.log("Please place all items before submitting.");
                     section13dialogBox.style.display = "inline-block";
                     section13dialogText.style.display = "block";
-                    section13dialogText.innerHTML = "Please place all items before submitting!";
+                    section13dialogText.innerHTML = "Please place all <br>items before submitting!";
                     adjustSection13ImageHeight();
                     return;
                 }
@@ -6464,8 +6485,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     icon.style.position = "absolute";
                     icon.style.top = "0%";
                     icon.style.left = "50%";
-                    icon.style.width = "25%"; // Adjust size
-                    icon.style.height = "auto";
+                    icon.style.width = "20%"; // Adjust size
+                    icon.style.height = "20%";
                     icon.style.pointerEvents = "none"; // Prevent interference
                     icon.style.transform="translate(-50%, -50%)";
 
@@ -6648,7 +6669,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     let clonedText = clonedItem.querySelector("p").cloneNode(true);
                     clonedText.style.position = "absolute";
-                    clonedText.style.bottom = "0%"; // Center vertically
+                    clonedText.style.bottom = "-3%"; // Center vertically
                     clonedText.style.left = "50%"; // Center horizontally
                     clonedText.style.width = "100%";
                     clonedText.style.height = "auto";
@@ -6658,6 +6679,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     clonedText.style.whiteSpace = "normal"; // Allow text wrapping
                     clonedText.style.wordWrap = "break-word"; // Ensure wrapping works properly
                     clonedText.style.margin="0";
+                    clonedText.classList.add("cloned-Text");
                     
 
                     // Create tick icon
@@ -6667,8 +6689,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     tickIcon.style.position = "absolute";
                     tickIcon.style.top = "0%";
                     tickIcon.style.left = "50%";
-                    tickIcon.style.width = "25%";
-                    tickIcon.style.height = "auto";
+                    tickIcon.style.width = "20%";
+                    tickIcon.style.height = "20%";
                     tickIcon.style.pointerEvents = "none";
                     tickIcon.style.transform="translate(-50%, -50%)";
 

@@ -4968,7 +4968,9 @@ transition: transform 0.3s;
 }
 
 
-
+.cloned-Text{
+    font-size: 1.4vw;
+}
 
 
 
@@ -5064,7 +5066,7 @@ transition: transform 0.3s;
     transform: translateX(-50%) translateY(-50%);
 }
 #section12_water{
-    bottom: -0.5%;
+    bottom: -3%;
     left: 50%;
     width: 100%;
     /* max-width: 1120px; */
@@ -5103,7 +5105,7 @@ transition: transform 0.3s;
     left: 53%; /* Position relative to viewport width */
     width: 42%; /* Adjust base width as needed */
     min-width: 15%;
-    max-width: 42%;
+    max-width: 48%;
     height: auto; /* Maintain aspect ratio */
     transform: translateX(-50%);
     z-index: 5;
@@ -5400,9 +5402,9 @@ transition: transform 0.3s;
 }
 
 #section13_octopus{
-    top: 55%;
-    left: 13%;
-    width: 26%;
+    top: 60%;
+    left: 11%;
+    width: 22%;
      height: auto;
     object-fit: contain;
     transform: translateX(-50%) translateY(0%);
@@ -5412,10 +5414,10 @@ transition: transform 0.3s;
 .section13dialogBox {
     position: absolute;
     bottom: 80%; /* Position relative to viewport height */
-    left: 60%; /* Position relative to viewport width */
+    left: 67%; /* Position relative to viewport width */
     width: 15%; /* Adjust base width as needed */
-    min-width: 15%;
-    max-width: 100%;
+    min-width: 50%;
+    max-width: 120%;
     height: auto; /* Maintain aspect ratio */
     transform: translateX(-50%);
     z-index: 5;
@@ -6023,7 +6025,7 @@ transition: transform 0.3s;
 }
  
 #section14_water{
-    bottom: -0.5%;
+    bottom: -3%;
     left: 50%;
     width: 100%;
     /* max-width: 1120px; */
@@ -6667,6 +6669,9 @@ transition: transform 0.3s;
     }
     #section11_Ok p{
         font-size: 27px;    
+    }
+    .cloned-Text{
+        font-size: 27px; 
     }
     .section12dialogBox .text{
         font-size: 23px;

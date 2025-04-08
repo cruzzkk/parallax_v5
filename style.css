@@ -1482,7 +1482,7 @@ bear 5 */
 }
 /* plant */
 #section4button1 {
-    
+    display: none;
     top: 59%;
     left: 53%;
     width: 10%;
@@ -1530,6 +1530,7 @@ bear 5 */
     
 }
 #section4plantray{
+    display: none;
     top:63%;
     left: 49%;
     width: 12%;
@@ -1537,7 +1538,7 @@ bear 5 */
     height: auto;
     object-fit: contain;
     z-index: 4;
-     transform: translateX(-50%) translateY(0%);
+    transform: translateX(-50%) translateY(0%);
 }
 
  
@@ -3622,6 +3623,7 @@ transition: transform 0.3s;
     display: none;
     cursor: pointer;
     
+    
    
 }
 #section9_SortitOut img {
@@ -4620,7 +4622,7 @@ transition: transform 0.3s;
     display: none;
 }
 #section11_labelFish p{
-    top: 14%;
+    top: 22%;
     font-weight: bold;
 }
 #section11_bear{
@@ -4640,7 +4642,7 @@ transition: transform 0.3s;
     display: none;
 }
 #section11_labelbear p{
-     top: 19%;
+     top: 24%;
     font-weight: bold;
  }
 #section11_mushroom{
@@ -4660,7 +4662,7 @@ transition: transform 0.3s;
     display: none;
 }
 #section11_labelmushroom p{
-    top: 17%;
+    top: 24%;
     font-weight: bold;
  }
 #section11_kelp{
@@ -4680,7 +4682,7 @@ transition: transform 0.3s;
     display: none;
 }
 #section11_labelkelp p{
-    top: 18%;
+    top: 24%;
     font-weight: bold;
  }
 
@@ -4743,7 +4745,7 @@ transition: transform 0.3s;
     font-family: 'Heinemann';
     font-style:normal ;
     
-    font-size: 2vw; /* Adjust text size */
+    font-size: 1.6vw; /* Adjust text size */
     text-align: center;
     text-wrap: wrap;
     background-color: #45a04900;
@@ -5097,11 +5099,11 @@ transition: transform 0.3s;
 
 .section12dialogBox {
     position: absolute;
-    bottom: 32%; /* Position relative to viewport height */
-    left: 37%; /* Position relative to viewport width */
-    width: 15%; /* Adjust base width as needed */
+    bottom: 84%; /* Position relative to viewport height */
+    left: 53%; /* Position relative to viewport width */
+    width: 42%; /* Adjust base width as needed */
     min-width: 15%;
-    max-width: 34%;
+    max-width: 42%;
     height: auto; /* Maintain aspect ratio */
     transform: translateX(-50%);
     z-index: 5;
@@ -5409,11 +5411,11 @@ transition: transform 0.3s;
 }
 .section13dialogBox {
     position: absolute;
-    bottom: 35%; /* Position relative to viewport height */
-    left: 16%; /* Position relative to viewport width */
+    bottom: 80%; /* Position relative to viewport height */
+    left: 60%; /* Position relative to viewport width */
     width: 15%; /* Adjust base width as needed */
     min-width: 15%;
-    max-width: 34%;
+    max-width: 100%;
     height: auto; /* Maintain aspect ratio */
     transform: translateX(-50%);
     z-index: 5;
@@ -5467,6 +5469,7 @@ transition: transform 0.3s;
     position: absolute;
     top: -5%;
     width: 86%;
+    display: none;
 }
 #section13_labelsnake p{
     top: 25%;
@@ -5491,6 +5494,7 @@ transition: transform 0.3s;
     top: 41%;
     left: -9%;
     width: 86%;
+    display: none;
 }
 #section13_labelfrog p{
     top: 30%;
@@ -5513,6 +5517,7 @@ transition: transform 0.3s;
     position: absolute;
     top: -5%;
     width: 86%;
+    display: none;
 }
 #section13_labelant p{
     top: 25%;
@@ -5536,6 +5541,7 @@ transition: transform 0.3s;
     top: 31%;
     left: 74%;
     width: 40%;
+    display: none;
 }
 #section13_labelhawk p{
     top: 27%;
@@ -6064,7 +6070,7 @@ transition: transform 0.3s;
 
 #section14_Ok {
     position: absolute;
-    top: 50%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 14%;  
@@ -6140,7 +6146,7 @@ transition: transform 0.3s;
     /* transition: transform 0.5s ease-in-out; */
  }
  #section15_FlyingOctopus{
-    top: -40%;
+    top: 27%;
     left: 22%;
     width: 28%;
     height: auto;
@@ -6279,7 +6285,7 @@ transition: transform 0.3s;
     /* transition: transform 0.5s ease-in-out; */
  }
  #section16_FlyingOctopus{
-    top: -40%;
+    top: 27%;
     left: 22%;
     width: 28%;
     height: auto;
@@ -6651,7 +6657,7 @@ transition: transform 0.3s;
     }
   
     .section11_label p{
-        font-size: 38px; 
+        font-size: 31px; 
     }
     #section11_TryAgain p{
         font-size: 27px; 

@@ -260,6 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const section4dialogBox = document.querySelector(".section4dialogBox");
     const section4dialogText = document.getElementById("section4dialogText");
     const grassContainers = document.querySelectorAll("#section4button4, #section4button2");
+    const section4button1 = document.getElementById("section4button1");
     let section4mute=false;
     let section4played=false;
     let section4pausedAudio =null;
@@ -274,6 +275,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("section4button3"),
         document.getElementById("section4button4")
     ];
+    const section4plantray = document.getElementById("section4plantray");
+
 
     const section5 = document.getElementById("section5");
     const section5bgVideo = document.getElementById("section5bgVideo");
@@ -495,7 +498,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let section13ActionStart=false;
     let section13_submit_pressed=0;
 
-
+    const section13_labelhawk = document.getElementById("section13_labelhawk");
+    const section13_labelant = document.getElementById("section13_labelant");
+    const section13_labelfrog = document.getElementById("section13_labelfrog");
+    const section13_labelsnake = document.getElementById("section13_labelsnake");
     const section13_snake_container = document.getElementById("section13_snake_container");
     const section13_hawk_container = document.getElementById("section13_hawk_container");
     const section13_ant_container = document.getElementById("section13_ant_container");
@@ -1786,6 +1792,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#section4button3 img").src = "assets/Slides_25-35/Salmon.png";
         document.querySelector("#section4button4 img").src = "assets/Slides_25-35/Yeast_crop.png";
         clickedButtons.clear();
+        section4plantray.style.display="none";
+        section4button1.style.display="none";
 
         buttons.forEach(button => {
             button.style.cursor = "none";
@@ -1856,6 +1864,10 @@ document.addEventListener("DOMContentLoaded", () => {
         section13dialogBox.style.display = "none";
         section13dialogText.style.display = "none";
 
+        section13_labelhawk.style.display="none";
+        section13_labelant.style.display="none";
+        section13_labelfrog.style.display="none";
+        section13_labelsnake.style.display="none";
         section13_snake_container.style.display="none";
         section13_hawk_container.style.display="none";
         section13_ant_container .style.display="none";
@@ -2051,6 +2063,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         section9dialogBox.style.display = "none";;
         section9_SortitOut.style.display = "none";
+        section9_SortitOut.style.pointerEvents="none";
         section9_bear.style.display = "none";
         section9_mushroom.style.display = "none";
         section9_plant.style.display = "none";
@@ -2656,7 +2669,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Add your additional logic here
         dialogBox.style.display = "block";
         
-        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;font-style: italic;'>Select each icon to know about them.</span>";
+        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;font-style: italic;display:none;'>Select each icon to know about them.</span>";
         adjustImageHeight();
         adjustImageHeight();
         audio1.play();
@@ -2681,10 +2694,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Trigger 3: When Second Audio Ends, Show White Image and Buttons
     audio2.addEventListener("ended", () => {
-        
+        textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;font-style: italic;display:block;'>Select each icon to know about them.</span>";
+        adjustImageHeight();
+        adjustImageHeight();
         audio11.play();
     });
     audio11.addEventListener("ended", () => {
+
         buttonContainers.forEach(element => {
             element.style.display = "block";
             element.style.pointerEvents="visible";
@@ -3177,10 +3193,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     audio10.addEventListener("ended", () => {
         // Change images dynamically
-        document.querySelector("#section4button1 img").src = "assets/Slides_25-35/Kelp_outline.png";
-        document.querySelector("#section4button2 img").src = "assets/Slides_25-35/Grizzly_bear_outline.png";
-        document.querySelector("#section4button3 img").src = "assets/Slides_25-35/Salmon_outline.png";
-        document.querySelector("#section4button4 img").src = "assets/Slides_25-35/Yeast_outline_01.png";
+        // document.querySelector("#section4button1 img").src = "assets/Slides_25-35/Kelp_outline.png";
+        // document.querySelector("#section4button2 img").src = "assets/Slides_25-35/Grizzly_bear_outline.png";
+        // document.querySelector("#section4button3 img").src = "assets/Slides_25-35/Salmon_outline.png";
+        // document.querySelector("#section4button4 img").src = "assets/Slides_25-35/Yeast_outline_01.png";
+
         clickedButtons.clear();
         section4dialogBox.style.display = "none";
         buttons.forEach(button => {
@@ -3540,6 +3557,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio10.play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
+                section4plantray.style.display="block";
+                section4button1.style.display="block";
+                document.querySelector("#section4button1 img").src = "assets/Slides_25-35/Kelp_outline.png";
+                document.querySelector("#section4button2 img").src = "assets/Slides_25-35/Grizzly_bear_outline.png";
+                document.querySelector("#section4button3 img").src = "assets/Slides_25-35/Salmon_outline.png";
+                document.querySelector("#section4button4 img").src = "assets/Slides_25-35/Yeast_outline_01.png";
+
                 document.getElementById('section4ReadHelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
                 section4languageguidedoonce=!section4languageguidedoonce;
             }
@@ -4831,9 +4855,11 @@ document.addEventListener("DOMContentLoaded", () => {
         section9dialogBox.style.display = "inline-block";
         section9dialogText.style.display = "block";
         section9dialogText.innerHTML =
-         "Help me sort the organisms into producers, consumers and decomposers?<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
+         "Help me sort the organisms into producers, consumers and decomposers?<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>";
         
         adjustSection9ImageHeight();
+        section9_SortitOut.style.display="block";
+        section9_SortitOut.style.pointerEvents="none";
         audio_section9_01.play().catch((error) => {
             console.error('Error playing audio:', error);
         });
@@ -4841,7 +4867,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     audio_section9_01.addEventListener("ended", () => {
-        section9_SortitOut.style.display="block";
+        section9_SortitOut.style.pointerEvents="visible";
     });
     section9_SortitOut.addEventListener("click", () => {
         if(section9played){
@@ -4849,7 +4875,7 @@ document.addEventListener("DOMContentLoaded", () => {
             section9dialogBox.style.display = "inline-block";
             section9dialogText.style.display = "block";
             section9dialogText.innerHTML =
-            "<span style='color:#BC0404;font-style: italic;'>Drag and drop each organism into the correct category. Once you're done sorting, select Submit.</span>.";
+            "<span style='color:#BC0404;font-style: italic;font-weight: bold;'>Drag and drop each organism into the correct category. Once you're done sorting, select Submit.</span>";
             
             adjustSection9ImageHeight();
             audio_section9_02.play().catch((error) => {
@@ -5049,6 +5075,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         "<br><span style='color:#BC0404;font-style: italic;'>Select Coorect Answer to check the correct sorting.</span>";
                         
                         adjustSection9ImageHeight();
+                        correctAnswerButton.style.display="block";
+                        correctAnswerButton.style.pointerEvents="none";
                         audio_section9_04.play().catch((error) => {
                             console.error('Error playing audio:', error);
                         });
@@ -5066,6 +5094,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     audio_section9_04.addEventListener("ended", () => {
         correctAnswerButton.style.display="block";
+        correctAnswerButton.style.pointerEvents="visible";
         submitButton_section9.style.display="none";
         section9_TryAgainButton.style.display="none";
     });
@@ -6080,6 +6109,7 @@ document.addEventListener("DOMContentLoaded", () => {
          "<strong>Read more about eosystems and food chains. Tap on the wooden icon to learn more</strong>.";///<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
         
         adjustSection12ImageHeight();
+        
         audio_section12_01.play().catch((error) => {
             console.error('Error playing audio:', error);
         });
@@ -6107,7 +6137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('section12dialogBoxx').style.width= document.querySelector('.section12dialogBox').style.minWidth;
         const textHeight = section12dialogText.offsetHeight;
         const imageHeight = document.getElementById('section12dialogBoxImage').offsetHeight;
-        document.getElementById('section12dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
+        document.getElementById('section12dialogBoxx').style.width = `${(imageHeight + textHeight)*0.9}px`; // Combine image and text heights
     }
 
     audio_section12_01.addEventListener("ended", () => {
@@ -6225,6 +6255,11 @@ document.addEventListener("DOMContentLoaded", () => {
             section13_frog.style.display="block";
             section13_ant.style.display="block";
             section13_hawk.style.display="block";
+
+            section13_labelhawk.style.display="block";
+            section13_labelant.style.display="block";
+            section13_labelfrog.style.display="block";
+            section13_labelsnake.style.display="block";
             
             
             section13ActionStart=true;

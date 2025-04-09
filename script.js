@@ -4228,6 +4228,7 @@ document.addEventListener("DOMContentLoaded", () => {
         waitForElementToRender(section8, () => {
             smoothScrollToSceneandTrigger(section8,2000,function(){
                 Section8Restart();
+                section8isPaused=false;
                 section8triggerActions();
             });
         });
@@ -4260,6 +4261,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function section8triggerActions(){
         section8mute=false;
         section8played=true;
+        section8isPaused=false;
         commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
                 section8ActionStart=true;
                 section8_movingoctopus.style.display="none";

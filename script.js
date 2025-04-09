@@ -13,7 +13,8 @@
         'assets/Feeding Frenzy/Scene2/Bear.png','assets/Feeding Frenzy/Scene2/BG.png','assets/Feeding Frenzy/Scene2/Close.png','assets/Feeding Frenzy/Scene2/Cross.png','assets/Feeding Frenzy/Scene2/Cross_Activity_02.png','assets/Feeding Frenzy/Scene2/Decomposers.png','assets/Feeding Frenzy/Scene2/Drop_box.png','assets/Feeding Frenzy/Scene2/kelp.png','assets/Feeding Frenzy/Scene2/Popup_BG.png','assets/Feeding Frenzy/Scene2/Salmon (1).png','assets/Feeding Frenzy/Scene2/Tic.png','assets/Feeding Frenzy/Scene2/Tic_Activity_02.png','assets/Feeding Frenzy/Scene2/toplayer.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_01.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_02.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_03.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_03_test.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_04.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_041.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_05.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_05_test.png','assets/Feeding Frenzy/Scene2/UNderwater_ele_06.png','assets/Feeding Frenzy/Scene2/under_water_Full.png','assets/Feeding Frenzy/Scene2/Water_BG.png','assets/Feeding Frenzy/Scene2/Water_Sarface_1920_New.png',
         'assets/Feeding Frenzy/Scene3/bottomlayer.png',
         'assets/FoodChain/BG_Water_crop_Updated.png','assets/Slides18-20/Water_.png',
-        'assets/FoodChain/Scene2/BG_Water_crop.png','assets/FoodChain/BG_Water_crop_scene11.png'
+        'assets/FoodChain/Scene2/BG_Water_crop.png','assets/FoodChain/BG_Water_crop_scene11.png','assets/Feeding Frenzy/Scene2/Asset-14.png','assets/Feeding Frenzy/Scene2/Asset-13.png',
+        'assets/FoodChain/Scene1/Crop_05.png','assets/FoodChain/Scene1/Crop_05_Active.png', 'assets/Feeding Frenzy/Scene2/kelp.png'
         ];
     
         // Audio files
@@ -693,18 +694,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentSection='section1';
 
     function section1vediomute( ) {
-        commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
+        commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
         bgVideo.muted = true;
         section1mute=true;
     }
     function section1vedioUnmute( ) {
-        commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         bgVideo.muted = false;
         section1mute=false;
     }
 
     function section5vedioUnmute( ) {
-        commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section5bgVideo.muted = false;
         section5mute=false;
     }
@@ -724,9 +725,9 @@ document.addEventListener("DOMContentLoaded", () => {
             case 'section2':
                 section2mute=!section2mute;
                 if(!section2mute){
-                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
                 }else{
-                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
+                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
                 }
                 
                 section2popup_audio.muted=section2mute;
@@ -739,10 +740,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 section3mute=!section3mute;
                 if(!section3mute){
                     
-                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
                 }else{
                    
-                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";  
+                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));  
                 }
                 
                 audio4.muted=section3mute;
@@ -755,15 +756,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio8.muted = section4mute;
                 audio10.muted = section4mute;
                 currentAudio.muted=section4mute;
-                commonsoundbutton.querySelector("img").src = section4mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src = section4mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section5':
                 if(!section5mute){
-                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
+                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
                     section5bgVideo.muted = true;
                     section5mute=!section5mute;
                 }else{
-                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
                     section5bgVideo.muted = false;
                     section5mute=!section5mute;
                 }
@@ -772,10 +773,10 @@ document.addEventListener("DOMContentLoaded", () => {
             break;
             case 'section6':
                 if(!section6mute){
-                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button_Mute.png";
+                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
                     section6mute=!section6mute;
                 }else{
-                    commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
                     section6mute=!section6mute;
                 }
                 audio9.muted=section6mute;
@@ -785,7 +786,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 section7mute=!section7mute;
                 audio_section7.muted = section7mute;
                 currentAudio.muted=section7mute;
-                commonsoundbutton.querySelector("img").src = section7mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src = section7mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section8':
                 section8mute=!section8mute;
@@ -794,7 +795,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_section8_03.muted = section8mute;
                 audio_section8_04.muted = section8mute;
                 currentAudio.muted=section8mute;
-                commonsoundbutton.querySelector("img").src = section8mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src = section8mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section9':
                 section9mute=!section9mute;
@@ -802,7 +803,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_section9_02.muted = section9mute;audio_section9_05.muted = section9mute;
                 audio_section9_03.muted = section9mute;audio_section9_04.muted = section9mute;                
                 currentAudio.muted=section9mute;
-                commonsoundbutton.querySelector("img").src = section9mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src = section9mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section10':
                 section10mute=!section10mute;
@@ -811,7 +812,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_section10_03.muted = section10mute;      
                 audio_section10_04.muted = section10mute;   
                 currentAudio.muted=section10mute;
-                commonsoundbutton.querySelector("img").src = section10mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src = section10mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section11':
                 section11mute=!section11mute;
@@ -822,14 +823,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_section11_05.muted = section11mute;
                 audio_section11_06.muted = section11mute;
                 currentAudio.muted=section11mute;
-                commonsoundbutton.querySelector("img").src = section11mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src = section11mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section12':
                 section12mute=!section12mute;
                 audio_section12_01.muted = section12mute;
                 audio_section12_02.muted = section12mute;
                 currentAudio.muted=section12mute;
-                commonsoundbutton.querySelector("img").src = section12mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src = section12mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section13':
                 section13mute=!section13mute;
@@ -840,27 +841,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio_section13_05.muted = section13mute;
                 
                 currentAudio.muted=section13mute;
-                commonsoundbutton.querySelector("img").src = section13mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src = section13mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section14':
                 section14mute=!section14mute;
                 audio_section14_01.muted = section14mute;
                 currentAudio.muted=section14mute;
-                commonsoundbutton.querySelector("img").src = section14mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src = section14mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section15':
                 section15mute=!section15mute;
                 audio_section10_03.muted = section15mute;
                    
                 currentAudio.muted=section15mute;
-                commonsoundbutton.querySelector("img").src = section15mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src = section15mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section16':
                 section16mute=!section16mute;
                 audio_section10_04.muted = section16mute;
                   
                 currentAudio.muted=section16mute;
-                commonsoundbutton.querySelector("img").src = section16mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src = section16mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
         }
     });
@@ -903,7 +904,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                     
                     }
-                    commonplayButton.querySelector("img").src=section2played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                    commonplayButton.querySelector("img").src=section2played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 }
             break;
             case 'section3':
@@ -932,7 +933,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         } else {
                         }
                     }
-                    commonplayButton.querySelector("img").src=section3played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                    commonplayButton.querySelector("img").src=section3played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 }
             break;
             case 'section4':
@@ -970,7 +971,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             
     
                     }
-                    commonplayButton.querySelector("img").src=section4played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                    commonplayButton.querySelector("img").src=section4played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 }
             break;
             case 'section5':
@@ -978,11 +979,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     section5bgVideo.play();
                     section1vedioUnmute();
                     section5played=!section5played;
-                    commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+                    commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
                 }else{
                     section5bgVideo.pause();
                     section5played=!section5played; 
-                    commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
+                    commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
 
                 }
             break;
@@ -1022,7 +1023,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             
     
                     }
-                    commonplayButton.querySelector("img").src=section6played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                    commonplayButton.querySelector("img").src=section6played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 }
             break;
             case 'section7':
@@ -1069,7 +1070,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             );
                         }
                     }
-                    commonplayButton.querySelector("img").src=section7played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                    commonplayButton.querySelector("img").src=section7played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 }
             break;
             case 'section8':
@@ -1140,7 +1141,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             );
                         }
                     }
-                    commonplayButton.querySelector("img").src=section8played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                    commonplayButton.querySelector("img").src=section8played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 }
             break;
             case 'section9':
@@ -1172,7 +1173,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         }  
                     
                     }
-                    commonplayButton.querySelector("img").src=section9played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                    commonplayButton.querySelector("img").src=section9played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 }
             break;
             case 'section10':
@@ -1236,7 +1237,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                          
                     }
-                commonplayButton.querySelector("img").src=section10played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonplayButton.querySelector("img").src=section10played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 
             break;
             case 'section11':
@@ -1291,7 +1292,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         );
                     }
                 }
-                commonplayButton.querySelector("img").src=section11played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonplayButton.querySelector("img").src=section11played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case "section12":
                 if(section12_octopusVisible()){
@@ -1320,7 +1321,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         }  
                     
                     }
-                    commonplayButton.querySelector("img").src=section12played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                    commonplayButton.querySelector("img").src=section12played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 }
             break;
             case 'section13':
@@ -1359,7 +1360,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }  
                     
                 }
-                commonplayButton.querySelector("img").src=section13played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonplayButton.querySelector("img").src=section13played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case "section14":
                 if(section14_octopusVisible()){
@@ -1388,7 +1389,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         }  
                     
                     }
-                    commonplayButton.querySelector("img").src=section14played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                    commonplayButton.querySelector("img").src=section14played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 }
             break;
             case 'section15':
@@ -1452,7 +1453,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                          
                     }
-                commonplayButton.querySelector("img").src=section15played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonplayButton.querySelector("img").src=section15played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 
             break;
             case 'section16':
@@ -1516,7 +1517,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         }
                          
                     }
-                commonplayButton.querySelector("img").src=section16played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonplayButton.querySelector("img").src=section16played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 
             break;
             
@@ -1532,13 +1533,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 bgVideo.play();
                 section1vedioUnmute();
                 played=true;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
             break;
             case 'section2':
                 section2mute=false;
-                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
                 section2played=false;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
+                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 firstactiontriggered=false;
                 lastScrollY = 0;
                 ticking = false;
@@ -1576,9 +1577,9 @@ document.addEventListener("DOMContentLoaded", () => {
              break;
             case 'section3':
                 section3mute=false;
-                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
                 section3played=false;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
+                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 section3_underwater.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Water_.png'));
                 section3_underwater.style.bottom="-5%";
                 section3Octopusidelvisible=false;
@@ -1604,12 +1605,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             case 'section5':
                 section5mute=false;
-                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
                 section5bgVideo.currentTime = 0;
                 section5bgVideo.play()
                 section5played=true;
                 section5vedioUnmute();
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
                 section5nextImage.style.display = "none";
             break;
             case 'section6':
@@ -1623,12 +1624,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     element.style.pointerEvents = 'none';
                 });
                 section6mute=false;
-                commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
                 audio9.muted=section6mute;
                 audio9.currentTime=0;
                 audio9.pause();
                 section6played=false;
-                commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
+                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 popup.style.display = "none";
                 feedback.style.display='none'
                 const correctfeedback = document.getElementById('correctfeedback');
@@ -1688,9 +1689,9 @@ document.addEventListener("DOMContentLoaded", () => {
    function Section16Restart() {
          
         section16mute = false;
-        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section16played = false;
-        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section16ActionStart = false;
 
         audio_section10_04.muted = section16mute;
@@ -1722,9 +1723,9 @@ document.addEventListener("DOMContentLoaded", () => {
    function Section15Restart() {
          
         section15mute = false;
-        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section15played = false;
-        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section15ActionStart = false;
 
         audio_section10_03.muted = section15mute;
@@ -1757,12 +1758,12 @@ document.addEventListener("DOMContentLoaded", () => {
         section4dialogBox.style.display = "none";
         section4dialogText.style.display = "none";
         section4played = false;
-        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section4actiontriggered = false;
         section4languageguidedoonce = false;
         section4readguidedoonce = false;
         section4mute = false;
-        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section4actiontriggered = false;
         section4allButtonsClicked = false;
         audio6.muted = section4mute;
@@ -1777,10 +1778,10 @@ document.addEventListener("DOMContentLoaded", () => {
         audio8.pause();
         audio10.currentTime = 0;
         audio10.pause();
-        document.querySelector("#section4button1 img").src = "assets/Slides_25-35/Kelp.png";
-        document.querySelector("#section4button2 img").src = "assets/Slides_25-35/Grizzly_bear.png";
-        document.querySelector("#section4button3 img").src = "assets/Slides_25-35/Salmon.png";
-        document.querySelector("#section4button4 img").src = "assets/Slides_25-35/Yeast_crop.png";
+        document.querySelector("#section4button1 img").src = imagesToPreload_path.find(src => src.includes('Kelp.png'));
+        document.querySelector("#section4button2 img").src = imagesToPreload_path.find(src => src.includes('Grizzly_bear.png'));
+        document.querySelector("#section4button3 img").src = imagesToPreload_path.find(src => src.includes('Salmon.png'));
+        document.querySelector("#section4button4 img").src = imagesToPreload_path.find(src => src.includes('Yeast_crop.png'));
         clickedButtons.clear();
         section4plantray.style.display="none";
         section4button1.style.display="none";
@@ -1794,14 +1795,14 @@ document.addEventListener("DOMContentLoaded", () => {
         if (overlay) {
             overlay.remove();
         }
-        document.getElementById('section4ReadHelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
+        document.getElementById('section4ReadHelpImage').src = imagesToPreload_path.find(src => src.includes('Reading-Language_button.png'));
         section4languageguidedoonce = false;
         const overlay2 = document.querySelector('.overlay2');
         if (overlay2) {
             overlay2.remove();
         }
         section4readguidedoonce = false;
-        document.getElementById('section4HelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
+        document.getElementById('section4HelpImage').src = imagesToPreload_path.find(src => src.includes('Reading-Language_button.png'));
         document.getElementById("section4nextImage").style.display = "none";
         document.getElementById("section4ReadHelpText").classList.remove("active");
         document.getElementById("section4HelpText").classList.remove("active");
@@ -1811,9 +1812,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function Section14Restart(){
         section14mute = false;
-        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section14played = false;
-        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section14ActionStart = false;
 
         section14_Ok.style.display="none";
@@ -1825,9 +1826,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function Section13Restart(){
         section13mute = false;
-        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section13played = false;
-        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section13ActionStart = false;
     
         audio_section13_01.muted = section13mute;
@@ -1884,9 +1885,9 @@ document.addEventListener("DOMContentLoaded", () => {
     //Section12 Restart
     function Section12Restart(){
         section12mute = false;
-        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section12played = false;
-        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section12ActionStart = false;
 
         audio_section12_01.muted = section12mute;
@@ -1911,9 +1912,9 @@ document.addEventListener("DOMContentLoaded", () => {
    //Section11 Restart
    function Section11Restart(){
     section11mute = false;
-    commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+    commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
     section11played = false;
-    commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+    commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
     section11ActionStart = false;
 
 
@@ -1984,9 +1985,9 @@ document.addEventListener("DOMContentLoaded", () => {
    function Section10Restart() {
          
         section10mute = false;
-        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section10played = false;
-        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section10ActionStart = false;
 
         audio_section10_01.muted = section10mute;
@@ -2025,9 +2026,9 @@ document.addEventListener("DOMContentLoaded", () => {
    //Section9 Restart
    function Section9Restart() {
         section9mute = false;
-        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section9played = false;
-        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section9ActionStart = false;
         section9_submit_pressed = 0;
 
@@ -2097,9 +2098,9 @@ document.addEventListener("DOMContentLoaded", () => {
         section8panel.style.display="none";
         section8discribtionOverlay.style.display="none";
         section8mute = false;
-        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section8played = false;
-        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section8ActionStart = false;
 
         audio_section8_01.muted = section8mute;
@@ -2150,9 +2151,9 @@ document.addEventListener("DOMContentLoaded", () => {
     //Section7 Restart
     function Section7Restart() {
         section7mute = false;
-        commonsoundbutton.querySelector("img").src = "assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section7played = false;
-        commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
+        commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section7ActionStart = false;
         normaloctopus.style.display = "none";
         flyingoctopus.style.display = "none";
@@ -2451,68 +2452,68 @@ document.addEventListener("DOMContentLoaded", () => {
     function SectionChanges(){
         switch(currentSection){
             case 'section1':
-                commonsoundbutton.querySelector("img").src = section1mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section1mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 break;
             case 'section2':
-                commonsoundbutton.querySelector("img").src = section2mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section2played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section2mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section2played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section3':
-                commonsoundbutton.querySelector("img").src = section3mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section3played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section3mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section3played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section4':
-                commonsoundbutton.querySelector("img").src = section4mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section4played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section4mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section4played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section5':
-                commonsoundbutton.querySelector("img").src = section5mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section5played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section5mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section5played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section6':
-                commonsoundbutton.querySelector("img").src = section6mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section6played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section6mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section6played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section7':
-                commonsoundbutton.querySelector("img").src = section7mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section7played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section7mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section7played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section8':
-                commonsoundbutton.querySelector("img").src = section8mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section8played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section8mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section8played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section9':
-                commonsoundbutton.querySelector("img").src = section9mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section9played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section9mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section9played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section10':
-                commonsoundbutton.querySelector("img").src = section10mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section10played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section10mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section10played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section11':
-                commonsoundbutton.querySelector("img").src = section11mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section11played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section11mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section11played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section12':
-                commonsoundbutton.querySelector("img").src = section12mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section12played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section12mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section12played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section13':
-                commonsoundbutton.querySelector("img").src = section13mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section13played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section13mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section13played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section14':
-                commonsoundbutton.querySelector("img").src = section14mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section14played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section14mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section14played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section15':
-                commonsoundbutton.querySelector("img").src = section15mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section15played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section15mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section15played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
             case 'section16':
-                commonsoundbutton.querySelector("img").src = section16mute ? "assets/Slides_25-35/Audio_button_Mute.png" : "assets/Slides_25-35/Audio_button.png";
-                commonplayButton.querySelector("img").src=section16played ? "assets/Slides_25-35/Pause_Button.png" : "assets/Slides_25-35/Plau_Button.png";
+                commonsoundbutton.querySelector("img").src = section16mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section16played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
             break;
         }
     }
@@ -2546,11 +2547,11 @@ document.addEventListener("DOMContentLoaded", () => {
             bgVideo.play();
             section1vedioUnmute();
             played=!played;
-            commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+            commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         }else{
             bgVideo.pause();
             played=!played; 
-            commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
+            commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
 
         }
         
@@ -2664,7 +2665,7 @@ document.addEventListener("DOMContentLoaded", () => {
         audio1.play();
         section2played=true;
         section2mute=false;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         firstactiontriggered=!firstactiontriggered;
     };
 
@@ -2856,9 +2857,9 @@ document.addEventListener("DOMContentLoaded", () => {
         
         section3mute=false;
         audio4.play();
-        commonsoundbutton.querySelector("img").src="assets/Slides_25-35/Audio_button.png";
+        commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section3played=true;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));;
         section3Octopusidelvisible=!section3Octopusidelvisible;
     };
 
@@ -3136,7 +3137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         section4mute=false;
         section4played=true;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
 
         section4actiontriggered=!section4actiontriggered;
     };
@@ -3151,13 +3152,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     audio7.addEventListener('ended',()=>{
         document.getElementById('section4Help').style.pointerEvents='visible';
-        document.getElementById('section4HelpImage').src = "assets/Slides_25-35/Reading-Language_button_Selected.png";
+        document.getElementById('section4HelpImage').src = imagesToPreload_path.find(src => src.includes('Reading-Language_button_Selected.png'));
 
 
     });
     audio8.addEventListener('ended',()=>{
         document.getElementById('section4ReadHelp').style.pointerEvents='visible';
-        document.getElementById('section4ReadHelpImage').src = "assets/Slides_25-35/Reading-Language_button_Selected.png";
+        document.getElementById('section4ReadHelpImage').src = imagesToPreload_path.find(src => src.includes('Reading-Language_button_Selected.png'));
 
     });
  
@@ -3551,12 +3552,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 section4plantray.style.display="block";
                 section4button1.style.display="block";
-                document.querySelector("#section4button1 img").src = "assets/Slides_25-35/Kelp_outline.png";
-                document.querySelector("#section4button2 img").src = "assets/Slides_25-35/Grizzly_bear_outline.png";
-                document.querySelector("#section4button3 img").src = "assets/Slides_25-35/Salmon_outline.png";
-                document.querySelector("#section4button4 img").src = "assets/Slides_25-35/Yeast_outline_01.png";
+                document.querySelector("#section4button1 img").src = imagesToPreload_path.find(src => src.includes('Kelp_outline.png'));
+                document.querySelector("#section4button2 img").src = imagesToPreload_path.find(src => src.includes('Grizzly_bear_outline.png'));
+                document.querySelector("#section4button3 img").src = imagesToPreload_path.find(src => src.includes('Salmon_outline.png'));
+                document.querySelector("#section4button4 img").src = imagesToPreload_path.find(src => src.includes('Yeast_outline_01.png'));
 
-                document.getElementById('section4ReadHelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
+                document.getElementById('section4ReadHelpImage').src = imagesToPreload_path.find(src => src.includes('Reading-Language_button.png'));
                 section4languageguidedoonce=!section4languageguidedoonce;
             }
     
@@ -3834,7 +3835,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         console.error('Error playing audio:', error);
                     });
                     section4readguidedoonce=!section4readguidedoonce;
-                    document.getElementById('section4HelpImage').src = "assets/Slides_25-35/Reading-Language_button.png";
+                    document.getElementById('section4HelpImage').src = imagesToPreload_path.find(src => src.includes('Reading-Language_button.png'));
 
                 }
         }
@@ -3861,7 +3862,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section5bgVideo.play()
         section5played=true;
         section5vedioUnmute();
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         smoothScrollTo(section5,2000);
         
     }
@@ -3915,7 +3916,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const triggerSection6Action = () => {
         section6mute=false;
         section6played=true;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         audio9.play().catch((error) => {
             console.error('Error playing audio:', error);
         });
@@ -4151,7 +4152,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function section7triggerActions(){
         section7mute=false;
         section7played=true;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         if(section7played){
             section7ActionStart=true;
             normaloctopus.style.display="none";
@@ -4262,7 +4263,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section8mute=false;
         section8played=true;
         section8isPaused=false;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
                 section8ActionStart=true;
                 section8_movingoctopus.style.display="none";
                 section8dialogBox .style.display="none";
@@ -4360,8 +4361,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const dropAreaContainer = document.querySelector(".drop-area");
         const dropAreaImage = dropAreaContainer.querySelector("img");
         
-        const correctTickSrc = "assets/Feeding Frenzy/Scene2/Tic.png"; // ✅ Path to tick image
-        const wrongCrossSrc = "assets/Feeding Frenzy/Scene2/Cross.png"; // ❌ Path to cross image
+        const correctTickSrc = imagesToPreload_path.find(src => src.includes('Tic.png')); // ✅ Path to tick image
+        const wrongCrossSrc = imagesToPreload_path.find(src => src.includes('Cross.png')); // ❌ Path to cross image
         const errorSoundSrc = "assets/audio/Part_B_Audio/section8_03_oops.mp3"; // Path to error sound
         const correctSoundSrc = "assets/audio/Part_B_Audio/section8_03_bravo.mp3"; // Path to error sound
         const wrongFeedbackText="Oops, that's not quite right. Try again!";
@@ -4636,7 +4637,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         
             // Reset the drop area image to a placeholder or empty
-            dropAreaImage.src = "assets/Feeding Frenzy/Scene2/kelp.png"; // Change this if a default image is needed
+            dropAreaImage.src = imagesToPreload_path.find(src => src.includes('kelp.png')); // Change this if a default image is needed
         
             // Remove any tick (✅) or cross (❌)
             const existingResult = dropAreaContainer.querySelector(".result-icon");
@@ -4762,8 +4763,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // Paths for tick and wrong icons
-    const tickIconSrc = "assets/Feeding Frenzy/Scene2/Asset-14.png"; // ✅ Tick Image
-    const wrongIconSrc = "assets/Feeding Frenzy/Scene2/Asset-13.png"; // ❌ Cross Image
+    const tickIconSrc = imagesToPreload_path.find(src => src.includes('Asset-14.png')); // ✅ Tick Image
+    const wrongIconSrc = imagesToPreload_path.find(src => src.includes('Asset-13.png')); // ❌ Cross Image
 
 
 
@@ -4788,7 +4789,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function section9triggerActions(){
         section9mute=false;
         section9played=true;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         section9ActionStart=true;
         DisableContainersection9();
 
@@ -5106,7 +5107,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // ✅ Create the tick mark element
                 // const tickIcon = document.createElement("img");
-                // tickIcon.src = "assets/Feeding Frenzy/Scene2/Tic.png";  
+                // tickIcon.src = imagesToPreload_path.find(src => src.includes('Tic.png'));  
                 // tickIcon.style.width = "32%"; 
                 // tickIcon.style.height = "32%"; 
                 // tickIcon.classList.add("tick-icon");
@@ -5176,7 +5177,7 @@ document.addEventListener("DOMContentLoaded", () => {
             wrapperDivs.forEach(wrapperDiv => {
                 // ✅ Create the tick mark element
                 const tickIcon = document.createElement("img");
-                tickIcon.src = "assets/Feeding Frenzy/Scene2/Tic.png"; // Update with correct path
+                tickIcon.src = imagesToPreload_path.find(src => src.includes('Tic.png')); // Update with correct path
  
                 tickIcon.style.top = "5%";
                 tickIcon.style.left = "50%";
@@ -5251,7 +5252,7 @@ document.addEventListener("DOMContentLoaded", () => {
          
         section10mute=false;
         section10played=true;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         section10ActionStart=true;
         
         
@@ -5324,11 +5325,11 @@ document.addEventListener("DOMContentLoaded", () => {
             let isActive = button.id === buttonId; // Check if this is the selected button
 
             if (isActive) {
-                img.src = "assets/FoodChain/Scene1/Crop_05.png";
+                img.src = imagesToPreload_path.find(src => src.includes('Crop_05.png'));
                 button.style.cursor = "pointer";
                 button.addEventListener("click", handleClick);
             } else {
-                img.src = "assets/FoodChain/Scene1/Crop_05.png";
+                img.src = imagesToPreload_path.find(src => src.includes('Crop_05.png'));
                 button.style.cursor = "default";
                 button.removeEventListener("click", handleClick);
             }
@@ -5368,7 +5369,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function resetButtons() {
         section10_buttons.forEach(button => {
             let img = button.querySelector("img");
-            img.src = "assets/FoodChain/Scene1/Crop_05.png";
+            img.src = imagesToPreload_path.find(src => src.includes('Crop_05.png'));
             button.style.cursor = "default";
             button.removeEventListener("click", handleClick);
            
@@ -5476,7 +5477,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("section11triggerActions");
         section11mute=false;
         section11played=true;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         if(section11played){
             section11ActionStart=true;
             section11dialogText.style.display = "none";
@@ -6055,7 +6056,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function section12triggerActions(){
         section12mute=false;
         section12played=true;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         section12ActionStart=true;
         section12dialogBox.style.display = "inline-block";
         section12dialogText.style.display = "block";
@@ -6207,7 +6208,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function section13triggerActions(){
         section13mute=false;
         section13played=true;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         if(section13played){
             section13_snake.style.display="block";
             section13_frog.style.display="block";
@@ -6703,7 +6704,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function section14triggerActions(){
         section14mute=false;
         section14played=true;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         section14ActionStart=true;
         
         audio_section14_01.play().catch((error) => {
@@ -6765,7 +6766,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function section15triggerActions() {
             section15mute=false;
             section15played=true;
-            commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+            commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
             section15ActionStart=true;
             
             
@@ -6787,10 +6788,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 let isActive = button.id === "NumberFive"; // Check if this is the selected button
 
                 if (isActive) {
-                    img.src = "assets/FoodChain/Scene1/Crop_05.png";
+                    img.src = imagesToPreload_path.find(src => src.includes('Crop_05.png'));
                     button.style.cursor = "pointer";
                 } else {
-                    img.src = "assets/FoodChain/Scene1/Crop_05_Active.png";
+                    img.src = imagesToPreload_path.find(src => src.includes('Crop_05_Active.png'));
                     button.style.cursor = "default";
                    
                 }
@@ -6833,11 +6834,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 let isActive = button.id === buttonId; // Check if this is the selected button
 
                 if (isActive) {
-                    img.src = "assets/FoodChain/Scene1/Crop_05.png";
+                    img.src = imagesToPreload_path.find(src => src.includes('Crop_05.png'));
                     button.style.cursor = "pointer";
                     button.addEventListener("click", section15handleClick);
                 } else {
-                    img.src = "assets/FoodChain/Scene1/Crop_05_Active.png";
+                    img.src = imagesToPreload_path.find(src => src.includes('Crop_05_Active.png'));
                     button.style.cursor = "default";
                    
                 }
@@ -6872,7 +6873,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function section15resetButtons() {
             section15_buttons.forEach(button => {
                 let img = button.querySelector("img");
-                img.src = "assets/FoodChain/Scene1/Crop_05.png";
+                img.src = imagesToPreload_path.find(src => src.includes('Crop_05.png'));
                 button.style.cursor = "default";
                 button.removeEventListener("click", section15handleClick);
             
@@ -6982,7 +6983,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function section16triggerActions() {
         section16mute=false;
         section16played=true;
-        commonplayButton.querySelector("img").src="assets/Slides_25-35/Pause_Button.png";
+        commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         section16ActionStart=true;
         
        
@@ -7038,7 +7039,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section16_buttons.forEach(button => {
             let img = button.querySelector("img");
 
-            img.src = "assets/FoodChain/Scene1/Crop_05_Active.png";
+            img.src = imagesToPreload_path.find(src => src.includes('Crop_05_Active.png'));
             button.style.cursor = "default";
             button.style.pointerEvents="none";
             

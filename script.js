@@ -73,7 +73,7 @@
         const audio_section14_01=new Audio("assets/audio/PartC_Audio/16_Look_out,_world!_Weve_got_a_b.mp3");
         
 
-
+                                
         const audiosToPreload = [audio1, audio2, audio3,audio11, audio4, audio5, audio6, audio7, audio8, audio10,
              audio9,audio_section7,audio_section8_01,audio_section8_02,audio_section8_03,audio_section8_04,
              audio_section9_01,audio_section9_02,audio_section9_03,audio_section9_04,audio_section9_05,audio_section9_06,
@@ -941,7 +941,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                     if(section4played){
                         section4played=!section4played;
-                        for (let i = 6; i < 11; i++) {
+                        for (let i = 6; i < 10; i++) {
                             const audio = audiosToPreload[i];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
@@ -993,7 +993,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(section6played){
                         section6played=!section6played;
                         
-                            const audio = audiosToPreload[9];
+                            const audio = audiosToPreload[10];
                             if (isAudioPlaying(audio)) {
                                  audio.pause();
                                 section6pausedAudio=audio;
@@ -1127,17 +1127,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             feedback_audio = null; // Clear the stored audio after resuming
                         }  
                         console.log("FKASS");
-                        if (section8lastAnimationParams) {
-                            section8isPaused=false;
-                            section8startTime=null;
-                            movingFlyingOctopus(
-                                section8lastAnimationParams.maxHeight,
-                                section8lastAnimationParams.minHeight,
-                                section8lastAnimationParams.duration,
-                                section8lastAnimationParams.octopus,
-                                section8lastAnimationParams.onComplete
-                            );
-                        }
+                        
                         if (section8lastAnimationParamsfish) {
                             section8isPaused=false;
                             section8startTime=null;
@@ -1703,7 +1693,7 @@ document.addEventListener("DOMContentLoaded", () => {
         commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
         section16ActionStart = false;
 
-        audio_section10_04.muted = section8mute;
+        audio_section10_04.muted = section16mute;
         audio_section10_04.currentTime = 0;
         audio_section10_04.pause();
 
@@ -1737,7 +1727,7 @@ document.addEventListener("DOMContentLoaded", () => {
         commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
         section15ActionStart = false;
 
-        audio_section10_03.muted = section8mute;
+        audio_section10_03.muted = section15mute;
         audio_section10_03.currentTime = 0;
         audio_section10_03.pause();
 
@@ -1828,7 +1818,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         section14_Ok.style.display="none";
     
-        audio_section14_01.muted = section13mute;
+        audio_section14_01.muted = section14mute;
         audio_section14_01.currentTime = 0;
         audio_section14_01.pause();
     }
@@ -1899,10 +1889,10 @@ document.addEventListener("DOMContentLoaded", () => {
         commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
         section12ActionStart = false;
 
-        audio_section12_01.muted = section8mute;
+        audio_section12_01.muted = section12mute;
         audio_section12_01.currentTime = 0;
         audio_section12_01.pause();
-        audio_section12_02.muted = section8mute;
+        audio_section12_02.muted = section12mute;
         audio_section12_02.currentTime = 0;
         audio_section12_02.pause();
 
@@ -1999,16 +1989,16 @@ document.addEventListener("DOMContentLoaded", () => {
         commonplayButton.querySelector("img").src = "assets/Slides_25-35/Plau_Button.png";
         section10ActionStart = false;
 
-        audio_section10_01.muted = section8mute;
+        audio_section10_01.muted = section10mute;
         audio_section10_01.currentTime = 0;
         audio_section10_01.pause();
-        audio_section10_02.muted = section8mute;
+        audio_section10_02.muted = section10mute;
         audio_section10_02.currentTime = 0;
         audio_section10_02.pause();
-        audio_section10_03.muted = section8mute;
+        audio_section10_03.muted = section10mute;
         audio_section10_03.currentTime = 0;
         audio_section10_03.pause();
-        audio_section10_04.muted = section8mute;
+        audio_section10_04.muted = section10mute;
         audio_section10_04.currentTime = 0;
         audio_section10_04.pause();
         
@@ -2041,22 +2031,22 @@ document.addEventListener("DOMContentLoaded", () => {
         section9ActionStart = false;
         section9_submit_pressed = 0;
 
-        audio_section9_01.muted = section8mute;
+        audio_section9_01.muted = section9mute;
         audio_section9_01.currentTime = 0;
         audio_section9_01.pause();
-        audio_section9_02.muted = section8mute;
+        audio_section9_02.muted = section9mute;
         audio_section9_02.currentTime = 0;
         audio_section9_02.pause();
-        audio_section9_03.muted = section8mute;
+        audio_section9_03.muted = section9mute;
         audio_section9_03.currentTime = 0;
         audio_section9_03.pause();
-        audio_section9_04.muted = section8mute;
+        audio_section9_04.muted = section9mute;
         audio_section9_04.currentTime = 0;
         audio_section9_04.pause();
-        audio_section9_05.muted = section8mute;
+        audio_section9_05.muted = section9mute;
         audio_section9_05.currentTime = 0;
         audio_section9_05.pause();
-        audio_section9_06.muted = section8mute;
+        audio_section9_06.muted = section9mute;
         audio_section9_06.currentTime = 0;
         audio_section9_06.pause();
 
@@ -2134,7 +2124,7 @@ document.addEventListener("DOMContentLoaded", () => {
         //pausedTime = 0; // Store elapsed time when paused
         //animationFrameId = null; // Store requestAnimationFrame ID
         section8_movingoctopus.style.display = "none";
-        section8_movingoctopus.style.top = "15%";
+        section8_movingoctopus.style.top = "80%";
         section8dialogBox.style.display = "none";
         section8_WhatEats.style.display = "none";
         section8_TryAgain.style.display = "none";
@@ -2873,7 +2863,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     audio4.addEventListener("ended", () => {
-        section3dialogText.innerHTML = "Let's explore this forest together, meet my friends, and help them find their meals along the way. Are you ready to start?<br><span style='color: #BC0404;font-weight: bold;font-style: italic;'>Select Start Adventure.</span>";
+        section3dialogText.innerHTML = "Let's explore this forest together, meet my friends, and help them find their meals along the way. Are you ready to start?<br><span style='color: #BC0404;font-style: italic;'>Select Start Adventure.</span>";
         adjustSection3ImageHeight();
         audio5.play()
         
@@ -3554,7 +3544,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // section5.style.zIndex=2;
             // section6.style.zIndex=1;
             if(!section4languageguidedoonce){
-                section4dialogText.innerHTML = "<span style='color: #BC0404;font-weight: bold;font-style: italic;'>Select hotspots. You'll collect a starfish for completing each.</span>";
+                section4dialogText.innerHTML = "<span style='color: #BC0404;font-style: italic;'>Select hotspots. You'll collect a starfish for completing each.</span>";
                 adjustSection4ImageHeight();
                 audio10.play().catch((error) => {
                     console.error('Error playing audio:', error);
@@ -4286,60 +4276,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 section8_dragArea.style.display="none";
                 section8_dragImage.style.display="none";
                 section8nextImage.style.display="none";
-        //SECTION 8 ENABLE
-        movingFlyingOctopus(15, 80, 3000, section8_movingoctopus,function() {
-            console.log("Animation complete! Action triggered.");
-            audio_section8_01.play().catch((error) => {
-                console.error('Error playing audio:', error);
-            });
-            section8dialogBox.style.display = "inline-block";
-            section8dialogText.style.display = "block";
-            section8dialogText.innerHTML = "Tell me what a salmon eats."+
-            "<br><span style='color:#BC0404;font-style: italic;'>Select</span>"+
-            "<span style='color:#BC0404;font-style: italic;'>  What It Eats  </span>"+
-            "<span style='color:#BC0404;font-style: italic;'>to reveal a set of salmon feeding options.</span>";
-            adjustSection8ImageHeight();
-        });
+                section8_movingoctopus.style.display="block";
+                audio_section8_01.play().catch((error) => {
+                    console.error('Error playing audio:', error);
+                });
+                section8dialogBox.style.display = "inline-block";
+                section8dialogText.style.display = "block";
+                section8dialogText.innerHTML = "Tell me what a salmon eats."+
+                "<br><span style='color:#BC0404;font-style: italic;'>Select</span>"+
+                "<span style='color:#BC0404;font-style: italic;'>  What It Eats  </span>"+
+                "<span style='color:#BC0404;font-style: italic;'>to reveal a set of salmon feeding options.</span>";
+                adjustSection8ImageHeight();
+        
     }
-
-
  
-
-    function movingFlyingOctopus(maxHeight, minHeight, duration,octopus, onComplete) {
-        section8_movingoctopus.style.display="block";
-        section8lastAnimationParams = { maxHeight, minHeight, duration,octopus, onComplete }; 
-        function lerp(start, end, t) {
-            return start * (1 - t) + end * t;
-        }
-    
-        function animate(time) {
-            
-            if (section8isPaused) return; // Stop animation if paused
-
-            if (!section8startTime){
-                section8startTime = time-section8pausedTime;
-                section8pausedTime=0
-            }
-            let elapsed = time - section8startTime;
-            let t = Math.min(elapsed / duration, 1); // Normalize between 0 and 1
-            let currentY = lerp(maxHeight, minHeight, t);
-    
-            octopus.style.top = currentY + "%";
-    
-            if (t < 1) {
-                section8animationFrameId = requestAnimationFrame(animate);
-            } else {
-                section8animationFrameId = null;
-                section8lastAnimationParams=null;
-                section8pausedTime = 0; // Reset pause time
-                if (onComplete) {
-                    onComplete();
-                }
-            }
-        }
-    
-        section8animationFrameId = requestAnimationFrame(animate);
-    }
     function adjustSection8ImageHeight() {
         document.getElementById('section8dialogBoxx').style.width= document.querySelector('.section8dialogBox').style.minWidth;
         const textHeight = section8dialogText.offsetHeight;
@@ -4347,21 +4297,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('section8dialogBoxx').style.width = `${(imageHeight + textHeight)*0.8}px`; // Combine image and text heights
     }
 
-    //sTART FROM HERE
-
-    // movingFlyingOctopus(15, 80, 3000, section8_movingoctopus,function() {
-    //     console.log("Animation complete! Action triggered.");
-    //     audio_test1.play().catch((error) => {
-    //         console.error('Error playing audio:', error);
-    //     });
-    //     section8dialogBox.style.display = "inline-block";
-    //     section8dialogText.style.display = "block";
-    //     section8dialogText.innerHTML = "Tell me what a salmon eats."+
-    //     "<br><span style='color:#BC0404;font-style: italic;'>Select</span>"+
-    //     "<span style='color:#BC0404;font-weight: bold;font-style: italic;'>  What It Eats  </span>"+
-    //     "<span style='color:#BC0404;font-weight: normal;font-style: italic;'>to reveal a set of salmon feeding options.</span>";
-    //     adjustSection8ImageHeight();
-    // });
+ 
 
     audio_section8_01.addEventListener("ended", () => {
        
@@ -4423,7 +4359,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const dropAreaImage = dropAreaContainer.querySelector("img");
         
         const correctTickSrc = "assets/Feeding Frenzy/Scene2/Tic.png"; // ✅ Path to tick image
-        const wrongCrossSrc = "assets/Feeding Frenzy/Scene2/cross.png"; // ❌ Path to cross image
+        const wrongCrossSrc = "assets/Feeding Frenzy/Scene2/Cross.png"; // ❌ Path to cross image
         const errorSoundSrc = "assets/audio/Part_B_Audio/section8_03_oops.mp3"; // Path to error sound
         const correctSoundSrc = "assets/audio/Part_B_Audio/section8_03_bravo.mp3"; // Path to error sound
         const wrongFeedbackText="Oops, that's not quite right. Try again!";

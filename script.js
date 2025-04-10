@@ -1,9 +1,6 @@
 
-// preload.js
 
-    // Arrays of images to preload from different folders
     const imagesToPreload_path = [
-        //Slide25-35
         'assets/Slides_25-35/Audio_button.png', 'assets/Slides_25-35/Audio_button_Mute.png', 'assets/Slides_25-35/Audio_icon.png', 'assets/Slides_25-35/Audio_icon_selected.png', 'assets/Slides_25-35/Cantonese.png', 'assets/Slides_25-35/Cantonese_selected.png', 'assets/Slides_25-35/English.png', 'assets/Slides_25-35/English_selected.png', 'assets/Slides_25-35/Grizzly_bear.png', 'assets/Slides_25-35/Grizzly_bear_outline.png', 'assets/Slides_25-35/Hills.png', 'assets/Slides_25-35/Kelp.png', 'assets/Slides_25-35/Kelp_outline.png', 'assets/Slides_25-35/Mandarin.png', 'assets/Slides_25-35/Mandarin_selected.png', 'assets/Slides_25-35/octopus.png', 'assets/Slides_25-35/Pause_Button.png', 'assets/Slides_25-35/Photo01.png', 'assets/Slides_25-35/Photo02.png', 'assets/Slides_25-35/Photo03.png', 'assets/Slides_25-35/Photo04.png', 'assets/Slides_25-35/Plau_Button.png', 'assets/Slides_25-35/Popup_window.png', 'assets/Slides_25-35/Popup_window_close.png', 'assets/Slides_25-35/Reading-Language_button.png', 'assets/Slides_25-35/Reading-Language_button_Selected.png', 'assets/Slides_25-35/Reading_Help_popup.png', 'assets/Slides_25-35/Replay_Button.png', 'assets/Slides_25-35/Salmon.png', 'assets/Slides_25-35/Salmon_outline.png', 'assets/Slides_25-35/Sky_crop.png', 'assets/Slides_25-35/Spanish.png', 'assets/Slides_25-35/Spanish_selected.png', 'assets/Slides_25-35/Tagalog.png', 'assets/Slides_25-35/Tagalog_selected.png', 'assets/Slides_25-35/Trees_ground.png', 'assets/Slides_25-35/Water_crop.png', 'assets/Slides_25-35/Water_over_octopus.png', 'assets/Slides_25-35/Yeast_crop.png', 'assets/Slides_25-35/Yeast_outline_01.png', 'assets/Slides_25-35/Yeast_plant.png', 'assets/Slides_25-35/Yeast_plant_focus.png',
         'assets/Slides11-17/Callout01.png', 'assets/Slides11-17/Consumers.png', 'assets/Slides11-17/Consumers01.png', 'assets/Slides11-17/Consumers_text_box.png', 'assets/Slides11-17/Curved_arrow.png', 'assets/Slides11-17/Curved_arrow_highlighted.png', 'assets/Slides11-17/Decomposers.png', 'assets/Slides11-17/Decomposers_text_box.png', 'assets/Slides11-17/Garden_crop.png', 'assets/Slides11-17/Grass_top_layer.png', 'assets/Slides11-17/Grass_top_layer_crop.png', 'assets/Slides11-17/House_CROP_2.png', 'assets/Slides11-17/Mountains_01.png', 'assets/Slides11-17/Octopus_inset.png', 'assets/Slides11-17/Parallax_scroll_BG_updated.png', 'assets/Slides11-17/popup_close.png', 'assets/Slides11-17/Popup_text_box.png', 'assets/Slides11-17/Producers-Consumers_text_box.png', 'assets/Slides11-17/Producers.png', 'assets/Slides11-17/Producers_text_box.png', 'assets/Slides11-17/Scroll_down_button.png', 'assets/Slides11-17/Sun_01.png', 'assets/Slides11-17/Tree.png','assets/Slides11-17/Fullscreen_Exit_button.png',
         'assets/Slides18-20/bushes.png', 'assets/Slides18-20/Callout.png', 'assets/Slides18-20/Octopus_and_shells.png', 'assets/Slides18-20/Octopus_and_water.png', 'assets/Slides18-20/Octopus_side.png', 'assets/Slides18-20/Replay_Button.png', 'assets/Slides18-20/Sky_corp.png', 'assets/Slides18-20/Start_Adventure.png', 'assets/Slides18-20/Sun02.png', 'assets/Slides18-20/Trees.png', 'assets/Slides18-20/Water_.png', 'assets/Slides18-20/Water_octopus.png',
@@ -731,10 +728,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 
                 section2popup_audio.muted=section2mute;
-                audio1.muted=section2mute;
-                audio2.muted=section2mute;
-                audio3.muted=section2mute;
-                audio11.muted=section2mute;
+                audiosToPreload[0].muted=section2mute;
+                audiosToPreload[1].muted=section2mute;
+                audiosToPreload[2].muted=section2mute;
+                audiosToPreload[3].muted=section2mute;
             break;
             case 'section3':
                 section3mute=!section3mute;
@@ -746,15 +743,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));  
                 }
                 
-                audio4.muted=section3mute;
-                audio5.muted=section3mute;
+                audiosToPreload[4].muted=section3mute;
+                audiosToPreload[5].muted=section3mute;
             break;
             case 'section4':
                 section4mute=!section4mute;
-                audio6.muted = section4mute;
-                audio7.muted = section4mute;
-                audio8.muted = section4mute;
-                audio10.muted = section4mute;
+                audiosToPreload[6].muted = section4mute;
+                audiosToPreload[7].muted = section4mute;
+                audiosToPreload[8].muted = section4mute;
+                audiosToPreload[9].muted = section4mute;
                 currentAudio.muted=section4mute;
                 commonsoundbutton.querySelector("img").src = section4mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
@@ -779,86 +776,86 @@ document.addEventListener("DOMContentLoaded", () => {
                     commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
                     section6mute=!section6mute;
                 }
-                audio9.muted=section6mute;
+                audiosToPreload[10].muted=section6mute;
                 currentAudio.muted=section6mute;
             break;
             case 'section7':
                 section7mute=!section7mute;
-                audio_section7.muted = section7mute;
+                audiosToPreload[11].muted = section7mute;
                 currentAudio.muted=section7mute;
                 commonsoundbutton.querySelector("img").src = section7mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section8':
                 section8mute=!section8mute;
-                audio_section8_01.muted = section8mute;
-                audio_section8_02.muted = section8mute;
-                audio_section8_03.muted = section8mute;
-                audio_section8_04.muted = section8mute;
+                audiosToPreload[12].muted = section8mute;
+                audiosToPreload[13].muted = section8mute;
+                audiosToPreload[14].muted = section8mute;
+                audiosToPreload[15].muted = section8mute;
                 currentAudio.muted=section8mute;
                 commonsoundbutton.querySelector("img").src = section8mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section9':
                 section9mute=!section9mute;
-                audio_section9_01.muted = section9mute;audio_section9_06.muted = section9mute;
-                audio_section9_02.muted = section9mute;audio_section9_05.muted = section9mute;
-                audio_section9_03.muted = section9mute;audio_section9_04.muted = section9mute;                
+                audiosToPreload[16].muted = section9mute;audiosToPreload[21].muted = section9mute;
+                audiosToPreload[17].muted = section9mute;audiosToPreload[20].muted = section9mute;
+                audiosToPreload[18].muted = section9mute;audiosToPreload[19].muted = section9mute;                
                 currentAudio.muted=section9mute;
                 commonsoundbutton.querySelector("img").src = section9mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section10':
                 section10mute=!section10mute;
-                audio_section10_01.muted = section10mute;
-                audio_section10_02.muted = section10mute;
-                audio_section10_03.muted = section10mute;      
-                audio_section10_04.muted = section10mute;   
+                audiosToPreload[22].muted = section10mute;
+                audiosToPreload[23].muted = section10mute;
+                audiosToPreload[24].muted = section10mute;      
+                audiosToPreload[25].muted = section10mute;   
                 currentAudio.muted=section10mute;
                 commonsoundbutton.querySelector("img").src = section10mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section11':
                 section11mute=!section11mute;
-                audio_section11_01.muted = section11mute;
-                audio_section11_02.muted = section11mute;
-                audio_section11_03.muted = section11mute;
-                audio_section11_04.muted = section11mute;
-                audio_section11_05.muted = section11mute;
-                audio_section11_06.muted = section11mute;
+                audiosToPreload[26].muted = section11mute;
+                audiosToPreload[27].muted = section11mute;
+                audiosToPreload[28].muted = section11mute;
+                audiosToPreload[29].muted = section11mute;
+                audiosToPreload[30].muted = section11mute;
+                audiosToPreload[31].muted = section11mute;
                 currentAudio.muted=section11mute;
                 commonsoundbutton.querySelector("img").src = section11mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section12':
                 section12mute=!section12mute;
-                audio_section12_01.muted = section12mute;
-                audio_section12_02.muted = section12mute;
+                audiosToPreload[32].muted = section12mute;
+               audiosToPreload[33].muted = section12mute;
                 currentAudio.muted=section12mute;
                 commonsoundbutton.querySelector("img").src = section12mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section13':
                 section13mute=!section13mute;
-                audio_section13_01.muted = section13mute;
-                audio_section13_02.muted = section13mute;
-                audio_section13_03.muted = section13mute;
-                audio_section13_04.muted = section13mute;
-                audio_section13_05.muted = section13mute;
+                audiosToPreload[34].muted = section13mute;
+               audiosToPreload[35].muted = section13mute;
+                audiosToPreload[36].muted = section13mute;
+                audiosToPreload[37].muted = section13mute;
+                audiosToPreload[38].muted = section13mute;
                 
                 currentAudio.muted=section13mute;
                 commonsoundbutton.querySelector("img").src = section13mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section14':
                 section14mute=!section14mute;
-                audio_section14_01.muted = section14mute;
+                audiosToPreload[39].muted = section14mute;
                 currentAudio.muted=section14mute;
                 commonsoundbutton.querySelector("img").src = section14mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section15':
                 section15mute=!section15mute;
-                audio_section10_03.muted = section15mute;
+                audiosToPreload[24].muted = section15mute;
                    
                 currentAudio.muted=section15mute;
                 commonsoundbutton.querySelector("img").src = section15mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
             break;
             case 'section16':
                 section16mute=!section16mute;
-                audio_section10_04.muted = section16mute;
+                audiosToPreload[25].muted = section16mute;
                   
                 currentAudio.muted=section16mute;
                 commonsoundbutton.querySelector("img").src = section16mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
@@ -1033,7 +1030,7 @@ document.addEventListener("DOMContentLoaded", () => {
                          
                          
                         if (isAudioPlaying(audio_section7)) {
-                            audio_section7.pause();
+                            audiosToPreload[11].pause();
                             section7pausedAudio=audio_section7;
                         }
                         if(animationFrameId){
@@ -1544,18 +1541,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 lastScrollY = 0;
                 ticking = false;
                 dialogBox.style.display = "none";
-                audio1.muted=section2mute;
-                audio2.muted=section2mute;
-                audio3.muted=section2mute;
-                audio11.muted=section2mute;
-                audio1.currentTime=0;
-                audio1.pause();
-                audio2.currentTime=0;
-                audio2.pause();
-                audio3.currentTime=0;
-                audio3.pause();
-                audio11.currentTime=0;
-                audio11.pause();
+                audiosToPreload[0].muted=section2mute;
+                audiosToPreload[1].muted=section2mute;
+                audiosToPreload[2].muted=section2mute;
+                audiosToPreload[1].muted=section2mute;
+                audiosToPreload[0].currentTime=0;
+                audiosToPreload[0].pause();
+                audiosToPreload[1].currentTime=0;
+                audiosToPreload[1].pause();
+                audiosToPreload[2].currentTime=0;
+                audiosToPreload[2].pause();
+                audiosToPreload[1].currentTime=0;
+                audiosToPreload[1].pause();
                 section2popup_audio.currentTime=0;
                 section2popup_audio.pause();
                 whiteOverlay.style.display = "none";
@@ -1584,12 +1581,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 section3_underwater.style.bottom="-5%";
                 section3Octopusidelvisible=false;
                 section3dialogBox.style.display = "none";
-                audio4.muted=section3mute;
-                audio5.muted=section3mute;
-                audio4.currentTime=0;
-                audio4.pause();
-                audio5.currentTime=0;
-                audio5.pause();
+                audiosToPreload[4].muted=section3mute;
+                audiosToPreload[1].muted=section3mute;
+                audiosToPreload[4].currentTime=0;
+                audiosToPreload[4].pause();
+                audiosToPreload[1].currentTime=0;
+                audiosToPreload[1].pause();
                 section3_button.style.display = "none";
                 section3octopusContainer.style.display = "block";
                 section3octopusContainershell.style.display = "none";
@@ -1625,9 +1622,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
                 section6mute=false;
                 commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                audio9.muted=section6mute;
-                audio9.currentTime=0;
-                audio9.pause();
+                audiosToPreload[10].muted=section6mute;
+                audiosToPreload[10].currentTime=0;
+                audiosToPreload[10].pause();
                 section6played=false;
                 commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
                 popup.style.display = "none";
@@ -1694,9 +1691,9 @@ document.addEventListener("DOMContentLoaded", () => {
         commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section16ActionStart = false;
 
-        audio_section10_04.muted = section16mute;
-        audio_section10_04.currentTime = 0;
-        audio_section10_04.pause();
+        audiosToPreload[25].muted = section16mute;
+        audiosToPreload[25].currentTime = 0;
+        audiosToPreload[25].pause();
 
         
         section16_FlyingOctopus.style.display="none";
@@ -1728,9 +1725,9 @@ document.addEventListener("DOMContentLoaded", () => {
         commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section15ActionStart = false;
 
-        audio_section10_03.muted = section15mute;
-        audio_section10_03.currentTime = 0;
-        audio_section10_03.pause();
+        audiosToPreload[24].muted = section15mute;
+        audiosToPreload[24].currentTime = 0;
+        audiosToPreload[24].pause();
 
         
         section15_FlyingOctopus.style.display="none";
@@ -1766,18 +1763,18 @@ document.addEventListener("DOMContentLoaded", () => {
         commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section4actiontriggered = false;
         section4allButtonsClicked = false;
-        audio6.muted = section4mute;
-        audio7.muted = section4mute;
-        audio8.muted = section4mute;
-        audio10.muted = section4mute;
-        audio6.currentTime = 0;
-        audio6.pause();
-        audio7.currentTime = 0;
-        audio7.pause();
-        audio8.currentTime = 0;
-        audio8.pause();
-        audio10.currentTime = 0;
-        audio10.pause();
+        audiosToPreload[6].muted = section4mute;
+        audiosToPreload[7].muted = section4mute;
+        audiosToPreload[8].muted = section4mute;
+        audiosToPreload[9].muted = section4mute;
+        audiosToPreload[6].currentTime = 0;
+        audiosToPreload[6].pause();
+        audiosToPreload[7].currentTime = 0;
+        audiosToPreload[7].pause();
+        audiosToPreload[8].currentTime = 0;
+        audiosToPreload[8].pause();
+        audiosToPreload[9].currentTime = 0;
+        audiosToPreload[9].pause();
         document.querySelector("#section4button1 img").src = imagesToPreload_path.find(src => src.includes('Kelp.png'));
         document.querySelector("#section4button2 img").src = imagesToPreload_path.find(src => src.includes('Grizzly_bear.png'));
         document.querySelector("#section4button3 img").src = imagesToPreload_path.find(src => src.includes('Salmon.png'));
@@ -1819,9 +1816,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         section14_Ok.style.display="none";
     
-        audio_section14_01.muted = section14mute;
-        audio_section14_01.currentTime = 0;
-        audio_section14_01.pause();
+        audiosToPreload[39].muted = section14mute;
+        audiosToPreload[39].currentTime = 0;
+        audiosToPreload[39].pause();
     }
 
     function Section13Restart(){
@@ -1831,21 +1828,21 @@ document.addEventListener("DOMContentLoaded", () => {
         commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section13ActionStart = false;
     
-        audio_section13_01.muted = section13mute;
-        audio_section13_01.currentTime = 0;
-        audio_section13_01.pause();
-        audio_section13_02.muted = section13mute;
-        audio_section13_02.currentTime = 0;
-        audio_section13_02.pause();
-        audio_section13_03.muted = section13mute;
-        audio_section13_03.currentTime = 0;
-        audio_section13_03.pause();
-        audio_section13_04.muted = section13mute;
-        audio_section13_04.currentTime = 0;
-        audio_section13_04.pause();
-        audio_section13_05.muted = section13mute;
-        audio_section13_05.currentTime = 0;
-        audio_section13_05.pause();
+        audiosToPreload[34].muted = section13mute;
+        audiosToPreload[34].currentTime = 0;
+        audiosToPreload[34].pause();
+       audiosToPreload[35].muted = section13mute;
+       audiosToPreload[35].currentTime = 0;
+       audiosToPreload[35].pause();
+        audiosToPreload[36].muted = section13mute;
+        audiosToPreload[36].currentTime = 0;
+        audiosToPreload[36].pause();
+        audiosToPreload[37].muted = section13mute;
+        audiosToPreload[37].currentTime = 0;
+        audiosToPreload[37].pause();
+        audiosToPreload[38].muted = section13mute;
+        audiosToPreload[38].currentTime = 0;
+        audiosToPreload[38].pause();
          
 
         section13_snake.style.display="block";
@@ -1890,12 +1887,12 @@ document.addEventListener("DOMContentLoaded", () => {
         commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section12ActionStart = false;
 
-        audio_section12_01.muted = section12mute;
-        audio_section12_01.currentTime = 0;
-        audio_section12_01.pause();
-        audio_section12_02.muted = section12mute;
-        audio_section12_02.currentTime = 0;
-        audio_section12_02.pause();
+        audiosToPreload[32].muted = section12mute;
+        audiosToPreload[32].currentTime = 0;
+        audiosToPreload[32].pause();
+       audiosToPreload[33].muted = section12mute;
+       audiosToPreload[33].currentTime = 0;
+       audiosToPreload[33].pause();
 
         section12dialogBox.style.display = "none";
         section12_wood.style.pointerEvents="none";
@@ -1920,24 +1917,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
 
-    audio_section11_01.muted = section11mute;
-    audio_section11_01.currentTime = 0;
-    audio_section11_01.pause();
-    audio_section11_02.muted = section11mute;
-    audio_section11_02.currentTime = 0;
-    audio_section11_02.pause();
-    audio_section11_03.muted = section11mute;
-    audio_section11_03.currentTime = 0;
-    audio_section11_03.pause();
-    audio_section11_04.muted = section11mute;
-    audio_section11_04.currentTime = 0;
-    audio_section11_04.pause();
-    audio_section11_05.muted = section11mute;
-    audio_section11_05.currentTime = 0;
-    audio_section11_05.pause();
-    audio_section11_06.muted = section11mute;
-    audio_section11_06.currentTime = 0;
-    audio_section11_06.pause();
+    audiosToPreload[26].muted = section11mute;
+    audiosToPreload[26].currentTime = 0;
+    audiosToPreload[26].pause();
+    audiosToPreload[27].muted = section11mute;
+    audiosToPreload[27].currentTime = 0;
+    audiosToPreload[27].pause();
+    audiosToPreload[28].muted = section11mute;
+    audiosToPreload[28].currentTime = 0;
+    audiosToPreload[28].pause();
+    audiosToPreload[29].muted = section11mute;
+    audiosToPreload[29].currentTime = 0;
+    audiosToPreload[29].pause();
+    audiosToPreload[30].muted = section11mute;
+    audiosToPreload[30].currentTime = 0;
+    audiosToPreload[30].pause();
+    audiosToPreload[31].muted = section11mute;
+    audiosToPreload[31].currentTime = 0;
+    audiosToPreload[31].pause();
 
     section11startTime = null;
     section11pausedTime = 0; // Store elapsed time when paused
@@ -1990,18 +1987,18 @@ document.addEventListener("DOMContentLoaded", () => {
         commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section10ActionStart = false;
 
-        audio_section10_01.muted = section10mute;
-        audio_section10_01.currentTime = 0;
-        audio_section10_01.pause();
-        audio_section10_02.muted = section10mute;
-        audio_section10_02.currentTime = 0;
-        audio_section10_02.pause();
-        audio_section10_03.muted = section10mute;
-        audio_section10_03.currentTime = 0;
-        audio_section10_03.pause();
-        audio_section10_04.muted = section10mute;
-        audio_section10_04.currentTime = 0;
-        audio_section10_04.pause();
+        audiosToPreload[22].muted = section10mute;
+        audiosToPreload[22].currentTime = 0;
+        audiosToPreload[22].pause();
+        audiosToPreload[23].muted = section10mute;
+        audiosToPreload[23].currentTime = 0;
+        audiosToPreload[23].pause();
+        audiosToPreload[24].muted = section10mute;
+        audiosToPreload[24].currentTime = 0;
+        audiosToPreload[24].pause();
+        audiosToPreload[25].muted = section10mute;
+        audiosToPreload[25].currentTime = 0;
+        audiosToPreload[25].pause();
         
          section10_FlyingOctopus.style.display="none";
         section10_FlyingOctopus.style.top = "-40%";
@@ -2032,24 +2029,24 @@ document.addEventListener("DOMContentLoaded", () => {
         section9ActionStart = false;
         section9_submit_pressed = 0;
 
-        audio_section9_01.muted = section9mute;
-        audio_section9_01.currentTime = 0;
-        audio_section9_01.pause();
-        audio_section9_02.muted = section9mute;
-        audio_section9_02.currentTime = 0;
-        audio_section9_02.pause();
-        audio_section9_03.muted = section9mute;
-        audio_section9_03.currentTime = 0;
-        audio_section9_03.pause();
-        audio_section9_04.muted = section9mute;
-        audio_section9_04.currentTime = 0;
-        audio_section9_04.pause();
-        audio_section9_05.muted = section9mute;
-        audio_section9_05.currentTime = 0;
-        audio_section9_05.pause();
-        audio_section9_06.muted = section9mute;
-        audio_section9_06.currentTime = 0;
-        audio_section9_06.pause();
+        audiosToPreload[16].muted = section9mute;
+        audiosToPreload[16].currentTime = 0;
+        audiosToPreload[16].pause();
+        audiosToPreload[17].muted = section9mute;
+        audiosToPreload[17].currentTime = 0;
+        audiosToPreload[17].pause();
+        audiosToPreload[18].muted = section9mute;
+        audiosToPreload[18].currentTime = 0;
+        audiosToPreload[18].pause();
+        audiosToPreload[19].muted = section9mute;
+        audiosToPreload[19].currentTime = 0;
+        audiosToPreload[19].pause();
+        audiosToPreload[20].muted = section9mute;
+        audiosToPreload[20].currentTime = 0;
+        audiosToPreload[20].pause();
+        audiosToPreload[21].muted = section9mute;
+        audiosToPreload[21].currentTime = 0;
+        audiosToPreload[21].pause();
 
         section9dialogBox.style.display = "none";;
         section9_SortitOut.style.display = "none";
@@ -2103,18 +2100,18 @@ document.addEventListener("DOMContentLoaded", () => {
         commonplayButton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
         section8ActionStart = false;
 
-        audio_section8_01.muted = section8mute;
-        audio_section8_01.currentTime = 0;
-        audio_section8_01.pause();
-        audio_section8_02.muted = section8mute;
-        audio_section8_02.currentTime = 0;
-        audio_section8_02.pause();
-        audio_section8_03.muted = section8mute;
-        audio_section8_03.currentTime = 0;
-        audio_section8_03.pause();
-        audio_section8_04.muted = section8mute;
-        audio_section8_04.currentTime = 0;
-        audio_section8_04.pause();
+        audiosToPreload[12].muted = section8mute;
+        audiosToPreload[12].currentTime = 0;
+        audiosToPreload[12].pause();
+        audiosToPreload[13].muted = section8mute;
+        audiosToPreload[13].currentTime = 0;
+        audiosToPreload[13].pause();
+        audiosToPreload[14].muted = section8mute;
+        audiosToPreload[14].currentTime = 0;
+        audiosToPreload[14].pause();
+        audiosToPreload[15].muted = section8mute;
+        audiosToPreload[15].currentTime = 0;
+        audiosToPreload[15].pause();
         errorAudio.muted = section8mute;
         errorAudio.currentTime = 0;
         errorAudio.pause();
@@ -2160,9 +2157,9 @@ document.addEventListener("DOMContentLoaded", () => {
         flyingoctopus.style.top="-60%";
         section7nextImage.style.display = "none";
 
-        audio_section7.muted = section7mute;
-        audio_section7.currentTime = 0;
-        audio_section7.pause();
+        audiosToPreload[11].muted = section7mute;
+        audiosToPreload[11].currentTime = 0;
+        audiosToPreload[11].pause();
         startTime = null;
         pausedTime = 0; // Store elapsed time when paused
         animationFrameId = null;
@@ -2662,7 +2659,7 @@ document.addEventListener("DOMContentLoaded", () => {
         textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-style: italic;display:none;'>Select each icon to know about them.</span>";
         adjustImageHeight();
         adjustImageHeight();
-        audio1.play();
+        audiosToPreload[0].play();
         section2played=true;
         section2mute=false;
         commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
@@ -2670,10 +2667,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Trigger 2: When First Audio Ends, Play Second Audio
-    audio1.addEventListener("ended", () => {
+    audiosToPreload[0].addEventListener("ended", () => {
         //textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-weight: bold;font-style: italic;'>Select each icon to know about them.</span>";
         //adjustImageHeight();
-        audio2.play();
+        audiosToPreload[1].play();
         whiteOverlay.style.display = "block";
         // Loop through all button containers and make them visible
         buttonContainers.forEach(element => {
@@ -2683,13 +2680,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Trigger 3: When Second Audio Ends, Show White Image and Buttons
-    audio2.addEventListener("ended", () => {
+    audiosToPreload[1].addEventListener("ended", () => {
         textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-style: italic;display:block;'>Select each icon to know about them.</span>";
         adjustImageHeight();
         adjustImageHeight();
-        audio11.play();
+        audiosToPreload[1].play();
     });
-    audio11.addEventListener("ended", () => {
+    audiosToPreload[1].addEventListener("ended", () => {
 
         buttonContainers.forEach(element => {
             element.style.display = "block";
@@ -2763,7 +2760,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    audio3.addEventListener("ended", () => {
+    audiosToPreload[2].addEventListener("ended", () => {
         
         
         const grassTopLayerImg = grass_toplayer.querySelector('img');
@@ -2799,7 +2796,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     // Check if all buttons have been clicked
                     if (!allButtonsClicked && clickedButtons.size === totalButtons) {
                          allButtonsClicked = true;
-                        audio3.play();
+                        audiosToPreload[2].play();
                         textElement.textContent = "When creating a food chain, arrows are used to show the feeding relationships. The arrow always points in the direction where energy is being passed along the chain.";
                         adjustImageHeight();
                     }
@@ -2856,20 +2853,20 @@ document.addEventListener("DOMContentLoaded", () => {
         adjustSection3ImageHeight();
         
         section3mute=false;
-        audio4.play();
+        audiosToPreload[4].play();
         commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section3played=true;
         commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));;
         section3Octopusidelvisible=!section3Octopusidelvisible;
     };
 
-    audio4.addEventListener("ended", () => {
+    audiosToPreload[4].addEventListener("ended", () => {
         section3dialogText.innerHTML = "Let's explore this forest together, meet my friends, and help them find their meals along the way. Are you ready to start?<br><span style='color: #BC0404;font-style: italic;'>Select Start Adventure.</span>";
         adjustSection3ImageHeight();
-        audio5.play()
+        audiosToPreload[1].play()
         
     });
-    audio5.addEventListener("ended", () => {
+    audiosToPreload[1].addEventListener("ended", () => {
         section3_button.style.display = "block";
         section3dialogBox.style.display = "none";
     });
@@ -3132,7 +3129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section4dialogText.style.display = "block";
         section4dialogText.innerHTML = "Gear up to meet my friends and explore the Great Bear Forest, home to a diverse array of life!";
         adjustSection4ImageHeight();
-        audio6.play().catch((error) => {
+        audiosToPreload[6].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
         section4mute=false;
@@ -3141,22 +3138,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
         section4actiontriggered=!section4actiontriggered;
     };
-    audio6.addEventListener('ended',()=>{
+    audiosToPreload[6].addEventListener('ended',()=>{
         section4dialogText.innerHTML = "You can also click on any glossary term to get more information.";
         adjustSection4ImageHeight();
-        audio7.play().catch((error) => {
+        audiosToPreload[7].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
         
 
     });
-    audio7.addEventListener('ended',()=>{
+    audiosToPreload[7].addEventListener('ended',()=>{
         document.getElementById('section4Help').style.pointerEvents='visible';
         document.getElementById('section4HelpImage').src = imagesToPreload_path.find(src => src.includes('Reading-Language_button_Selected.png'));
 
 
     });
-    audio8.addEventListener('ended',()=>{
+    audiosToPreload[8].addEventListener('ended',()=>{
         document.getElementById('section4ReadHelp').style.pointerEvents='visible';
         document.getElementById('section4ReadHelpImage').src = imagesToPreload_path.find(src => src.includes('Reading-Language_button_Selected.png'));
 
@@ -3184,13 +3181,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
 
-    audio10.addEventListener("ended", () => {
-        // Change images dynamically
-        // document.querySelector("#section4button1 img").src = "assets/Slides_25-35/Kelp_outline.png";
-        // document.querySelector("#section4button2 img").src = "assets/Slides_25-35/Grizzly_bear_outline.png";
-        // document.querySelector("#section4button3 img").src = "assets/Slides_25-35/Salmon_outline.png";
-        // document.querySelector("#section4button4 img").src = "assets/Slides_25-35/Yeast_outline_01.png";
-
+    audiosToPreload[9].addEventListener("ended", () => {
         clickedButtons.clear();
         section4dialogBox.style.display = "none";
         buttons.forEach(button => {
@@ -3547,7 +3538,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if(!section4languageguidedoonce){
                 section4dialogText.innerHTML = "<span style='color: #BC0404;font-style: italic;'>Select hotspots.</span>";
                 adjustSection4ImageHeight();
-                audio10.play().catch((error) => {
+                audiosToPreload[9].play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
                 section4plantray.style.display="block";
@@ -3831,7 +3822,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if(!section4readguidedoonce){
                     section4dialogText.innerHTML = "You can choose a language for translations. Explore and learn!";
                     adjustSection4ImageHeight();
-                    audio8.play().catch((error) => {
+                    audiosToPreload[8].play().catch((error) => {
                         console.error('Error playing audio:', error);
                     });
                     section4readguidedoonce=!section4readguidedoonce;
@@ -3917,7 +3908,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section6mute=false;
         section6played=true;
         commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
-        audio9.play().catch((error) => {
+        audiosToPreload[10].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
         question.style.display='block'
@@ -3928,7 +3919,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     };
 
-    audio9.addEventListener("ended", () => {
+    audiosToPreload[10].addEventListener("ended", () => {
 
         document.querySelectorAll('.icon').forEach(element => {
             element.style.pointerEvents = 'auto';
@@ -4216,12 +4207,12 @@ document.addEventListener("DOMContentLoaded", () => {
         normaloctopus.style.display="block";
         flyingoctopus.style.display="none";
         unfreezeScroll();
-        audio_section7.play().catch((error) => {
+        audiosToPreload[11].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
 
     }
-    audio_section7.addEventListener("ended", () => {
+    audiosToPreload[11].addEventListener("ended", () => {
         section7nextImage.style.display = "block";
         document.getElementById("gap8").style.display="block";
         section8.style.display="block";
@@ -4280,7 +4271,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 section8_dragImage.style.display="none";
                 section8nextImage.style.display="none";
                 section8_movingoctopus.style.display="block";
-                audio_section8_01.play().catch((error) => {
+                audiosToPreload[12].play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
                 section8dialogBox.style.display = "inline-block";
@@ -4302,7 +4293,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
  
 
-    audio_section8_01.addEventListener("ended", () => {
+    audiosToPreload[12].addEventListener("ended", () => {
        
         section8_WhatEats.style.display='block';
     });
@@ -4318,7 +4309,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "<span style='color:#BC0404;font-style: italic;'>Select the info icon to view the info card about the organisms in the options.</span>";
             
             adjustSection8ImageHeight();
-            audio_section8_02.play().catch((error) => {
+            audiosToPreload[13].play().catch((error) => {
                 console.error('Error playing audio:', error);
             });
  
@@ -4334,7 +4325,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
 
     });
-    audio_section8_02.addEventListener("ended", () => {
+    audiosToPreload[13].addEventListener("ended", () => {
        
         section8dialogBox.style.display = "none";
 
@@ -4559,7 +4550,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 section8dialogText.innerHTML = "Salmon eat kelp, a type of seaweed that gives them energy and nutrients to grow and stay healthy.";
                 
                 adjustSection8ImageHeight();
-                audio_section8_03.play().catch((error) => {
+                audiosToPreload[14].play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
                 section8startTime=null;
@@ -4576,14 +4567,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         });
 
-        audio_section8_03.addEventListener("ended", () => {
+        audiosToPreload[14].addEventListener("ended", () => {
            
             section8dialogText.innerHTML = "You did it!"+
                 "<br>Let's check out your sorting skills!"+
                 "<br><span style='color:#BC0404;font-style: italic;'>Scroll down to move ahead.</span>";
                 
                 adjustSection8ImageHeight();
-                audio_section8_04.play().catch((error) => {
+                audiosToPreload[15].play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
                 cancelAnimationFrame(section8animationFrameIdfish);
@@ -4603,7 +4594,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
         });
 
-        audio_section8_04.addEventListener("ended", () => {
+        audiosToPreload[15].addEventListener("ended", () => {
             section8nextImage.style.display="block";
             //Section 9 Start
             document.getElementById("gap9").style.display="block";
@@ -4801,13 +4792,13 @@ document.addEventListener("DOMContentLoaded", () => {
         adjustSection9ImageHeight();
         section9_SortitOut.style.display="block";
         section9_SortitOut.style.pointerEvents="none";
-        audio_section9_01.play().catch((error) => {
+        audiosToPreload[16].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
        
     }
 
-    audio_section9_01.addEventListener("ended", () => {
+    audiosToPreload[16].addEventListener("ended", () => {
         section9_SortitOut.style.pointerEvents="visible";
     });
     section9_SortitOut.addEventListener("click", () => {
@@ -4819,7 +4810,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "<span style='color:#BC0404;font-style: italic;'>Drag and drop each organism into the correct category. Once you're done sorting, Select Submit.</span>";
             
             adjustSection9ImageHeight();
-            audio_section9_02.play().catch((error) => {
+            audiosToPreload[17].play().catch((error) => {
                 console.error('Error playing audio:', error);
             });
             EnableContainersection9();
@@ -4828,7 +4819,7 @@ document.addEventListener("DOMContentLoaded", () => {
          
     });
 
-    audio_section9_02.addEventListener("ended", () => {
+    audiosToPreload[17].addEventListener("ended", () => {
        enableDraggingSection9();
        submitButton_section9.style.display="block";
     });
@@ -4986,7 +4977,7 @@ document.addEventListener("DOMContentLoaded", () => {
             "Here, these organisms are sorted by category.Produers make their own food, consumers eat other organisms, and decomposers break down dead organisms.";
              
             adjustSection9ImageHeight();
-            audio_section9_05.play().catch((error) => {
+            audiosToPreload[20].play().catch((error) => {
                 console.error('Error playing audio:', error);
             });
         } else {
@@ -5002,7 +4993,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         "Think again."+"<br>Almost there!";
                         
                         adjustSection9ImageHeight();
-                        audio_section9_03.play().catch((error) => {
+                        audiosToPreload[18].play().catch((error) => {
                             console.error('Error playing audio:', error);
                         });
                     break;
@@ -5019,7 +5010,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         adjustSection9ImageHeight();
                         correctAnswerButton.style.display="block";
                         correctAnswerButton.style.pointerEvents="none";
-                        audio_section9_04.play().catch((error) => {
+                        audiosToPreload[19].play().catch((error) => {
                             console.error('Error playing audio:', error);
                         });
                     break;
@@ -5031,10 +5022,10 @@ document.addEventListener("DOMContentLoaded", () => {
         } 
     });
 
-    audio_section9_03.addEventListener("ended", () => {
+    audiosToPreload[18].addEventListener("ended", () => {
         section9_TryAgainButton.style.display="block";
     });
-    audio_section9_04.addEventListener("ended", () => {
+    audiosToPreload[19].addEventListener("ended", () => {
         correctAnswerButton.style.display="block";
         correctAnswerButton.style.pointerEvents="visible";
         submitButton_section9.style.display="none";
@@ -5146,19 +5137,19 @@ document.addEventListener("DOMContentLoaded", () => {
         "Here, these organisms are sorted by category.Produers make their own food, consumers eat other organisms, and decomposers break down dead organisms.";
          
         adjustSection9ImageHeight();
-        audio_section9_05.play().catch((error) => {
+        audiosToPreload[20].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
         }
     });
      
     
-    audio_section9_05.addEventListener("ended", () => {
+    audiosToPreload[20].addEventListener("ended", () => {
         section9dialogText.innerHTML =
         "Well done! <span style='font-weight:bold;'>Producers </span> make their own food.<span style='font-weight:bold;'>Consumers</span> eat other organisms.<span style='font-weight:bold;'>Decomposers</span> break down dead organisms.";
          
         adjustSection9ImageHeight();
-        audio_section9_06.play().catch((error) => {
+        audiosToPreload[21].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
         // Correct answer placement
@@ -5199,7 +5190,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    audio_section9_06.addEventListener("ended", () => {
+    audiosToPreload[21].addEventListener("ended", () => {
         section9_ok.style.display="block";
     });
     
@@ -5269,7 +5260,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     22,27,28,25,2,5,0,-10,-40,0
                     , function () {
                     console.log("Animation complete!");
-                    audio_section10_01.play().catch((error) => {
+                    audiosToPreload[22].play().catch((error) => {
                         console.error('Error playing audio:', error);
                     });
                 });
@@ -5297,14 +5288,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    audio_section10_01.addEventListener("ended", () => {
+    audiosToPreload[22].addEventListener("ended", () => {
          
         section10_WhoEatWaht.style.pointerEvents="visible";
     });
     section10_WhoEatWaht.addEventListener("click", () => {
         if(section10played){
             section10_WhoEatWaht.style.display="none";
-            audio_section10_02.play().catch((error) => {
+            audiosToPreload[23].play().catch((error) => {
                 console.error('Error playing audio:', error);
             });
             VisibleButtons("block");
@@ -5312,7 +5303,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         
     });
-    audio_section10_02.addEventListener("ended", () => {
+    audiosToPreload[23].addEventListener("ended", () => {
          
         enableButton("NumberOne");
     });
@@ -5498,7 +5489,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "Uh oh, the food chain is all messed up!.";// <br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>
                 
                 adjustSection11ImageHeight();
-                audio_section11_01.play().catch((error) => {
+                audiosToPreload[26].play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
                 section11_labelkelp.style.display="block";
@@ -5511,13 +5502,13 @@ document.addEventListener("DOMContentLoaded", () => {
        
     }
 
-    audio_section11_01.addEventListener("ended", () => {
+    audiosToPreload[26].addEventListener("ended", () => {
          
         section11dialogText.innerHTML =
         "<span style='color:#BC0404;font-style: italic;'>Can you drag the organisms to the boxes to show who eats what and keeps the ecosystem healthy.</span>";// <br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>
         
         adjustSection11ImageHeight();
-        audio_section11_02.play().catch((error) => {
+        audiosToPreload[27].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
         section11_kelp.style.display="none";
@@ -5535,7 +5526,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section11_Headinglabel.style.display="flex";
         disableDraggingSection11();
     });
-    audio_section11_02.addEventListener("ended", () => {
+    audiosToPreload[27].addEventListener("ended", () => {
         section11_Submit.style.display="block";
         section11dialogBox.style.display = "none";
         enableDraggingSection11();
@@ -5773,7 +5764,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 adjustSection11ImageHeight();
                 section11_Ok.style.display="block";
                 section11_Ok.style.pointerEvents="none";
-                audio_section11_05.play().catch((error) => {
+                audiosToPreload[30].play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
             } else {
@@ -5788,7 +5779,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         "Oops, that's <br>not quite right."+"<br>Try again!";
                         
                         adjustSection11ImageHeight();
-                        audio_section11_03.play().catch((error) => {
+                        audiosToPreload[28].play().catch((error) => {
                             console.error('Error playing audio:', error);
                         });
                     break;
@@ -5803,7 +5794,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         //"<br><span style='color:#BC0404;font-style: italic;'></span>";
                         
                         adjustSection11ImageHeight();
-                        audio_section11_04.play().catch((error) => {
+                        audiosToPreload[29].play().catch((error) => {
                             console.error('Error playing audio:', error);
                         });
                     break;
@@ -5814,11 +5805,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    audio_section11_03.addEventListener("ended", () => {
+    audiosToPreload[28].addEventListener("ended", () => {
         section11_TryAgain.style.display="block";
         
     });
-    audio_section11_04.addEventListener("ended", () => {
+    audiosToPreload[29].addEventListener("ended", () => {
         section11_CorrectAnswer.style.display="block";
  
         Section11DragResetOnly();
@@ -5980,7 +5971,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 adjustSection11ImageHeight();
                 section11_Ok.style.display="block";
                 section11_Ok.style.pointerEvents="none";
-                audio_section11_05.play().catch((error) => {
+                audiosToPreload[30].play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
         
@@ -5989,7 +5980,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    audio_section11_05.addEventListener("ended", () => {
+    audiosToPreload[30].addEventListener("ended", () => {
         section11dialogBox.style.display = "none";
 
         section11dialogBox.style.display = "inline-block";
@@ -5999,12 +5990,12 @@ document.addEventListener("DOMContentLoaded", () => {
         //"<br><span style='color:#BC0404;font-style: italic;'></span>";
         
         adjustSection11ImageHeight();
-        audio_section11_06.play().catch((error) => {
+        audiosToPreload[31].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
     });
 
-    audio_section11_06.addEventListener("ended", () => {
+    audiosToPreload[31].addEventListener("ended", () => {
         section11_Ok.style.pointerEvents="visible";
     });
 
@@ -6065,7 +6056,7 @@ document.addEventListener("DOMContentLoaded", () => {
         
         adjustSection12ImageHeight();
         
-        audio_section12_01.play().catch((error) => {
+        audiosToPreload[32].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
         leftButton.style.pointerEvents="none";
@@ -6095,7 +6086,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('section12dialogBoxx').style.width = `${(imageHeight + textHeight)*0.9}px`; // Combine image and text heights
     }
 
-    audio_section12_01.addEventListener("ended", () => {
+    audiosToPreload[32].addEventListener("ended", () => {
         section12dialogBox.style.display = "none";
         section12_wood.style.pointerEvents="visible";
         section12_wood.style.cursor="pointer";
@@ -6106,13 +6097,13 @@ document.addEventListener("DOMContentLoaded", () => {
         if(section12played){
             section12discribtionPanel.style.display="block";
             updateText();
-            audio_section12_02.play().catch((error) => {
+           audiosToPreload[33].play().catch((error) => {
                 console.error('Error playing audio:', error);
             });
         }
        
     });
-    audio_section12_02.addEventListener("ended", () => {
+   audiosToPreload[33].addEventListener("ended", () => {
         leftButton.style.pointerEvents="visible";
         rightButton.style.pointerEvents="visible";
     });
@@ -6228,7 +6219,7 @@ document.addEventListener("DOMContentLoaded", () => {
              "There's a crisis in the ecosystem! Help these animals survive by placing them in the correct order of the food chain.<br><span style='color:#BC0404;font-style: italic;'>Drag the animals to the boxes to create a food chain.</span>";///<br><span style='color:#BC0404;font-style: italic;'>Select 'Sort it Out' to see the options.</span>.";
             
             adjustSection13ImageHeight();
-            audio_section13_01.play().catch((error) => {
+            audiosToPreload[34].play().catch((error) => {
                 console.error('Error playing audio:', error);
             });
         }
@@ -6241,12 +6232,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    audio_section13_01.addEventListener("ended", () => {
+    audiosToPreload[34].addEventListener("ended", () => {
 
         section13dialogText.innerHTML =
         "There's a crisis in the ecosystem! Help these animals survive by placing them in the correct order of the food chain.<br><span style='color:#BC0404;font-style: italic;'>Drag the animals to the boxes to create a food chain.</span>";
         adjustSection13ImageHeight();
-        audio_section13_02.play().catch((error) => {
+       audiosToPreload[35].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
 
@@ -6269,7 +6260,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section13_Submit.style.pointerEvents="none";
      });
 
-     audio_section13_02.addEventListener("ended", () => {
+    audiosToPreload[35].addEventListener("ended", () => {
         section13dialogBox.style.display = "none";
         section13_Submit.style.pointerEvents="visible";
      });
@@ -6447,7 +6438,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     adjustSection13ImageHeight();
                     section13_Ok.style.pointerEvents="none";
                     section13_Ok.style.display="block";
-                    audio_section13_05.play().catch((error) => {
+                    audiosToPreload[38].play().catch((error) => {
                         console.error('Error playing audio:', error);
                     });
                 } else {
@@ -6465,7 +6456,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             section13_TryAgain.style.pointerEvents="none";
                             section13_TryAgain.style.display="block";
-                            audio_section13_03.play().catch((error) => {
+                            audiosToPreload[36].play().catch((error) => {
                                 console.error('Error playing audio:', error);
                             });
                         break;
@@ -6482,7 +6473,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             adjustSection13ImageHeight();
                             section13_CorrectAnswer.style.pointerEvents="none";
                             section13_CorrectAnswer.style.display="block";
-                            audio_section13_04.play().catch((error) => {
+                            audiosToPreload[37].play().catch((error) => {
                                 console.error('Error playing audio:', error);
                             });
                         break;
@@ -6493,14 +6484,14 @@ document.addEventListener("DOMContentLoaded", () => {
         }
      });
 
-    audio_section13_03.addEventListener("ended", () => {
+    audiosToPreload[36].addEventListener("ended", () => {
  
         section13dialogBox.style.display = "none";
         section13_TryAgain.style.pointerEvents="visible";
     
         
     });
-    audio_section13_04.addEventListener("ended", () => {
+    audiosToPreload[37].addEventListener("ended", () => {
         section13dialogBox.style.display = "none";
         section13_CorrectAnswer.style.pointerEvents="visible";
         Section13DragResetOnly();
@@ -6655,7 +6646,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     adjustSection13ImageHeight();
                     section13_Ok.style.pointerEvents="none";
                     section13_Ok.style.display="block";
-                    audio_section13_05.play().catch((error) => {
+                    audiosToPreload[38].play().catch((error) => {
                         console.error('Error playing audio:', error);
                     });
 
@@ -6664,7 +6655,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    audio_section13_05.addEventListener("ended", () => {
+    audiosToPreload[38].addEventListener("ended", () => {
         section13dialogBox.style.display = "none";
         section13_Ok.style.pointerEvents="visible";
         
@@ -6707,7 +6698,7 @@ document.addEventListener("DOMContentLoaded", () => {
         commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
         section14ActionStart=true;
         
-        audio_section14_01.play().catch((error) => {
+        audiosToPreload[39].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
         
@@ -6728,7 +6719,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         return false;
     };
-    audio_section14_01.addEventListener("ended", () => {
+    audiosToPreload[39].addEventListener("ended", () => {
        //Next part
        section14_Ok.style.display="block";
     });
@@ -6779,7 +6770,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 27,52,25,25,5,5,-10,-10,0,0
                 , function () {
                 console.log("Animation complete!");
-                audio_section10_03.play().catch((error) => {
+                audiosToPreload[24].play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
             });
@@ -6819,7 +6810,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
  
 
-        audio_section10_03.addEventListener("ended", () => {
+        audiosToPreload[24].addEventListener("ended", () => {
             
             section15VisibleButtons("block");
             section15resetButtons();
@@ -6995,7 +6986,7 @@ document.addEventListener("DOMContentLoaded", () => {
         section16VisitetdAllButton();
         section16updateKeys(["section16keyone", "section16keytwo","section16keythree","section16keyfour","section16keyfive"]);
         section16_FlyingOctopus.style.display="block";
-        audio_section10_04.play().catch((error) => {
+        audiosToPreload[25].play().catch((error) => {
             console.error('Error playing audio:', error);
         });
         
@@ -7019,7 +7010,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
  
-    audio_section10_04.addEventListener("ended", () => {
+    audiosToPreload[25].addEventListener("ended", () => {
         //move to setion14
         document.getElementById("gap14").style.display="block";
         section14.style.display="block";

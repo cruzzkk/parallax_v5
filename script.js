@@ -26,7 +26,8 @@
         const audio6 = new Audio("assets/audio/Audios/Gear_up_to_meet_my_friends_an.wav");
         const audio7 = new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
         const audio8 = new Audio("assets/audio/Audios/You_can_choose_a_language_for.wav");
-        const audio9 = new Audio("assets/audio/Audios/Select_another_organism_like.wav");
+        const audio9 = new Audio("assets/audio/Audios/Select_another_organism_like_audio9_01.wav");
+        const audio9_02 = new Audio("assets/audio/Audios/Select_another_organism_like_audio9_02.wav");
         const audio10 = new Audio("assets/audio/Audios/Select_hotspots_Youll_collect.wav");
        
         
@@ -81,7 +82,7 @@
              audio_section11_01,audio_section11_02,audio_section11_03,audio_section11_04,audio_section11_05,audio_section11_06,
              audio_section12_01,audio_section12_02,
              audio_section13_01,audio_section13_02,audio_section13_03,audio_section13_04,audio_section13_05,
-             audio_section14_01];
+             audio_section14_01,audio9_02];
 
 // Function to preload images
 function preloadImages(images, callback) {
@@ -779,6 +780,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     section6mute=!section6mute;
                 }
                 audio9.muted=section6mute;
+                audio9_02.muted=section6mute;
                 currentAudio.muted=section6mute;
             break;
             case 'section7':
@@ -993,11 +995,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     if(section6played){
                         section6played=!section6played;
                         
-                            const audio = audiosToPreload[10];
-                            if (isAudioPlaying(audio)) {
-                                 audio.pause();
-                                section6pausedAudio=audio;
+                        const audio = [audiosToPreload[10], audio9_02]; // Array of audios to check
+
+                        audio.forEach(aud => {
+                            if (isAudioPlaying(aud)) {  // Check if each individual audio is playing
+                                    aud.pause();            // Pause the audio if it's playing
+                                    section6pausedAudio = aud; // Store the paused audio
                             }
+                        });
     
                         
                         if(isAudioPlaying(currentAudio)){
@@ -1627,12 +1632,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 audio9.muted=section6mute;
                 audio9.currentTime=0;
                 audio9.pause();
+                audio9_02.muted=section6mute;
+                audio9_02.currentTime=0;
+                audio9_02.pause();
                 section6played=false;
                 commonplayButton.querySelector("img").src="assets/Slides_25-35/Plau_Button.png";
                 popup.style.display = "none";
                 feedback.style.display='none'
                 const correctfeedback = document.getElementById('correctfeedback');
                 correctfeedback.style.display = 'none';
+
+                icon.forEach(image => {
+                    image.style.display = 'none';
+                });
                 
                 // Reset all clickableobject images
                 document.querySelectorAll('.clickableobject').forEach(button => {
@@ -3920,15 +3932,23 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error('Error playing audio:', error);
         });
         question.style.display='block'
-        icon.forEach(image => {
-            image.style.display = 'block';
-        });
+
        
     
     };
 
     audio9.addEventListener("ended", () => {
 
+        audio9_02.play().catch((error) => {
+            console.error('Error playing audio:', error);
+        });
+
+        icon.forEach(image => {
+            image.style.display = 'block';
+        });
+
+    });
+    audio9_02.addEventListener("ended", () => {
         document.querySelectorAll('.icon').forEach(element => {
             element.style.pointerEvents = 'auto';
             element.style. cursor= 'pointer';
@@ -3937,7 +3957,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('.clickableobject').forEach(element => {
             element.style.pointerEvents = 'visible';
         });
-
     });
 
     document.querySelectorAll('.icon').forEach(button => {

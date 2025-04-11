@@ -1892,15 +1892,15 @@ commonrestartButton.addEventListener("click", () => {
             audiosToPreload[0].muted=section2mute;
             audiosToPreload[1].muted=section2mute;
             audiosToPreload[2].muted=section2mute;
-            audiosToPreload[1].muted=section2mute;
+            audiosToPreload[3].muted=section2mute;
             audiosToPreload[0].currentTime=0;
             audiosToPreload[0].pause();
             audiosToPreload[1].currentTime=0;
             audiosToPreload[1].pause();
             audiosToPreload[2].currentTime=0;
             audiosToPreload[2].pause();
-            audiosToPreload[1].currentTime=0;
-            audiosToPreload[1].pause();
+            audiosToPreload[3].currentTime=0;
+            audiosToPreload[3].pause();
             section2popup_audio.currentTime=0;
             section2popup_audio.pause();
             whiteOverlay.style.display = "none";
@@ -1930,11 +1930,11 @@ commonrestartButton.addEventListener("click", () => {
             section3Octopusidelvisible=false;
             section3dialogBox.style.display = "none";
             audiosToPreload[4].muted=section3mute;
-            audiosToPreload[1].muted=section3mute;
+            audiosToPreload[5].muted=section3mute;
             audiosToPreload[4].currentTime=0;
             audiosToPreload[4].pause();
-            audiosToPreload[1].currentTime=0;
-            audiosToPreload[1].pause();
+            audiosToPreload[5].currentTime=0;
+            audiosToPreload[5].pause();
             section3_button.style.display = "none";
             section3octopusContainer.style.display = "block";
             section3octopusContainershell.style.display = "none";
@@ -2498,6 +2498,8 @@ function isAudioPlaying(audio) {
             a.style.display="none";
         });
         section8_dragArea.style.filter="blur(8px)";
+        section8isPaused=false;
+        section8startTime=null;
     }
     //Section7 Restart
     function Section7Restart() {
@@ -2684,9 +2686,9 @@ function isAudioPlaying(audio) {
         textElement.innerHTML =  "A food chain shows how different living things in nature rely on each other for food and energy. Take a closer look at the food chain happening in our kitchen garden."+"<br><span style='color:#BC0404;font-style: italic;display:block;'>Select each icon to know about them.</span>";
         adjustImageHeight();
         adjustImageHeight();
-        audiosToPreload[1].play();
+        audiosToPreload[3].play();
     });
-    audiosToPreload[1].addEventListener("ended", () => {
+    audiosToPreload[3].addEventListener("ended", () => {
 
         buttonContainers.forEach(element => {
             element.style.display = "block";
@@ -2870,10 +2872,10 @@ function isAudioPlaying(audio) {
     audiosToPreload[4].addEventListener("ended", () => {
         section3dialogText.innerHTML = "Let's explore this forest together, meet my friends, and help them find their meals along the way. Are you ready to start?<br><span style='color: #BC0404;font-style: italic;'>Select Start Adventure.</span>";
         adjustSection3ImageHeight();
-        audiosToPreload[1].play()
+        audiosToPreload[5].play()
         
     });
-    audiosToPreload[1].addEventListener("ended", () => {
+    audiosToPreload[5].addEventListener("ended", () => {
         section3_button.style.display = "block";
         section3dialogBox.style.display = "none";
     });
@@ -2989,7 +2991,7 @@ function isAudioPlaying(audio) {
              section15.style.display="none"; 
              document.getElementById("gap16").style.display="none";
              section16.style.display="none"; 
-             section8isPaused=true;
+             section8isPaused=false;
              section10isPaused=true;
              section11isPaused=true;
              section15isPaused=true;

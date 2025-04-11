@@ -1,6 +1,6 @@
 
-
-    const imagesToPreload_path = [
+// Image File path
+const imagesToPreload_path = [
         'assets/Slides_25-35/Audio_button.png', 'assets/Slides_25-35/Audio_button_Mute.png', 'assets/Slides_25-35/Audio_icon.png', 'assets/Slides_25-35/Audio_icon_selected.png', 'assets/Slides_25-35/Cantonese.png', 'assets/Slides_25-35/Cantonese_selected.png', 'assets/Slides_25-35/English.png', 'assets/Slides_25-35/English_selected.png', 'assets/Slides_25-35/Grizzly_bear.png', 'assets/Slides_25-35/Grizzly_bear_outline.png', 'assets/Slides_25-35/Hills.png', 'assets/Slides_25-35/Kelp.png', 'assets/Slides_25-35/Kelp_outline.png', 'assets/Slides_25-35/Mandarin.png', 'assets/Slides_25-35/Mandarin_selected.png', 'assets/Slides_25-35/octopus.png', 'assets/Slides_25-35/Pause_Button.png', 'assets/Slides_25-35/Photo01.png', 'assets/Slides_25-35/Photo02.png', 'assets/Slides_25-35/Photo03.png', 'assets/Slides_25-35/Photo04.png', 'assets/Slides_25-35/Plau_Button.png', 'assets/Slides_25-35/Popup_window.png', 'assets/Slides_25-35/Popup_window_close.png', 'assets/Slides_25-35/Reading-Language_button.png', 'assets/Slides_25-35/Reading-Language_button_Selected.png', 'assets/Slides_25-35/Reading_Help_popup.png', 'assets/Slides_25-35/Replay_Button.png', 'assets/Slides_25-35/Salmon.png', 'assets/Slides_25-35/Salmon_outline.png', 'assets/Slides_25-35/Sky_crop.png', 'assets/Slides_25-35/Spanish.png', 'assets/Slides_25-35/Spanish_selected.png', 'assets/Slides_25-35/Tagalog.png', 'assets/Slides_25-35/Tagalog_selected.png', 'assets/Slides_25-35/Trees_ground.png', 'assets/Slides_25-35/Water_crop.png', 'assets/Slides_25-35/Water_over_octopus.png', 'assets/Slides_25-35/Yeast_crop.png', 'assets/Slides_25-35/Yeast_outline_01.png', 'assets/Slides_25-35/Yeast_plant.png', 'assets/Slides_25-35/Yeast_plant_focus.png',
         'assets/Slides11-17/Callout01.png', 'assets/Slides11-17/Consumers.png', 'assets/Slides11-17/Consumers01.png', 'assets/Slides11-17/Consumers_text_box.png', 'assets/Slides11-17/Curved_arrow.png', 'assets/Slides11-17/Curved_arrow_highlighted.png', 'assets/Slides11-17/Decomposers.png', 'assets/Slides11-17/Decomposers_text_box.png', 'assets/Slides11-17/Garden_crop.png', 'assets/Slides11-17/Grass_top_layer.png', 'assets/Slides11-17/Grass_top_layer_crop.png', 'assets/Slides11-17/House_CROP_2.png', 'assets/Slides11-17/Mountains_01.png', 'assets/Slides11-17/Octopus_inset.png', 'assets/Slides11-17/Parallax_scroll_BG_updated.png', 'assets/Slides11-17/popup_close.png', 'assets/Slides11-17/Popup_text_box.png', 'assets/Slides11-17/Producers-Consumers_text_box.png', 'assets/Slides11-17/Producers.png', 'assets/Slides11-17/Producers_text_box.png', 'assets/Slides11-17/Scroll_down_button.png', 'assets/Slides11-17/Sun_01.png', 'assets/Slides11-17/Tree.png','assets/Slides11-17/Fullscreen_Exit_button.png',
         'assets/Slides18-20/bushes.png', 'assets/Slides18-20/Callout.png', 'assets/Slides18-20/Octopus_and_shells.png', 'assets/Slides18-20/Octopus_and_water.png', 'assets/Slides18-20/Octopus_side.png', 'assets/Slides18-20/Replay_Button.png', 'assets/Slides18-20/Sky_corp.png', 'assets/Slides18-20/Start_Adventure.png', 'assets/Slides18-20/Sun02.png', 'assets/Slides18-20/Trees.png', 'assets/Slides18-20/Water_.png', 'assets/Slides18-20/Water_octopus.png',
@@ -12,76 +12,77 @@
         'assets/FoodChain/BG_Water_crop_Updated.png','assets/Slides18-20/Water_.png',
         'assets/FoodChain/Scene2/BG_Water_crop.png','assets/FoodChain/BG_Water_crop_scene11.png','assets/Feeding Frenzy/Scene2/Asset-14.png','assets/Feeding Frenzy/Scene2/Asset-13.png',
         'assets/FoodChain/Scene1/Crop_05.png','assets/FoodChain/Scene1/Crop_05_Active.png', 'assets/Feeding Frenzy/Scene2/kelp.png'
-        ];
+];
     
-        // Audio files
-        const audio1 = new Audio("assets/audio/Audios/7._A_food_chain_shows_how_differ.mp3");
-        const audio2 = new Audio("assets/audio/Audios/section2_Take a look.mp3");
-        const audio11 = new Audio("assets/audio/Audios/section2_select each icon.mp3");
-        const audio3 = new Audio("assets/audio/Audios/7._When_creating_a_food_chain,_a.mp3");
-        const audio4 = new Audio("assets/audio/Audios/7._Weve_learned_all_about_the_f.mp3");
-        const audio5 = new Audio("assets/audio/Audios/7._Let's explore this forest together.mp3");
-        const audio6 = new Audio("assets/audio/Audios/Gear_up_to_meet_my_friends_an.wav");
-        const audio7 = new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
-        const audio8 = new Audio("assets/audio/Audios/You_can_choose_a_language_for.wav");
-        const audio9 = new Audio("assets/audio/Audios/Select_another_organism_like.wav");
-        const audio10 = new Audio("assets/audio/Audios/Select_hotspots_Youll_collect.wav");
+// Audio files
+const audio1 = new Audio("assets/audio/Audios/7._A_food_chain_shows_how_differ.mp3");
+const audio2 = new Audio("assets/audio/Audios/section2_Take a look.mp3");
+const audio11 = new Audio("assets/audio/Audios/section2_select each icon.mp3");
+const audio3 = new Audio("assets/audio/Audios/7._When_creating_a_food_chain,_a.mp3");
+const audio4 = new Audio("assets/audio/Audios/7._Weve_learned_all_about_the_f.mp3");
+const audio5 = new Audio("assets/audio/Audios/7._Let's explore this forest together.mp3");
+const audio6 = new Audio("assets/audio/Audios/Gear_up_to_meet_my_friends_an.wav");
+const audio7 = new Audio("assets/audio/Audios/You_can_also_click_on_any_glo.wav");
+const audio8 = new Audio("assets/audio/Audios/You_can_choose_a_language_for.wav");
+const audio9 = new Audio("assets/audio/Audios/Select_another_organism_like.wav");
+const audio10 = new Audio("assets/audio/Audios/Select_hotspots_Youll_collect.wav");
        
         
-        const audio_section7=new Audio("assets/audio/Part_B_Audio/section7.mp3");
+const audio_section7=new Audio("assets/audio/Part_B_Audio/section7.mp3");
         
-        const audio_section8_01=new Audio("assets/audio/Part_B_Audio/section8_01.mp3");
-        const audio_section8_02=new Audio("assets/audio/Part_B_Audio/section8_02.mp3");
-        const audio_section8_03=new Audio("assets/audio/Part_B_Audio/section8_03.mp3");
-        const audio_section8_04=new Audio("assets/audio/Part_B_Audio/section8_04.mp3");
+const audio_section8_01=new Audio("assets/audio/Part_B_Audio/section8_01.mp3");
+const audio_section8_02=new Audio("assets/audio/Part_B_Audio/section8_02.mp3");
+const audio_section8_03=new Audio("assets/audio/Part_B_Audio/section8_03.mp3");
+const audio_section8_04=new Audio("assets/audio/Part_B_Audio/section8_04.mp3");
     
-        const audio_section9_01=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
-        const audio_section9_02=new Audio("assets/audio/Part_B_Audio/section9_02.mp3");
-        const audio_section9_03=new Audio("assets/audio/Part_B_Audio/section9_03.mp3");
-        const audio_section9_04=new Audio("assets/audio/Part_B_Audio/section9_04.mp3");
-        const audio_section9_05=new Audio("assets/audio/Part_B_Audio/section9_05.mp3");
-        const audio_section9_06=new Audio("assets/audio/Part_B_Audio/section9_06.mp3");
+const audio_section9_01=new Audio("assets/audio/Part_B_Audio/section9_01.mp3");
+const audio_section9_02=new Audio("assets/audio/Part_B_Audio/section9_02.mp3");
+const audio_section9_03=new Audio("assets/audio/Part_B_Audio/section9_03.mp3");
+const audio_section9_04=new Audio("assets/audio/Part_B_Audio/section9_04.mp3");
+const audio_section9_05=new Audio("assets/audio/Part_B_Audio/section9_05.mp3");
+const audio_section9_06=new Audio("assets/audio/Part_B_Audio/section9_06.mp3");
 
-        const audio_section10_01=new Audio("assets/audio/PartC_Audio/1_Alright_explorers!_Weve_reach.mp3");
-        const audio_section10_02=new Audio("assets/audio/PartC_Audio/2_Hey_there,_adventurers!_Get_re.mp3");
-        const audio_section10_03=new Audio("assets/audio/PartC_Audio/8_High_five!_Youre_mastering_th.mp3");
-        const audio_section10_04=new Audio("assets/audio/PartC_Audio/14_Hooray!_You_did_it!_Youve_nav.mp3");
-
-
-        const audio_section11_01=new Audio("assets/audio/PartC_Audio/3_Uh_oh,_the_food_chain_is_all_m.mp3");
-        const audio_section11_02=new Audio("assets/audio/PartC_Audio/3_Can you.mp3");
-        const audio_section11_03=new Audio("assets/audio/PartC_Audio/5_Oops,_that’s_not_quite_right.mp3");
-        const audio_section11_04=new Audio("assets/audio/PartC_Audio/6_Not_quite_right,_but_don’t_wor.mp3");
-        const audio_section11_05=new Audio("assets/audio/PartC_Audio/4_Well_done!_You_earned_yourself.mp3");
-        const audio_section11_06=new Audio("assets/audio/PartC_Audio/4a_Well_done!_Grizzly_bears_eat_s.mp3");
+const audio_section10_01=new Audio("assets/audio/PartC_Audio/1_Alright_explorers!_Weve_reach.mp3");
+const audio_section10_02=new Audio("assets/audio/PartC_Audio/2_Hey_there,_adventurers!_Get_re.mp3");
+const audio_section10_03=new Audio("assets/audio/PartC_Audio/8_High_five!_Youre_mastering_th.mp3");
+const audio_section10_04=new Audio("assets/audio/PartC_Audio/14_Hooray!_You_did_it!_Youve_nav.mp3");
 
 
-
-        const audio_section12_01=new Audio("assets/audio/PartC_Audio/9_Read_more_about_ecosystems_and.mp3");
-        const audio_section12_02=new Audio("assets/audio/PartC_Audio/10_Use_the_arrow_keys_to_move_for.mp3");
-
-        const audio_section13_01=new Audio("assets/audio/PartC_Audio/upTheres_a_crisis_in_t.mp3");
-        const audio_section13_02=new Audio("assets/audio/PartC_Audio/Drag the animal to box.mp3");
-        const audio_section13_03=new Audio("assets/audio/PartC_Audio/5_Oops,_that’s_not_quite_right.mp3");
-        const audio_section13_04=new Audio("assets/audio/PartC_Audio/13_The_order_looks_almost_right.mp3");
-        const audio_section13_05=new Audio("assets/audio/PartC_Audio/12_Great_job_placing_all_the_anim.mp3");
+const audio_section11_01=new Audio("assets/audio/PartC_Audio/3_Uh_oh,_the_food_chain_is_all_m.mp3");
+const audio_section11_02=new Audio("assets/audio/PartC_Audio/3_Can you.mp3");
+const audio_section11_03=new Audio("assets/audio/PartC_Audio/5_Oops,_that’s_not_quite_right.mp3");
+const audio_section11_04=new Audio("assets/audio/PartC_Audio/6_Not_quite_right,_but_don’t_wor.mp3");
+const audio_section11_05=new Audio("assets/audio/PartC_Audio/4_Well_done!_You_earned_yourself.mp3");
+const audio_section11_06=new Audio("assets/audio/PartC_Audio/4a_Well_done!_Grizzly_bears_eat_s.mp3");
 
 
 
-        const audio_section14_01=new Audio("assets/audio/PartC_Audio/16_Look_out,_world!_Weve_got_a_b.mp3");
+const audio_section12_01=new Audio("assets/audio/PartC_Audio/9_Read_more_about_ecosystems_and.mp3");
+const audio_section12_02=new Audio("assets/audio/PartC_Audio/10_Use_the_arrow_keys_to_move_for.mp3");
+
+const audio_section13_01=new Audio("assets/audio/PartC_Audio/upTheres_a_crisis_in_t.mp3");
+const audio_section13_02=new Audio("assets/audio/PartC_Audio/Drag the animal to box.mp3");
+const audio_section13_03=new Audio("assets/audio/PartC_Audio/5_Oops,_that’s_not_quite_right.mp3");
+const audio_section13_04=new Audio("assets/audio/PartC_Audio/13_The_order_looks_almost_right.mp3");
+const audio_section13_05=new Audio("assets/audio/PartC_Audio/12_Great_job_placing_all_the_anim.mp3");
+
+
+
+const audio_section14_01=new Audio("assets/audio/PartC_Audio/16_Look_out,_world!_Weve_got_a_b.mp3");
         
 
                                 
-        const audiosToPreload = [audio1, audio2, audio3,audio11, audio4, audio5, audio6, audio7, audio8, audio10,
+const audiosToPreload = [audio1, audio2, audio3,audio11, audio4, audio5, audio6, audio7, audio8, audio10,
              audio9,audio_section7,audio_section8_01,audio_section8_02,audio_section8_03,audio_section8_04,
              audio_section9_01,audio_section9_02,audio_section9_03,audio_section9_04,audio_section9_05,audio_section9_06,
              audio_section10_01,audio_section10_02,audio_section10_03,audio_section10_04,
              audio_section11_01,audio_section11_02,audio_section11_03,audio_section11_04,audio_section11_05,audio_section11_06,
              audio_section12_01,audio_section12_02,
              audio_section13_01,audio_section13_02,audio_section13_03,audio_section13_04,audio_section13_05,
-             audio_section14_01];
+             audio_section14_01
+];
 
-// Function to preload images
+// Function to preload images from path
 function preloadImages(images, callback) {
     let loadedImages = 0;
     const totalImages = images.length;
@@ -142,7 +143,7 @@ function collectImages() {
     return Array.from(imageElements).map(img => img.src).filter(src => src !== ""); 
 }
 
-// Function to preload images
+// Function to preload images 
 function preloadImages_all(images, callback) {
     let loadedImages = 0;
     const totalImages = images.length;
@@ -171,9 +172,6 @@ function renderPreloadedImages(preloadedImages) {
 }
 
 
-
-
-
 window.onload = function() {
 
     const imagesToPreload = collectImages();
@@ -196,12 +194,33 @@ window.onload = function() {
     
 
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
  
 
 
-    const full_sections = document.querySelectorAll('.section');
     const secion5rigthTop = document.getElementById("secion5rigthTop");
     const commonsoundbutton= document.getElementById("commonsound");
     const commonplayButton= document.getElementById("commonplay");
@@ -209,10 +228,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const fullScreenButton= document.getElementById("fullScreen");
     const fullScreenButtonImg=fullScreenButton.querySelector("img");
 
+
+    let currentSection='section1';
  
     const bgVideo = document.getElementById("bgVideo");
     const nextImage = document.getElementById("nextImage");
-    let section1doonce=false;
     let played=false;
     let section1mute=true;
 
@@ -387,7 +407,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Part C Globel variables
     let is_fourkeyAccuired=false;
     let is_fivethkeyAccuired=false;
-    let thirdTextTriggered = false; // Flag to ensure action triggers only once
+    let thirdTextTriggered = false; 
 
 
     const section10 = document.getElementById("section10");
@@ -576,13 +596,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+/////////// Full Screen Functionality Code //////////////
 
 
-
-    // Get the section element
     const elem  = document.documentElement;
-
-    // Function to enable full-screen mode
     function enterFullScreen() {
         if (elem.requestFullscreen) {
             elem.requestFullscreen();
@@ -592,8 +609,6 @@ document.addEventListener("DOMContentLoaded", () => {
             elem.msRequestFullscreen();
         }
     }
-
-    // Function to exit full-screen mode
     function exitFullScreen() {
         if (document.fullscreenElement) {
             if (document.exitFullscreen) {
@@ -605,10 +620,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     }
-
-     
-
- 
     fullScreenButton.addEventListener("click", () =>{
  
         if(document.fullscreenElement){
@@ -619,16 +630,13 @@ document.addEventListener("DOMContentLoaded", () => {
             enterFullScreen();
             fullScreenButtonImg.src=fullScreenButton.getAttribute("enterfullscreen");
         }
-     });
-
-    // Listen for fullscreen change events
+    });
     document.addEventListener("fullscreenchange", () => {
         if (!document.fullscreenElement) {
         // User exited fullscreen
         fullScreenButtonImg.src=fullScreenButton.getAttribute("exitfullscreen");// Reset to non-clicked image
         }
     });
-
     document.addEventListener("keydown", (event) => {
         if (event.key === "F11") {
             event.preventDefault();
@@ -645,12 +653,13 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     
    
-    
+  ////////////////////  
     
 
    
 
 
+///////////////// Scroll Freeze and UnFreeze//////////////////////
 
     function freezeScroll() {
         // Prevent scrolling with mouse wheel
@@ -683,1002 +692,1393 @@ document.addEventListener("DOMContentLoaded", () => {
     }
       
 
-
+//////////////////////////////////
  
 
+//////////////////////  Gap in-between the section ///////////
 
 
-    let currentSection='section1';
+//Gap resize code
+function adjustGapHeights() {
+    const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9','#gap11','#gap12','gap13','gap14','gap16']; // IDs of the gap elements
+    const maxWidth = 1920; // Maximum width threshold
 
-    function section1vediomute( ) {
-        commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
-        bgVideo.muted = true;
-        section1mute=true;
+    gapElements.forEach(selector => {
+        const element = document.querySelector(selector);
+
+        if (element) {
+            // Get the original height in vw
+            const vwHeight = parseFloat(getComputedStyle(element).getPropertyValue('--vw-height') || 5); // Default to 5vw if not set
+
+            if (window.innerWidth > maxWidth) {
+                // Fix the height to the last calculated value at 1920px
+                element.style.height = `${(maxWidth * vwHeight) / 100}px`;
+            } else {
+                // Use the dynamic vw-based height
+                element.style.height = `${(window.innerWidth * vwHeight) / 100}px`;
+            }
+        }
+    });
+}
+// Inital resize
+adjustGapHeights();
+
+// Adjust heights on window resize
+window.addEventListener('resize', adjustGapHeights);
+
+
+////////////////////////////////////////////////////////
+
+
+//////////////////// Different Auto Scroll Functions///////////////////
+
+function smoothScrollTo(target, duration) {
+    const start = window.scrollY;
+    const end = target.offsetTop;
+    const distance = end - start;
+    const startTime = performance.now();
+
+    function step(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = easeOutCubic(progress);
+
+    window.scrollTo(0, start + distance * ease);
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }
+
     }
-    function section1vedioUnmute( ) {
-        commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-        bgVideo.muted = false;
-        section1mute=false;
+
+    // Easing functions for different effects
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
     }
+
+    requestAnimationFrame(step);
+}
+
+function smoothScrollToSceneandTrigger(target, duration, Oncomplete) {
+    const start = window.scrollY;
+    const end = target.getBoundingClientRect().top + window.scrollY; // More accurate position
+    const distance = end - start;
+    let startTime = null;
+
+    function step(currentTime) {
+        if (!startTime) startTime = currentTime; // Ensure a smooth start
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = easeOutCubic(progress);
+
+        window.scrollTo(0, start + distance * ease);
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        } else {
+            // Ensure we're at the exact position
+            window.scrollTo(0, end);
+            if (typeof Oncomplete === "function") {
+                Oncomplete();
+            }
+        }
+    }
+
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+
+    // Ensure layout is stable before starting the animation
+    requestAnimationFrame(() => {
+        requestAnimationFrame(step);
+    });
+}
+
+function smoothScrollToFreeze(target, duration) {
+    const start = window.scrollY;
+    const end = target.offsetTop;
+    const distance = end - start;
+    const startTime = performance.now();
+
+    function step(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = easeOutCubic(progress);
+
+    window.scrollTo(0, start + distance * ease);
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }else{
+            freezeScroll();
+        }
+
+    }
+
+    // Easing functions for different effects
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+
+    requestAnimationFrame(step);
+}
+function smoothScrollToFreezeCompleteTrigger(target, duration,onComplete) {
+    const start = window.scrollY;
+    const end = target.offsetTop;
+    const distance = end - start;
+    const startTime = performance.now();
+
+    function step(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = easeOutCubic(progress);
+
+    window.scrollTo(0, start + distance * ease);
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        }else{
+            freezeScroll();
+            onComplete();
+        }
+
+    }
+
+    // Easing functions for different effects
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 2);
+    }
+
+    requestAnimationFrame(step);
+}
+//////////////////////////////////////////////////////////////////////
+
+
+
+///////////////////To Know Current Section and Div//////////////////////
+    function getCurrentSection() {
+        const sections = document.querySelectorAll('.section');
+        const viewportHeight = window.innerHeight;
+        let visibleSection = null;
+    
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const isVisible =
+                rect.top < viewportHeight && // Top of the section is in the viewport
+                rect.bottom > 0; // Bottom of the section is not above the viewport
+    
+            if (isVisible) {
+                visibleSection = section.id;
+            }
+        });
+    
+        return visibleSection;
+    }
+    function getCurrentsectiondiv() {
+        const sections = document.querySelectorAll('.section');
+        const viewportHeight = window.innerHeight;
+        let visibleSection = null;
+    
+        sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            const isVisible =
+                rect.top < viewportHeight && // Top of the section is in the viewport
+                rect.bottom > 0; // Bottom of the section is not above the viewport
+    
+            if (isVisible) {
+                visibleSection = section;
+            }
+        });
+    
+        return visibleSection;
+    }
+    
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+//////////////////////// Section4,5,6 Have Commen Buttons "Read Help"& "Language" ////////////////////////////
+//////////////////////Enable and Disable Funtionality (Enable only when the Sction is 4,5,6)
+
+// inital disable when page load
+secion5rigthTop.style.display="none";
+
+window.addEventListener("scroll", () => {
+    const section4 = document.getElementById("section4");
+    const section5 = document.getElementById("section5");
+    const section6 = document.getElementById("section6");
+        
+    
+       
+    const section4ReadHelp = document.getElementById("section4ReadHelp");
+    const section4Help = document.getElementById("section4Help");
+        
+    // Check if the section is enabled (display is not none)
+    function isSectionVisible(section) {
+        return window.getComputedStyle(section).display !== "none";
+    }
+
+    const scrollPosition = window.scrollY + window.innerHeight / 2;
+    
+    const isInSection4 =  isSectionVisible(section4) && scrollPosition >= section4.offsetTop && scrollPosition < section4.offsetTop + section4.offsetHeight;
+    const isInSection5 = isSectionVisible(section5) && scrollPosition >= section5.offsetTop && scrollPosition < section5.offsetTop + section5.offsetHeight;
+    const isInSection6 = isSectionVisible(section6) && scrollPosition >= section6.offsetTop && scrollPosition < section6.offsetTop + section6.offsetHeight;
+    
+    // Toggle visibility of the top-right container
+
+    if(isSectionVisible(section4) &&scrollPosition >= section4.offsetTop){
+        secion5rigthTop.style.display="block";
+    }else{
+        secion5rigthTop.style.display="none";
+    }
+
+    
+ 
+});
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+//////////////////Changing image of common buttons Play and Mute ///////////////////////////////
+
+    // Create the observer Buttons are above which section
+    // Select all sections
+    const sections = document.querySelectorAll('.section');
+
+    // Function to detect which section is in view
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            currentSection = entry.target.id;
+             SectionChanges();
+        // Perform any logic here, like highlighting the section name
+        }
+    });
+    }, {
+    root: null, // Use the viewport as the root
+    threshold: 0.5 // Trigger when 50% of the section is in view
+    });
+
+    // Observe each section
+    sections.forEach(section => observer.observe(section));
+
+    
+    //section changes image changes 
+    function SectionChanges(){
+        switch(currentSection){
+            case 'section1':
+                commonsoundbutton.querySelector("img").src = section1mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+                break;
+            case 'section2':
+                commonsoundbutton.querySelector("img").src = section2mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section2played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section3':
+                commonsoundbutton.querySelector("img").src = section3mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section3played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section4':
+                commonsoundbutton.querySelector("img").src = section4mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section4played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section5':
+                commonsoundbutton.querySelector("img").src = section5mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section5played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section6':
+                commonsoundbutton.querySelector("img").src = section6mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section6played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section7':
+                commonsoundbutton.querySelector("img").src = section7mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section7played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section8':
+                commonsoundbutton.querySelector("img").src = section8mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section8played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section9':
+                commonsoundbutton.querySelector("img").src = section9mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section9played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section10':
+                commonsoundbutton.querySelector("img").src = section10mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section10played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section11':
+                commonsoundbutton.querySelector("img").src = section11mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section11played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section12':
+                commonsoundbutton.querySelector("img").src = section12mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section12played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section13':
+                commonsoundbutton.querySelector("img").src = section13mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section13played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section14':
+                commonsoundbutton.querySelector("img").src = section14mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section14played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section15':
+                commonsoundbutton.querySelector("img").src = section15mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section15played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+            case 'section16':
+                commonsoundbutton.querySelector("img").src = section16mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                commonplayButton.querySelector("img").src=section16played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            break;
+        }
+    }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+////////////////////////////// Wait for Render the Section and Callback//////////////////////////////////////////////
+
+
+function waitForElementToRender(element, callback) {
+    if (element.offsetHeight > 0 && element.offsetWidth > 0) {
+        // Element is visible, call the function
+        requestAnimationFrame(callback);
+    } else {
+        // Use MutationObserver to wait for changes
+        const observer = new MutationObserver(() => {
+            if (element.offsetHeight > 0 && element.offsetWidth > 0) {
+                observer.disconnect(); // Stop observing
+                requestAnimationFrame(callback);
+            }
+        });
+
+        observer.observe(element, { attributes: true, childList: true, subtree: true });
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////// Trigger action  for Common buttons Play,Mute,Restart//////////////////////////////
+
+
+commonsoundbutton.addEventListener("click", () => {
+    switch(currentSection){
+        case 'section1':
+            if(section1mute){
+                section1vedioUnmute();
+            }else{
+                section1vediomute();
+            }
+        break;
+        case 'section2':
+            section2mute=!section2mute;
+            if(!section2mute){
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+            }else{
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
+            }
+            
+            section2popup_audio.muted=section2mute;
+            audiosToPreload[0].muted=section2mute;
+            audiosToPreload[1].muted=section2mute;
+            audiosToPreload[2].muted=section2mute;
+            audiosToPreload[3].muted=section2mute;
+        break;
+        case 'section3':
+            section3mute=!section3mute;
+            if(!section3mute){
+                
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+            }else{
+               
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));  
+            }
+            
+            audiosToPreload[4].muted=section3mute;
+            audiosToPreload[5].muted=section3mute;
+        break;
+        case 'section4':
+            section4mute=!section4mute;
+            audiosToPreload[6].muted = section4mute;
+            audiosToPreload[7].muted = section4mute;
+            audiosToPreload[8].muted = section4mute;
+            audiosToPreload[9].muted = section4mute;
+            currentAudio.muted=section4mute;
+            commonsoundbutton.querySelector("img").src = section4mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        break;
+        case 'section5':
+            if(!section5mute){
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
+                section5bgVideo.muted = true;
+                section5mute=!section5mute;
+            }else{
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                section5bgVideo.muted = false;
+                section5mute=!section5mute;
+            }
+
+        currentAudio.muted=section5mute;
+        break;
+        case 'section6':
+            if(!section6mute){
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
+                section6mute=!section6mute;
+            }else{
+                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+                section6mute=!section6mute;
+            }
+            audiosToPreload[10].muted=section6mute;
+            currentAudio.muted=section6mute;
+        break;
+        case 'section7':
+            section7mute=!section7mute;
+            audiosToPreload[11].muted = section7mute;
+            currentAudio.muted=section7mute;
+            commonsoundbutton.querySelector("img").src = section7mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        break;
+        case 'section8':
+            section8mute=!section8mute;
+            audiosToPreload[12].muted = section8mute;
+            audiosToPreload[13].muted = section8mute;
+            audiosToPreload[14].muted = section8mute;
+            audiosToPreload[15].muted = section8mute;
+            currentAudio.muted=section8mute;
+            commonsoundbutton.querySelector("img").src = section8mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        break;
+        case 'section9':
+            section9mute=!section9mute;
+            audiosToPreload[16].muted = section9mute;audiosToPreload[21].muted = section9mute;
+            audiosToPreload[17].muted = section9mute;audiosToPreload[20].muted = section9mute;
+            audiosToPreload[18].muted = section9mute;audiosToPreload[19].muted = section9mute;                
+            currentAudio.muted=section9mute;
+            commonsoundbutton.querySelector("img").src = section9mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        break;
+        case 'section10':
+            section10mute=!section10mute;
+            audiosToPreload[22].muted = section10mute;
+            audiosToPreload[23].muted = section10mute;
+            audiosToPreload[24].muted = section10mute;      
+            audiosToPreload[25].muted = section10mute;   
+            currentAudio.muted=section10mute;
+            commonsoundbutton.querySelector("img").src = section10mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        break;
+        case 'section11':
+            section11mute=!section11mute;
+            audiosToPreload[26].muted = section11mute;
+            audiosToPreload[27].muted = section11mute;
+            audiosToPreload[28].muted = section11mute;
+            audiosToPreload[29].muted = section11mute;
+            audiosToPreload[30].muted = section11mute;
+            audiosToPreload[31].muted = section11mute;
+            currentAudio.muted=section11mute;
+            commonsoundbutton.querySelector("img").src = section11mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        break;
+        case 'section12':
+            section12mute=!section12mute;
+            audiosToPreload[32].muted = section12mute;
+           audiosToPreload[33].muted = section12mute;
+            currentAudio.muted=section12mute;
+            commonsoundbutton.querySelector("img").src = section12mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        break;
+        case 'section13':
+            section13mute=!section13mute;
+            audiosToPreload[34].muted = section13mute;
+           audiosToPreload[35].muted = section13mute;
+            audiosToPreload[36].muted = section13mute;
+            audiosToPreload[37].muted = section13mute;
+            audiosToPreload[38].muted = section13mute;
+            
+            currentAudio.muted=section13mute;
+            commonsoundbutton.querySelector("img").src = section13mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        break;
+        case 'section14':
+            section14mute=!section14mute;
+            audiosToPreload[39].muted = section14mute;
+            currentAudio.muted=section14mute;
+            commonsoundbutton.querySelector("img").src = section14mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        break;
+        case 'section15':
+            section15mute=!section15mute;
+            audiosToPreload[24].muted = section15mute;
+               
+            currentAudio.muted=section15mute;
+            commonsoundbutton.querySelector("img").src = section15mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        break;
+        case 'section16':
+            section16mute=!section16mute;
+            audiosToPreload[25].muted = section16mute;
+              
+            currentAudio.muted=section16mute;
+            commonsoundbutton.querySelector("img").src = section16mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        break;
+    }
+});
+commonplayButton.addEventListener("click", () => {
+    switch(currentSection){
+        case 'section1':
+            enableVideo();
+        break;
+        case 'section2':
+            if (handleOctopusVisible()) {
+                
+                if(section2played){
+                    section2played=!section2played;
+                    
+                    for (let i = 0; i < 4; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                                audio.pause();
+                                section2pausedAudio=audio;
+                        }
+                                
+                    }
+                    if(isAudioPlaying(section2popup_audio)){
+                                    section2pausedAudio=section2popup_audio;
+                                    section2pausedAudio.pause();
+                    }
+                            
+                    
+                    
+
+                }else{
+                    section2played=!section2played;
+                    if(!firstactiontriggered) {
+                        triggerOctopusActions();
+                    } 
+                    if (section2pausedAudio) {
+                        section2pausedAudio.play();
+                        section2pausedAudio = null; // Clear the stored audio after resuming
+                    } else {
+                    }
+                
+                }
+                commonplayButton.querySelector("img").src=section2played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            }
+        break;
+        case 'section3':
+            if(handleOctopusidelVisible()){
+                
+            
+                if(section3played){
+                    section3played=!section3played;
+                    for (let i = 4; i < 6; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                            audio.pause();
+                            section3pausedAudio=audio;
+                        }
+
+                    }
+                }else{
+                    section3played=!section3played;
+                    if(!section3Octopusidelvisible){
+                        section3triggerOctopusActions();
+                    }
+                    
+                    if (section3pausedAudio) {
+                        section3pausedAudio.play();
+                        section3pausedAudio = null; // Clear the stored audio after resuming
+                    } else {
+                    }
+                }
+                commonplayButton.querySelector("img").src=section3played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            }
+        break;
+        case 'section4':
+            if(handleOctopus4Visible()){
+                
+            
+                if(section4played){
+                    section4played=!section4played;
+                    for (let i = 6; i < 10; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                             audio.pause();
+                            section4pausedAudio=audio;
+                        }
+
+                    }
+                    if(isAudioPlaying(currentAudio)){
+                        currentAudio.pause();
+                    }
+                
+
+                }else{
+                    section4played=!section4played;
+                    if(!section4actiontriggered){
+                        section4triggerOctopusActions();
+                    }
+                    if (section4pausedAudio) {
+                        section4pausedAudio.play();
+                        section4pausedAudio = null; // Clear the stored audio after resuming
+                    } else {
+                     }
+                    if(currentAudio.paused&&!currentAudio.ended){
+                        currentAudio.play();
+                    }
+                        
+
+                }
+                commonplayButton.querySelector("img").src=section4played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            }
+        break;
+        case 'section5':
+            if(!section5played){
+                section5bgVideo.play();
+                section1vedioUnmute();
+                section5played=!section5played;
+                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
+            }else{
+                section5bgVideo.pause();
+                section5played=!section5played; 
+                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+
+            }
+        break;
+        case 'section6':
+            if(handleSection6Visible()){
+                
+            
+                if(section6played){
+                    section6played=!section6played;
+                    
+                        const audio = audiosToPreload[10];
+                        if (isAudioPlaying(audio)) {
+                             audio.pause();
+                            section6pausedAudio=audio;
+                        }
+
+                    
+                    if(isAudioPlaying(currentAudio)){
+                        currentAudio.pause();
+                    }
+                
+
+                }else{
+                    section6played=!section6played;
+                    if(!section6doonce){
+                        triggerSection6Action();
+                        section6doonce=!section6doonce;
+                    }
+                    if (section6pausedAudio) {
+                        section6pausedAudio.play();
+                        section6pausedAudio = null; // Clear the stored audio after resuming
+                    } else {
+                     }
+                    if(currentAudio.paused&&!currentAudio.ended){
+                        currentAudio.play();
+                    }
+                        
+
+                }
+                commonplayButton.querySelector("img").src=section6played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            }
+        break;
+        case 'section7':
+            if(section7handleGroundVisible()){
+                if(section7played){
+                    section7played=!section7played;
+                     
+                     
+                    if (isAudioPlaying(audio_section7)) {
+                        audiosToPreload[11].pause();
+                        section7pausedAudio=audio_section7;
+                    }
+                    if(animationFrameId){
+                        isPaused=true;
+                        pausedTime += performance.now() - startTime; // Store correct paused time
+                        cancelAnimationFrame(animationFrameId);
+                        animationFrameId = null;
+                    }
+                    
+
+                }else{
+
+                    section7played=!section7played;
+                    
+
+                    if(!section7ActionStart){
+                        section7triggerActions();
+                    }
+                    
+                    if (section7pausedAudio) {
+                        console.log("FKASS1");
+                        section7pausedAudio.play();
+                        section7pausedAudio = null; // Clear the stored audio after resuming
+                    }  
+                    console.log("FKASS");
+                    if (lastAnimationParams) {
+                        isPaused=false;
+                        startTime=null;
+                        moveFlyingOctopus(
+                            lastAnimationParams.maxHeight,
+                            lastAnimationParams.minHeight,
+                            lastAnimationParams.duration,
+                            lastAnimationParams.onComplete
+                        );
+                    }
+                }
+                commonplayButton.querySelector("img").src=section7played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            }
+        break;
+        case 'section8':
+            if(section8handleGroundVisible()){
+                if(section8played){
+                    section8played=!section8played;
+
+                    for (let i = 12; i < 16; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                             audio.pause();
+                            section8pausedAudio=audio;
+                        }
+                        
+                    }
+
+                    
+                    if(isAudioPlaying(errorAudio)){
+                         feedback_audio=errorAudio;
+                    }else if(isAudioPlaying(correctAudio)){
+                        feedback_audio=correctAudio;
+                    }else{
+                        feedback_audio=null; 
+                    }
+                    if (feedback_audio) {
+                        console.log("FKASS1");
+                        feedback_audio.pause();
+                       
+                    }  
+                    
+                   section8isPaused=true;
+                   section8pausedTime += performance.now() - section8startTime; 
+                   cancelAnimationFrame(section8animationFrameId);
+                   section8animationFrameId = null;
+                   cancelAnimationFrame(section8animationFrameIdfish);
+                   section8animationFrameIdfish = null;
+
+                }else{
+
+                    section8played=!section8played;
+                   
+
+                    if(!section8ActionStart){
+                        section8triggerActions();
+                    }
+                    
+                    if (section8pausedAudio) {
+                        console.log("FKASS1");
+                        section8pausedAudio.play();
+                        section8pausedAudio = null; // Clear the stored audio after resuming
+                    }  
+                    if (feedback_audio) {
+                        console.log("FKASS1");
+                        feedback_audio.play();
+                        feedback_audio = null; // Clear the stored audio after resuming
+                    }  
+                    console.log("FKASS");
+                    
+                    if (section8lastAnimationParamsfish) {
+                        section8isPaused=false;
+                        section8startTime=null;
+                        movingFish(
+                            section8lastAnimationParamsfish.maxHeight,
+                            section8lastAnimationParamsfish.minHeight,
+                            section8lastAnimationParamsfish.duration,
+                            section8lastAnimationParamsfish.fish,
+                            section8lastAnimationParamsfish.onComplete
+                        );
+                    }
+                }
+                commonplayButton.querySelector("img").src=section8played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            }
+        break;
+        case 'section9':
+            if(section9_octopusVisible()){
+                if(section9played){
+                    section9played=!section9played;
+
+                    for (let i = 16; i < 22; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                             audio.pause();
+                            section9pausedAudio=audio;
+                        }
+                        
+                    }
+                    disableDraggingSection9();
+                }else{
+
+                    section9played=!section9played;
+                    enableDraggingSection9();
+
+                    if(!section9ActionStart){
+                        section9triggerActions();
+                    }
+                    
+                    if (section9pausedAudio) {
+                        section9pausedAudio.play();
+                        section9pausedAudio = null; // Clear the stored audio after resuming
+                    }  
+                
+                }
+                commonplayButton.querySelector("img").src=section9played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            }
+        break;
+        case 'section10':
+             
+            if(section10played){
+                section10played=!section10played;
+
+                for (let i = 22; i < 26; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                             audio.pause();
+                            section10pausedAudio=audio;
+                        }
+                        
+                }
+
+                 
+                section10isPaused=true;
+                section10pausedTime += performance.now() - section10startTime; 
+                cancelAnimationFrame(section10animationFrameId);
+                section10animationFrameId = null;
+                
+
+                }else{
+
+                    section10played=!section10played;
+                  
+
+                    if(!section10ActionStart){
+                        section10triggerActions();
+                    }
+                    
+                    if (section10pausedAudio) {
+                        console.log("FKASS1");
+                        section10pausedAudio.play();
+                        section10pausedAudio = null; // Clear the stored audio after resuming
+                    }  
+                    
+                    if (section10lastAnimationParams&&!section10AnimationisCompleted) {
+                        section10isPaused=false;
+                        section10startTime=null;
+                        console.log("i am here");
+                        movingSection10FlyingOctopus(
+                            section10lastAnimationParams.maxHeight,
+                            section10lastAnimationParams.minHeight,
+                            section10lastAnimationParams.duration,
+                            section10lastAnimationParams.octopus,
+                            section10lastAnimationParams.zoomImage,
+                            section10lastAnimationParams.octopusLeft_Start,
+                            section10lastAnimationParams.octopusLeft_End,
+                            section10lastAnimationParams.octopusWidth_Start,
+                            section10lastAnimationParams.octopusWidth_End,
+                            section10lastAnimationParams.zoomImageScale_Start,
+                            section10lastAnimationParams.zoomImageScale_End,
+                            section10lastAnimationParams.zoomImageTranslateX_Start,
+                            section10lastAnimationParams.zoomImageTranslateX_End,
+                            section10lastAnimationParams.zoomImageTranslateY_Start,
+                            section10lastAnimationParams.zoomImageTranslateY_End,
+                            section10lastAnimationParams.onComplete
+                        );
+                    }
+                     
+                }
+            commonplayButton.querySelector("img").src=section10played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            
+        break;
+        case 'section11':
+            if(section11played){
+                section11played=!section11played;
+                 
+                 
+
+                for (let i = 26; i < 32; i++) {
+                    const audio = audiosToPreload[i];
+                    if (isAudioPlaying(audio)) {
+                         audio.pause();
+                        section11pausedAudio=audio;
+                    }
+                    
+                }
+                if(section11animationFrameId){
+                    section11isPaused=true;
+                    section11pausedTime += performance.now() - section11startTime; // Store correct paused time
+                    cancelAnimationFrame(section11animationFrameId);
+                    section11animationFrameId = null;
+                }
+                
+                disableDraggingSection11();
+                
+
+            }else{
+
+                section11played=!section11played;
+                
+                enableDraggingSection11();
+
+                if(!section11ActionStart){
+                    section11triggerActions();
+                }
+                
+                if (section11pausedAudio) {
+                    console.log("FKASS1");
+                    section11pausedAudio.play();
+                    section11pausedAudio = null; // Clear the stored audio after resuming
+                }  
+                console.log("FKASS"+section11lastAnimationParams);
+                if (!section11AnimationisCompleted) {
+                    section11isPaused=false;
+                    section11startTime=null;
+                    movingSection11FlyingOctopus(
+                        section11lastAnimationParams.maxHeight,
+                        section11lastAnimationParams.minHeight,
+                        section11lastAnimationParams.duration,
+                        section11lastAnimationParams.octopus,
+                        section11lastAnimationParams.onComplete
+                    );
+                }
+            }
+            commonplayButton.querySelector("img").src=section11played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+        break;
+        case "section12":
+            if(section12_octopusVisible()){
+                if(section12played){
+                    section12played=!section12played;
+
+                    for (let i = 32; i < 34; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                             audio.pause();
+                            section12pausedAudio=audio;
+                        }
+                        
+                    }
+                 }else{
+
+                    section12played=!section12played;
+
+                    if(!section12ActionStart){
+                        section12triggerActions();
+                    }
+                    
+                    if (section12pausedAudio) {
+                        section12pausedAudio.play();
+                        section12pausedAudio = null; // Clear the stored audio after resuming
+                    }  
+                
+                }
+                commonplayButton.querySelector("img").src=section12played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            }
+        break;
+        case 'section13':
+            if(section13played){
+                section13played=!section13played;
+                 
+                 
+
+                for (let i = 34; i < 39; i++) {
+                    const audio = audiosToPreload[i];
+                    if (isAudioPlaying(audio)) {
+                         audio.pause();
+                        section13pausedAudio=audio;
+                    }
+                    
+                }
+                
+                
+                disableDraggingSection13();
+                
+
+            }else{
+
+                section13played=!section13played;
+                
+                enableDraggingSection13();
+
+                if(!section13ActionStart){
+                    section13triggerActions();
+                }
+                
+                if (section13pausedAudio) {
+                    console.log("FKASS1");
+                    section13pausedAudio.play();
+                    section13pausedAudio = null; // Clear the stored audio after resuming
+                }  
+                
+            }
+            commonplayButton.querySelector("img").src=section13played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+        break;
+        case "section14":
+            if(section14_octopusVisible()){
+                if(section14played){
+                    section14played=!section14played;
+
+                    for (let i = 39; i < 40; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                             audio.pause();
+                            section14pausedAudio=audio;
+                        }
+                        
+                    }
+                 }else{
+
+                    section14played=!section14played;
+
+                    if(!section14ActionStart){
+                        section14triggerActions();
+                    }
+                    
+                    if (section14pausedAudio) {
+                        section14pausedAudio.play();
+                        section14pausedAudio = null; // Clear the stored audio after resuming
+                    }  
+                
+                }
+                commonplayButton.querySelector("img").src=section14played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            }
+        break;
+        case 'section15':
+             
+            if(section15played){
+                section15played=!section15played;
+
+                for (let i = 24; i < 25; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                             audio.pause();
+                            section15pausedAudio=audio;
+                        }
+                        
+                }
+
+                 
+                section15isPaused=true;
+                section15pausedTime += performance.now() - section15startTime; 
+                cancelAnimationFrame(section15animationFrameId);
+                section15animationFrameId = null;
+                
+
+                }else{
+
+                    section15played=!section15played;
+                  
+
+                    if(!section15ActionStart){
+                        section15triggerActions();
+                    }
+                    
+                    if (section15pausedAudio) {
+                        console.log("FKASS1");
+                        section15pausedAudio.play();
+                        section15pausedAudio = null; // Clear the stored audio after resuming
+                    }  
+                    
+                    if (section15lastAnimationParams&&!section15AnimationisCompleted) {
+                        section15isPaused=false;
+                        section15startTime=null;
+                        console.log("i am here");
+                        movingSection15FlyingOctopus(
+                            section15lastAnimationParams.maxHeight,
+                            section15lastAnimationParams.minHeight,
+                            section15lastAnimationParams.duration,
+                            section15lastAnimationParams.octopus,
+                            section15lastAnimationParams.zoomImage,
+                            section15lastAnimationParams.octopusLeft_Start,
+                            section15lastAnimationParams.octopusLeft_End,
+                            section15lastAnimationParams.octopusWidth_Start,
+                            section15lastAnimationParams.octopusWidth_End,
+                            section15lastAnimationParams.zoomImageScale_Start,
+                            section15lastAnimationParams.zoomImageScale_End,
+                            section15lastAnimationParams.zoomImageTranslateX_Start,
+                            section15lastAnimationParams.zoomImageTranslateX_End,
+                            section15lastAnimationParams.zoomImageTranslateY_Start,
+                            section15lastAnimationParams.zoomImageTranslateY_End,
+                            section15lastAnimationParams.onComplete
+                        );
+                    }
+                     
+                }
+            commonplayButton.querySelector("img").src=section15played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            
+        break;
+        case 'section16':
+             
+            if(section16played){
+                section16played=!section16played;
+
+                for (let i = 25; i < 26; i++) {
+                        const audio = audiosToPreload[i];
+                        if (isAudioPlaying(audio)) {
+                             audio.pause();
+                            section16pausedAudio=audio;
+                        }
+                        
+                }
+
+                 
+                section16isPaused=true;
+                section16pausedTime += performance.now() - section16startTime; 
+                cancelAnimationFrame(section16animationFrameId);
+                section16animationFrameId = null;
+                
+
+                }else{
+
+                    section16played=!section16played;
+                  
+
+                    if(!section16ActionStart){
+                        section16triggerActions();
+                    }
+                    
+                    if (section16pausedAudio) {
+                        console.log("FKASS1");
+                        section16pausedAudio.play();
+                        section16pausedAudio = null; // Clear the stored audio after resuming
+                    }  
+                    
+                    if (section16lastAnimationParams&&!section16AnimationisCompleted) {
+                        section16isPaused=false;
+                        section16startTime=null;
+                        console.log("i am here");
+                        movingSection16FlyingOctopus(
+                            section16lastAnimationParams.maxHeight,
+                            section16lastAnimationParams.minHeight,
+                            section16lastAnimationParams.duration,
+                            section16lastAnimationParams.octopus,
+                            section16lastAnimationParams.zoomImage,
+                            section16lastAnimationParams.octopusLeft_Start,
+                            section16lastAnimationParams.octopusLeft_End,
+                            section16lastAnimationParams.octopusWidth_Start,
+                            section16lastAnimationParams.octopusWidth_End,
+                            section16lastAnimationParams.zoomImageScale_Start,
+                            section16lastAnimationParams.zoomImageScale_End,
+                            section16lastAnimationParams.zoomImageTranslateX_Start,
+                            section16lastAnimationParams.zoomImageTranslateX_End,
+                            section16lastAnimationParams.zoomImageTranslateY_Start,
+                            section16lastAnimationParams.zoomImageTranslateY_End,
+                            section16lastAnimationParams.onComplete
+                        );
+                    }
+                     
+                }
+            commonplayButton.querySelector("img").src=section16played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            
+        break;
+        
+
+    }
+});
+commonrestartButton.addEventListener("click", () => {
+     switch(currentSection){
+        case 'section1':
+            bgVideo.currentTime = 0;
+            bgVideo.play();
+            section1vedioUnmute();
+            played=true;
+            commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
+        break;
+        case 'section2':
+            section2mute=false;
+            commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+            section2played=false;
+            commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            firstactiontriggered=false;
+            lastScrollY = 0;
+            ticking = false;
+            dialogBox.style.display = "none";
+            audiosToPreload[0].muted=section2mute;
+            audiosToPreload[1].muted=section2mute;
+            audiosToPreload[2].muted=section2mute;
+            audiosToPreload[1].muted=section2mute;
+            audiosToPreload[0].currentTime=0;
+            audiosToPreload[0].pause();
+            audiosToPreload[1].currentTime=0;
+            audiosToPreload[1].pause();
+            audiosToPreload[2].currentTime=0;
+            audiosToPreload[2].pause();
+            audiosToPreload[1].currentTime=0;
+            audiosToPreload[1].pause();
+            section2popup_audio.currentTime=0;
+            section2popup_audio.pause();
+            whiteOverlay.style.display = "none";
+            buttonContainers.forEach(element => {
+                element.style.display = "none";
+                element.style.pointerEvents="none";
+                
+            });
+            section2popup.style.display = 'none';
+            document.querySelectorAll('.button-container').forEach((buttonContainer, index) => {
+                const label = document.querySelector(`#label${index + 1}`);
+                const arrow = document.querySelector(`#arrow${index + 1}`);
+                if (label) label.style.display = 'none';
+                if (arrow) arrow.style.display = 'none';
+            });
+            allButtonsClicked=false;
+            clickedButtons.clear();
+            section2nextImage.style.display = "none";
+         break;
+        case 'section3':
+            section3mute=false;
+            commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+            section3played=false;
+            commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            section3_underwater.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Water_.png'));
+            section3_underwater.style.bottom="-5%";
+            section3Octopusidelvisible=false;
+            section3dialogBox.style.display = "none";
+            audiosToPreload[4].muted=section3mute;
+            audiosToPreload[1].muted=section3mute;
+            audiosToPreload[4].currentTime=0;
+            audiosToPreload[4].pause();
+            audiosToPreload[1].currentTime=0;
+            audiosToPreload[1].pause();
+            section3_button.style.display = "none";
+            section3octopusContainer.style.display = "block";
+            section3octopusContainershell.style.display = "none";
+            document.getElementById("section3nextImage").style.display="none";
+            
+
+        break;
+        case 'section4':
+            Section4Restart(); 
+              
+            
+        break;
+
+        case 'section5':
+            section5mute=false;
+            commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+            section5bgVideo.currentTime = 0;
+            section5bgVideo.play()
+            section5played=true;
+            section5vedioUnmute();
+            commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
+            section5nextImage.style.display = "none";
+        break;
+        case 'section6':
+
+            document.querySelectorAll('.icon').forEach(element => {
+                element.style.pointerEvents = 'none';
+                element.style. cursor= 'none';
+            });
+            
+            document.querySelectorAll('.clickableobject').forEach(element => {
+                element.style.pointerEvents = 'none';
+            });
+            section6mute=false;
+            commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+            audiosToPreload[10].muted=section6mute;
+            audiosToPreload[10].currentTime=0;
+            audiosToPreload[10].pause();
+            section6played=false;
+            commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
+            popup.style.display = "none";
+            feedback.style.display='none'
+            const correctfeedback = document.getElementById('correctfeedback');
+            correctfeedback.style.display = 'none';
+            
+            // Reset all clickableobject images
+            document.querySelectorAll('.clickableobject').forEach(button => {
+                const nonVisitedImage = button.getAttribute('nonvisitedimage');
+                button.src = nonVisitedImage;
+            });
+            document.getElementById("iconpopupcall").style.display="none";
+            section6_ok.style.display = "none";
+            section6doonce=false;
+        break;
+
+        case 'section7':
+            Section7Restart(); // Store requestAnimationFrame ID
+        break; 
+        case 'section8':
+            Section8Restart();
+        break;
+        case 'section9':
+            Section9Restart();
+        break;
+        case 'section10':
+            Section10Restart();
+        break;
+        case 'section11':
+            Section11Restart();
+        break;
+        case 'section12':
+            Section12Restart();
+        break;
+        case 'section13':
+            Section13Restart();
+        break;
+        case 'section14':
+            Section14Restart();
+        break;
+        case 'section15':
+            Section15Restart();
+        break;
+        case 'section16':
+            Section16Restart();
+        break;
+
+
+    }
+
+
+
+});
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+////////////////////////////////// Check the audio is playing /////////////////////////////////////////////
+
+function isAudioPlaying(audio) {
+    return !audio.paused && !audio.ended && audio.readyState > 2;
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     function section5vedioUnmute( ) {
         commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
         section5bgVideo.muted = false;
         section5mute=false;
     }
-    function isAudioPlaying(audio) {
-        return !audio.paused && !audio.ended && audio.readyState > 2;
-    }
-
-    commonsoundbutton.addEventListener("click", () => {
-        switch(currentSection){
-            case 'section1':
-                if(section1mute){
-                    section1vedioUnmute();
-                }else{
-                    section1vediomute();
-                }
-            break;
-            case 'section2':
-                section2mute=!section2mute;
-                if(!section2mute){
-                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                }else{
-                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
-                }
-                
-                section2popup_audio.muted=section2mute;
-                audiosToPreload[0].muted=section2mute;
-                audiosToPreload[1].muted=section2mute;
-                audiosToPreload[2].muted=section2mute;
-                audiosToPreload[3].muted=section2mute;
-            break;
-            case 'section3':
-                section3mute=!section3mute;
-                if(!section3mute){
-                    
-                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                }else{
-                   
-                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));  
-                }
-                
-                audiosToPreload[4].muted=section3mute;
-                audiosToPreload[5].muted=section3mute;
-            break;
-            case 'section4':
-                section4mute=!section4mute;
-                audiosToPreload[6].muted = section4mute;
-                audiosToPreload[7].muted = section4mute;
-                audiosToPreload[8].muted = section4mute;
-                audiosToPreload[9].muted = section4mute;
-                currentAudio.muted=section4mute;
-                commonsoundbutton.querySelector("img").src = section4mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-            break;
-            case 'section5':
-                if(!section5mute){
-                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
-                    section5bgVideo.muted = true;
-                    section5mute=!section5mute;
-                }else{
-                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                    section5bgVideo.muted = false;
-                    section5mute=!section5mute;
-                }
- 
-            currentAudio.muted=section5mute;
-            break;
-            case 'section6':
-                if(!section6mute){
-                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
-                    section6mute=!section6mute;
-                }else{
-                    commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                    section6mute=!section6mute;
-                }
-                audiosToPreload[10].muted=section6mute;
-                currentAudio.muted=section6mute;
-            break;
-            case 'section7':
-                section7mute=!section7mute;
-                audiosToPreload[11].muted = section7mute;
-                currentAudio.muted=section7mute;
-                commonsoundbutton.querySelector("img").src = section7mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-            break;
-            case 'section8':
-                section8mute=!section8mute;
-                audiosToPreload[12].muted = section8mute;
-                audiosToPreload[13].muted = section8mute;
-                audiosToPreload[14].muted = section8mute;
-                audiosToPreload[15].muted = section8mute;
-                currentAudio.muted=section8mute;
-                commonsoundbutton.querySelector("img").src = section8mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-            break;
-            case 'section9':
-                section9mute=!section9mute;
-                audiosToPreload[16].muted = section9mute;audiosToPreload[21].muted = section9mute;
-                audiosToPreload[17].muted = section9mute;audiosToPreload[20].muted = section9mute;
-                audiosToPreload[18].muted = section9mute;audiosToPreload[19].muted = section9mute;                
-                currentAudio.muted=section9mute;
-                commonsoundbutton.querySelector("img").src = section9mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-            break;
-            case 'section10':
-                section10mute=!section10mute;
-                audiosToPreload[22].muted = section10mute;
-                audiosToPreload[23].muted = section10mute;
-                audiosToPreload[24].muted = section10mute;      
-                audiosToPreload[25].muted = section10mute;   
-                currentAudio.muted=section10mute;
-                commonsoundbutton.querySelector("img").src = section10mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-            break;
-            case 'section11':
-                section11mute=!section11mute;
-                audiosToPreload[26].muted = section11mute;
-                audiosToPreload[27].muted = section11mute;
-                audiosToPreload[28].muted = section11mute;
-                audiosToPreload[29].muted = section11mute;
-                audiosToPreload[30].muted = section11mute;
-                audiosToPreload[31].muted = section11mute;
-                currentAudio.muted=section11mute;
-                commonsoundbutton.querySelector("img").src = section11mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-            break;
-            case 'section12':
-                section12mute=!section12mute;
-                audiosToPreload[32].muted = section12mute;
-               audiosToPreload[33].muted = section12mute;
-                currentAudio.muted=section12mute;
-                commonsoundbutton.querySelector("img").src = section12mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-            break;
-            case 'section13':
-                section13mute=!section13mute;
-                audiosToPreload[34].muted = section13mute;
-               audiosToPreload[35].muted = section13mute;
-                audiosToPreload[36].muted = section13mute;
-                audiosToPreload[37].muted = section13mute;
-                audiosToPreload[38].muted = section13mute;
-                
-                currentAudio.muted=section13mute;
-                commonsoundbutton.querySelector("img").src = section13mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-            break;
-            case 'section14':
-                section14mute=!section14mute;
-                audiosToPreload[39].muted = section14mute;
-                currentAudio.muted=section14mute;
-                commonsoundbutton.querySelector("img").src = section14mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-            break;
-            case 'section15':
-                section15mute=!section15mute;
-                audiosToPreload[24].muted = section15mute;
-                   
-                currentAudio.muted=section15mute;
-                commonsoundbutton.querySelector("img").src = section15mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-            break;
-            case 'section16':
-                section16mute=!section16mute;
-                audiosToPreload[25].muted = section16mute;
-                  
-                currentAudio.muted=section16mute;
-                commonsoundbutton.querySelector("img").src = section16mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-            break;
-        }
-    });
-    commonplayButton.addEventListener("click", () => {
-        switch(currentSection){
-            case 'section1':
-                enableVideo();
-            break;
-            case 'section2':
-                if (handleOctopusVisible()) {
-                    
-                    if(section2played){
-                        section2played=!section2played;
-                        
-                        for (let i = 0; i < 4; i++) {
-                            const audio = audiosToPreload[i];
-                            if (isAudioPlaying(audio)) {
-                                    audio.pause();
-                                    section2pausedAudio=audio;
-                            }
-                                    
-                        }
-                        if(isAudioPlaying(section2popup_audio)){
-                                        section2pausedAudio=section2popup_audio;
-                                        section2pausedAudio.pause();
-                        }
-                                
-                        
-                        
-
-                    }else{
-                        section2played=!section2played;
-                        if(!firstactiontriggered) {
-                            triggerOctopusActions();
-                        } 
-                        if (section2pausedAudio) {
-                            section2pausedAudio.play();
-                            section2pausedAudio = null; // Clear the stored audio after resuming
-                        } else {
-                        }
-                    
-                    }
-                    commonplayButton.querySelector("img").src=section2played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                }
-            break;
-            case 'section3':
-                if(handleOctopusidelVisible()){
-                    
-                
-                    if(section3played){
-                        section3played=!section3played;
-                        for (let i = 4; i < 6; i++) {
-                            const audio = audiosToPreload[i];
-                            if (isAudioPlaying(audio)) {
-                                audio.pause();
-                                section3pausedAudio=audio;
-                            }
-    
-                        }
-                    }else{
-                        section3played=!section3played;
-                        if(!section3Octopusidelvisible){
-                            section3triggerOctopusActions();
-                        }
-                        
-                        if (section3pausedAudio) {
-                            section3pausedAudio.play();
-                            section3pausedAudio = null; // Clear the stored audio after resuming
-                        } else {
-                        }
-                    }
-                    commonplayButton.querySelector("img").src=section3played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                }
-            break;
-            case 'section4':
-                if(handleOctopus4Visible()){
-                    
-                
-                    if(section4played){
-                        section4played=!section4played;
-                        for (let i = 6; i < 10; i++) {
-                            const audio = audiosToPreload[i];
-                            if (isAudioPlaying(audio)) {
-                                 audio.pause();
-                                section4pausedAudio=audio;
-                            }
-    
-                        }
-                        if(isAudioPlaying(currentAudio)){
-                            currentAudio.pause();
-                        }
-                    
-
-                    }else{
-                        section4played=!section4played;
-                        if(!section4actiontriggered){
-                            section4triggerOctopusActions();
-                        }
-                        if (section4pausedAudio) {
-                            section4pausedAudio.play();
-                            section4pausedAudio = null; // Clear the stored audio after resuming
-                        } else {
-                         }
-                        if(currentAudio.paused&&!currentAudio.ended){
-                            currentAudio.play();
-                        }
-                            
-    
-                    }
-                    commonplayButton.querySelector("img").src=section4played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                }
-            break;
-            case 'section5':
-                if(!section5played){
-                    section5bgVideo.play();
-                    section1vedioUnmute();
-                    section5played=!section5played;
-                    commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
-                }else{
-                    section5bgVideo.pause();
-                    section5played=!section5played; 
-                    commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-
-                }
-            break;
-            case 'section6':
-                if(handleSection6Visible()){
-                    
-                
-                    if(section6played){
-                        section6played=!section6played;
-                        
-                            const audio = audiosToPreload[10];
-                            if (isAudioPlaying(audio)) {
-                                 audio.pause();
-                                section6pausedAudio=audio;
-                            }
-    
-                        
-                        if(isAudioPlaying(currentAudio)){
-                            currentAudio.pause();
-                        }
-                    
-
-                    }else{
-                        section6played=!section6played;
-                        if(!section6doonce){
-                            triggerSection6Action();
-                            section6doonce=!section6doonce;
-                        }
-                        if (section6pausedAudio) {
-                            section6pausedAudio.play();
-                            section6pausedAudio = null; // Clear the stored audio after resuming
-                        } else {
-                         }
-                        if(currentAudio.paused&&!currentAudio.ended){
-                            currentAudio.play();
-                        }
-                            
-    
-                    }
-                    commonplayButton.querySelector("img").src=section6played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                }
-            break;
-            case 'section7':
-                if(section7handleGroundVisible()){
-                    if(section7played){
-                        section7played=!section7played;
-                         
-                         
-                        if (isAudioPlaying(audio_section7)) {
-                            audiosToPreload[11].pause();
-                            section7pausedAudio=audio_section7;
-                        }
-                        if(animationFrameId){
-                            isPaused=true;
-                            pausedTime += performance.now() - startTime; // Store correct paused time
-                            cancelAnimationFrame(animationFrameId);
-                            animationFrameId = null;
-                        }
-                        
-
-                    }else{
-
-                        section7played=!section7played;
-                        
-
-                        if(!section7ActionStart){
-                            section7triggerActions();
-                        }
-                        
-                        if (section7pausedAudio) {
-                            console.log("FKASS1");
-                            section7pausedAudio.play();
-                            section7pausedAudio = null; // Clear the stored audio after resuming
-                        }  
-                        console.log("FKASS");
-                        if (lastAnimationParams) {
-                            isPaused=false;
-                            startTime=null;
-                            moveFlyingOctopus(
-                                lastAnimationParams.maxHeight,
-                                lastAnimationParams.minHeight,
-                                lastAnimationParams.duration,
-                                lastAnimationParams.onComplete
-                            );
-                        }
-                    }
-                    commonplayButton.querySelector("img").src=section7played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                }
-            break;
-            case 'section8':
-                if(section8handleGroundVisible()){
-                    if(section8played){
-                        section8played=!section8played;
-
-                        for (let i = 12; i < 16; i++) {
-                            const audio = audiosToPreload[i];
-                            if (isAudioPlaying(audio)) {
-                                 audio.pause();
-                                section8pausedAudio=audio;
-                            }
-                            
-                        }
-
-                        
-                        if(isAudioPlaying(errorAudio)){
-                             feedback_audio=errorAudio;
-                        }else if(isAudioPlaying(correctAudio)){
-                            feedback_audio=correctAudio;
-                        }else{
-                            feedback_audio=null; 
-                        }
-                        if (feedback_audio) {
-                            console.log("FKASS1");
-                            feedback_audio.pause();
-                           
-                        }  
-                        
-                       section8isPaused=true;
-                       section8pausedTime += performance.now() - section8startTime; 
-                       cancelAnimationFrame(section8animationFrameId);
-                       section8animationFrameId = null;
-                       cancelAnimationFrame(section8animationFrameIdfish);
-                       section8animationFrameIdfish = null;
-
-                    }else{
-
-                        section8played=!section8played;
-                       
-
-                        if(!section8ActionStart){
-                            section8triggerActions();
-                        }
-                        
-                        if (section8pausedAudio) {
-                            console.log("FKASS1");
-                            section8pausedAudio.play();
-                            section8pausedAudio = null; // Clear the stored audio after resuming
-                        }  
-                        if (feedback_audio) {
-                            console.log("FKASS1");
-                            feedback_audio.play();
-                            feedback_audio = null; // Clear the stored audio after resuming
-                        }  
-                        console.log("FKASS");
-                        
-                        if (section8lastAnimationParamsfish) {
-                            section8isPaused=false;
-                            section8startTime=null;
-                            movingFish(
-                                section8lastAnimationParamsfish.maxHeight,
-                                section8lastAnimationParamsfish.minHeight,
-                                section8lastAnimationParamsfish.duration,
-                                section8lastAnimationParamsfish.fish,
-                                section8lastAnimationParamsfish.onComplete
-                            );
-                        }
-                    }
-                    commonplayButton.querySelector("img").src=section8played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                }
-            break;
-            case 'section9':
-                if(section9_octopusVisible()){
-                    if(section9played){
-                        section9played=!section9played;
-
-                        for (let i = 16; i < 22; i++) {
-                            const audio = audiosToPreload[i];
-                            if (isAudioPlaying(audio)) {
-                                 audio.pause();
-                                section9pausedAudio=audio;
-                            }
-                            
-                        }
-                        disableDraggingSection9();
-                    }else{
-
-                        section9played=!section9played;
-                        enableDraggingSection9();
-
-                        if(!section9ActionStart){
-                            section9triggerActions();
-                        }
-                        
-                        if (section9pausedAudio) {
-                            section9pausedAudio.play();
-                            section9pausedAudio = null; // Clear the stored audio after resuming
-                        }  
-                    
-                    }
-                    commonplayButton.querySelector("img").src=section9played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                }
-            break;
-            case 'section10':
-                 
-                if(section10played){
-                    section10played=!section10played;
-
-                    for (let i = 22; i < 26; i++) {
-                            const audio = audiosToPreload[i];
-                            if (isAudioPlaying(audio)) {
-                                 audio.pause();
-                                section10pausedAudio=audio;
-                            }
-                            
-                    }
-
-                     
-                    section10isPaused=true;
-                    section10pausedTime += performance.now() - section10startTime; 
-                    cancelAnimationFrame(section10animationFrameId);
-                    section10animationFrameId = null;
-                    
-
-                    }else{
-
-                        section10played=!section10played;
-                      
-
-                        if(!section10ActionStart){
-                            section10triggerActions();
-                        }
-                        
-                        if (section10pausedAudio) {
-                            console.log("FKASS1");
-                            section10pausedAudio.play();
-                            section10pausedAudio = null; // Clear the stored audio after resuming
-                        }  
-                        
-                        if (section10lastAnimationParams&&!section10AnimationisCompleted) {
-                            section10isPaused=false;
-                            section10startTime=null;
-                            console.log("i am here");
-                            movingSection10FlyingOctopus(
-                                section10lastAnimationParams.maxHeight,
-                                section10lastAnimationParams.minHeight,
-                                section10lastAnimationParams.duration,
-                                section10lastAnimationParams.octopus,
-                                section10lastAnimationParams.zoomImage,
-                                section10lastAnimationParams.octopusLeft_Start,
-                                section10lastAnimationParams.octopusLeft_End,
-                                section10lastAnimationParams.octopusWidth_Start,
-                                section10lastAnimationParams.octopusWidth_End,
-                                section10lastAnimationParams.zoomImageScale_Start,
-                                section10lastAnimationParams.zoomImageScale_End,
-                                section10lastAnimationParams.zoomImageTranslateX_Start,
-                                section10lastAnimationParams.zoomImageTranslateX_End,
-                                section10lastAnimationParams.zoomImageTranslateY_Start,
-                                section10lastAnimationParams.zoomImageTranslateY_End,
-                                section10lastAnimationParams.onComplete
-                            );
-                        }
-                         
-                    }
-                commonplayButton.querySelector("img").src=section10played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                
-            break;
-            case 'section11':
-                if(section11played){
-                    section11played=!section11played;
-                     
-                     
- 
-                    for (let i = 26; i < 32; i++) {
-                        const audio = audiosToPreload[i];
-                        if (isAudioPlaying(audio)) {
-                             audio.pause();
-                            section11pausedAudio=audio;
-                        }
-                        
-                    }
-                    if(section11animationFrameId){
-                        section11isPaused=true;
-                        section11pausedTime += performance.now() - section11startTime; // Store correct paused time
-                        cancelAnimationFrame(section11animationFrameId);
-                        section11animationFrameId = null;
-                    }
-                    
-                    disableDraggingSection11();
-                    
-
-                }else{
-
-                    section11played=!section11played;
-                    
-                    enableDraggingSection11();
-
-                    if(!section11ActionStart){
-                        section11triggerActions();
-                    }
-                    
-                    if (section11pausedAudio) {
-                        console.log("FKASS1");
-                        section11pausedAudio.play();
-                        section11pausedAudio = null; // Clear the stored audio after resuming
-                    }  
-                    console.log("FKASS"+section11lastAnimationParams);
-                    if (!section11AnimationisCompleted) {
-                        section11isPaused=false;
-                        section11startTime=null;
-                        movingSection11FlyingOctopus(
-                            section11lastAnimationParams.maxHeight,
-                            section11lastAnimationParams.minHeight,
-                            section11lastAnimationParams.duration,
-                            section11lastAnimationParams.octopus,
-                            section11lastAnimationParams.onComplete
-                        );
-                    }
-                }
-                commonplayButton.querySelector("img").src=section11played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case "section12":
-                if(section12_octopusVisible()){
-                    if(section12played){
-                        section12played=!section12played;
-
-                        for (let i = 32; i < 34; i++) {
-                            const audio = audiosToPreload[i];
-                            if (isAudioPlaying(audio)) {
-                                 audio.pause();
-                                section12pausedAudio=audio;
-                            }
-                            
-                        }
-                     }else{
-
-                        section12played=!section12played;
-
-                        if(!section12ActionStart){
-                            section12triggerActions();
-                        }
-                        
-                        if (section12pausedAudio) {
-                            section12pausedAudio.play();
-                            section12pausedAudio = null; // Clear the stored audio after resuming
-                        }  
-                    
-                    }
-                    commonplayButton.querySelector("img").src=section12played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                }
-            break;
-            case 'section13':
-                if(section13played){
-                    section13played=!section13played;
-                     
-                     
- 
-                    for (let i = 34; i < 39; i++) {
-                        const audio = audiosToPreload[i];
-                        if (isAudioPlaying(audio)) {
-                             audio.pause();
-                            section13pausedAudio=audio;
-                        }
-                        
-                    }
-                    
-                    
-                    disableDraggingSection13();
-                    
-
-                }else{
-
-                    section13played=!section13played;
-                    
-                    enableDraggingSection13();
-
-                    if(!section13ActionStart){
-                        section13triggerActions();
-                    }
-                    
-                    if (section13pausedAudio) {
-                        console.log("FKASS1");
-                        section13pausedAudio.play();
-                        section13pausedAudio = null; // Clear the stored audio after resuming
-                    }  
-                    
-                }
-                commonplayButton.querySelector("img").src=section13played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case "section14":
-                if(section14_octopusVisible()){
-                    if(section14played){
-                        section14played=!section14played;
-
-                        for (let i = 39; i < 40; i++) {
-                            const audio = audiosToPreload[i];
-                            if (isAudioPlaying(audio)) {
-                                 audio.pause();
-                                section14pausedAudio=audio;
-                            }
-                            
-                        }
-                     }else{
-
-                        section14played=!section14played;
-
-                        if(!section14ActionStart){
-                            section14triggerActions();
-                        }
-                        
-                        if (section14pausedAudio) {
-                            section14pausedAudio.play();
-                            section14pausedAudio = null; // Clear the stored audio after resuming
-                        }  
-                    
-                    }
-                    commonplayButton.querySelector("img").src=section14played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                }
-            break;
-            case 'section15':
-                 
-                if(section15played){
-                    section15played=!section15played;
-
-                    for (let i = 24; i < 25; i++) {
-                            const audio = audiosToPreload[i];
-                            if (isAudioPlaying(audio)) {
-                                 audio.pause();
-                                section15pausedAudio=audio;
-                            }
-                            
-                    }
-
-                     
-                    section15isPaused=true;
-                    section15pausedTime += performance.now() - section15startTime; 
-                    cancelAnimationFrame(section15animationFrameId);
-                    section15animationFrameId = null;
-                    
-
-                    }else{
-
-                        section15played=!section15played;
-                      
-
-                        if(!section15ActionStart){
-                            section15triggerActions();
-                        }
-                        
-                        if (section15pausedAudio) {
-                            console.log("FKASS1");
-                            section15pausedAudio.play();
-                            section15pausedAudio = null; // Clear the stored audio after resuming
-                        }  
-                        
-                        if (section15lastAnimationParams&&!section15AnimationisCompleted) {
-                            section15isPaused=false;
-                            section15startTime=null;
-                            console.log("i am here");
-                            movingSection15FlyingOctopus(
-                                section15lastAnimationParams.maxHeight,
-                                section15lastAnimationParams.minHeight,
-                                section15lastAnimationParams.duration,
-                                section15lastAnimationParams.octopus,
-                                section15lastAnimationParams.zoomImage,
-                                section15lastAnimationParams.octopusLeft_Start,
-                                section15lastAnimationParams.octopusLeft_End,
-                                section15lastAnimationParams.octopusWidth_Start,
-                                section15lastAnimationParams.octopusWidth_End,
-                                section15lastAnimationParams.zoomImageScale_Start,
-                                section15lastAnimationParams.zoomImageScale_End,
-                                section15lastAnimationParams.zoomImageTranslateX_Start,
-                                section15lastAnimationParams.zoomImageTranslateX_End,
-                                section15lastAnimationParams.zoomImageTranslateY_Start,
-                                section15lastAnimationParams.zoomImageTranslateY_End,
-                                section15lastAnimationParams.onComplete
-                            );
-                        }
-                         
-                    }
-                commonplayButton.querySelector("img").src=section15played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                
-            break;
-            case 'section16':
-                 
-                if(section16played){
-                    section16played=!section16played;
-
-                    for (let i = 25; i < 26; i++) {
-                            const audio = audiosToPreload[i];
-                            if (isAudioPlaying(audio)) {
-                                 audio.pause();
-                                section16pausedAudio=audio;
-                            }
-                            
-                    }
-
-                     
-                    section16isPaused=true;
-                    section16pausedTime += performance.now() - section16startTime; 
-                    cancelAnimationFrame(section16animationFrameId);
-                    section16animationFrameId = null;
-                    
-
-                    }else{
-
-                        section16played=!section16played;
-                      
-
-                        if(!section16ActionStart){
-                            section16triggerActions();
-                        }
-                        
-                        if (section16pausedAudio) {
-                            console.log("FKASS1");
-                            section16pausedAudio.play();
-                            section16pausedAudio = null; // Clear the stored audio after resuming
-                        }  
-                        
-                        if (section16lastAnimationParams&&!section16AnimationisCompleted) {
-                            section16isPaused=false;
-                            section16startTime=null;
-                            console.log("i am here");
-                            movingSection16FlyingOctopus(
-                                section16lastAnimationParams.maxHeight,
-                                section16lastAnimationParams.minHeight,
-                                section16lastAnimationParams.duration,
-                                section16lastAnimationParams.octopus,
-                                section16lastAnimationParams.zoomImage,
-                                section16lastAnimationParams.octopusLeft_Start,
-                                section16lastAnimationParams.octopusLeft_End,
-                                section16lastAnimationParams.octopusWidth_Start,
-                                section16lastAnimationParams.octopusWidth_End,
-                                section16lastAnimationParams.zoomImageScale_Start,
-                                section16lastAnimationParams.zoomImageScale_End,
-                                section16lastAnimationParams.zoomImageTranslateX_Start,
-                                section16lastAnimationParams.zoomImageTranslateX_End,
-                                section16lastAnimationParams.zoomImageTranslateY_Start,
-                                section16lastAnimationParams.zoomImageTranslateY_End,
-                                section16lastAnimationParams.onComplete
-                            );
-                        }
-                         
-                    }
-                commonplayButton.querySelector("img").src=section16played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                
-            break;
-            
-
-        }
-    });
-
- 
-    commonrestartButton.addEventListener("click", () => {
-         switch(currentSection){
-            case 'section1':
-                bgVideo.currentTime = 0;
-                bgVideo.play();
-                section1vedioUnmute();
-                played=true;
-                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
-            break;
-            case 'section2':
-                section2mute=false;
-                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                section2played=false;
-                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                firstactiontriggered=false;
-                lastScrollY = 0;
-                ticking = false;
-                dialogBox.style.display = "none";
-                audiosToPreload[0].muted=section2mute;
-                audiosToPreload[1].muted=section2mute;
-                audiosToPreload[2].muted=section2mute;
-                audiosToPreload[1].muted=section2mute;
-                audiosToPreload[0].currentTime=0;
-                audiosToPreload[0].pause();
-                audiosToPreload[1].currentTime=0;
-                audiosToPreload[1].pause();
-                audiosToPreload[2].currentTime=0;
-                audiosToPreload[2].pause();
-                audiosToPreload[1].currentTime=0;
-                audiosToPreload[1].pause();
-                section2popup_audio.currentTime=0;
-                section2popup_audio.pause();
-                whiteOverlay.style.display = "none";
-                buttonContainers.forEach(element => {
-                    element.style.display = "none";
-                    element.style.pointerEvents="none";
-                    
-                });
-                section2popup.style.display = 'none';
-                document.querySelectorAll('.button-container').forEach((buttonContainer, index) => {
-                    const label = document.querySelector(`#label${index + 1}`);
-                    const arrow = document.querySelector(`#arrow${index + 1}`);
-                    if (label) label.style.display = 'none';
-                    if (arrow) arrow.style.display = 'none';
-                });
-                allButtonsClicked=false;
-                clickedButtons.clear();
-                section2nextImage.style.display = "none";
-             break;
-            case 'section3':
-                section3mute=false;
-                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                section3played=false;
-                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                section3_underwater.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Water_.png'));
-                section3_underwater.style.bottom="-5%";
-                section3Octopusidelvisible=false;
-                section3dialogBox.style.display = "none";
-                audiosToPreload[4].muted=section3mute;
-                audiosToPreload[1].muted=section3mute;
-                audiosToPreload[4].currentTime=0;
-                audiosToPreload[4].pause();
-                audiosToPreload[1].currentTime=0;
-                audiosToPreload[1].pause();
-                section3_button.style.display = "none";
-                section3octopusContainer.style.display = "block";
-                section3octopusContainershell.style.display = "none";
-                document.getElementById("section3nextImage").style.display="none";
-                
-
-            break;
-            case 'section4':
-                Section4Restart(); 
-                  
-                
-            break;
-
-            case 'section5':
-                section5mute=false;
-                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                section5bgVideo.currentTime = 0;
-                section5bgVideo.play()
-                section5played=true;
-                section5vedioUnmute();
-                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
-                section5nextImage.style.display = "none";
-            break;
-            case 'section6':
-
-                document.querySelectorAll('.icon').forEach(element => {
-                    element.style.pointerEvents = 'none';
-                    element.style. cursor= 'none';
-                });
-                
-                document.querySelectorAll('.clickableobject').forEach(element => {
-                    element.style.pointerEvents = 'none';
-                });
-                section6mute=false;
-                commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                audiosToPreload[10].muted=section6mute;
-                audiosToPreload[10].currentTime=0;
-                audiosToPreload[10].pause();
-                section6played=false;
-                commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                popup.style.display = "none";
-                feedback.style.display='none'
-                const correctfeedback = document.getElementById('correctfeedback');
-                correctfeedback.style.display = 'none';
-                
-                // Reset all clickableobject images
-                document.querySelectorAll('.clickableobject').forEach(button => {
-                    const nonVisitedImage = button.getAttribute('nonvisitedimage');
-                    button.src = nonVisitedImage;
-                });
-                document.getElementById("iconpopupcall").style.display="none";
-                section6_ok.style.display = "none";
-                section6doonce=false;
-            break;
-
-            case 'section7':
-                Section7Restart(); // Store requestAnimationFrame ID
-            break; 
-            case 'section8':
-                Section8Restart();
-            break;
-            case 'section9':
-                Section9Restart();
-            break;
-            case 'section10':
-                Section10Restart();
-            break;
-            case 'section11':
-                Section11Restart();
-            break;
-            case 'section12':
-                Section12Restart();
-            break;
-            case 'section13':
-                Section13Restart();
-            break;
-            case 'section14':
-                Section14Restart();
-            break;
-            case 'section15':
-                Section15Restart();
-            break;
-            case 'section16':
-                Section16Restart();
-            break;
-
-
-        }
 
 
 
-    });
 
 
 
@@ -2167,377 +2567,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
    
 
+  
 
-//common
-    //Gap resize code
-    function adjustGapHeights() {
-        const gapElements = ['#gap2', '#gap3', '#gap4', '#gap6','#gap7', '#gap8', '#gap9','#gap11','#gap12','gap13','gap14','gap16']; // IDs of the gap elements
-        const maxWidth = 1920; // Maximum width threshold
+    
 
-        gapElements.forEach(selector => {
-            const element = document.querySelector(selector);
 
-            if (element) {
-                // Get the original height in vw
-                const vwHeight = parseFloat(getComputedStyle(element).getPropertyValue('--vw-height') || 5); // Default to 5vw if not set
 
-                if (window.innerWidth > maxWidth) {
-                    // Fix the height to the last calculated value at 1920px
-                    element.style.height = `${(maxWidth * vwHeight) / 100}px`;
-                } else {
-                    // Use the dynamic vw-based height
-                    element.style.height = `${(window.innerWidth * vwHeight) / 100}px`;
-                }
-            }
-        });
+
+    
+
+
+
+
+
+
+
+
+///////////////////////////////// Section 1st events  /////////////////////////////////////////////////////////
+
+    function section1vediomute( ) {
+        commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png'));
+        bgVideo.muted = true;
+        section1mute=true;
     }
-    // Adjust heights on page load
-    adjustGapHeights();
-
-    // Adjust heights on window resize
-    window.addEventListener('resize', adjustGapHeights);
-
-    //Smooth Transition to sections
-    function smoothScrollTo(target, duration) {
-        const start = window.scrollY;
-        const end = target.offsetTop;
-        const distance = end - start;
-        const startTime = performance.now();
-    
-        function step(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = easeOutCubic(progress);
-    
-        window.scrollTo(0, start + distance * ease);
-    
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            }
-
-        }
-    
-        // Easing functions for different effects
-        function easeOutCubic(t) {
-            return 1 - Math.pow(1 - t, 3);
-        }
-    
-        requestAnimationFrame(step);
+    function section1vedioUnmute( ) {
+        commonsoundbutton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Audio_button.png'));
+        bgVideo.muted = false;
+        section1mute=false;
     }
-    // function smoothScrollToSceneandTrigger(target, duration,Oncomplete) {
-    //     const start = window.scrollY;
-    //     const end = target.offsetTop;
-    //     const distance = end - start;
-    //     const startTime = performance.now();
-    
-    //     function step(currentTime) {
-    //     const elapsed = currentTime - startTime;
-    //     const progress = Math.min(elapsed / duration, 1);
-    //     const ease = easeOutCubic(progress);
-    
-    //     window.scrollTo(0, start + distance * ease);
-    
-    //         if (progress < 1) {
-    //             requestAnimationFrame(step);
-    //         }else{
-    //             Oncomplete();
-    //         }
-
-    //     }
-    
-    //     // Easing functions for different effects
-    //     function easeOutCubic(t) {
-    //         return 1 - Math.pow(1 - t, 3);
-    //     }
-    
-    //     requestAnimationFrame(step);
-    // }
-
-    //Fixed Version: Prevents Jerking & Smooth Scrolling
-    function smoothScrollToSceneandTrigger(target, duration, Oncomplete) {
-        const start = window.scrollY;
-        const end = target.getBoundingClientRect().top + window.scrollY; // More accurate position
-        const distance = end - start;
-        let startTime = null;
-    
-        function step(currentTime) {
-            if (!startTime) startTime = currentTime; // Ensure a smooth start
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const ease = easeOutCubic(progress);
-    
-            window.scrollTo(0, start + distance * ease);
-    
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            } else {
-                // Ensure we're at the exact position
-                window.scrollTo(0, end);
-                if (typeof Oncomplete === "function") {
-                    Oncomplete();
-                }
-            }
-        }
-    
-        function easeOutCubic(t) {
-            return 1 - Math.pow(1 - t, 3);
-        }
-    
-        // Ensure layout is stable before starting the animation
-        requestAnimationFrame(() => {
-            requestAnimationFrame(step);
-        });
-    }
-    
- 
-    
-    function smoothScrollToFreeze(target, duration) {
-        const start = window.scrollY;
-        const end = target.offsetTop;
-        const distance = end - start;
-        const startTime = performance.now();
-    
-        function step(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = easeOutCubic(progress);
-    
-        window.scrollTo(0, start + distance * ease);
-    
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            }else{
-                freezeScroll();
-            }
-
-        }
-    
-        // Easing functions for different effects
-        function easeOutCubic(t) {
-            return 1 - Math.pow(1 - t, 3);
-        }
-    
-        requestAnimationFrame(step);
-    }
-    function smoothScrollToFreezeCompleteTrigger(target, duration,onComplete) {
-        const start = window.scrollY;
-        const end = target.offsetTop;
-        const distance = end - start;
-        const startTime = performance.now();
-    
-        function step(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const ease = easeOutCubic(progress);
-    
-        window.scrollTo(0, start + distance * ease);
-    
-            if (progress < 1) {
-                requestAnimationFrame(step);
-            }else{
-                freezeScroll();
-                onComplete();
-            }
-
-        }
-    
-        // Easing functions for different effects
-        function easeOutCubic(t) {
-            return 1 - Math.pow(1 - t, 2);
-        }
-    
-        requestAnimationFrame(step);
-    }
-
-   secion5rigthTop.style.display="none";
-    //Section5 play/pause and language and reaad
-    window.addEventListener("scroll", () => {
-        const section4 = document.getElementById("section4");
-        const section5 = document.getElementById("section5");
-        const section6 = document.getElementById("section6");
-        
-    
-       
-        const section4ReadHelp = document.getElementById("section4ReadHelp");
-        const section4Help = document.getElementById("section4Help");
-        
-        // Check if the section is enabled (display is not none)
-        function isSectionVisible(section) {
-            return window.getComputedStyle(section).display !== "none";
-        }
-
-        const scrollPosition = window.scrollY + window.innerHeight / 2;
-    
-        const isInSection4 =  isSectionVisible(section4) && scrollPosition >= section4.offsetTop && scrollPosition < section4.offsetTop + section4.offsetHeight;
-        const isInSection5 = isSectionVisible(section5) && scrollPosition >= section5.offsetTop && scrollPosition < section5.offsetTop + section5.offsetHeight;
-        const isInSection6 = isSectionVisible(section6) && scrollPosition >= section6.offsetTop && scrollPosition < section6.offsetTop + section6.offsetHeight;
-    
-        // Toggle visibility of the top-right container
-
-        if(isSectionVisible(section4) &&scrollPosition >= section4.offsetTop){
-            secion5rigthTop.style.display="block";
-        }else{
-            secion5rigthTop.style.display="none";
-        }
-
-    
- 
-    });
-    //to know current section
-    function getCurrentSection() {
-        const sections = document.querySelectorAll('.section');
-        const viewportHeight = window.innerHeight;
-        let visibleSection = null;
-    
-        sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            const isVisible =
-                rect.top < viewportHeight && // Top of the section is in the viewport
-                rect.bottom > 0; // Bottom of the section is not above the viewport
-    
-            if (isVisible) {
-                visibleSection = section.id;
-            }
-        });
-    
-        return visibleSection;
-    }
-    function getCurrentsectiondiv() {
-        const sections = document.querySelectorAll('.section');
-        const viewportHeight = window.innerHeight;
-        let visibleSection = null;
-    
-        sections.forEach((section) => {
-            const rect = section.getBoundingClientRect();
-            const isVisible =
-                rect.top < viewportHeight && // Top of the section is in the viewport
-                rect.bottom > 0; // Bottom of the section is not above the viewport
-    
-            if (isVisible) {
-                visibleSection = section;
-            }
-        });
-    
-        return visibleSection;
-    }
-    
-
-    
-    // Create the observer Buttons are above which section
-    // Select all sections
-    const sections = document.querySelectorAll('.section');
-
-    // Function to detect which section is in view
-    const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            currentSection = entry.target.id;
-             SectionChanges();
-        // Perform any logic here, like highlighting the section name
-        }
-    });
-    }, {
-    root: null, // Use the viewport as the root
-    threshold: 0.5 // Trigger when 50% of the section is in view
-    });
-
-    // Observe each section
-    sections.forEach(section => observer.observe(section));
-
-    
-    //section changes image changes 
-    function SectionChanges(){
-        switch(currentSection){
-            case 'section1':
-                commonsoundbutton.querySelector("img").src = section1mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-                break;
-            case 'section2':
-                commonsoundbutton.querySelector("img").src = section2mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section2played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section3':
-                commonsoundbutton.querySelector("img").src = section3mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section3played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section4':
-                commonsoundbutton.querySelector("img").src = section4mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section4played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section5':
-                commonsoundbutton.querySelector("img").src = section5mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section5played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section6':
-                commonsoundbutton.querySelector("img").src = section6mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section6played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section7':
-                commonsoundbutton.querySelector("img").src = section7mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section7played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section8':
-                commonsoundbutton.querySelector("img").src = section8mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section8played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section9':
-                commonsoundbutton.querySelector("img").src = section9mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section9played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section10':
-                commonsoundbutton.querySelector("img").src = section10mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section10played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section11':
-                commonsoundbutton.querySelector("img").src = section11mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section11played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section12':
-                commonsoundbutton.querySelector("img").src = section12mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section12played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section13':
-                commonsoundbutton.querySelector("img").src = section13mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section13played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section14':
-                commonsoundbutton.querySelector("img").src = section14mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section14played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section15':
-                commonsoundbutton.querySelector("img").src = section15mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section15played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-            case 'section16':
-                commonsoundbutton.querySelector("img").src = section16mute ? imagesToPreload_path.find(src => src.includes('Audio_button_Mute.png')) : imagesToPreload_path.find(src => src.includes('Audio_button.png'));
-                commonplayButton.querySelector("img").src=section16played ? imagesToPreload_path.find(src => src.includes('Pause_Button.png')) : imagesToPreload_path.find(src => src.includes('Plau_Button.png'));
-            break;
-        }
-    }
-
-
-    function waitForElementToRender(element, callback) {
-        if (element.offsetHeight > 0 && element.offsetWidth > 0) {
-            // Element is visible, call the function
-            requestAnimationFrame(callback);
-        } else {
-            // Use MutationObserver to wait for changes
-            const observer = new MutationObserver(() => {
-                if (element.offsetHeight > 0 && element.offsetWidth > 0) {
-                    observer.disconnect(); // Stop observing
-                    requestAnimationFrame(callback);
-                }
-            });
-    
-            observer.observe(element, { attributes: true, childList: true, subtree: true });
-        }
-    }
-
-
-
-
-
-    // 1st 
 
     const enableVideo = () => {
         if(!played){
@@ -2560,15 +2617,15 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("gap2").style.display="block"
         section2.style.display = "visible";
         section2.style.display = "block";
-        // smoothScrollTo(section2,1500);
         
     });
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+///////////////////////////////Section 2nd events ///////////////////////////////////////////////////
 
-    // 2nd
     let firstactiontriggered=false;
     let lastScrollY = 0;
     let ticking = false;
@@ -2828,7 +2885,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-    //3rd
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+///////////////////////////////////////Section 3rd events ////////////////////////////////////////////////////////////
  
 
     // Trigger 1: Display Octopus and Play First Audio
@@ -3089,11 +3153,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     
 
-    // 4th
+/////////////////////////////////////Section 4th /////////////////////////////////////////////////////////////////////////////////
 
 
     
@@ -3835,13 +3900,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
 
-    //5th
+
+
+
+
+
+
+///////////////////////////////////////Section 5th events ////////////////////////////////////////////////////////////////////
     
 
     function enablesection5video(){
@@ -3878,7 +3950,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+
+
+
+
+
+
+///////////////////////////////////Section 6th events ///////////////////////////////////////////////////////////////
 
     //6th
 
@@ -4112,6 +4195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -4120,9 +4204,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+//////////////////////////////////// Section 7 events ///////////////////////////////////////////////////////////////////////////
 
 
-    //Section 7
 
 
     const section7handleGroundVisible = () => {
@@ -4230,6 +4314,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
 
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+//////////////////////////// Section 8 events /////////////////////////////////////////////////////////////////////////
 
 
     //Section 8
@@ -4742,10 +4839,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
+
+
+
+////////////////////////////////////Section 9 Events ///////////////////////////////////////////////////////////////////////
 
 
     //Section 9
@@ -5236,6 +5338,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+//////////////////////////////////  Section 10 ///////////////////////////////////////////////////////////////////////////////////////
+
+
 
     //Section10
 
@@ -5458,7 +5573,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
+
+
+
+
+
+/////////////////////////////////////   Section 11  ////////////////////////////////////////////////////////////////////////////////////
 
     //Section11
 
@@ -6020,6 +6145,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -6031,9 +6157,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
-
+/////////////////////////////// Section 12  //////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -6182,6 +6306,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -6192,6 +6317,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+/////////////////////////////////   Section 13 event //////////////////////////////////////////////////////////////////////////
     //Section13
 
 
@@ -6681,6 +6807,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -6689,6 +6816,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
+////////////////////////////////////// Section 14  //////////////////////////////////////////////////////////////////////////
 
     //Section14
 
@@ -6742,6 +6872,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -6750,6 +6881,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+//////////////////////////////////  Section 15 /////////////////////////////////////////////////////////////////////////////////////
 
     
         //Section15
@@ -6959,13 +7092,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
  
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
 
     
 
 
 
 
-
+/////////////////////////////////////// Section16   /////////////////////////////////////////////////////////////////////////
 
        //Section16
 
@@ -7125,25 +7264,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -7164,7 +7285,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
+//////////////////////////  Section 4 overlay2 popup button onclick event   ////////////////////////////////////////////
  
 
 //section4 overlay2 popup
@@ -7184,4 +7305,8 @@ function showPopup(i) {
 
 function hidePopup(id) {
     document.getElementById(id).style.display = "none";
+
 }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////

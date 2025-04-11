@@ -1416,11 +1416,9 @@ commonplayButton.addEventListener("click", () => {
                     }
                     
                     if (section7pausedAudio) {
-                        console.log("FKASS1");
                         section7pausedAudio.play();
                         section7pausedAudio = null; // Clear the stored audio after resuming
                     }  
-                    console.log("FKASS");
                     if (lastAnimationParams) {
                         isPaused=false;
                         startTime=null;
@@ -1458,7 +1456,6 @@ commonplayButton.addEventListener("click", () => {
                         feedback_audio=null; 
                     }
                     if (feedback_audio) {
-                        console.log("FKASS1");
                         feedback_audio.pause();
                        
                     }  
@@ -1480,16 +1477,13 @@ commonplayButton.addEventListener("click", () => {
                     }
                     
                     if (section8pausedAudio) {
-                        console.log("FKASS1");
                         section8pausedAudio.play();
                         section8pausedAudio = null; // Clear the stored audio after resuming
                     }  
                     if (feedback_audio) {
-                        console.log("FKASS1");
                         feedback_audio.play();
                         feedback_audio = null; // Clear the stored audio after resuming
                     }  
-                    console.log("FKASS");
                     
                     if (section8lastAnimationParamsfish) {
                         section8isPaused=false;
@@ -1569,7 +1563,6 @@ commonplayButton.addEventListener("click", () => {
                     }
                     
                     if (section10pausedAudio) {
-                        console.log("FKASS1");
                         section10pausedAudio.play();
                         section10pausedAudio = null; // Clear the stored audio after resuming
                     }  
@@ -1577,7 +1570,6 @@ commonplayButton.addEventListener("click", () => {
                     if (section10lastAnimationParams&&!section10AnimationisCompleted) {
                         section10isPaused=false;
                         section10startTime=null;
-                        console.log("i am here");
                         movingSection10FlyingOctopus(
                             section10lastAnimationParams.maxHeight,
                             section10lastAnimationParams.minHeight,
@@ -1637,11 +1629,9 @@ commonplayButton.addEventListener("click", () => {
                 }
                 
                 if (section11pausedAudio) {
-                    console.log("FKASS1");
                     section11pausedAudio.play();
                     section11pausedAudio = null; // Clear the stored audio after resuming
                 }  
-                console.log("FKASS"+section11lastAnimationParams);
                 if (!section11AnimationisCompleted) {
                     section11isPaused=false;
                     section11startTime=null;
@@ -1716,7 +1706,6 @@ commonplayButton.addEventListener("click", () => {
                 }
                 
                 if (section13pausedAudio) {
-                    console.log("FKASS1");
                     section13pausedAudio.play();
                     section13pausedAudio = null; // Clear the stored audio after resuming
                 }  
@@ -1785,7 +1774,6 @@ commonplayButton.addEventListener("click", () => {
                     }
                     
                     if (section15pausedAudio) {
-                        console.log("FKASS1");
                         section15pausedAudio.play();
                         section15pausedAudio = null; // Clear the stored audio after resuming
                     }  
@@ -1793,7 +1781,6 @@ commonplayButton.addEventListener("click", () => {
                     if (section15lastAnimationParams&&!section15AnimationisCompleted) {
                         section15isPaused=false;
                         section15startTime=null;
-                        console.log("i am here");
                         movingSection15FlyingOctopus(
                             section15lastAnimationParams.maxHeight,
                             section15lastAnimationParams.minHeight,
@@ -1849,7 +1836,6 @@ commonplayButton.addEventListener("click", () => {
                     }
                     
                     if (section16pausedAudio) {
-                        console.log("FKASS1");
                         section16pausedAudio.play();
                         section16pausedAudio = null; // Clear the stored audio after resuming
                     }  
@@ -1857,7 +1843,6 @@ commonplayButton.addEventListener("click", () => {
                     if (section16lastAnimationParams&&!section16AnimationisCompleted) {
                         section16isPaused=false;
                         section16startTime=null;
-                        console.log("i am here");
                         movingSection16FlyingOctopus(
                             section16lastAnimationParams.maxHeight,
                             section16lastAnimationParams.minHeight,
@@ -2068,7 +2053,6 @@ function isAudioPlaying(audio) {
 ////////////////////// Section 7 to 16 Restart functions    //////////////////////////////////////////////
 
 
-        //Section16 Restart
    function Section16Restart() {
          
         section16mute = false;
@@ -2097,7 +2081,6 @@ function isAudioPlaying(audio) {
         section16isPaused=true;
 
     }
-    //Section15 Restart
    function Section15Restart() {
          
         section15mute = false;
@@ -2127,7 +2110,6 @@ function isAudioPlaying(audio) {
         section15isPaused=true;
  
     }
-
     function Section4Restart() {
         section4dialogBox.style.display = "none";
         section4dialogText.style.display = "none";
@@ -2197,7 +2179,6 @@ function isAudioPlaying(audio) {
         audiosToPreload[39].currentTime = 0;
         audiosToPreload[39].pause();
     }
-
     function Section13Restart(){
         section13mute = false;
         commonsoundbutton.querySelector("img").src = imagesToPreload_path.find(src => src.includes('Audio_button.png'));
@@ -2254,7 +2235,6 @@ function isAudioPlaying(audio) {
         Section13DragReset();
         section13_submit_pressed=0;
     }
-
     //Section12 Restart
     function Section12Restart(){
         section12mute = false;
@@ -2281,7 +2261,6 @@ function isAudioPlaying(audio) {
         
         
     }
-    
    //Section11 Restart
    function Section11Restart(){
     section11mute = false;
@@ -2353,7 +2332,6 @@ function isAudioPlaying(audio) {
     
 
    }
-
    //Section10 Restart
    function Section10Restart() {
          
@@ -2542,7 +2520,6 @@ function isAudioPlaying(audio) {
     }
 
    
-
   
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
@@ -3093,7 +3070,6 @@ function isAudioPlaying(audio) {
              section10.style.display="block";
              waitForElementToRender(section10, () => {
                 smoothScrollToSceneandTrigger(section10,2000,function(){
-                    console.log("fare load");
                     Section10Restart();
                     section10isPaused=false;
                     section10triggerActions();
@@ -4215,7 +4191,6 @@ function isAudioPlaying(audio) {
             flyingoctopus.style.display="block";
             smoothScrollToFreezeCompleteTrigger(section7,1500,function(){
                 moveFlyingOctopus(-60, 10, 3000, function() {
-                    console.log("Animation complete! Action triggered.");
                     FlyingOctopusEnd(); // Call the action function
                 });
             });
@@ -4584,12 +4559,10 @@ function isAudioPlaying(audio) {
         
         // Add event listener to handle when the error sound finishes
         errorAudio.addEventListener("ended", () => {
-            console.log("Error sound finished playing.");
             section8_TryAgain.style.display = "block"; // Show Try Again button
         });
          // Add event listener to handle when the correct sound finishes
          correctAudio.addEventListener("ended", () => {
-            console.log("Error sound finished playing.");
             section8_WatchAction.style.display = "block"; // Show Try Again button
         });
 
@@ -4634,7 +4607,6 @@ function isAudioPlaying(audio) {
                 section8startTime=null;
                 section8pausedTime = 0;
                 movingFish(0, 59, 3000, section8_moveingfish,function() {
-                    console.log("Fish Animation complete! Action triggered11.");
                     // Reset pause time
                     //section8_moveingfish.style.display = "none";
                     
@@ -4661,7 +4633,6 @@ function isAudioPlaying(audio) {
                 section8pausedTime = null; // Reset pause time
                 section8startTime=null;
                 movingFish(59, 105, 3000, section8_moveingfish,function() {
-                    console.log("Fish Animation complete! Action triggered22.");
                     // Reset pause time
                     section8_moveingfish.style.display = "none";
                     section8animationFrameIdfish = null;
@@ -4716,14 +4687,12 @@ function isAudioPlaying(audio) {
         
         };
         section8descriptionclose.addEventListener("click", () => {
-            console.log("muyee");
             section8panel.style.display="none";
             section8discribtionOverlay.style.display="none";
         });
 
 
         function showDescription(animal) {
-            console.log(animal,"animal");
             // Get elements
             let panel = document.getElementById("section8discribtionPanel");
             let heading = document.getElementById("section8_discribtionPanel_heading");
@@ -4970,7 +4939,6 @@ function isAudioPlaying(audio) {
     }
     function disableDraggingSection9(){
         draggableItemssection9.forEach(item => {
-            console.log('kuku'+item);
             item.draggable = false; // Enable dragging
             
         });
@@ -5045,11 +5013,7 @@ function isAudioPlaying(audio) {
         section9_submit_pressed++;
 
         if (isCorrect) {
-            console.log("Correct ✅");
-            disableDraggingSection9();
-
-            console.log("Correct answer filled automatically ✅");
-    
+            disableDraggingSection9();    
             correctAnswerButton.style.display="none";
             submitButton_section9.style.display="none";
             section9_TryAgainButton.style.display="none";
@@ -5064,7 +5028,6 @@ function isAudioPlaying(audio) {
                 console.error('Error playing audio:', error);
             });
         } else {
-            console.log("Wrong ❌");
 
                 switch(section9_submit_pressed){
                     case 1:
@@ -5081,7 +5044,6 @@ function isAudioPlaying(audio) {
                         });
                     break;
                     case 2:
-                        console.log("in 2");
                         submitButton_section9.style.display="none";
                         
                         section9dialogBox.style.display = "inline-block";
@@ -5141,7 +5103,6 @@ function isAudioPlaying(audio) {
                     disableOverlay.style.display = "none";
                 });
 
-                console.log("Reset successful! User can try again.");
         }
         
         
@@ -5170,7 +5131,6 @@ function isAudioPlaying(audio) {
 
             correctMapping[areaId].forEach(correctId => {
                 const originalItem = document.getElementById(correctId).querySelector("img");
-                console.log("Shit", originalItem);
                 const clonedItem = originalItem.cloneNode(true);
                 clonedItem.draggable = false; // Ensure it can't be dragged again
                 clonedItem.style.opacity = "1";
@@ -5208,7 +5168,6 @@ function isAudioPlaying(audio) {
         }
         disableDraggingSection9();
 
-        console.log("Correct answer filled automatically ✅");
 
         correctAnswerButton.style.display="none";
         submitButton_section9.style.display="none";
@@ -5348,14 +5307,11 @@ function isAudioPlaying(audio) {
             section10_WhoEatWaht.style.pointerEvents="none";
             // Set opacity for all keys (disable them)
             updateKeys([""]);
-            console.log("myru", section10_zoomImage); // Should log an <img> element
     
             if (section10_zoomImage) {
-                console.log("Animation Start!");
                 movingSection10FlyingOctopus(-40, 30, 6000, section10_FlyingOctopus, section10_zoomImage,
                     22,27,28,25,2,5,0,-10,-40,0
                     , function () {
-                    console.log("Animation complete!");
                     audiosToPreload[22].play().catch((error) => {
                         console.error('Error playing audio:', error);
                     });
@@ -5427,7 +5383,6 @@ function isAudioPlaying(audio) {
     function handleClick(event) {
 
         if(section10played){
-            console.log(event.currentTarget.id + " clicked!");
             switch(event.currentTarget.id){
                 case "NumberOne":
                 //Section 11 Start
@@ -5475,7 +5430,6 @@ function isAudioPlaying(audio) {
         onComplete
         ) {
 
-        console.log("Start Here");
         octopus.style.display="block";
         if (!octopus || !zoomImage) {
             console.error("Missing elements: Octopus or zoomImage is null.");
@@ -5525,7 +5479,6 @@ function isAudioPlaying(audio) {
                 currentScale = zoomImageScale_End;
             }
     
-            console.log("Applying transform:", currentTranslateX, currentTranslateY, currentScale);
     
             if (zoomImage && zoomImage.style) {
                 zoomImage.style.transform = `translate(${currentTranslateX}%, ${currentTranslateY}%) scale(${currentScale})`;
@@ -5537,7 +5490,6 @@ function isAudioPlaying(audio) {
             if (t < 1) {
                 section10animationFrameId = requestAnimationFrame(animate);
             } else {
-                console.log("Animation complete!");
                 section10animationFrameId = null;
                 section10pausedTime = 0;
                 section10AnimationisCompleted=true;
@@ -5571,7 +5523,6 @@ function isAudioPlaying(audio) {
 
 
     function section11triggerActions(){
-        console.log("section11triggerActions");
         section11mute=false;
         section11played=true;
         commonplayButton.querySelector("img").src=imagesToPreload_path.find(src => src.includes('Pause_Button.png'));
@@ -5585,7 +5536,6 @@ function isAudioPlaying(audio) {
             section11_fish.style.display="block";
             section11_mushroom.style.display="block";
             movingSection11FlyingOctopus(-35, 4, 6000, section11_flyingoctopus, function () {
-                console.log("Animation complete!");
                 section11_octopus.style.display="block";
                 section11_flyingoctopus.style.display="none";
                 
@@ -5684,7 +5634,6 @@ function isAudioPlaying(audio) {
             if (t < 1) {
                 section11animationFrameId = requestAnimationFrame(animate);
             } else {
-                console.log("Animation complete!");
                 section11animationFrameId = null;
                 section11pausedTime = 0;
                 section11AnimationisCompleted=true;
@@ -5816,7 +5765,6 @@ function isAudioPlaying(audio) {
 
             // If not all items are placed, show a warning and exit
             if (!allPlaced) {
-                console.log("Please place all items before submitting.");
                 section11dialogBox.style.display = "inline-block";
                 section11dialogText.style.display = "block";
                 section11dialogText.innerHTML = "Please place all items before submitting!";
@@ -5830,7 +5778,6 @@ function isAudioPlaying(audio) {
 
                 let placedItem = wrapperDiv.firstElementChild ? wrapperDiv.firstElementChild.getAttribute("data-original-id") : null;
                 let expectedItem = correctMapping[area.id];
-                console.log("placeditem "+placedItem+"  expecteditem  "+expectedItem);
 
                 // Remove previous tick/cross
                 let existingIcon = wrapperDiv.querySelector(".result-icon");
@@ -5860,7 +5807,6 @@ function isAudioPlaying(audio) {
             // Print result based on correctness
             if (allCorrect) {
                 section11_Submit.style.display="none";
-                console.log("All correct!");
                 section11dialogBox.style.display = "inline-block";
                 section11dialogText.style.display = "block";
                 section11dialogText.innerHTML =
@@ -5874,7 +5820,6 @@ function isAudioPlaying(audio) {
                     console.error('Error playing audio:', error);
                 });
             } else {
-                console.log("One of them is wrong");
                 switch(section11_submit_pressed){
                     case 1:
                         section11_Submit.style.display="none";
@@ -5890,7 +5835,6 @@ function isAudioPlaying(audio) {
                         });
                     break;
                     case 2:
-                        console.log("in 2");
                         section11_Submit.style.display="none";
                         
                         section11dialogBox.style.display = "inline-block";
@@ -5952,7 +5896,6 @@ function isAudioPlaying(audio) {
             icon.remove();
         });
 
-        console.log("Try Again: Reset all areas.");
     }
     function Section11DragResetOnly(){
         // Clear all drop areas
@@ -5969,7 +5912,6 @@ function isAudioPlaying(audio) {
             icon.remove();
         });
 
-        console.log("Try Again: Reset all areas.");
     }
     function enableDraggingSection11() {
             // Make all draggable items draggable again
@@ -6237,7 +6179,6 @@ function isAudioPlaying(audio) {
 
         // Trigger action when first reaching the third text
         if (currentTextIndex === 2 && !thirdTextTriggered) {
-            console.log("You are at the third text!");
             thirdTextTriggered = true; // Prevent re-triggering 
            // Delay the actions by 3 seconds (3000 milliseconds)
            setTimeout(() => {
@@ -6488,7 +6429,6 @@ function isAudioPlaying(audio) {
 
                 // If not all items are placed, show a warning and exit
                 if (!allPlaced) {
-                    console.log("Please place all items before submitting.");
                     section13dialogBox.style.display = "inline-block";
                     section13dialogText.style.display = "block";
                     section13dialogText.innerHTML = "Please place all <br>items before submitting!";
@@ -6503,7 +6443,6 @@ function isAudioPlaying(audio) {
         
                     let placedItem = wrapperDiv.firstElementChild ? wrapperDiv.firstElementChild.getAttribute("data-original-id") : null;
                     let expectedItem = section13correctMapping[area.id];
-                    console.log("placeditem "+placedItem+"  expecteditem  "+expectedItem);
         
                     // Remove previous tick/cross
                     let existingIcon = wrapperDiv.querySelector(".result-icon");
@@ -6535,7 +6474,6 @@ function isAudioPlaying(audio) {
                 // Print result based on correctness
                 if (allCorrect) {
                     section13_Submit.style.display="none";
-                    console.log("All correct!");
                     section13dialogBox.style.display = "inline-block";
                     section13dialogText.style.display = "block";
                     section13dialogText.innerHTML =
@@ -6549,7 +6487,6 @@ function isAudioPlaying(audio) {
                         console.error('Error playing audio:', error);
                     });
                 } else {
-                    console.log("One of them is wrong");
                     switch(section13_submit_pressed){
                         case 1:
                             section13_Submit.style.display="none";
@@ -6568,7 +6505,6 @@ function isAudioPlaying(audio) {
                             });
                         break;
                         case 2:
-                            console.log("in 2");
                             section13_Submit.style.display="none";
                             
                             section13dialogBox.style.display = "inline-block";
@@ -6633,7 +6569,6 @@ function isAudioPlaying(audio) {
             icon.remove();
         });
 
-        console.log("Try Again: Reset all areas.");
     }
     function Section13DragResetOnly(){
         // Clear all drop areas
@@ -6650,7 +6585,6 @@ function isAudioPlaying(audio) {
             icon.remove();
         });
 
-        console.log("Try Again: Reset all areas.");
     }
     function enableDraggingSection13() {
             // Make all draggable items draggable again
@@ -6883,7 +6817,6 @@ function isAudioPlaying(audio) {
             movingSection15FlyingOctopus(30, 27, 6000, section15_FlyingOctopus, section15_zoomImage,
                 27,52,25,25,5,5,-10,-10,0,0
                 , function () {
-                console.log("Animation complete!");
                 audiosToPreload[24].play().catch((error) => {
                     console.error('Error playing audio:', error);
                 });
@@ -6952,7 +6885,6 @@ function isAudioPlaying(audio) {
 
         // Click event handler
         function section15handleClick(event) {
-            console.log(event.currentTarget.id + " clicked!");
             if(section15played){
                 switch(event.currentTarget.id){
                     case "NumberFive":
@@ -7046,7 +6978,6 @@ function isAudioPlaying(audio) {
                     currentScale = zoomImageScale_End;
                 }
 
-                console.log("Applying transform:", currentTranslateX, currentTranslateY, currentScale);
 
                 if (zoomImage && zoomImage.style) {
                     zoomImage.style.transform = `translate(${currentTranslateX}%, ${currentTranslateY}%) scale(${currentScale})`;
@@ -7058,7 +6989,6 @@ function isAudioPlaying(audio) {
                 if (t < 1) {
                     section15animationFrameId = requestAnimationFrame(animate);
                 } else {
-                    console.log("Animation complete!");
                     section15animationFrameId = null;
                     section15pausedTime = 0;
                     section15AnimationisCompleted=true;
@@ -7219,7 +7149,6 @@ function isAudioPlaying(audio) {
                 currentScale = zoomImageScale_End;
             }
 
-            console.log("Applying transform:", currentTranslateX, currentTranslateY, currentScale);
 
             if (zoomImage && zoomImage.style) {
                 zoomImage.style.transform = `translate(${currentTranslateX}%, ${currentTranslateY}%) scale(${currentScale})`;
@@ -7231,7 +7160,6 @@ function isAudioPlaying(audio) {
             if (t < 1) {
                 section16animationFrameId = requestAnimationFrame(animate);
             } else {
-                console.log("Animation complete!");
                 section16animationFrameId = null;
                 section16pausedTime = 0;
                 section16AnimationisCompleted=true;

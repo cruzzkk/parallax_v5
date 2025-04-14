@@ -221,13 +221,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
  
 
-
+    /// Secion 4,5,6 languageHelp and realhelp deiv
     const secion5rigthTop = document.getElementById("secion5rigthTop");
+
     const commonsoundbutton= document.getElementById("commonsound");
     const commonplayButton= document.getElementById("commonplay");
     const commonrestartButton= document.getElementById("commonrestart");
     const fullScreenButton= document.getElementById("fullScreen");
     const fullScreenButtonImg=fullScreenButton.querySelector("img");
+
+    let firstactiontriggered=false;
+    
+    let lastScrollY = 0;
+    let ticking = false;
 
 
     let currentSection='section1';
@@ -910,21 +916,12 @@ window.addEventListener("scroll", () => {
     const section5 = document.getElementById("section5");
     const section6 = document.getElementById("section6");
         
-    
-       
-    const section4ReadHelp = document.getElementById("section4ReadHelp");
-    const section4Help = document.getElementById("section4Help");
-        
     // Check if the section is enabled (display is not none)
     function isSectionVisible(section) {
         return window.getComputedStyle(section).display !== "none";
     }
 
     const scrollPosition = window.scrollY + window.innerHeight / 2;
-    
-    const isInSection4 =  isSectionVisible(section4) && scrollPosition >= section4.offsetTop && scrollPosition < section4.offsetTop + section4.offsetHeight;
-    const isInSection5 = isSectionVisible(section5) && scrollPosition >= section5.offsetTop && scrollPosition < section5.offsetTop + section5.offsetHeight;
-    const isInSection6 = isSectionVisible(section6) && scrollPosition >= section6.offsetTop && scrollPosition < section6.offsetTop + section6.offsetHeight;
     
     // Toggle visibility of the top-right container
 
@@ -938,9 +935,72 @@ window.addEventListener("scroll", () => {
  
 });
 
-////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+//////////////////////////// Function to apply parallax effect///////////////////////////////////////////////////////
+
+    function applyParallaxEffect(sectionId, screenPresenceFactor) {
+        const viewportHeight = window.innerHeight; // Height of the viewport
+        const scrollY = window.scrollY; // Amount scrolled from the top
+
+        const section = document.getElementById(sectionId);
+        const sectionTop = section.offsetTop; // Top position of the section relative to the document
+        const sectionHeight = section.offsetHeight;
+
+        const visibilityThreshold = sectionTop + sectionHeight * screenPresenceFactor; // Screen presence for the section
+        const sectionVisible = scrollY + viewportHeight - visibilityThreshold;
+
+        // Loop through all image containers
+        document.querySelectorAll(`#${sectionId} .image-container`).forEach(layer => {
+            const speed = parseFloat(layer.getAttribute("data-speed")) || 0;
+            const minMovement = parseFloat(layer.getAttribute("data-min")) || 0;
+            const maxMovement = parseFloat(layer.getAttribute("data-max")) || 0;
+
+            const screenPresence = parseFloat(layer.getAttribute("data-screen-presence")) || screenPresenceFactor; // Default screen presence
+
+            // Calculate visibility percentage relative to the section
+            const sectionFactor = Math.min(Math.max(sectionVisible / (sectionHeight * screenPresence), 0), 1);
+
+            // Calculate movement in percentage
+            let movement = sectionFactor * 100 * speed;
+
+            // Restrict movement within min and max bounds
+            movement = Math.max(minMovement, Math.min(maxMovement, movement));
+
+            // Apply parallax transform
+            layer.style.transform = `translateX(-50%) translateY(${movement}%)`;
+        });
+
+        ticking = false; // Allow next animation frame
+    }
+
+    // Event listener for scroll
+    window.addEventListener("scroll", () => {
+        lastScrollY = window.scrollY;
+
+        // Request animation frame for smooth rendering
+        if (!ticking) {
+            requestAnimationFrame(() => applyParallaxEffect("section2", 0.4)); // Apply parallax for Section 2
+            requestAnimationFrame(() => applyParallaxEffect("section3", 0.5)); // Apply parallax for Section 3
+            requestAnimationFrame(() => applyParallaxEffect("section4", 0.2)); // Apply parallax for Section 4
+            requestAnimationFrame(() => applyParallaxEffect("section6", 0.4));  
+            requestAnimationFrame(() => applyParallaxEffect("section7", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section9", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section10", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section11", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section12", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section13", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section14", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section15", 0.5));
+            requestAnimationFrame(() => applyParallaxEffect("section16", 0.5));
+            ticking = true;
+        }
+    });
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //////////////////Changing image of common buttons Play and Mute ///////////////////////////////
@@ -2570,72 +2630,6 @@ function isAudioPlaying(audio) {
 
 
 ///////////////////////////////Section 2nd events ///////////////////////////////////////////////////
-
-    let firstactiontriggered=false;
-    let lastScrollY = 0;
-    let ticking = false;
-
-    // Function to apply parallax effect
-    function applyParallaxEffect(sectionId, screenPresenceFactor) {
-        const viewportHeight = window.innerHeight; // Height of the viewport
-        const scrollY = window.scrollY; // Amount scrolled from the top
-
-        const section = document.getElementById(sectionId);
-        const sectionTop = section.offsetTop; // Top position of the section relative to the document
-        const sectionHeight = section.offsetHeight;
-
-        const visibilityThreshold = sectionTop + sectionHeight * screenPresenceFactor; // Screen presence for the section
-        const sectionVisible = scrollY + viewportHeight - visibilityThreshold;
-
-        // Loop through all image containers
-        document.querySelectorAll(`#${sectionId} .image-container`).forEach(layer => {
-            const speed = parseFloat(layer.getAttribute("data-speed")) || 0;
-            const minMovement = parseFloat(layer.getAttribute("data-min")) || 0;
-            const maxMovement = parseFloat(layer.getAttribute("data-max")) || 0;
-
-            const screenPresence = parseFloat(layer.getAttribute("data-screen-presence")) || screenPresenceFactor; // Default screen presence
-
-            // Calculate visibility percentage relative to the section
-            const sectionFactor = Math.min(Math.max(sectionVisible / (sectionHeight * screenPresence), 0), 1);
-
-            // Calculate movement in percentage
-            let movement = sectionFactor * 100 * speed;
-
-            // Restrict movement within min and max bounds
-            movement = Math.max(minMovement, Math.min(maxMovement, movement));
-
-            // Apply parallax transform
-            layer.style.transform = `translateX(-50%) translateY(${movement}%)`;
-        });
-
-        ticking = false; // Allow next animation frame
-    }
-
-    // Event listener for scroll
-    window.addEventListener("scroll", () => {
-        lastScrollY = window.scrollY;
-
-        // Request animation frame for smooth rendering
-        if (!ticking) {
-            requestAnimationFrame(() => applyParallaxEffect("section2", 0.4)); // Apply parallax for Section 2
-            requestAnimationFrame(() => applyParallaxEffect("section3", 0.5)); // Apply parallax for Section 3
-            requestAnimationFrame(() => applyParallaxEffect("section4", 0.2)); // Apply parallax for Section 4
-            requestAnimationFrame(() => applyParallaxEffect("section6", 0.4));  
-            requestAnimationFrame(() => applyParallaxEffect("section7", 0.5));
-            requestAnimationFrame(() => applyParallaxEffect("section9", 0.5));
-            requestAnimationFrame(() => applyParallaxEffect("section10", 0.5));
-            requestAnimationFrame(() => applyParallaxEffect("section11", 0.5));
-            requestAnimationFrame(() => applyParallaxEffect("section12", 0.5));
-            requestAnimationFrame(() => applyParallaxEffect("section13", 0.5));
-            requestAnimationFrame(() => applyParallaxEffect("section14", 0.5));
-            requestAnimationFrame(() => applyParallaxEffect("section15", 0.5));
-            requestAnimationFrame(() => applyParallaxEffect("section16", 0.5));
-            ticking = true;
-        }
-    });
-
-    
-    
     
     // Trigger 1: Display Octopus and Play First Audio
     const handleOctopusVisible = () => {
